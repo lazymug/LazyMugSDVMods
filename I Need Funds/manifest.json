@@ -1,0 +1,15 @@
+{
+  "Name": "I Need Funds",
+  "Author": "Lazy Mug",
+  "Version": "1.0.0",
+  "Description": "Starting a farming life is not an easy task. Now, you can ask Lewis for 'Agricultural Funds'.",
+  "UniqueID": "LazyMug.INeedFunds",
+  "EntryDll": "INeedFunds.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [],
+  "Dependencies": [
+    {
+      "UniqueID": "DIGUS.MailFrameworkMod",
+    }
+  ]
+}

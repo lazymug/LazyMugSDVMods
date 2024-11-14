@@ -1,0 +1,19 @@
+{
+    "Changes": [
+        {
+            "Action": "EditData",
+            "Target": "Data/Characters",
+            "Entries": {
+                "James": {
+                    "DisplayName": "{{i18n: Name.James}}",
+                    "BirthSeason": "Winter",
+                    "BirthDay": 27,
+                    "HomeRegion": "Other",
+                    "Language": "Default",
+                    "Gender": "Male",
+                    "Age": "Adult"
+                }
+            }
+        }
+    ]
+}

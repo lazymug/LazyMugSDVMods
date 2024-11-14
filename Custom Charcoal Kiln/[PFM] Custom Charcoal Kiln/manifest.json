@@ -1,0 +1,21 @@
+{
+    "Name": "[PFM] Custom Charcoal Kiln",
+    "Author": "Lazy Mug",
+    "Version": "1.0.0",
+    "Description": "Changes the Charcoal Kiln's vanilla behaviour and aggregates recipes for using Driftwood, Hardwood, and Torches as input for coal creation.",
+    "UniqueID": "LazyMug.PFM.CustomCharcoalKiln",
+    "MinimumApiVersion": "4.0.0",
+    "UpdateKeys": [ ],
+    "Dependencies": [
+        {
+            "UniqueID": "Digus.ProducerFrameworkMod"
+        },
+        {
+            "UniqueID": "Digus.PFMAutomate",
+            "IsRequired": false
+        }
+    ],
+    "ContentPackFor": {
+        "UniqueID": "DIGUS.ProducerFrameworkMod"
+    }
+}

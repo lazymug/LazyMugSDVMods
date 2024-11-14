@@ -1,0 +1,8 @@
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/I Need Funds/bin/Debug/net6.0/I_Need_Funds.deps.json
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/I Need Funds/bin/Debug/net6.0/I_Need_Funds.dll
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/I Need Funds/obj/Debug/net6.0/I_Need_Funds.csproj.AssemblyReference.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/I Need Funds/obj/Debug/net6.0/I_Need_Funds.GeneratedMSBuildEditorConfig.editorconfig
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/I Need Funds/obj/Debug/net6.0/I_Need_Funds.AssemblyInfoInputs.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/I Need Funds/obj/Debug/net6.0/I_Need_Funds.AssemblyInfo.cs
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/I Need Funds/obj/Debug/net6.0/I_Need_Funds.csproj.CoreCompileInputs.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/I Need Funds/obj/Debug/net6.0/I_Need_Funds.dll

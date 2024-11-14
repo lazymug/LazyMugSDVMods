@@ -1,0 +1,15 @@
+{
+  "Name": "A Warm Welcome",
+  "Author": "Lazy Mug",
+  "Version": "1.0.0",
+  "Description": "Starting a new life in a strange town can be daunting, but not in Pelican Town! With \"A Warm Welcome\", you'll receive a personalized welcome from each villager, along with a small gift to help you get settled.",
+  "UniqueID": "LazyMug.AWarmWelcome",
+  "EntryDll": "AWarmWelcome.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [],
+  "Dependencies": [
+    {
+      "UniqueID": "DIGUS.MailFrameworkMod"
+    }
+  ]
+}

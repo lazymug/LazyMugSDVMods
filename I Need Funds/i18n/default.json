@@ -1,0 +1,9 @@
+{
+  "inf.mail.title": "Agricultural Fund Opportunity",
+  "inf.mail.content": "Dear {0},<br><br>We are pleased to inform you about the **Agricultural Fund**, a program designed to support local farmers like you. By subscribing, you can receive a financial boost to help you grow your farm.<br><br>**Loan Details:**<br>- Loan Amount: {1} gold<br>- Repayment: {2} gold every Saturday<br><br>**Important:** If you have insufficient funds on the due date, a portion of your sales will be automatically deducted to cover the payment.<br><br>To subscribe to the Agricultural Fund, please click the 'Accept' button below. By clicking 'Accept', you acknowledge and agree to the terms and conditions of the program.<br><br><center><button id='acceptButton'>Accept</button></center><br><br><i>by JoJa Corp.</i>",
+  "inf.mail.insufficientFunds": "Insufficient funds to cover the weekly Agricultural Fund repayment of {0} gold. A portion of your sales earnings will be automatically deducted to fulfill the payment obligation. Please ensure you have sufficient funds available on Saturdays to avoid this deduction.<br><br><i>by JoJa Corp.</i>",
+  "inf.menu.loanStatus": "Loan Status",
+  "inf.menu.paymentsMade": "Payments Made: {0}",
+  "inf.menu.remainingBalance": "Remaining Balance: {0} gold",
+  "inf.menu.nextDueDate": "Next Due Date: {0}"
+}

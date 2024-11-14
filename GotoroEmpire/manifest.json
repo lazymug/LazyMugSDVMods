@@ -1,0 +1,15 @@
+{
+  "Name": "Gotoro Empire",
+  "Author": "Lazy Mug",
+  "Version": "0.0.1",
+  "Description": "",
+  "UniqueID": "LazyMug.GotoroEmpireCode",
+  "EntryDll": "GotoroEmpire.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [],
+  "Dependencies": [
+    {
+      "UniqueID": "DIGUS.MailFrameworkMod"
+    }
+  ]
+}

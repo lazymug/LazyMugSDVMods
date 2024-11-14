@@ -1,0 +1,8 @@
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/GotoroEmpire/bin/Debug/net6.0/GotoroEmpire.deps.json
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/GotoroEmpire/bin/Debug/net6.0/GotoroEmpire.dll
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/GotoroEmpire/obj/Debug/net6.0/GotoroEmpire.csproj.AssemblyReference.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/GotoroEmpire/obj/Debug/net6.0/GotoroEmpire.GeneratedMSBuildEditorConfig.editorconfig
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/GotoroEmpire/obj/Debug/net6.0/GotoroEmpire.AssemblyInfoInputs.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/GotoroEmpire/obj/Debug/net6.0/GotoroEmpire.AssemblyInfo.cs
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/GotoroEmpire/obj/Debug/net6.0/GotoroEmpire.csproj.CoreCompileInputs.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/GotoroEmpire/obj/Debug/net6.0/GotoroEmpire.dll

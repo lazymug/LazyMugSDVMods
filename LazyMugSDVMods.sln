@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWarmWelcome", "AWarmWelcome\AWarmWelcome.csproj", "{0DDA19EC-88FB-4C0E-B071-7741C05BDBE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GotoroEmpire", "GotoroEmpire\GotoroEmpire.csproj", "{38A133DD-9196-4D72-8053-E65C02AC9EB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INeedFunds", "I Need Funds\INeedFunds.csproj", "{03E0A9F3-40FD-44E6-B0CD-C0B777B05746}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DDA19EC-88FB-4C0E-B071-7741C05BDBE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDA19EC-88FB-4C0E-B071-7741C05BDBE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDA19EC-88FB-4C0E-B071-7741C05BDBE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDA19EC-88FB-4C0E-B071-7741C05BDBE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38A133DD-9196-4D72-8053-E65C02AC9EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38A133DD-9196-4D72-8053-E65C02AC9EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38A133DD-9196-4D72-8053-E65C02AC9EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38A133DD-9196-4D72-8053-E65C02AC9EB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03E0A9F3-40FD-44E6-B0CD-C0B777B05746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03E0A9F3-40FD-44E6-B0CD-C0B777B05746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03E0A9F3-40FD-44E6-B0CD-C0B777B05746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03E0A9F3-40FD-44E6-B0CD-C0B777B05746}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

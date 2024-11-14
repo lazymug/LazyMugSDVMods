@@ -1,0 +1,21 @@
+{
+    "Name": "Gotoro Empire PFM",
+    "Author": "Lazy Mug",
+    "Version": "0.0.1",
+    "Description": "",
+    "UniqueID": "LazyMug.PFM.GotoroEmpire",
+    "MinimumApiVersion": "4.0.0",
+    "UpdateKeys": [ ],
+    "Dependencies": [
+        {
+            "UniqueID": "Digus.ProducerFrameworkMod"
+        },
+        {
+            "UniqueID": "Digus.PFMAutomate",
+            "IsRequired": false
+        }
+    ],
+    "ContentPackFor": {
+        "UniqueID": "DIGUS.ProducerFrameworkMod"
+    }
+}
