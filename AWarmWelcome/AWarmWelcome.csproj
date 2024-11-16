@@ -13,8 +13,12 @@
 
     <ItemGroup>
       <Reference Include="MailFrameworkMod">
-        <HintPath>..\..\references\MailFrameworkMod\MailFrameworkMod.dll</HintPath>
+        <HintPath>..\..\DLL Tools\MailFrameworkMod.dll</HintPath>
       </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Patches\" />
     </ItemGroup>
 
 </Project>

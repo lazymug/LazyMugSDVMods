@@ -8,43 +8,30 @@ namespace AWarmWelcome
 {
     internal sealed class ModEntry : Mod
     {
+        
         public override void Entry(IModHelper helper)
         {
             helper.Events.GameLoop.DayEnding += OnDayEnding;
-            helper.Events.GameLoop.SaveCreating += OnSaveCreating;
-            helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
-        }
-        
-        private void OnSaveLoaded(object? sender, SaveLoadedEventArgs e)
-        {
-            
-        }
-        
-        private void OnSaveCreating(object? sender, SaveCreatingEventArgs e)
-        {
-            // Robin and Lewis are special cases because they present themselves to the player
-            // But no points is acquired for this
-            Game1.player.friendshipData["Robin"].Points += 20;
-            Game1.player.friendshipData["Lewis"].Points += 20;
-            // Clear 
         }
         
         private void OnDayEnding(object? sender, DayEndingEventArgs e)
         {
+            var sentPerDay = 0;
             foreach (var friend in Game1.player.friendshipData)
             {
                 foreach (var name in friend.Keys)
                 {
                     var friendship = friend[name];
-                    if (friendship.Points == 0) continue;
+                    if (friendship.Points < 150 || sentPerDay > 2) continue;
                     var mailId = GetMailId(name);
                     MailRepository.SaveLetter(new Letter(
                         $"{Game1.uniqueIDForThisGame}.{mailId}",
                         GetMailContent(mailId),
                         GetMailListOfItems(name),
-                        (l)=>!Game1.player.mailReceived.Contains(l.Id),
+                        (l)=>!Game1.player.mailReceived.Contains(l.Id) && l.Id.Contains(Game1.uniqueIDForThisGame.ToString()),
                         (l)=>Game1.player.mailReceived.Add(l.Id)
                     ));
+                    sentPerDay++;
                 }
             }
         }
