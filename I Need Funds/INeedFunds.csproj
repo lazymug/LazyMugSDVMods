@@ -11,12 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="GenericModConfigMenu">
-        <HintPath>..\..\references\GenericModConfigMenu\GenericModConfigMenu.dll</HintPath>
-      </Reference>
-      <Reference Include="MailFrameworkMod">
-        <HintPath>..\..\references\MailFrameworkMod\MailFrameworkMod.dll</HintPath>
-      </Reference>
+      <Folder Include="[CP] I Need Funds\assets\" />
     </ItemGroup>
 
 </Project>

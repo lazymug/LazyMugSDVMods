@@ -8,31 +8,13 @@
     ".NETCoreApp,Version=v6.0": {
       "INeedFunds/1.0.0": {
         "dependencies": {
-          "Pathoschild.Stardew.ModBuildConfig": "4.3.2",
-          "GenericModConfigMenu": "1.14.0.0",
-          "MailFrameworkMod": "1.0.0.0"
+          "Pathoschild.Stardew.ModBuildConfig": "4.3.2"
         },
         "runtime": {
           "INeedFunds.dll": {}
         }
       },
-      "Pathoschild.Stardew.ModBuildConfig/4.3.2": {},
-      "GenericModConfigMenu/1.14.0.0": {
-        "runtime": {
-          "GenericModConfigMenu.dll": {
-            "assemblyVersion": "1.14.0.0",
-            "fileVersion": "1.14.0.0"
-          }
-        }
-      },
-      "MailFrameworkMod/1.0.0.0": {
-        "runtime": {
-          "MailFrameworkMod.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      }
+      "Pathoschild.Stardew.ModBuildConfig/4.3.2": {}
     }
   },
   "libraries": {
@@ -47,16 +29,6 @@
       "sha512": "sha512-wRnRRTgB84YPyNIGFpI12Gdjfwery/JTgRbTboG0uJK5VJsuQ2VWT4fS4bcvPgOKMK8lqYyqxV7sEq7zgd60gQ==",
       "path": "pathoschild.stardew.modbuildconfig/4.3.2",
       "hashPath": "pathoschild.stardew.modbuildconfig.4.3.2.nupkg.sha512"
-    },
-    "GenericModConfigMenu/1.14.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "MailFrameworkMod/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

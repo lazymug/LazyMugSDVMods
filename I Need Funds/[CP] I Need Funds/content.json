@@ -1,0 +1,21 @@
+{
+    "Format": "1.22.0",
+    "Changes": [
+        {
+            "Action": "Load",
+            "Target": "TileSheets/CustomATM",
+            "FromFile": "assets/ATM.png"
+        },
+        {
+            "Action": "EditMap",
+            "Target": "Maps/Town",
+            "MapChanges": [
+                {
+                    "Position": { "X": 38, "Y": 58 },
+                    "Layer": "Buildings",
+                    "Value": "CustomATM:0"
+                }
+            ]
+        }
+    ]
+}
