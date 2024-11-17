@@ -6,7 +6,7 @@
   "UniqueID": "LazyMug.AWarmWelcome",
   "EntryDll": "AWarmWelcome.dll",
   "MinimumApiVersion": "4.0.0",
-  "UpdateKeys": ["29400"],
+  "UpdateKeys": ["Nexus:29400"],
   "Dependencies": [
     {
       "UniqueID": "DIGUS.MailFrameworkMod"
