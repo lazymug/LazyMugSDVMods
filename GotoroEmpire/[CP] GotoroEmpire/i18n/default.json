@@ -1,3 +1,9 @@
 {
-    "Name.James": "James"
+    "Name.James": "James",
+    // James' Gift Tastes
+    "James.Gifts.Loved": "Intriguing... This could prove useful. My gratitude.",
+    "James.Gifts.Liked": "Hmm, not quite what I expected, but it has its merits. Thank you.",
+    "James.Gifts.Disliked": "This is... unexpected. I'm not sure what to make of it.",
+    "James.Gifts.Hated": "This is an insult! Do you take me for a fool? Begone.",
+    "James.Gifts.Neutral": "A curious offering. I shall consider its purpose."
 }
