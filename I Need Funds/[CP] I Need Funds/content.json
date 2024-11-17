@@ -9,11 +9,18 @@
         {
             "Action": "EditMap",
             "Target": "Maps/Town",
-            "MapChanges": [
+            "MapTiles": [
                 {
-                    "Position": { "X": 38, "Y": 58 },
+                    "Position": { "X": 26, "Y": 67 },
                     "Layer": "Buildings",
-                    "Value": "CustomATM:0"
+                    "TileSheet": "CustomATM",
+                    "TileIndex": 0
+                },
+                {
+                    "Position": { "X": 26, "Y": 68 },
+                    "Layer": "Buildings",
+                    "TileSheet": "CustomATM",
+                    "TileIndex": 1
                 }
             ]
         }

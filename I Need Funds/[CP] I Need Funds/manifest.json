@@ -1,0 +1,17 @@
+{
+    "Name": "[CP] I Need Funds",
+    "Author": "Lazy Mug",
+    "Version": "1.0.0",
+    "Description": "Starting a farming life is not an easy task. Now, you can ask Lewis for 'Agricultural Funds'.",
+    "UniqueID": "LazyMug.CP.INeedFunds",
+    "MinimumApiVersion": "4.0.0",
+    "UpdateKeys": [],
+    "ContentPackFor": {
+        "UniqueID": "Pathoschild.ContentPatcher"
+    },
+    "Dependencies": [
+        {
+            "UniqueID": "LazyMug.INeedFunds"
+        }
+    ]
+}

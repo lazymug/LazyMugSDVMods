@@ -7,11 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
+      <Folder Include="[CP] I Need Funds\assets\" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="[CP] I Need Funds\assets\" />
+      <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
     </ItemGroup>
 
 </Project>

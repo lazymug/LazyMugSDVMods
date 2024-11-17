@@ -1,4 +1,3 @@
-using INeedFunds.Mail;
 using INeedFunds.Model;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
@@ -39,7 +38,7 @@ namespace INeedFunds
                 var tile = e.Cursor.Tile;
             
                 // Check if the player clicked on the ATM tile (example coordinates)
-                if (tile.X == 38 && tile.Y == 58) // Adjust these coordinates for your ATM
+                if (tile.X == 46 && tile.Y == 57) // Adjust these coordinates for your ATM
                 {
                     OpenATMMenu();
                 }
