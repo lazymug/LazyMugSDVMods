@@ -1,0 +1,15 @@
+{
+  "Name": "Rural Magazine Competition",
+  "Author": "Lazy Mug",
+  "Version": "1.0.0",
+  "Description": "Prove your farming prowess in the Republic of Ferngill Rural Magazine Competition! Ship your finest crops, artisan goods, and foraged treasures to earn points, climb the leaderboards, and claim prestigious prizes. Will you rise to the challenge and become the most celebrated farmer in the Republic? Fame and fortune await!",
+  "UniqueID": "LazyMug.RuralMagazineCompetition",
+  "EntryDll": "RuralMagazineCompetition.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": ["Nexus:???"],
+  "Dependencies": [
+    {
+      "UniqueID": "DIGUS.MailFrameworkMod"
+    },
+  ]
+}
