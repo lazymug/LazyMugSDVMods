@@ -1,0 +1,18 @@
+{
+    "Name": "Elemental Force",
+    "Author": "Lazy Mug",
+    "Version": "0.0.1",
+    "Description": "Adds custom rings based on Elemental Spirits from phantasy worlds.",
+    "UniqueID": "LazyMug.ElementalForce",
+    "EntryDll": "ElementalForce.dll",
+    "MinimumApiVersion": "4.0.0",
+    "UpdateKeys": ["29400"],
+    "Dependencies": [
+        {
+            "UniqueId": "LazyMug.ElementalForce.CP"
+        },
+        {
+            "UniqueId": "DIGUS.MailFrameworkMod"
+        }
+    ]
+}

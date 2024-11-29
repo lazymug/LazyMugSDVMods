@@ -1,0 +1,18 @@
+/Users/andre.ikeda/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods/ElementalRings/Elemental Rings Code/net6.0/ElementalForce.deps.json
+/Users/andre.ikeda/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods/ElementalRings/Elemental Rings Code/net6.0/ElementalForce.dll
+/Users/andre.ikeda/Library/Application/ Support/Steam/steamapps/common/Stardew/ Valley/Contents/MacOS/Mods/ElementalRings/Elemental/ Force/ Code/net6.0/ElementalForce.deps.json
+/Users/andre.ikeda/Library/Application/ Support/Steam/steamapps/common/Stardew/ Valley/Contents/MacOS/Mods/ElementalRings/Elemental/ Force/ Code/net6.0/ElementalForce.dll
+/Users/andre.ikeda/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods/ElementalRings/Elemental Force Code/net6.0/ElementalForce.deps.json
+/Users/andre.ikeda/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods/ElementalRings/Elemental Force Code/net6.0/ElementalForce.dll
+/Users/andre.ikeda/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods/ElementalForce/Elemental Force Code/net6.0/ElementalForce.deps.json
+/Users/andre.ikeda/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods/ElementalForce/Elemental Force Code/net6.0/ElementalForce.dll
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/bin/Debug/net6.0/ElementalForce.deps.json
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/bin/Debug/net6.0/ElementalForce.dll
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/obj/Debug/net6.0/ElementalForce.csproj.AssemblyReference.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/obj/Debug/net6.0/ElementalForce.GeneratedMSBuildEditorConfig.editorconfig
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/obj/Debug/net6.0/ElementalForce.AssemblyInfoInputs.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/obj/Debug/net6.0/ElementalForce.AssemblyInfo.cs
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/obj/Debug/net6.0/ElementalForce.csproj.CoreCompileInputs.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/obj/Debug/net6.0/ElementalForce.dll
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/bin/Debug/net6.0/MailFrameworkMod.dll
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/obj/Debug/net6.0/ElementalForce.csproj.CopyComplete

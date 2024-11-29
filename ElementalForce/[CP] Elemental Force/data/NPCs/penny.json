@@ -1,0 +1,8 @@
+{
+    "Changes": [
+        {
+            "Action": "EditData",
+            "Target": "Data/Events/"
+        }
+    ]
+}

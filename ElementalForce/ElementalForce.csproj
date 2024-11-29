@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <OutputType>Library</OutputType>
+        <ModFolder>/Users/andre.ikeda/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods/ElementalForce</ModFolder>
+        <DllSubFolder>Elemental Force Code</DllSubFolder>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Lib.Harmony" Version="2.3.3" />
+        <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Elemental Force Code\assets\" />
+        <Folder Include="Elemental Force Code\models\" />
+        <Folder Include="[CP] Elemental Force\" />
+      <!--<Folder Include="Content\assets\" />-->
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="MailFrameworkMod">
+        <HintPath>..\..\DLL Tools\MailFrameworkMod.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Message Text="Copying files..." />
+        <MakeDir Directories="$(ModFolder)" Condition="!Exists('$(ModFolder)')" />
+        <MakeDir Directories="$(ModFolder)/$(DllSubFolder)" Condition="!Exists('$(ModFolder)/$(DllSubFolder)')" />
+        <Copy SourceFiles="$(TargetDir)/ElementalForce.dll" DestinationFolder="$(ModFolder)/$(DllSubFolder)" />
+        <Copy SourceFiles="$(ProjectDir)/manifest.json" DestinationFolder="$(ModFolder)/$(DllSubFolder)" />
+        <Exec Command="cp -R /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/[CP]\ Elemental\ Force /Users/andre.ikeda/Library/Application\ Support/Steam/steamapps/common/Stardew\ Valley/Contents/MacOS/Mods/ElementalForce/[CP]\ Elemental\ Force"/>
+        <Exec Command="cp -R /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/Elemental\ Force\ Code/i18n /Users/andre.ikeda/Library/Application\ Support/Steam/steamapps/common/Stardew\ Valley/Contents/MacOS/Mods/ElementalForce/Elemental\ Force\ Code/i18n"/>
+        <Exec Command="cp -R /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/Elemental\ Force\ Code/assets /Users/andre.ikeda/Library/Application\ Support/Steam/steamapps/common/Stardew\ Valley/Contents/MacOS/Mods/ElementalForce/Elemental\ Force\ Code/assets"/>
+    </Target>
+
+</Project>

@@ -1,0 +1,276 @@
+{
+    "Changes": [
+        {
+            "Action": "EditData",
+            "Target": "Data/Machines",
+            "Entries": {
+                "(BC){{ModId}}_RunicCompressor": {
+                    "OutputRules": [
+                        // Shard
+                        {
+                            "Id": "{{ModId}}_IfritShard",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_IfritEssence",
+                                    "RequiredCount": 100
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_IfritShard"
+                                }
+                            ],
+                            "DaysUntilReady": 7,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_ShivaShard",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_ShivaEssence",
+                                    "RequiredCount": 100
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_ShivaShard"
+                                }
+                            ],
+                            "DaysUntilReady": 7,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_CarbuncleShard",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_CarbuncleEssence",
+                                    "RequiredCount": 100
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_CarbuncleShard"
+                                }
+                            ],
+                            "DaysUntilReady": 7,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_KirinShard",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_KirinEssence",
+                                    "RequiredCount": 100
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_KirinShard"
+                                }
+                            ],
+                            "DaysUntilReady": 7,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_LeviathanShard",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_LeviathanEssence",
+                                    "RequiredCount": 100
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_LeviathanShard"
+                                }
+                            ],
+                            "DaysUntilReady": 7,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_PhoenixShard",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_PhoenixEssence",
+                                    "RequiredCount": 100
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_PhoenixShard"
+                                }
+                            ],
+                            "DaysUntilReady": 7,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_RamuhShard",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_RamuhEssence",
+                                    "RequiredCount": 100
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_RamuhShard"
+                                }
+                            ],
+                            "DaysUntilReady": 7,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_TitanShard",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_TitanEssence",
+                                    "RequiredCount": 100
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_TitanShard"
+                                }
+                            ],
+                            "DaysUntilReady": 7,
+                            "AllowFairyDust": false
+                        }
+                    ]
+                },
+                "(BC){{ModId}}_SoulExtractor": {
+                    "OutputRules": [
+                        // Soul
+                        {
+                            "Id": "{{ModId}}_IfritSoul",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_IfritShard",
+                                    "RequiredCount": 10
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_IfritSoul"
+                                }
+                            ],
+                            "DaysUntilReady": 3,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_ShivaSoul",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_ShivaShard",
+                                    "RequiredCount": 10
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_ShivaSoul"
+                                }
+                            ],
+                            "DaysUntilReady": 3,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_CarbuncleSoul",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_CarbuncleShard",
+                                    "RequiredCount": 10
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_CarbuncleSoul"
+                                }
+                            ],
+                            "DaysUntilReady": 3,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_KirinSoul",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_KirinShard",
+                                    "RequiredCount": 10
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_KirinSoul"
+                                }
+                            ],
+                            "DaysUntilReady": 3,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_LeviathanSoul",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_LeviathanShard",
+                                    "RequiredCount": 10
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_LeviathanSoul"
+                                }
+                            ],
+                            "DaysUntilReady": 3,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_PhoenixSoul",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_PhoenixShard",
+                                    "RequiredCount": 10
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_PhoenixSoul"
+                                }
+                            ],
+                            "DaysUntilReady": 3,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_RamuhSoul",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_RamuhShard",
+                                    "RequiredCount": 10
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_RamuhSoul"
+                                }
+                            ],
+                            "DaysUntilReady": 3,
+                            "AllowFairyDust": false
+                        },
+                        {
+                            "Id": "{{ModId}}_TitanSoul",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_TitanShard",
+                                    "RequiredCount": 10
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_TitanSoul"
+                                }
+                            ],
+                            "DaysUntilReady": 3,
+                            "AllowFairyDust": false
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

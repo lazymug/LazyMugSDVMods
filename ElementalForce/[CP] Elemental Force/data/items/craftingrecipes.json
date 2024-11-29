@@ -1,0 +1,12 @@
+{
+    "Changes": [
+        {
+            "Action": "EditData",
+            "Target": "Data/CraftingRecipes",
+            "Entries": {
+                "{{ModId}}_RunicCompressor": "72 5 74 1 336 10/Home/{{ModId}}_RunicCompressor/true/none",
+                "{{ModId}}_SoulExtractor": "74 5 337 5 338 15/Home/{{ModId}}_SoulExtractor/true/none"
+            }
+        }
+    ]
+}

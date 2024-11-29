@@ -1,0 +1,11 @@
+- Create a new BC
+    - Compact Essence into Shard
+    - Compact Shard into Soul
+- Create new rules for damage buffs like Explosion (Phoenix) and Freeze (Shiva)
+- Create new rules for changing the weather when sleeping
+- Create upgrade form for the Crucible **thinking to change it\'s name to Elemental Vase or Amphorae
+- Create new sprites for the mod new objects
+- Create new NPC (Gaia)
+- Create new map (Gaia Illusion World)
+- Create new events
+- Include new sounds and visual effects
