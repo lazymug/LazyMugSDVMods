@@ -46,7 +46,7 @@ namespace ElementalForce.Elemental_Force_Code.harmony
 
         public static bool CustomCanThisBeAttached(Tool tool, StardewValley.Object? obj)
         {
-            if (ItemHelper.IsCrucibleTool(tool.ItemId))
+            if (ItemHelper.IsAmphoraTool(tool.ItemId))
             {
                 ModEntry.Instance.OnCheckIfEquipmentHasChanged();
                 

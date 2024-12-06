@@ -5,6 +5,7 @@
             "Target": "Data/Machines",
             "Entries": {
                 "(BC){{ModId}}_RunicCompressor": {
+                    "AllowFairyDust": false,
                     "OutputRules": [
                         // Shard
                         {
@@ -17,11 +18,11 @@
                             ],
                             "OutputItem": [
                                 {
-                                    "ItemId": "{{ModId}}_IfritShard"
+                                    "ItemId": "{{ModId}}_IfritShard",
+                                    "IncrementMachineParentSheetIndex": 1
                                 }
                             ],
-                            "DaysUntilReady": 7,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 7
                         },
                         {
                             "Id": "{{ModId}}_ShivaShard",
@@ -33,11 +34,11 @@
                             ],
                             "OutputItem": [
                                 {
-                                    "ItemId": "{{ModId}}_ShivaShard"
+                                    "ItemId": "{{ModId}}_ShivaShard",
+                                    "IncrementMachineParentSheetIndex": 1
                                 }
                             ],
-                            "DaysUntilReady": 7,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 7
                         },
                         {
                             "Id": "{{ModId}}_CarbuncleShard",
@@ -49,11 +50,11 @@
                             ],
                             "OutputItem": [
                                 {
-                                    "ItemId": "{{ModId}}_CarbuncleShard"
+                                    "ItemId": "{{ModId}}_CarbuncleShard",
+                                    "IncrementMachineParentSheetIndex": 1
                                 }
                             ],
-                            "DaysUntilReady": 7,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 7
                         },
                         {
                             "Id": "{{ModId}}_KirinShard",
@@ -65,11 +66,11 @@
                             ],
                             "OutputItem": [
                                 {
-                                    "ItemId": "{{ModId}}_KirinShard"
+                                    "ItemId": "{{ModId}}_KirinShard",
+                                    "IncrementMachineParentSheetIndex": 1
                                 }
                             ],
-                            "DaysUntilReady": 7,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 7
                         },
                         {
                             "Id": "{{ModId}}_LeviathanShard",
@@ -81,11 +82,11 @@
                             ],
                             "OutputItem": [
                                 {
-                                    "ItemId": "{{ModId}}_LeviathanShard"
+                                    "ItemId": "{{ModId}}_LeviathanShard",
+                                    "IncrementMachineParentSheetIndex": 1
                                 }
                             ],
-                            "DaysUntilReady": 7,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 7
                         },
                         {
                             "Id": "{{ModId}}_PhoenixShard",
@@ -97,11 +98,11 @@
                             ],
                             "OutputItem": [
                                 {
-                                    "ItemId": "{{ModId}}_PhoenixShard"
+                                    "ItemId": "{{ModId}}_PhoenixShard",
+                                    "IncrementMachineParentSheetIndex": 1
                                 }
                             ],
-                            "DaysUntilReady": 7,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 7
                         },
                         {
                             "Id": "{{ModId}}_RamuhShard",
@@ -113,11 +114,11 @@
                             ],
                             "OutputItem": [
                                 {
-                                    "ItemId": "{{ModId}}_RamuhShard"
+                                    "ItemId": "{{ModId}}_RamuhShard",
+                                    "IncrementMachineParentSheetIndex": 1
                                 }
                             ],
-                            "DaysUntilReady": 7,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 7
                         },
                         {
                             "Id": "{{ModId}}_TitanShard",
@@ -129,15 +130,16 @@
                             ],
                             "OutputItem": [
                                 {
-                                    "ItemId": "{{ModId}}_TitanShard"
+                                    "ItemId": "{{ModId}}_TitanShard",
+                                    "IncrementMachineParentSheetIndex": 1
                                 }
                             ],
-                            "DaysUntilReady": 7,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 7
                         }
                     ]
                 },
                 "(BC){{ModId}}_SoulExtractor": {
+                    "AllowFairyDust": false,
                     "OutputRules": [
                         // Soul
                         {
@@ -153,8 +155,7 @@
                                     "ItemId": "{{ModId}}_IfritSoul"
                                 }
                             ],
-                            "DaysUntilReady": 3,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 3
                         },
                         {
                             "Id": "{{ModId}}_ShivaSoul",
@@ -169,8 +170,7 @@
                                     "ItemId": "{{ModId}}_ShivaSoul"
                                 }
                             ],
-                            "DaysUntilReady": 3,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 3
                         },
                         {
                             "Id": "{{ModId}}_CarbuncleSoul",
@@ -185,8 +185,7 @@
                                     "ItemId": "{{ModId}}_CarbuncleSoul"
                                 }
                             ],
-                            "DaysUntilReady": 3,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 3
                         },
                         {
                             "Id": "{{ModId}}_KirinSoul",
@@ -201,8 +200,7 @@
                                     "ItemId": "{{ModId}}_KirinSoul"
                                 }
                             ],
-                            "DaysUntilReady": 3,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 3
                         },
                         {
                             "Id": "{{ModId}}_LeviathanSoul",
@@ -217,8 +215,7 @@
                                     "ItemId": "{{ModId}}_LeviathanSoul"
                                 }
                             ],
-                            "DaysUntilReady": 3,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 3
                         },
                         {
                             "Id": "{{ModId}}_PhoenixSoul",
@@ -233,8 +230,7 @@
                                     "ItemId": "{{ModId}}_PhoenixSoul"
                                 }
                             ],
-                            "DaysUntilReady": 3,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 3
                         },
                         {
                             "Id": "{{ModId}}_RamuhSoul",
@@ -249,8 +245,7 @@
                                     "ItemId": "{{ModId}}_RamuhSoul"
                                 }
                             ],
-                            "DaysUntilReady": 3,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 3
                         },
                         {
                             "Id": "{{ModId}}_TitanSoul",
@@ -265,8 +260,7 @@
                                     "ItemId": "{{ModId}}_TitanSoul"
                                 }
                             ],
-                            "DaysUntilReady": 3,
-                            "AllowFairyDust": false
+                            "DaysUntilReady": 3
                         }
                     ]
                 }

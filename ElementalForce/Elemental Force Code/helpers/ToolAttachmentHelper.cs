@@ -48,7 +48,7 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         {
             foreach (var item in Game1.player.Items)
             {
-                if (item is Tool tool && ItemHelper.IsCrucibleTool(tool.ItemId))
+                if (item is Tool tool && ItemHelper.IsAmphoraTool(tool.ItemId))
                 {
                     for (var index = 0; index < tool.attachments.Length; ++index)
                     {

@@ -1,9 +1,10 @@
 {
     "Format": "2.0.0",
     "Changes": [
+        // add item + machine images
         {
             "Action": "Load",
-            "Target": "LazyMug.ElementalForce/Objects",
+            "Target": "LazyMug.ElementalForce/Objects, LazyMug.ElementalForce/Craftables",
             "FromFile": "assets/{{TargetWithoutPath}}.png"
         },
         {

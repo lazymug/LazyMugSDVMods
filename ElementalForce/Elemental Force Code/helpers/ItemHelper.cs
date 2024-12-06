@@ -2,19 +2,40 @@ namespace ElementalForce.Elemental_Force_Code.helpers
 {
     public static class ItemHelper
     {
-        
+
+        private static readonly string ObjectEssenceCarbuncleId = $"{ModEntry.Instance.GetModId()}.CP_CarbuncleEssence";
+        private static readonly string ObjectEssenceIfritId = $"{ModEntry.Instance.GetModId()}.CP_IfritEssence";
+        private static readonly string ObjectEssenceKirinId = $"{ModEntry.Instance.GetModId()}.CP_KirinEssence";
+        private static readonly string ObjectEssenceLeviathanId = $"{ModEntry.Instance.GetModId()}.CP_LeviathanEssence";
+        private static readonly string ObjectEssencePhoenixId = $"{ModEntry.Instance.GetModId()}.CP_PhoenixEssence";
+        private static readonly string ObjectEssenceRamuhId = $"{ModEntry.Instance.GetModId()}.CP_RamuhEssence";
+        private static readonly string ObjectEssenceShivaId = $"{ModEntry.Instance.GetModId()}.CP_ShivaEssence";
         private static readonly string ObjectEssenceTitanId = $"{ModEntry.Instance.GetModId()}.CP_TitanEssence";
         
-        private static readonly string ToolCrucibleId = $"{ModEntry.Instance.GetModId()}.CP_Crucible";
+        private static readonly string ToolAmphoraId = $"{ModEntry.Instance.GetModId()}.CP_Amphora";
+        
+        public static string GetObjectEssenceCarbuncleId() => ObjectEssenceCarbuncleId;
+        
+        public static string GetObjectEssenceKirinId() => ObjectEssenceKirinId;
+        
+        public static string GetObjectEssenceIfritId() => ObjectEssenceIfritId;
+        
+        public static string GetObjectEssenceLeviathanId() => ObjectEssenceLeviathanId;
+        
+        public static string GetObjectEssencePhoenixId() => ObjectEssencePhoenixId;
+        
+        public static string GetObjectEssenceRamuhId() => ObjectEssenceRamuhId;
+        
+        public static string GetObjectEssenceShivaId() => ObjectEssenceShivaId;
         
         public static string GetObjectEssenceTitanId() => ObjectEssenceTitanId;
         
-        public static string GetToolCrucibleId() => ToolCrucibleId;
+        public static string GetToolAmphoraId() => ToolAmphoraId;
         
-        public static bool IsCrucibleTool(string itemId)
+        public static bool IsAmphoraTool(string itemId)
         {
             return itemId.StartsWith($"{ModEntry.Instance.GetModId()}") &&
-                   itemId.EndsWith("Crucible");
+                   itemId.EndsWith("Amphora");
         }
 
         public static bool IsElementalEssenceItem(string itemId)

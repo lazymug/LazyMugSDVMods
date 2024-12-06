@@ -26,7 +26,7 @@
     "machine.runic_compressor.name": "Runic Compressor",
     "machine.runic_compressor.description": "Compress your essence into a shard.",
     
-    "machine.soul_extractor.name": "Soul Extract",
+    "machine.soul_extractor.name": "Soul Extractor",
     "machine.soul_extractor.description": "Extract the soul of the elemental from the shards.",
 
     "shard.ifrit.name": "Ifrit's Ember Shard",
@@ -77,6 +77,6 @@
     "soul.phoenix.name": "Phoenix's Nirvana Soul",
     "soul.phoenix.description": "The concentrated essence of Phoenix's fiery power, granting immortality and immense power.",
 
-    "tool.crucible.name": "Elemental Crucible",
-    "tool.crucible.description": "A mystical vessel capable of storing and channeling elemental essences."
+    "tool.amphora.name": "Elemental Amphora",
+    "tool.amphora.description": "A mystical vessel capable of storing and channeling elemental essences."
 }

@@ -32,7 +32,7 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         private const string Filepath = "assets/buffs/";
         private const string Filename = "BuffIcons.png";
         private const string AssetPath = $"{Filepath}{Filename}";
-        private static readonly Texture2D IconTexture = ModEntry.Instance.Helper.GameContent.Load<Texture2D>(AssetPath);
+        private static readonly Texture2D IconTexture = ModEntry.Instance.Helper.ModContent.Load<Texture2D>(AssetPath);
         
         public static string GetBuffBlizzardSlashId() => BuffBlizzardSlashId;
         
@@ -50,7 +50,10 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         
         public static string GetBuffHealingAuraId() => BuffHealingAuraId;
         
-        public static string GetBuffHeatSpeedId() => BuffHeatSpeedId;
+        public static string GetBuffHeatSpeedId()
+        {
+            return BuffHeatSpeedId;
+        }
         
         public static string GetBuffHeavyBodyId() => BuffHeavyBodyId;
         

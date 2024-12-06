@@ -8,15 +8,15 @@
                     "Name": "{{ModId}}_RunicCompressor",
                     "DisplayName": "{{i18n:machine.runic_compressor.name}}",
                     "Description": "{{i18n:machine.runic_compressor.description}}",
-                    "Texture": "TileSheets/Craftables",
-                    "SpriteIndex": 5
+                    "Texture": "LazyMug.ElementalForce/Craftables",
+                    "SpriteIndex": 0
                 },
                 "{{ModId}}_SoulExtractor": {
                     "Name": "{{ModId}}_SoulExtractor",
                     "DisplayName": "{{i18n:machine.soul_extractor.name}}",
                     "Description": "{{i18n:machine.soul_extractor.description}}",
-                    "Texture": "TileSheets/Craftables",
-                    "SpriteIndex": 10
+                    "Texture": "LazyMug.ElementalForce/Craftables",
+                    "SpriteIndex": 2
                 }
             }
         }

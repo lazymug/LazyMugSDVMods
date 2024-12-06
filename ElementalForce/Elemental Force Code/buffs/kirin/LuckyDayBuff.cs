@@ -5,11 +5,11 @@ using StardewValley.Buffs;
 
 namespace ElementalForce.Elemental_Force_Code.buffs.kirin
 {
-    public class LuckDayBuff : Buff
+    public class LuckyDayBuff : Buff
     {
         private const int Level = 2;
         
-        public LuckDayBuff(
+        public LuckyDayBuff(
             int currentLuck,
             Texture2D iconTexture = null,
             int iconSheetIndex = -1,

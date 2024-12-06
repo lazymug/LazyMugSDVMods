@@ -59,11 +59,18 @@ namespace ElementalForce
         {
             if (ToolAttachmentHelper.IsIfritEssenceEquipped() && Game1.player.currentLocation.Name == "Desert")
             {
-                Game1.player.applyBuff(new HeatSpeedBuff(currentBuffSpeed: Game1.player.buffs.Speed));
+                Game1.player.applyBuff(
+                    new HeatSpeedBuff(
+                        currentSpeed: Game1.player.Speed,
+                        iconTexture: BuffHelper.GetIconTexture(),
+                        iconSheetIndex: 0
+                    )
+                );
             }
             else
             {
-                Game1.player.buffs.Remove(BuffHelper.GetBuffHeatSpeedId());
+                if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffHeatSpeedId()))
+                    Game1.player.buffs.Remove(BuffHelper.GetBuffHeatSpeedId());
             }
         }
         
@@ -75,7 +82,8 @@ namespace ElementalForce
             }
             else
             {
-                Game1.player.buffs.Remove(BuffHelper.GetBuffSnowSpeedId());
+                if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffSnowSpeedId()))
+                    Game1.player.buffs.Remove(BuffHelper.GetBuffSnowSpeedId());
             }
         }
         
@@ -87,7 +95,8 @@ namespace ElementalForce
             }
             else
             {
-                Game1.player.buffs.Remove(BuffHelper.GetBuffIronBodyId());
+                if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffIronBodyId()))
+                    Game1.player.buffs.Remove(BuffHelper.GetBuffIronBodyId());
             }
         }
         
@@ -99,7 +108,8 @@ namespace ElementalForce
             }
             else
             {
-                Game1.player.buffs.Remove(BuffHelper.GetBuffHeavyBodyId());
+                if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffHeavyBodyId()))
+                    Game1.player.buffs.Remove(BuffHelper.GetBuffHeavyBodyId());
             }
         }
         
@@ -113,7 +123,8 @@ namespace ElementalForce
             }
             else
             {
-                Game1.player.buffs.Remove(BuffHelper.GetBuffSunnySpeedId());
+                if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffSunnySpeedId()))
+                    Game1.player.buffs.Remove(BuffHelper.GetBuffSunnySpeedId());
             }
         }
         
@@ -125,7 +136,8 @@ namespace ElementalForce
             }
             else
             {
-                Game1.player.buffs.Remove(BuffHelper.GetBuffImmunityBandId());
+                if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffImmunityBandId()))
+                    Game1.player.buffs.Remove(BuffHelper.GetBuffImmunityBandId());
             }
         }
         
@@ -140,7 +152,8 @@ namespace ElementalForce
             }
             else
             {
-                Game1.player.buffs.Remove(BuffHelper.GetBuffFlashSpeedId());
+                if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffFlashSpeedId()))
+                    Game1.player.buffs.Remove(BuffHelper.GetBuffFlashSpeedId());
             }
         }
         
@@ -152,7 +165,8 @@ namespace ElementalForce
             }
             else
             {
-                Game1.player.buffs.Remove(BuffHelper.GetBuffHealingAuraId());
+                if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffHealingAuraId()))
+                    Game1.player.buffs.Remove(BuffHelper.GetBuffHealingAuraId());
             }
         }
         
@@ -170,50 +184,12 @@ namespace ElementalForce
             }
             
             Monitor.Log($"player cursorSlotItem is {player.CursorSlotItem.DisplayName}", LogLevel.Info);
-            
-            /*
-            Tool tool = player.CurrentTool;
-            
-            Monitor.Log($"heldObject is {player.ActiveObject?.DisplayName}", LogLevel.Info);
-            Monitor.Log($"tool {tool.DisplayName}", LogLevel.Info);
-            Monitor.Log($"player cursorSlotItem is {player.CursorSlotItem?.DisplayName}", LogLevel.Info);
-
-            // Ensure the active tool is the CrucibleTool
-            if (player.CurrentTool is CrucibleTool crucibleTool)
-            {
-                // Check for a held object
-                StardewValley.Object heldObject = player.ActiveObject;
-
-                if (heldObject != null)
-                {
-                    Monitor.Log($"heldObject: {heldObject.Name}", LogLevel.Info);
-                    if (crucibleTool.CanAttachItem(heldObject, 0))
-                    {
-                        // Attach the object
-                        crucibleTool.attach(heldObject);
-
-                        // Optionally remove the item from inventory
-                        player.removeItemFromInventory(heldObject);
-
-                        // Notify player
-                        Game1.addHUDMessage(new HUDMessage($"Attached {heldObject.DisplayName} to the Crucible!"));
-                    }
-                    else
-                    {
-                        Game1.addHUDMessage(new HUDMessage($"{heldObject.DisplayName} cannot be attached.", HUDMessage.error_type));
-                    }
-                }
-                else
-                {
-                    Monitor.Log($"heldObject is null", LogLevel.Info);
-                }
-            }
-            */
         }
         
         private void OnDayEnding(object? sender, DayEndingEventArgs e)
         {
             _phoenixHealingAuraUsed = false;
+            // todo: activate power for changing weather
         }
         
         private void OnGameLaunched(object? sender, GameLaunchedEventArgs e)
@@ -237,7 +213,52 @@ namespace ElementalForce
                     text: LettersHelper.GetText(LettersHelper.GaiaWelcomeId),
                     condition: l=>LettersHelper.GetWelcomeGaiaCondition(),
                     callback: (l)=>Game1.player.mailReceived.Add(l.Id),
+                    items: new List<Item>() { new StardewValley.Object(ItemHelper.GetObjectEssenceKirinId(), 1) }
+                )
+            );
+            MailRepository.SaveLetter(
+                new Letter(
+                    id: LettersHelper.DwarfGiftId,
+                    text: LettersHelper.GetText(LettersHelper.DwarfGiftId),
+                    condition: l=>LettersHelper.GetDwarfGiftCondition(),
+                    callback: (l)=>Game1.player.mailReceived.Add(l.Id),
                     items: new List<Item>() { new StardewValley.Object(ItemHelper.GetObjectEssenceTitanId(), 1) }
+                )
+            );
+            MailRepository.SaveLetter(
+                new Letter(
+                    id: LettersHelper.EmilyAquamarineId,
+                    text: LettersHelper.GetText(LettersHelper.EmilyAquamarineId),
+                    condition: l=>LettersHelper.GetEmilyAquamarineCondition(),
+                    callback: (l)=>Game1.player.mailReceived.Add(l.Id),
+                    items: new List<Item>() { new StardewValley.Object(ItemHelper.GetObjectEssenceShivaId(), 1) }
+                )
+            );
+            MailRepository.SaveLetter(
+                new Letter(
+                    id: LettersHelper.PennyFoundId,
+                    text: LettersHelper.GetText(LettersHelper.PennyFoundId),
+                    condition: l=>LettersHelper.GetPennyFoundCondition(),
+                    callback: (l)=>Game1.player.mailReceived.Add(l.Id),
+                    items: new List<Item>() { new StardewValley.Object(ItemHelper.GetObjectEssenceCarbuncleId(), 1) }
+                )
+            );
+            MailRepository.SaveLetter(
+                new Letter(
+                    id: LettersHelper.SandyQiRoomId,
+                    text: LettersHelper.GetText(LettersHelper.SandyQiRoomId),
+                    condition: l=>LettersHelper.GetSandyQiRoomCondition(),
+                    callback: (l)=>Game1.player.mailReceived.Add(l.Id),
+                    items: new List<Item>() { new StardewValley.Object(ItemHelper.GetObjectEssenceIfritId(), 1) }
+                )
+            );
+            MailRepository.SaveLetter(
+                new Letter(
+                    id: LettersHelper.WillyFishingId,
+                    text: LettersHelper.GetText(LettersHelper.WillyFishingId),
+                    condition: l=>LettersHelper.GetWillyFishingCondition(),
+                    callback: (l)=>Game1.player.mailReceived.Add(l.Id),
+                    items: new List<Item>() { new StardewValley.Object(ItemHelper.GetObjectEssenceLeviathanId(), 1) }
                 )
             );
         }
@@ -246,23 +267,36 @@ namespace ElementalForce
         {
             if (Context.IsWorldReady)
             {
-                var isHealthLow = Game1.player.health < Game1.player.maxHealth * 0.3;
-                var isStaminaLow = Game1.player.stamina < Game1.player.MaxStamina * 0.2;
-                if ((isHealthLow || isStaminaLow) && ToolAttachmentHelper.IsPhoenixEssenceEquipped() && !_phoenixHealingAuraUsed)
+                var isAmphora = Game1.player.Items.ContainsId(ItemHelper.GetToolAmphoraId());
+                if (isAmphora)
                 {
-                    _phoenixHealingAuraUsed = true;
-                    Game1.player.health += Game1.player.maxHealth * 4 / 10;
-                    Game1.player.Stamina += Game1.player.MaxStamina * 4 / 10;
-                    // TODO: play a recovery sound and add animation
-                }
-                if (_checkIfLocationHasChanged || _checkIfEquipmentHasChanged)
-                {
-                    CheckIfIfritEssenceIsAttached();
-                    CheckIfShivaEssenceIsAttached();
-                    CheckIfTitanEssenceIsAttached();
+                    var isHealthLow = Game1.player.health < Game1.player.maxHealth * 0.3;
+                    var isStaminaLow = Game1.player.stamina < Game1.player.MaxStamina * 0.2;
+                    if ((isHealthLow || isStaminaLow) && ToolAttachmentHelper.IsPhoenixEssenceEquipped() && !_phoenixHealingAuraUsed)
+                    {
+                        _phoenixHealingAuraUsed = true;
+                        Game1.player.health += Game1.player.maxHealth * 4 / 10;
+                        Game1.player.Stamina += Game1.player.MaxStamina * 4 / 10;
+                        // TODO: play a recovery sound and add animation
+                    }
+                    if (_checkIfLocationHasChanged || _checkIfEquipmentHasChanged)
+                    {
+                        CheckIfIfritEssenceIsAttached();
+                        CheckIfShivaEssenceIsAttached();
+                        CheckIfTitanEssenceIsAttached();
+                        CheckIfCarbuncleEssenceIsAttached();
+                        CheckIfKirinEssenceIsAttached();
+                        CheckIfLeviathanEssenceIsAttached();
+                        CheckIfPhoenixEssenceIsAttached();
+                        CheckIfRamuhEssenceIsAttached();
                     
-                    _checkIfEquipmentHasChanged = false;
-                    _checkIfLocationHasChanged = false;
+                        _checkIfEquipmentHasChanged = false;
+                        _checkIfLocationHasChanged = false;
+                    }
+                }
+                else
+                {
+                    RemoveAllAmphoraBuffs();
                 }
             }
         }
@@ -276,5 +310,11 @@ namespace ElementalForce
         {
             _checkIfLocationHasChanged = true;
         }
+
+        private void RemoveAllAmphoraBuffs()
+        {
+            
+        }
+        
     }
 }

@@ -1,11 +1,21 @@
-- Create a new BC
-    - Compact Essence into Shard
-    - Compact Shard into Soul
+- Create a new BC (Done)
+    - Compact Essence into Shard -> Runic Compressor
+    - Compact Shard into Soul -> Soul Extractor
 - Create new rules for damage buffs like Explosion (Phoenix) and Freeze (Shiva)
 - Create new rules for changing the weather when sleeping
-- Create upgrade form for the Crucible **thinking to change it\'s name to Elemental Vase or Amphorae
+- Create upgrade form for the Crucible **thinking to change it\'s name to Elemental Vase or Amphorae (Done)
 - Create new sprites for the mod new objects
 - Create new NPC (Gaia)
 - Create new map (Gaia Illusion World)
 - Create new events
+    - Create event for Emily sewing the cloth and breaking the nail with the aquamarine.
+    - Create event for Penny giving the tigerseye to Sam but he let fall and it brakes.
+- Create new quests
+    - Create quest for Emily asking for an aquamarine for sewing new clothes
+    - Create quest for Penny asking for a gem (tigerseye) to give as gift for Sam and she founds the essence inside when the tigerseye fall and shatter 
 - Include new sounds and visual effects
+- Create new UI for attaching the elemental power
+
+
+** Tests **
+- Sandy: We must guarantee that player only receives Sandy's letter after destroying the bodyguard 

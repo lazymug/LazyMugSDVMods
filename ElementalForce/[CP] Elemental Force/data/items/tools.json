@@ -4,20 +4,20 @@
             "Action": "EditData",
             "Target": "Data/Tools",
             "Entries": {
-                "{{ModId}}_Crucible": {
+                "{{ModId}}_Amphora": {
                     "ClassName": "GenericTool",
-                    "Name": "{{ModId}}_Crucible",
+                    "Name": "{{ModId}}_Amphora",
                     "Category": -99,
                     "SalePrice": "0",
                     "SpriteIndex": 461,
                     "MenuSpriteIndex": 461,
                     "AttachmentSlots": 2,
-                    "DisplayName": "{{i18n: tool.crucible.name}}",
-                    "Description": "{{i18n: tool.crucible.description}}",
+                    "DisplayName": "{{i18n: tool.amphora.name}}",
+                    "Description": "{{i18n: tool.amphora.description}}",
                     "Texture": "Maps/springobjects",
                     "ContextTags": [
                         "custom_tool",
-                        "mod_crucible_tool"
+                        "mod_amphora_tool"
                     ]
                 }
             }
