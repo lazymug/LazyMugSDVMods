@@ -1,8 +1,8 @@
 {
     "Name": "[CP] Elemental Force",
     "Author": "Lazy Mug",
-    "Version": "1.0.0",
-    "Description": "Adds custom rings based on Elemental Spirits from phantasy worlds.",
+    "Version": "0.0.1",
+    "Description": "Used on Elemental Force mod.",
     "UniqueID": "LazyMug.ElementalForce.CP",
     "MinimumApiVersion": "4.0.0",
     "UpdateKeys": ["29400"],

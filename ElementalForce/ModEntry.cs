@@ -225,6 +225,7 @@ namespace ElementalForce
                     items: new List<Item>() { new StardewValley.Object(ItemHelper.GetObjectEssenceTitanId(), 1) }
                 )
             );
+            /* Commented until I create the events
             MailRepository.SaveLetter(
                 new Letter(
                     id: LettersHelper.EmilyAquamarineId,
@@ -261,6 +262,7 @@ namespace ElementalForce
                     items: new List<Item>() { new StardewValley.Object(ItemHelper.GetObjectEssenceLeviathanId(), 1) }
                 )
             );
+            */
         }
         
         private void OnUpdateTicked(object? sender, UpdateTickedEventArgs e)
