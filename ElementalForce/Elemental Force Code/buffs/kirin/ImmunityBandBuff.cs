@@ -10,20 +10,18 @@ namespace ElementalForce.Elemental_Force_Code.buffs.kirin
         private const int Level = 1;
         
         public ImmunityBandBuff(
-            int currentImmunity,
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null
+            int currentImmunity
         ) : base(
             id: BuffHelper.GetBuffImmunityBandId(), 
-            displayName: displayName, 
+            displayName: ModEntry.Instance.GetTextTranslation("buff.immunity_band.name"),
+            description: ModEntry.Instance.GetTextTranslation("buff.immunity_band.description"),  
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
                 Immunity = { currentImmunity + 4 }
             }, 
-            iconTexture: iconTexture, 
-            iconSheetIndex: iconSheetIndex)
+            iconTexture: BuffHelper.GetIconTexture(), 
+            iconSheetIndex: BuffHelper.GetBuffIndexImmunityBand())
         {
         }
     }

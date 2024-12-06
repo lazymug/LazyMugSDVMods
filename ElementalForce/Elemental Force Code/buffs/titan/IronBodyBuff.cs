@@ -10,20 +10,18 @@ namespace ElementalForce.Elemental_Force_Code.buffs.titan
         private const int Level = 1;
 
         public IronBodyBuff(
-            int currentDefense = 0,
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null)
+            int currentDefense = 0)
             : base(
                 id: BuffHelper.GetBuffIronBodyId(), 
-                displayName: displayName, 
+                displayName: ModEntry.Instance.GetTextTranslation("buff.iron_body.name"),
+                description: ModEntry.Instance.GetTextTranslation("buff.iron_body.description"),  
                 duration: ENDLESS, 
                 effects: new BuffEffects()
                 {
                     Defense = { currentDefense + 2 }
                 }, 
-                iconTexture: iconTexture, 
-                iconSheetIndex: iconSheetIndex)
+                iconTexture: BuffHelper.GetIconTexture(), 
+                iconSheetIndex: BuffHelper.GetBuffIndexIronBody())
         {
             
         }

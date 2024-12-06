@@ -10,20 +10,18 @@ namespace ElementalForce.Elemental_Force_Code.buffs.shiva
         private const int Level = 1;
         
         public SnowSpeedBuff(
-            float playerCurrentSpeed = 0f,
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null
+            float playerCurrentSpeed = 0f
         ) : base(
             id: BuffHelper.GetBuffSnowSpeedId(), 
-            displayName: displayName, 
+            displayName: ModEntry.Instance.GetTextTranslation("buff.snow_speed.name"),
+            description: ModEntry.Instance.GetTextTranslation("buff.snow_speed.description"),  
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
-                Speed = { playerCurrentSpeed * 1.3f }
+                Speed = { playerCurrentSpeed + 3.0f }
             }, 
-            iconTexture: iconTexture, 
-            iconSheetIndex: iconSheetIndex)
+            iconTexture: BuffHelper.GetIconTexture(), 
+            iconSheetIndex: BuffHelper.GetBuffIndexSnowSpeed())
         {
             
         }

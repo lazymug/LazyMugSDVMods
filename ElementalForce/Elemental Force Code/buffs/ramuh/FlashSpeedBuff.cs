@@ -10,20 +10,18 @@ namespace ElementalForce.Elemental_Force_Code.buffs.ramuh
         private const int Level = 1;
         
         public FlashSpeedBuff(
-            float currentSpeed,
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null
+            float currentSpeed
         ) : base(
             id: BuffHelper.GetBuffFlashSpeedId(), 
-            displayName: displayName, 
+            displayName: ModEntry.Instance.GetTextTranslation("buff.flash_speed.name"),
+            description: ModEntry.Instance.GetTextTranslation("buff.flash_speed.description"),  
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
                 Speed = { currentSpeed * 1.15f }
             }, 
-            iconTexture: iconTexture, 
-            iconSheetIndex: iconSheetIndex)
+            iconTexture: BuffHelper.GetIconTexture(), 
+            iconSheetIndex: BuffHelper.GetBuffIndexFlashSpeed())
         {
         }
     }

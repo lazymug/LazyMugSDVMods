@@ -9,20 +9,18 @@ namespace ElementalForce.Elemental_Force_Code.buffs.leviathan
     {
         private const int level = 2;
 
-        public RainWishBuff(
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null)
+        public RainWishBuff()
             : base(
                 id: BuffHelper.GetBuffRainWishId(), 
-                displayName: displayName, 
+                displayName: ModEntry.Instance.GetTextTranslation("buff.rain_wish.name"),
+                description: ModEntry.Instance.GetTextTranslation("buff.rain_wish.description"),  
                 duration: ENDLESS, 
                 effects: new BuffEffects()
                 {
                     // todo: increase chance of rain on next day
                 }, 
-                iconTexture: iconTexture, 
-                iconSheetIndex: iconSheetIndex)
+                iconTexture: BuffHelper.GetIconTexture(), 
+                iconSheetIndex: BuffHelper.GetBuffIndexRainWish())
         {
             
         }

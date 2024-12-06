@@ -10,19 +10,17 @@ namespace ElementalForce.Elemental_Force_Code.buffs.ifrit
         private const int Level = 3;
         
         public FireballBuff(
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null
         ) : base(
             id: BuffHelper.GetBuffFireballId(), 
-            displayName: displayName, 
+            displayName: ModEntry.Instance.GetTextTranslation("buff.fireball.name"),
+            description: ModEntry.Instance.GetTextTranslation("buff.fireball.description"),  
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
                 // TODO: it can cast fireball into the enemy similar to slingshot
             }, 
-            iconTexture: iconTexture, 
-            iconSheetIndex: iconSheetIndex)
+            iconTexture: BuffHelper.GetIconTexture(), 
+            iconSheetIndex: BuffHelper.GetBuffIndexFireball())
         {
         }
     }

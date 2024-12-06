@@ -10,19 +10,17 @@ namespace ElementalForce.Elemental_Force_Code.buffs.leviathan
         private const int Level = 1;
         
         public HeavyBodyBuff(
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null
         ) : base(
             id: BuffHelper.GetBuffHeavyBodyId(), 
-            displayName: displayName, 
+            displayName: ModEntry.Instance.GetTextTranslation("buff.heavy_body.name"),
+            description: ModEntry.Instance.GetTextTranslation("buff.heavy_body.description"),  
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
                 KnockbackMultiplier = { 1.35f }
             }, 
-            iconTexture: iconTexture, 
-            iconSheetIndex: iconSheetIndex)
+            iconTexture: BuffHelper.GetIconTexture(), 
+            iconSheetIndex: BuffHelper.GetBuffIndexHeavyBody())
         {
         }
     }

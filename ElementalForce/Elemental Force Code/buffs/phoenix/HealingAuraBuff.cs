@@ -10,19 +10,17 @@ namespace ElementalForce.Elemental_Force_Code.buffs.phoenix
         private const int Level = 1;
         
         public HealingAuraBuff(
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null
         ) : base(
             id: BuffHelper.GetBuffHealingAuraId(), 
-            displayName: displayName, 
+            displayName: ModEntry.Instance.GetTextTranslation("buff.healing_aura.name"),
+            description: ModEntry.Instance.GetTextTranslation("buff.healing_aura.description"),  
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
                 // TODO: once per day restores user health and energy
             }, 
-            iconTexture: iconTexture, 
-            iconSheetIndex: iconSheetIndex)
+            iconTexture: BuffHelper.GetIconTexture(), 
+            iconSheetIndex: BuffHelper.GetBuffIndexHealingAura())
         {
         }
     }

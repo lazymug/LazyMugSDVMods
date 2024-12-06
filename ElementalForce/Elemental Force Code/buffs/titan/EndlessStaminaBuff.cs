@@ -10,20 +10,18 @@ namespace ElementalForce.Elemental_Force_Code.buffs.titan
         private const int Level = 3;
         
         public EndlessStaminaBuff(
-            int currentStamina,
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null
+            int currentStamina
         ) : base(
             id: BuffHelper.GetBuffEndlessStaminaId(), 
-            displayName: displayName, 
+            displayName: ModEntry.Instance.GetTextTranslation("buff.endless_stamina.name"),
+            description: ModEntry.Instance.GetTextTranslation("buff.endless_stamina.description"),  
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
                 MaxStamina = { currentStamina * 1.35f }
             }, 
-            iconTexture: iconTexture, 
-            iconSheetIndex: iconSheetIndex)
+            iconTexture: BuffHelper.GetIconTexture(), 
+            iconSheetIndex: BuffHelper.GetBuffIndexEndlessStamina())
         {
         }
     }

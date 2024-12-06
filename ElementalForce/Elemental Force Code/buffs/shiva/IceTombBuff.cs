@@ -10,19 +10,17 @@ namespace ElementalForce.Elemental_Force_Code.buffs.shiva
         private const int Level = 3;
         
         public IceTombBuff(
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null
         ) : base(
             id: BuffHelper.GetBuffIceTombId(), 
-            displayName: displayName, 
+            displayName: ModEntry.Instance.GetTextTranslation("buff.ice_tomb.name"),
+            description: ModEntry.Instance.GetTextTranslation("buff.ice_tomb.description"),  
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
                 // todo: can freeze the enemy for some seconds
             }, 
-            iconTexture: iconTexture, 
-            iconSheetIndex: iconSheetIndex)
+            iconTexture: BuffHelper.GetIconTexture(), 
+            iconSheetIndex: BuffHelper.GetBuffIndexIceTomb())
         {
             
         }

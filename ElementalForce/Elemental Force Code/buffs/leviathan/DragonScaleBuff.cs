@@ -10,20 +10,18 @@ namespace ElementalForce.Elemental_Force_Code.buffs.leviathan
         private const int Level = 3;
 
         public DragonScaleBuff(
-            int currentDefense = 0,
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null)
+            int currentDefense = 0)
             : base(
                 id: BuffHelper.GetBuffDragonScaleId(), 
-                displayName: displayName, 
+                displayName: ModEntry.Instance.GetTextTranslation("buff.dragon_scale.name"),
+                description: ModEntry.Instance.GetTextTranslation("buff.dragon_scale.description"),  
                 duration: ENDLESS, 
                 effects: new BuffEffects()
                 {
                     Defense = { currentDefense + 7 }
                 }, 
-                iconTexture: iconTexture, 
-                iconSheetIndex: iconSheetIndex)
+                iconTexture: BuffHelper.GetIconTexture(), 
+                iconSheetIndex: BuffHelper.GetBuffIndexDragonScale())
         {
             
         }

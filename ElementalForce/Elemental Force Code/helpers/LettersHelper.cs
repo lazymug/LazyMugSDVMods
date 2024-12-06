@@ -106,7 +106,7 @@ namespace ElementalForce.Elemental_Force_Code.helpers
 
         private static string GetTextFromContent(string letterId)
         {
-            return ModEntry.Instance.Helper.Translation.Get(letterId);
+            return ModEntry.Instance.GetTextTranslation(letterId);
         }
     }
 }

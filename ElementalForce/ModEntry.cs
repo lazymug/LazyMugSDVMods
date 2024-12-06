@@ -36,6 +36,11 @@ namespace ElementalForce
         {
             return ModManifest.UniqueID;
         }
+
+        public string GetTextTranslation(string id)
+        {
+            return Helper.Translation.Get(id);
+        }
         
         public void OnCheckIfEquipmentHasChanged()
         {
@@ -59,11 +64,13 @@ namespace ElementalForce
         {
             if (ToolAttachmentHelper.IsIfritEssenceEquipped() && Game1.player.currentLocation.Name == "Desert")
             {
+                // need to check shiva is attached before so it won't sum the buffs
+                if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffSnowSpeedId()))
+                    Game1.player.buffs.Remove(BuffHelper.GetBuffSnowSpeedId());
+                
                 Game1.player.applyBuff(
                     new HeatSpeedBuff(
-                        currentSpeed: Game1.player.Speed,
-                        iconTexture: BuffHelper.GetIconTexture(),
-                        iconSheetIndex: 0
+                        currentSpeed: Game1.player.buffs.Speed
                     )
                 );
             }
@@ -76,9 +83,13 @@ namespace ElementalForce
         
         private void CheckIfShivaEssenceIsAttached()
         {
-            if (ToolAttachmentHelper.IsShivaEssenceEquipped() && Game1.IsWinter)
+            if (ToolAttachmentHelper.IsShivaEssenceEquipped() && Game1.IsWinter && Game1.player.currentLocation.Name != "Desert")
             {
-                Game1.player.applyBuff(new SnowSpeedBuff(Game1.player.buffs.Speed));
+                Game1.player.applyBuff(
+                    new SnowSpeedBuff(
+                        playerCurrentSpeed: Game1.player.buffs.Speed
+                    )
+                );
             }
             else
             {
@@ -91,7 +102,11 @@ namespace ElementalForce
         {
             if (ToolAttachmentHelper.IsTitanEssenceEquipped())
             {
-                Game1.player.applyBuff(new IronBodyBuff(currentDefense: Game1.player.buffs.Defense));
+                Game1.player.applyBuff(
+                    new IronBodyBuff(
+                        currentDefense: Game1.player.buffs.Defense
+                    )
+                );
             }
             else
             {

@@ -33,6 +33,31 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         private const string Filename = "BuffIcons.png";
         private const string AssetPath = $"{Filepath}{Filename}";
         private static readonly Texture2D IconTexture = ModEntry.Instance.Helper.ModContent.Load<Texture2D>(AssetPath);
+
+        private const int BuffIndexHeatSpeed = 0;
+        private const int BuffIndexFireball = 1;
+        private const int BuffIndexSavageIfrit = 2;
+        private const int BuffIndexSnowSpeed = 3;
+        private const int BuffIndexBlizzardSlash = 4;
+        private const int BuffIndexIceTomb = 5;
+        private const int BuffIndexIronBody = 6;
+        private const int BuffIndexWrathPalm = 7;
+        private const int BuffIndexEndlessStamina = 8;
+        private const int BuffIndexHeavyBody = 9;
+        private const int BuffIndexRainWish = 10;
+        private const int BuffIndexDragonScale = 11;
+        private const int BuffIndexSunnySpeed = 12;
+        private const int BuffIndexCompanionProtection = 13;
+        private const int BuffIndexMirrorReflection = 14;
+        private const int BuffIndexImmunityBand = 15;
+        private const int BuffIndexLuckDay = 16;
+        private const int BuffIndexRegenBlessing = 17;
+        private const int BuffIndexFlashSpeed = 18;
+        private const int BuffIndexThunderCaller = 19;
+        private const int BuffIndexJoltingSwing = 20;
+        private const int BuffIndexHealingAura = 21;
+        private const int BuffIndexExplosion = 22;
+        private const int BuffIndexPhoenixDown = 23;
         
         public static string GetBuffBlizzardSlashId() => BuffBlizzardSlashId;
         
@@ -89,5 +114,53 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         {
             return IconTexture;
         }
+        
+        public static int GetBuffIndexHeatSpeed() => BuffIndexHeatSpeed;
+        
+        public static int GetBuffIndexFireball() => BuffIndexFireball;
+        
+        public static int GetBuffIndexSavageIfrit() => BuffIndexSavageIfrit;
+        
+        public static int GetBuffIndexSnowSpeed() => BuffIndexSnowSpeed;
+        
+        public static int GetBuffIndexBlizzardSlash() => BuffIndexBlizzardSlash;
+        
+        public static int GetBuffIndexIceTomb() => BuffIndexIceTomb;
+        
+        public static int GetBuffIndexIronBody() => BuffIndexIronBody;
+        
+        public static int GetBuffIndexWrathPalm() => BuffIndexWrathPalm;
+        
+        public static int GetBuffIndexEndlessStamina() => BuffIndexEndlessStamina;
+        
+        public static int GetBuffIndexHeavyBody() => BuffIndexHeavyBody;
+        
+        public static int GetBuffIndexRainWish() => BuffIndexRainWish;
+        
+        public static int GetBuffIndexDragonScale() => BuffIndexDragonScale;
+        
+        public static int GetBuffIndexSunnySpeed() => BuffIndexSunnySpeed;
+        
+        public static int GetBuffIndexCompanionProtection() => BuffIndexCompanionProtection;
+        
+        public static int GetBuffIndexMirrorReflection() => BuffIndexMirrorReflection;
+        
+        public static int GetBuffIndexImmunityBand() => BuffIndexImmunityBand;
+        
+        public static int GetBuffIndexLuckDay() => BuffIndexLuckDay;
+        
+        public static int GetBuffIndexRegenBlessing() => BuffIndexRegenBlessing;
+        
+        public static int GetBuffIndexFlashSpeed() => BuffIndexFlashSpeed;
+        
+        public static int GetBuffIndexThunderCaller() => BuffIndexThunderCaller;
+        
+        public static int GetBuffIndexJoltingSwing() => BuffIndexJoltingSwing;
+        
+        public static int GetBuffIndexHealingAura() => BuffIndexHealingAura;
+
+        public static int GetBuffIndexExplosion() => BuffIndexExplosion;
+        
+        public static int GetBuffIndexPhoenixDown() => BuffIndexPhoenixDown;
     }
 }

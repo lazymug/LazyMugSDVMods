@@ -10,19 +10,17 @@ namespace ElementalForce.Elemental_Force_Code.buffs.kirin
         private const int Level = 3;
         
         public RegenBlessingBuff(
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null
         ) : base(
             id: BuffHelper.GetBuffRegenBlessingId(), 
-            displayName: displayName, 
+            displayName: ModEntry.Instance.GetTextTranslation("buff.regen_blessing.name"),
+            description: ModEntry.Instance.GetTextTranslation("buff.regen_blessing.description"),  
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
                 // recovers Energy and Health from time to time
             }, 
-            iconTexture: iconTexture, 
-            iconSheetIndex: iconSheetIndex)
+            iconTexture: BuffHelper.GetIconTexture(), 
+            iconSheetIndex: BuffHelper.GetBuffIndexRegenBlessing())
         {
         }
     }

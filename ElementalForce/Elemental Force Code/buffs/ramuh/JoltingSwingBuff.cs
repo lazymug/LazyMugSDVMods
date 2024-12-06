@@ -10,19 +10,17 @@ namespace ElementalForce.Elemental_Force_Code.buffs.ramuh
         private const int Level = 3;
         
         public JoltingSwingBuff(
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null
         ) : base(
             id: BuffHelper.GetBuffJoltingSwingId(), 
-            displayName: displayName, 
+            displayName: ModEntry.Instance.GetTextTranslation("buff.jolting_swing.name"),
+            description: ModEntry.Instance.GetTextTranslation("buff.jolting_swing.description"),  
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
                 WeaponSpeedMultiplier = { 1.3f }
             }, 
-            iconTexture: iconTexture, 
-            iconSheetIndex: iconSheetIndex)
+            iconTexture: BuffHelper.GetIconTexture(), 
+            iconSheetIndex: BuffHelper.GetBuffIndexJoltingSwing())
         {
         }
     }

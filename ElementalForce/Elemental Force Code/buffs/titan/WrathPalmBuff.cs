@@ -9,20 +9,18 @@ namespace ElementalForce.Elemental_Force_Code.buffs.titan
     {
         private const int Level = 2;
 
-        public WrathPalmBuff(
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string displayName = null)
+        public WrathPalmBuff()
             : base(
                 id: BuffHelper.GetBuffWrathPalmId(), 
-                displayName: displayName, 
+                displayName: ModEntry.Instance.GetTextTranslation("buff.wrath_palm.name"),
+                description: ModEntry.Instance.GetTextTranslation("buff.wrath_palm.description"),  
                 duration: ENDLESS, 
                 effects: new BuffEffects()
                 {
                     AttackMultiplier = { 1.25f }
                 }, 
-                iconTexture: iconTexture, 
-                iconSheetIndex: iconSheetIndex)
+                iconTexture: BuffHelper.GetIconTexture(), 
+                iconSheetIndex: BuffHelper.GetBuffIndexWrathPalm())
         {
             
         }

@@ -8,22 +8,18 @@ namespace ElementalForce.Elemental_Force_Code.buffs.ifrit
     public class HeatSpeedBuff : Buff
     {
         public HeatSpeedBuff(
-            float currentSpeed = 0f,
-            Texture2D iconTexture = null,
-            int iconSheetIndex = -1,
-            string description = null,
-            string displayName = null
+            float currentSpeed = 0f
         ) : base(
             id: BuffHelper.GetBuffHeatSpeedId(), 
-            displayName: displayName,
-            description: description,
+            displayName: ModEntry.Instance.GetTextTranslation("buff.heat_speed.name"),
+            description: ModEntry.Instance.GetTextTranslation("buff.heat_speed.description"),
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
-                Speed = { currentSpeed * 1.25f }
+                Speed = { currentSpeed + 2.5f }
             }, 
-            iconTexture: iconTexture, 
-            iconSheetIndex: iconSheetIndex)
+            iconTexture: BuffHelper.GetIconTexture(), 
+            iconSheetIndex: BuffHelper.GetBuffIndexHeatSpeed())
         {
             
         }

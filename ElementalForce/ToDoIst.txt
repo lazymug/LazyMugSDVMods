@@ -15,7 +15,8 @@
     - Create quest for Penny asking for a gem (tigerseye) to give as gift for Sam and she founds the essence inside when the tigerseye fall and shatter 
 - Include new sounds and visual effects
 - Create new UI for attaching the elemental power
-- Kirin, Phoenix, and Ramuh buff icons missing
+- Kirin, Phoenix, and Ramuh buff icons missing (Done)
+- Pass displayName and description as parameter???
 
 
 ** Tests **
