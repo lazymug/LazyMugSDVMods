@@ -8,42 +8,77 @@ namespace AWarmWelcome
 {
     internal sealed class ModEntry : Mod
     {
+        private readonly string[] _villagersVanilla =
+        {
+            "Abigail", "Alex", "Elliot", "Emily", "Haley", "Harvey", "Leah", "Maru", "Penny", "Sam",
+            "Sebastian", "Shane", "Caroline", "Clint", "Demetrius", "Dwarf", "Evelyn", "George", 
+            "Gus", "Jas", "Jodi", "Kent", "Krobus", "Lewis", "Linus", "Marnie", "Pam", "Pierre",
+            "Robin", "Sandy", "Vincent", "Willy"
+        };
         
         public override void Entry(IModHelper helper)
         {
-            helper.Events.GameLoop.DayEnding += OnDayEnding;
+            helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
         }
         
-        private void OnDayEnding(object? sender, DayEndingEventArgs e)
+        private void OnSaveLoaded(object? sender, SaveLoadedEventArgs e)
         {
-            var sentPerDay = 0;
-            foreach (var friend in Game1.player.friendshipData)
+            foreach (var npc in _villagersVanilla)
             {
-                foreach (var name in friend.Keys)
-                {
-                    var friendship = friend[name];
-                    if (friendship.Points < 150 || sentPerDay > 2) continue;
-                    var mailId = GetMailId(name);
-                    MailRepository.SaveLetter(new Letter(
-                        $"{Game1.uniqueIDForThisGame}.{mailId}",
-                        GetMailContent(mailId),
-                        GetMailListOfItems(name),
-                        (l)=>!Game1.player.mailReceived.Contains(l.Id) && l.Id.Contains(Game1.uniqueIDForThisGame.ToString()),
-                        (l)=>Game1.player.mailReceived.Add(l.Id)
-                    ));
-                    sentPerDay++;
-                }
+                var stringKey = GetMailStringKey(npc);
+                var letterId = $"{Game1.uniqueIDForThisGame}.{ModManifest.UniqueID}.{stringKey}";
+                MailRepository.SaveLetter(new Letter(
+                    letterId,
+                    GetMailContent(stringKey),
+                    GetMailListOfItems(npc),
+                    l=>!Game1.player.mailReceived.Contains(l.Id) && l.Id.Contains(Game1.uniqueIDForThisGame.ToString()) && new Switch<String, bool>(npc)
+                        .Case("Abigail").Then(Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Alex").Then(Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Elliot").Then(Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Emily").Then(Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Haley").Then(Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Harvey").Then(Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Leah").Then(Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Maru").Then(Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Penny").Then(Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Sam").Then(Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Sebastian").Then(Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Shane").Then(Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Lewis").Then(Game1.dayOfMonth > 1)
+                        .Case("Robin").Then(Game1.dayOfMonth > 1)
+                        .Case("Pierre").Then(Game1.dayOfMonth > 3)
+                        .Case("Kent").Then(Game1.year > 1 && Game1.dayOfMonth > 6)
+                        .Case("Dwarf").Then(Game1.player.canUnderstandDwarves)
+                        .Case("Krobus").Then(Game1.player.hasRustyKey)
+                        .Case("Caroline").Then(Game1.dayOfMonth > 5)
+                        .Case("Demetrius").Then(Game1.dayOfMonth > 6)
+                        .Case("Marnie").Then(Game1.dayOfMonth > 7)
+                        .Case("Jodi").Then(Game1.dayOfMonth > 9)
+                        .Case("Willy").Then(Game1.player.FishingLevel >= 1)
+                        .Case("Clint").Then(Game1.player.eventsSeen.Contains("992553"))
+                        .Case("Evelyn").Then(Game1.dayOfMonth > 4)
+                        .Case("George").Then(Game1.dayOfMonth > 4)
+                        .Case("Gus").Then(Game1.dayOfMonth > 2)
+                        .Case("Jas").Then(Game1.dayOfMonth > 17)
+                        .Case("Linus").Then(Game1.player.friendshipData[npc]?.Points >= 200)
+                        .Case("Pam").Then(Game1.dayOfMonth > 13)
+                        .Case("Sandy").Then(Game1.season == Season.Summer && Game1.dayOfMonth > 2)
+                        .Case("Vincent").Then(Game1.dayOfMonth > 15)
+                        .Default(false),
+                    (l)=>Game1.player.mailReceived.Add(l.Id),
+                    whichBG: npc == "Sandy" ? 1 : 0
+                ));
             }
         }
 
         private string GetMailContent(string mailId)
         {
-            return string.Format(Helper.Translation.Get(mailId), Game1.player.Name);
+            return Helper.Translation.Get(mailId);
         }
 
-        private string GetMailId(string npcName)
+        private string GetMailStringKey(string npcName)
         {
-            return string.Format($"welcome.farmer.{npcName}");
+            return $"welcome.farmer.{npcName}";
         }
 
         private List<Item> GetMailListOfItems(string npcName)
