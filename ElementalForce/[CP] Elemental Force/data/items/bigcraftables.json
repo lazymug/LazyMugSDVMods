@@ -1,0 +1,24 @@
+{
+    "Changes": [
+        {
+            "Action": "EditData",
+            "Target": "Data/BigCraftables",
+            "Entries": {
+                "{{ModId}}_RunicCompressor": {
+                    "Name": "{{ModId}}_RunicCompressor",
+                    "DisplayName": "{{i18n:machine.runic_compressor.name}}",
+                    "Description": "{{i18n:machine.runic_compressor.description}}",
+                    "Texture": "LazyMug.ElementalForce/Craftables",
+                    "SpriteIndex": 0
+                },
+                "{{ModId}}_SoulExtractor": {
+                    "Name": "{{ModId}}_SoulExtractor",
+                    "DisplayName": "{{i18n:machine.soul_extractor.name}}",
+                    "Description": "{{i18n:machine.soul_extractor.description}}",
+                    "Texture": "LazyMug.ElementalForce/Craftables",
+                    "SpriteIndex": 2
+                }
+            }
+        }
+    ]
+}

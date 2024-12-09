@@ -1,0 +1,506 @@
+{
+    "Changes": [
+        {
+            "Action": "EditData",
+            "Target": "Data/Objects",
+            "Entries": {
+                "{{ModId}}_IfritEssence": {
+                    "Name": "{{ModId}}_IfritEssence",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 0,
+                    "DisplayName": "{{i18n: essence.ifrit.name}}",
+                    "Description": "{{i18n: essence.ifrit.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_red",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable"
+                    ]
+                },
+                "{{ModId}}_IfritShard": {
+                    "Name": "{{ModId}}_IfritShard",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 8,
+                    "DisplayName": "{{i18n: shard.ifrit.name}}",
+                    "Description": "{{i18n: shard.ifrit.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_red",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "shard" 
+                    ]
+                },
+                "{{ModId}}_IfritSoul": {
+                    "Name": "{{ModId}}_IfritSoul",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 16,
+                    "DisplayName": "{{i18n: soul.ifrit.name}}",
+                    "Description": "{{i18n: soul.ifrit.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_red",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "soul"
+                    ]
+                },
+                "{{ModId}}_ShivaEssence": {
+                    "Name": "{{ModId}}_ShivaEssence",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 1,
+                    "DisplayName": "{{i18n: essence.shiva.name}}",
+                    "Description": "{{i18n: essence.shiva.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_aquamarine",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable"
+                    ]
+                },
+                "{{ModId}}_ShivaShard": {
+                    "Name": "{{ModId}}_ShivaShard",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 9,
+                    "DisplayName": "{{i18n: shard.shiva.name}}",
+                    "Description": "{{i18n: shard.shiva.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_aquamarine",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "shard"
+                    ]
+                },
+                "{{ModId}}_ShivaSoul": {
+                    "Name": "{{ModId}}_ShivaSoul",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 17,
+                    "DisplayName": "{{i18n: soul.shiva.name}}",
+                    "Description": "{{i18n: soul.shiva.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_aquamarine",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "soul"
+                    ]
+                },
+                "{{ModId}}_TitanEssence": {
+                    "Name": "{{ModId}}_TitanEssence",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 2,
+                    "DisplayName": "{{i18n: essence.titan.name}}",
+                    "Description": "{{i18n: essence.titan.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_dark_gray",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable"
+                    ]
+                },
+                "{{ModId}}_TitanShard": {
+                    "Name": "{{ModId}}_TitanShard",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 10,
+                    "DisplayName": "{{i18n: shard.titan.name}}",
+                    "Description": "{{i18n: shard.titan.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_dark_gray",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "shard"
+                    ]
+                },
+                "{{ModId}}_TitanSoul": {
+                    "Name": "{{ModId}}_TitanSoul",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 18,
+                    "DisplayName": "{{i18n: soul.titan.name}}",
+                    "Description": "{{i18n: soul.titan.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_dark_gray",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "soul"
+                    ]
+                },
+                "{{ModId}}_LeviathanEssence": {
+                    "Name": "{{ModId}}_LeviathanEssence",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 3,
+                    "DisplayName": "{{i18n: essence.leviathan.name}}",
+                    "Description": "{{i18n: essence.leviathan.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_dark_blue",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable"
+                    ]
+                },
+                "{{ModId}}_LeviathanShard": {
+                    "Name": "{{ModId}}_LeviathanShard",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 11,
+                    "DisplayName": "{{i18n: shard.leviathan.name}}",
+                    "Description": "{{i18n: shard.leviathan.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_dark_blue",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "shard"
+                    ]
+                },
+                "{{ModId}}_LeviathanSoul": {
+                    "Name": "{{ModId}}_LeviathanSoul",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 19,
+                    "DisplayName": "{{i18n: soul.leviathan.name}}",
+                    "Description": "{{i18n: soul.leviathan.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_dark_blue",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "soul"
+                    ]
+                },
+                "{{ModId}}_CarbuncleEssence": {
+                    "Name": "{{ModId}}_CarbuncleEssence",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 4,
+                    "DisplayName": "{{i18n: essence.carbuncle.name}}",
+                    "Description": "{{i18n: essence.carbuncle.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_light_cyan",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable"
+                    ]
+                },
+                "{{ModId}}_CarbuncleShard": {
+                    "Name": "{{ModId}}_CarbuncleShard",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 12,
+                    "DisplayName": "{{i18n: shard.carbuncle.name}}",
+                    "Description": "{{i18n: shard.carbuncle.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_light_cyan",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "shard"
+                    ]
+                },
+                "{{ModId}}_CarbuncleSoul": {
+                    "Name": "{{ModId}}_CarbuncleSoul",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 20,
+                    "DisplayName": "{{i18n: soul.carbuncle.name}}",
+                    "Description": "{{i18n: soul.carbuncle.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_light_cyan",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "soul"
+                    ]
+                },
+                "{{ModId}}_KirinEssence": {
+                    "Name": "{{ModId}}_KirinEssence",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 5,
+                    "DisplayName": "{{i18n: essence.kirin.name}}",
+                    "Description": "{{i18n: essence.kirin.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_prismatic",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable"
+                    ]
+                },
+                "{{ModId}}_KirinShard": {
+                    "Name": "{{ModId}}_KirinShard",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 13,
+                    "DisplayName": "{{i18n: shard.kirin.name}}",
+                    "Description": "{{i18n: shard.kirin.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_prismatic",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "shard"
+                    ]
+                },
+                "{{ModId}}_KirinSoul": {
+                    "Name": "{{ModId}}_KirinSoul",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 21,
+                    "DisplayName": "{{i18n: soul.kirin.name}}",
+                    "Description": "{{i18n: soul.kirin.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_prismatic",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "soul"
+                    ]
+                },
+                "{{ModId}}_RamuhEssence": {
+                    "Name": "{{ModId}}_RamuhEssence",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 6,
+                    "DisplayName": "{{i18n: essence.ramuh.name}}",
+                    "Description": "{{i18n: essence.ramuh.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_sand",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable"
+                    ]
+                },
+                "{{ModId}}_RamuhShard": {
+                    "Name": "{{ModId}}_RamuhShard",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 14,
+                    "DisplayName": "{{i18n: shard.ramuh.name}}",
+                    "Description": "{{i18n: shard.ramuh.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_sand",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "shard"
+                    ]
+                },
+                "{{ModId}}_RamuhSoul": {
+                    "Name": "{{ModId}}_RamuhSoul",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 22,
+                    "DisplayName": "{{i18n: soul.ramuh.name}}",
+                    "Description": "{{i18n: soul.ramuh.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_sand",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "soul"
+                    ]
+                },
+                "{{ModId}}_PhoenixEssence": {
+                    "Name": "{{ModId}}_PhoenixEssence",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 7,
+                    "DisplayName": "{{i18n: essence.phoenix.name}}",
+                    "Description": "{{i18n: essence.phoenix.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_red",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable"
+                    ]
+                },
+                "{{ModId}}_PhoenixShard": {
+                    "Name": "{{ModId}}_PhoenixShard",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 15,
+                    "DisplayName": "{{i18n: shard.phoenix.name}}",
+                    "Description": "{{i18n: shard.phoenix.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_red",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "shard"
+                    ]
+                },
+                "{{ModId}}_PhoenixSoul": {
+                    "Name": "{{ModId}}_PhoenixSoul",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 23,
+                    "DisplayName": "{{i18n: soul.phoenix.name}}",
+                    "Description": "{{i18n: soul.phoenix.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_red",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "soul"
+                    ]
+                }
+            }
+        }
+    ]
+}

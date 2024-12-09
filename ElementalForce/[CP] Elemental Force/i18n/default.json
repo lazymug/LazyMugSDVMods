@@ -1,0 +1,82 @@
+{
+    "essence.ifrit.name": "Infernal Essence of Ifrit",
+    "essence.ifrit.description": "A blazing essence that fuels your strikes with fiery might.",
+
+    "essence.shiva.name": "Glacial Essence of Shiva",
+    "essence.shiva.description": "An icy essence that enhances your precision and critical power.",
+
+    "essence.titan.name": "Unyielding Essence of Titan",
+    "essence.titan.description": "A sturdy essence that fortifies your defenses against any assault.",
+
+    "essence.leviathan.name": "Flowing Essence of Leviathan",
+    "essence.leviathan.description": "A swift essence that lets you move with the grace of water.",
+
+    "essence.carbuncle.name": "Shimmering Essence of Carbuncle",
+    "essence.carbuncle.description": "A radiant essence that shields you from ailments and harm.",
+
+    "essence.kirin.name": "Ethereal Essence of Kirin",
+    "essence.kirin.description": "A mystical essence that enhances your fortune and agility.",
+
+    "essence.ramuh.name": "Charged Essence of Ramuh",
+    "essence.ramuh.description": "A crackling essence that sharpens your reactions and attacks.",
+
+    "essence.phoenix.name": "Blazing Essence of Phoenix",
+    "essence.phoenix.description": "A fiery essence that amplifies both power and precision.",
+    
+    "machine.runic_compressor.name": "Runic Compressor",
+    "machine.runic_compressor.description": "Compress your essence into a shard.",
+    
+    "machine.soul_extractor.name": "Soul Extractor",
+    "machine.soul_extractor.description": "Extract the soul of the elemental from the shards.",
+
+    "shard.ifrit.name": "Ifrit's Ember Shard",
+    "shard.ifrit.description": "A fragment of Ifrit's fiery power, radiating intense heat.",
+
+    "shard.shiva.name": "Shiva's Frost Shard",
+    "shard.shiva.description": "A fragment of Shiva's icy power, emanating a chilling aura.",
+
+    "shard.titan.name": "Titan's Granite Shard",
+    "shard.titan.description": "A fragment of Titan's earthen power, imbued with unyielding strength.",
+
+    "shard.leviathan.name": "Leviathan's Aqua Shard",
+    "shard.leviathan.description": "A fragment of Leviathan's aquatic power, flowing with graceful energy.",
+
+    "shard.carbuncle.name": "Carbuncle's Lumina Shard",
+    "shard.carbuncle.description": "A fragment of Carbuncle's radiant power, shimmering with protective light.",
+
+    "shard.kirin.name": "Kirin's Zephyr Shard",
+    "shard.kirin.description": "A fragment of Kirin's ethereal power, imbued with mystical agility.",
+
+    "shard.ramuh.name": "Ramuh's Thunder Shard",
+    "shard.ramuh.description": "A fragment of Ramuh's electric power, crackling with charged energy.",
+
+    "shard.phoenix.name": "Phoenix's Rebirth Shard",
+    "shard.phoenix.description": "A fragment of Phoenix's fiery power, pulsating with life and renewal.",
+
+    "soul.ifrit.name": "Ifrit's Inferno Soul",
+    "soul.ifrit.description": "The concentrated essence of Ifrit's fiery power, capable of unleashing devastating flames.",
+
+    "soul.shiva.name": "Shiva's Blizzard Soul",
+    "soul.shiva.description": "The concentrated essence of Shiva's icy power, capable of summoning blizzards and freezing foes.",
+
+    "soul.titan.name": "Titan's Mountain Soul",
+    "soul.titan.description": "The concentrated essence of Titan's earthen power, granting unparalleled resilience and strength.",
+
+    "soul.leviathan.name": "Leviathan's Maelstrom Soul",
+    "soul.leviathan.description": "The concentrated essence of Leviathan's aquatic power, capable of manipulating water and currents.",
+
+    "soul.carbuncle.name": "Carbuncle's Radiance Soul",
+    "soul.carbuncle.description": "The concentrated essence of Carbuncle's radiant power, providing ultimate protection and healing.",
+
+    "soul.kirin.name": "Kirin's Gale Soul",
+    "soul.kirin.description": "The concentrated essence of Kirin's ethereal power, granting incredible speed and agility.",
+
+    "soul.ramuh.name": "Ramuh's Tempest Soul",
+    "soul.ramuh.description": "The concentrated essence of Ramuh's electric power, capable of summoning lightning and storms.",
+
+    "soul.phoenix.name": "Phoenix's Nirvana Soul",
+    "soul.phoenix.description": "The concentrated essence of Phoenix's fiery power, granting immortality and immense power.",
+
+    "tool.amphora.name": "Elemental Amphora",
+    "tool.amphora.description": "A mystical vessel capable of storing and channeling elemental essences."
+}

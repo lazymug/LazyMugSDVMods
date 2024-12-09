@@ -1,0 +1,35 @@
+{
+    "Format": "2.0.0",
+    "Changes": [
+        // add item + machine images
+        {
+            "Action": "Load",
+            "Target": "LazyMug.ElementalForce/Objects, LazyMug.ElementalForce/Craftables",
+            "FromFile": "assets/{{TargetWithoutPath}}.png"
+        },
+        {
+            "Action": "Include",
+            "FromFile": "data/items/bigcraftables.json"
+        },
+        {
+            "Action": "Include",
+            "FromFile": "data/items/craftingrecipes.json"
+        },
+        {
+            "Action": "Include",
+            "FromFile": "data/items/machines.json"
+        },
+        {
+            "Action": "Include",
+            "FromFile": "data/items/objects.json"
+        },
+        {
+            "Action": "Include",
+            "FromFile": "data/items/tools.json"
+        },
+        {
+            "Action": "Include",
+            "FromFile": "data/NPCs/wizard.json"
+        }
+    ]
+}

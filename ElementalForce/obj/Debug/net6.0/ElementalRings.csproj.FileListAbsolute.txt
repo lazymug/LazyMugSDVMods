@@ -1,0 +1,10 @@
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalRings/bin/Debug/net6.0/ElementalRings.deps.json
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalRings/bin/Debug/net6.0/ElementalRings.dll
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalRings/obj/Debug/net6.0/ElementalRings.csproj.AssemblyReference.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalRings/obj/Debug/net6.0/ElementalRings.GeneratedMSBuildEditorConfig.editorconfig
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalRings/obj/Debug/net6.0/ElementalRings.AssemblyInfoInputs.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalRings/obj/Debug/net6.0/ElementalRings.AssemblyInfo.cs
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalRings/obj/Debug/net6.0/ElementalRings.csproj.CoreCompileInputs.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalRings/obj/Debug/net6.0/ElementalRings.dll
+/Users/andre.ikeda/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods/ElementalRings/Elemental Rings Code/net6.0/ElementalRings.deps.json
+/Users/andre.ikeda/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods/ElementalRings/Elemental Rings Code/net6.0/ElementalRings.dll

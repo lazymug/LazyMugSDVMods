@@ -1,0 +1,22 @@
+{
+    "Changes": [
+        {
+            "Action": "EditData",
+            "Target": "Data/ObjectInformation",
+            "Entries": {
+                "IfritRing": "Ifrit Ring/80/Boots/A ring imbued with the fiery essence of Ifrit./+10% Weapon Speed, +5% Weapon Damage, +20% speed in Calico Desert/true/null/Crafting -9/74 75 76 28 82 80 80 80/Blacksmith/999",
+                "ShivaRing": "Shiva Ring/80/Boots/A ring infused with the icy power of Shiva./10% chance to freeze enemies on hit, +20% speed in Winter/true/null/Crafting -9/74 77 78 84 82 80 80 80/Blacksmith/999",
+                "CarbuncleRing": "Carbuncle Ring/80/Boots/A ring radiating with the protective aura of Carbuncle./+5 Defense, +10% Immunity/true/null/Crafting -9/74 79 81 83 82 80 80 80/Blacksmith/999",
+                "KirinRing": "Kirin Ring/80/Boots/A ring blessed with the gentle power of Kirin./Prevents negative status effects (except faint), gradually recovers Health and Energy/true/null/Crafting -9/74 86 85 88 82 80 80 80/Blacksmith/999"
+            }
+        },
+        {
+            "Action": "Load",
+            "Target": "Maps/springobjects",
+            "FromFile": "assets/objects.png",
+            "When": {
+                "HasMod": "Pathoschild.ContentPatcher"
+            }
+        }
+    ]
+}
