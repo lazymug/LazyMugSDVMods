@@ -5,5 +5,17 @@
   "inf.menu.loanStatus": "Loan Status",
   "inf.menu.paymentsMade": "Payments Made: {0}",
   "inf.menu.remainingBalance": "Remaining Balance: {0} gold",
-  "inf.menu.nextDueDate": "Next Due Date: {0}"
+  "inf.menu.nextDueDate": "Next Due Date: {0}",
+  
+  "inf.feedback.noFundsInWallet": "Insufficient funds in your wallet.",
+  "inf.feedback.noFundsInBankAccount": "Insufficient funds in your bank account.",
+  "inf.feedback.invalidAmount": "Invalid amount.",
+  "inf.feedback.successToDeposit": "Successfully deposited {0} gold.",
+  "inf.feedback.successToWithdraw": "Successfully withdrew {amount} gold.",
+  "inf.feedback.successToTakeLoan": "Successfully took a loan of {0} gold.",
+  "inf.feedback.successToPayLoan": "Successfully paid {0} gold.",
+  "inf.history.transactionDeposit": "Deposit: {0} gold. New Balance: {0}.",
+  "inf.history.transactionWithdraw": "Withdrawal: {0} gold. New Balance: {0}",
+  "inf.history.transactionTakeLoan": "Loan Taken: {0} gold. Loan Balance: {0}",
+  "inf.history.transactionPayLoan": "Loan Payment: {0} gold. Remaining Loan: {0}"
 }

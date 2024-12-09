@@ -17,3 +17,15 @@
 /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/owner/I Need Funds/obj/Debug/net6.0/INeedFunds.csproj.CopyComplete
 /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/owner/I Need Funds/obj/Debug/net6.0/INeedFunds.dll
 /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/owner/I Need Funds/bin/Debug/net6.0/GenericModConfigMenu.dll
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/I Need Funds/bin/Debug/net6.0/INeedFunds.deps.json
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/I Need Funds/bin/Debug/net6.0/INeedFunds.dll
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/StardewValley/Mods/MyMod/I Need Funds Code/net6.0/INeedFunds.deps.json
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/StardewValley/Mods/MyMod/I Need Funds Code/net6.0/INeedFunds.dll
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/StardewValley/Mods/INeedFunds/I Need Funds Code/net6.0/INeedFunds.deps.json
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/StardewValley/Mods/INeedFunds/I Need Funds Code/net6.0/INeedFunds.dll
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.csproj.AssemblyReference.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.GeneratedMSBuildEditorConfig.editorconfig
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.AssemblyInfoInputs.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.AssemblyInfo.cs
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.csproj.CoreCompileInputs.cache
+/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.dll
