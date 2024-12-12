@@ -21,3 +21,7 @@
 
 ** Tests **
 - Sandy: We must guarantee that player only receives Sandy's letter after destroying the bodyguard 
+
+## Fixes ##
+- Command emote on Maru event
+- Command shake farmer on Wizard event

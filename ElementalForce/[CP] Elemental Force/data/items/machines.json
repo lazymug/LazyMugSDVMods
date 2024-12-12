@@ -4,6 +4,148 @@
             "Action": "EditData",
             "Target": "Data/Machines",
             "Entries": {
+                "(BC){{ModId}}_EssenceInfuser": {
+                    "OutputRules": [
+                        {
+                            "Id": "{{ModId}}_IfritEssence",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "562",
+                                    "RequiredCount": 1
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_IfritEssence",
+                                    "IncrementMachineParentSheetIndex": 1
+                                }
+                            ],
+                            "DaysUntilReady": 1
+                        },
+                        {
+                            "Id": "{{ModId}}_ShivaEssence",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "576",
+                                    "RequiredCount": 1
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_ShivaEssence",
+                                    "IncrementMachineParentSheetIndex": 1
+                                }
+                            ],
+                            "DaysUntilReady": 1
+                        },
+                        {
+                            "Id": "{{ModId}}_TitanEssence",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "539",
+                                    "RequiredCount": 1
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_TitanEssence",
+                                    "IncrementMachineParentSheetIndex": 1
+                                }
+                            ],
+                            "DaysUntilReady": 1
+                        },
+                        {
+                            "Id": "{{ModId}}_LeviathanEssence",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "560",
+                                    "RequiredCount": 1
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_LeviathanEssence",
+                                    "IncrementMachineParentSheetIndex": 1
+                                }
+                            ],
+                            "DaysUntilReady": 1
+                        },
+                        {
+                            "Id": "{{ModId}}_CarbuncleEssence",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "548",
+                                    "RequiredCount": 1
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_CarbuncleEssence",
+                                    "IncrementMachineParentSheetIndex": 1
+                                }
+                            ],
+                            "DaysUntilReady": 1
+                        },
+                        {
+                            "Id": "{{ModId}}_KirinEssence",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "74",
+                                    "RequiredCount": 1
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_KirinEssence",
+                                    "IncrementMachineParentSheetIndex": 1
+                                }
+                            ],
+                            "DaysUntilReady": 1
+                        },
+                        {
+                            "Id": "{{ModId}}_RamuhEssence",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "558",
+                                    "RequiredCount": 1
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_RamuhEssence",
+                                    "IncrementMachineParentSheetIndex": 1
+                                }
+                            ],
+                            "DaysUntilReady": 1
+                        },
+                        {
+                            "Id": "{{ModId}}_PhoenixEssence",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "578",
+                                    "RequiredCount": 1
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_PhoenixEssence",
+                                    "IncrementMachineParentSheetIndex": 1
+                                }
+                            ],
+                            "DaysUntilReady": 1
+                        }
+                    ],
+                    "AdditionalConsumedItems":[
+                        {
+                            "ItemId": "(O)330",
+                            "RequiredCount": 1
+                        },
+                        {
+                            "ItemId": "(O)Moss",
+                            "RequiredCount": 5
+                        }
+                    ]
+                },
                 "(BC){{ModId}}_RunicCompressor": {
                     "AllowFairyDust": false,
                     "OutputRules": [

@@ -4,6 +4,7 @@
             "Action": "EditData",
             "Target": "Data/CraftingRecipes",
             "Entries": {
+                "{{ModId}}_EssenceInfuser": "337 1 336 5 382 20 787 1 72 5/Home/{{ModId}}_EssenceInfuser/true/none",
                 "{{ModId}}_RunicCompressor": "72 5 74 1 336 10/Home/{{ModId}}_RunicCompressor/true/none",
                 "{{ModId}}_SoulExtractor": "74 5 337 5 338 15/Home/{{ModId}}_SoulExtractor/true/none"
             }

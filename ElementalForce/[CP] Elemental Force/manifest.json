@@ -1,7 +1,7 @@
 {
     "Name": "[CP] Elemental Force",
     "Author": "Lazy Mug",
-    "Version": "0.0.1",
+    "Version": "1.0.0",
     "Description": "Used on Elemental Force mod.",
     "UniqueID": "LazyMug.ElementalForce.CP",
     "MinimumApiVersion": "4.0.0",

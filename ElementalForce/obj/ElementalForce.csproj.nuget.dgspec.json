@@ -20,7 +20,6 @@
           "net6.0"
         ],
         "sources": {
-          "/Users/andre.ikeda/.dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/andre.ikeda/.dotnet/sdk/6.0.418/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/andre.ikeda/.dotnet/sdk/6.0.428/RuntimeIdentifierGraph.json"
         }
       }
     }
