@@ -23,6 +23,9 @@
     "essence.phoenix.name": "Blazing Essence of Phoenix",
     "essence.phoenix.description": "A fiery essence that amplifies both power and precision.",
     
+    "machine.essence_infuser.name": "Essence Infuser",
+    "machine.essence_infuser.description": "Infuse minerals with elemental magic to create elemental essences.",
+    
     "machine.runic_compressor.name": "Runic Compressor",
     "machine.runic_compressor.description": "Compress your essence into a shard.",
     

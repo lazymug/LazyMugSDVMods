@@ -17,6 +17,13 @@
                     "Description": "{{i18n:machine.soul_extractor.description}}",
                     "Texture": "LazyMug.ElementalForce/Craftables",
                     "SpriteIndex": 2
+                },
+                "{{ModId}}_EssenceInfuser": {
+                    "Name": "{{ModId}}_EssenceInfuser",
+                    "DisplayName": "{{i18n:machine.essence_infuser.name}}",
+                    "Description": "{{i18n:machine.essence_infuser.description}}",
+                    "Texture": "LazyMug.ElementalForce/Craftables",
+                    "SpriteIndex": 3
                 }
             }
         }

@@ -30,6 +30,10 @@
         {
             "Action": "Include",
             "FromFile": "data/NPCs/wizard.json"
+        },
+        {
+            "Action": "Include",
+            "FromFile": "data/NPCs/maru.json"
         }
     ]
 }

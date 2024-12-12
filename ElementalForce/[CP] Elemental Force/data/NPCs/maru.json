@@ -1,0 +1,11 @@
+{
+    "Changes": [
+        {
+            "Action": "EditData",
+            "Target": "Data/Events/Farm",
+            "Entries": {
+                "{{ModId}}.maru_essence_machine/n LazyMug.ElementalForce_GaiaWelcomeId/t 600 1200": "continue/64 15/farmer 64 16 2 Maru 64 18 0/pause 1500/speak Maru \"Hey @! I had the strangest dream last night...$h#$b#It was so vivid, like I was actually there. I saw this... being... a radiant figure, almost like a personification of Mother Earth.#$b#She spoke to me, but her words were like whispers on the wind, hard to decipher. But I felt this overwhelming sense of purpose, like I was meant to create something.\"/emote Maru 16 continue/pause 500/speak Maru \"When I woke up, I couldn't shake the feeling. I had this urge to build, to invent. I spent the whole day in my workshop, tinkering and experimenting.$h#$b#And you know what? I actually built something! It's a machine, unlike anything I've ever created before. I don't fully understand its purpose yet, but I know it's important.$h#$b#I have a feeling you might be the key to unlocking its potential, @. That's why I wrote down the recipe for you. Here, take it.\"/addCraftingRecipe {{ModId}}_EssenceInfuser/end dialogue Maru \"I can't wait to see what you do with it! Just... be careful, okay? It's a powerful machine, and I'm not sure what it's capable of.\""
+            }
+        }
+    ]
+}
