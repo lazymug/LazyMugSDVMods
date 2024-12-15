@@ -18,7 +18,7 @@ namespace ElementalForce.Elemental_Force_Code.buffs.leviathan
                 duration: ENDLESS, 
                 effects: new BuffEffects()
                 {
-                    Defense = { currentDefense + 7 }
+                    Defense = { 7.0f }
                 }, 
                 iconTexture: BuffHelper.GetIconTexture(), 
                 iconSheetIndex: BuffHelper.GetBuffIndexDragonScale())

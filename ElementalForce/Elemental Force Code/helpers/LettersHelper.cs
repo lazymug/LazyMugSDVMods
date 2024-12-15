@@ -24,6 +24,7 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         public static bool GetDwarfGiftCondition()
         {
             return IsValid(DwarfGiftId)
+                   && !Game1.player.mailReceived.Contains(DwarfGiftId)
                    && Game1.player.Items.ContainsId(ItemHelper.GetToolAmphoraId())
                    && Game1.player.canUnderstandDwarves;
         }

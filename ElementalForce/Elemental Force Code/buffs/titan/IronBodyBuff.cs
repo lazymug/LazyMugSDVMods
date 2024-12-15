@@ -18,7 +18,7 @@ namespace ElementalForce.Elemental_Force_Code.buffs.titan
                 duration: ENDLESS, 
                 effects: new BuffEffects()
                 {
-                    Defense = { currentDefense + 2 }
+                    Defense = { 4.0f }
                 }, 
                 iconTexture: BuffHelper.GetIconTexture(), 
                 iconSheetIndex: BuffHelper.GetBuffIndexIronBody())

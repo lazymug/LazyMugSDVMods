@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputType>Library</OutputType>
-        <ModFolder>/Users/andre.ikeda/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods/ElementalForce</ModFolder>
+        <ModFolder>/Users/lazymug/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods/ElementalForce</ModFolder>
         <DllSubFolder>Elemental Force Code</DllSubFolder>
     </PropertyGroup>
 
@@ -23,7 +23,7 @@
 
     <ItemGroup>
       <Reference Include="MailFrameworkMod">
-        <HintPath>..\..\DLL Tools\MailFrameworkMod.dll</HintPath>
+        <HintPath>..\..\DLLs\MailFrameworkMod.dll</HintPath>
       </Reference>
     </ItemGroup>
 
@@ -33,9 +33,9 @@
         <MakeDir Directories="$(ModFolder)/$(DllSubFolder)" Condition="!Exists('$(ModFolder)/$(DllSubFolder)')" />
         <Copy SourceFiles="$(TargetDir)/ElementalForce.dll" DestinationFolder="$(ModFolder)/$(DllSubFolder)" />
         <Copy SourceFiles="$(ProjectDir)/manifest.json" DestinationFolder="$(ModFolder)/$(DllSubFolder)" />
-        <Exec Command="cp -R /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/[CP]\ Elemental\ Force /Users/andre.ikeda/Library/Application\ Support/Steam/steamapps/common/Stardew\ Valley/Contents/MacOS/Mods/ElementalForce/[CP]\ Elemental\ Force"/>
-        <Exec Command="cp -R /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/Elemental\ Force\ Code/i18n /Users/andre.ikeda/Library/Application\ Support/Steam/steamapps/common/Stardew\ Valley/Contents/MacOS/Mods/ElementalForce/Elemental\ Force\ Code/i18n"/>
-        <Exec Command="cp -R /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/ElementalForce/Elemental\ Force\ Code/assets /Users/andre.ikeda/Library/Application\ Support/Steam/steamapps/common/Stardew\ Valley/Contents/MacOS/Mods/ElementalForce/Elemental\ Force\ Code/assets"/>
+        <Exec Command="cp -R /Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/[CP]\ Elemental\ Force /Users/lazymug/Library/Application\ Support/Steam/steamapps/common/Stardew\ Valley/Contents/MacOS/Mods/ElementalForce/[CP]\ Elemental\ Force"/>
+        <Exec Command="cp -R /Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/Elemental\ Force\ Code/i18n /Users/lazymug/Library/Application\ Support/Steam/steamapps/common/Stardew\ Valley/Contents/MacOS/Mods/ElementalForce/Elemental\ Force\ Code/i18n"/>
+        <Exec Command="cp -R /Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/Elemental\ Force\ Code/assets /Users/lazymug/Library/Application\ Support/Steam/steamapps/common/Stardew\ Valley/Contents/MacOS/Mods/ElementalForce/Elemental\ Force\ Code/assets"/>
     </Target>
 
 </Project>

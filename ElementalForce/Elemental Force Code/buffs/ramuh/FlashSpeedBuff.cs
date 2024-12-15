@@ -18,7 +18,7 @@ namespace ElementalForce.Elemental_Force_Code.buffs.ramuh
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
-                Speed = { currentSpeed * 1.15f }
+                Speed = { 1.15f }
             }, 
             iconTexture: BuffHelper.GetIconTexture(), 
             iconSheetIndex: BuffHelper.GetBuffIndexFlashSpeed())

@@ -18,7 +18,7 @@ namespace ElementalForce.Elemental_Force_Code.buffs.kirin
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
-                Immunity = { currentImmunity + 4 }
+                Immunity = { 4.0f }
             }, 
             iconTexture: BuffHelper.GetIconTexture(), 
             iconSheetIndex: BuffHelper.GetBuffIndexImmunityBand())

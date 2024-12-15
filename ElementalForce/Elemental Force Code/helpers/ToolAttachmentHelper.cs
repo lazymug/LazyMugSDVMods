@@ -23,6 +23,11 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         {
             return IsModEssenceEquipped(ElementalEssenceEnum.Leviathan);
         }
+
+        public static bool IsLeviathanShardEquipped()
+        {
+            return true;
+        }
         
         public static bool IsCarbuncleEssenceEquipped()
         {

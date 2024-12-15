@@ -18,7 +18,7 @@ namespace ElementalForce.Elemental_Force_Code.buffs.kirin
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
-                LuckLevel = { currentLuck + 2 }
+                LuckLevel = { 2.0f }
             }, 
             iconTexture: BuffHelper.GetIconTexture(), 
             iconSheetIndex: BuffHelper.GetBuffIndexLuckDay())

@@ -16,7 +16,7 @@ namespace ElementalForce.Elemental_Force_Code.buffs.ifrit
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
-                Speed = { currentSpeed + 2.5f }
+                Speed = { 2.5f }
             }, 
             iconTexture: BuffHelper.GetIconTexture(), 
             iconSheetIndex: BuffHelper.GetBuffIndexHeatSpeed())

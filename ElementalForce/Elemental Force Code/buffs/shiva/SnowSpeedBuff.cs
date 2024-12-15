@@ -18,7 +18,7 @@ namespace ElementalForce.Elemental_Force_Code.buffs.shiva
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
-                Speed = { playerCurrentSpeed + 3.0f }
+                Speed = { 3.0f }
             }, 
             iconTexture: BuffHelper.GetIconTexture(), 
             iconSheetIndex: BuffHelper.GetBuffIndexSnowSpeed())

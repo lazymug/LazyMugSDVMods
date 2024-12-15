@@ -18,7 +18,7 @@ namespace ElementalForce.Elemental_Force_Code.buffs.titan
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
-                MaxStamina = { currentStamina * 1.35f }
+                MaxStamina = { 1.35f }
             }, 
             iconTexture: BuffHelper.GetIconTexture(), 
             iconSheetIndex: BuffHelper.GetBuffIndexEndlessStamina())

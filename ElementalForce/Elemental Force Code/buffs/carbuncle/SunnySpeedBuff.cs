@@ -19,7 +19,7 @@ namespace ElementalForce.Elemental_Force_Code.buffs.carbuncle
             effects: new BuffEffects()
             {
                 // Improve speed on sunny days
-                Speed = { currentSpeed + 4.0f }
+                Speed = { 3.0f }
             }, 
             iconTexture: BuffHelper.GetIconTexture(), 
             iconSheetIndex: BuffHelper.GetBuffIndexSunnySpeed())
