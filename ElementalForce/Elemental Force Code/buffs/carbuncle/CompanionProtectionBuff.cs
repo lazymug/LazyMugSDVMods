@@ -1,3 +1,4 @@
+using ElementalForce.Elemental_Force_Code.buffEffects;
 using ElementalForce.Elemental_Force_Code.helpers;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
@@ -15,8 +16,9 @@ namespace ElementalForce.Elemental_Force_Code.buffs.carbuncle
             displayName: ModEntry.Instance.GetTextTranslation("buff.companion_protection.name"),
             description: ModEntry.Instance.GetTextTranslation("buff.companion_protection.description"),  
             duration: ENDLESS, 
-            effects: new BuffEffects()
+            effects: new ProtectionBuffEffects()
             {
+                ProtectionChance = { 1.0f }
             }, 
             iconTexture: BuffHelper.GetIconTexture(), 
             iconSheetIndex: BuffHelper.GetBuffIndexCompanionProtection())

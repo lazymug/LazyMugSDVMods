@@ -6,6 +6,20 @@
             "Entries": {
                 "{{ModId}}.maru_essence_machine/n LazyMug.ElementalForce_GaiaWelcomeId/t 600 1200": "continue/64 15/farmer 64 16 2 Maru 64 18 0/pause 1500/speak Maru \"Hey @! I had the strangest dream last night...$h#$b#It was so vivid, like I was actually there. I saw this... being... a radiant figure, almost like a personification of Mother Earth.#$b#She spoke to me, but her words were like whispers on the wind, hard to decipher. But I felt this overwhelming sense of purpose, like I was meant to create something.\"/emote Maru 16 continue/pause 500/speak Maru \"When I woke up, I couldn't shake the feeling. I had this urge to build, to invent. I spent the whole day in my workshop, tinkering and experimenting.$h#$b#And you know what? I actually built something! It's a machine, unlike anything I've ever created before. I don't fully understand its purpose yet, but I know it's important.$h#$b#I have a feeling you might be the key to unlocking its potential, @. That's why I wrote down the recipe for you. Here, take it.\"/addCraftingRecipe {{ModId}}_EssenceInfuser/end dialogue Maru \"I can't wait to see what you do with it! Just... be careful, okay? It's a powerful machine, and I'm not sure what it's capable of.\""
             }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Events/Farm",
+            "Entries": {
+                "{{ModId}}.maru_shard_machine/n LazyMug.ElementalForce_GaiaAmphoraShardId/t 600 1200": "continue/64 15/farmer 64 16 2 Maru 64 18 0/pause 1500/speak Maru \"Hey @! I’ve been meaning to talk to you!$h#$b#Ever since I learned about these Elemental Essences, I’ve been completely fascinated. They're not just raw energy—there’s a structure to them, a pattern.$h#$b#I wanted to understand them better, so I started running some tests. And, well... one thing led to another, and I ended up building *this*!\"/emote Maru 16 continue/pause 500/speak Maru \"It’s called the **Runic Compressor**. It takes these Elemental Essences and condenses them into **Shard Items**—solid fragments of elemental power.$h#$b#I’m still figuring out all the details, but the process is stable, and I think it could be really useful to you.\"/pause 500/speak Maru \"So, I wrote down the blueprint for you. Here, take it! You’re probably the best person to really put it to good use.\"/addCraftingRecipe {{ModId}}_RunicCompressor/end dialogue Maru \"Let me know how it works out! I have a feeling we’re just scratching the surface of what these essences can do.\""
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Data/Events/Farm",
+            "Entries": {
+                "{{ModId}}.maru_soul_machine/n LazyMug.ElementalForce_GaiaAmphoraSoulId/t 600 1200": "continue/64 15/farmer 64 16 2 Maru 64 18 0/pause 1500/speak Maru \"Hey @! Remember when I was studying the Elemental Essences?$h#$b#Well, after seeing what the **Runic Compressor** could do, I started wondering—what if there’s more inside these shards? What if they still hold traces of the elemental beings they came from?\"/emote Maru 16 continue/pause 500/speak Maru \"I spent weeks analyzing their energy signatures, and the results were *incredible*! The shards aren’t just crystallized power—they contain echoes of something deeper.$h#$b#So I designed a machine to extract whatever remains within them. I call it the **Soul Extractor**.$h#$b#It carefully draws out the essence hidden within the shards, refining it into something even more potent: **Elemental Souls**.\"/pause 500/speak Maru \"This could be a breakthrough in understanding elemental energy! But more than that, I think it might be *important*—and I trust you to handle it.$h#$b#So, here’s the blueprint. It’s yours now.\"/addCraftingRecipe {{ModId}}_SoulExtractor/end dialogue Maru \"Be careful with this one, @. There’s something about these Elemental Souls… it almost feels like they remember.\""
+            }
         }
     ]
 }

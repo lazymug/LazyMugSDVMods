@@ -147,7 +147,6 @@
                     ]
                 },
                 "(BC){{ModId}}_RunicCompressor": {
-                    "AllowFairyDust": false,
                     "OutputRules": [
                         // Shard
                         {
@@ -155,7 +154,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_IfritEssence",
-                                    "RequiredCount": 100
+                                    "RequiredCount": 5
                                 }
                             ],
                             "OutputItem": [
@@ -171,7 +170,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_ShivaEssence",
-                                    "RequiredCount": 100
+                                    "RequiredCount": 5
                                 }
                             ],
                             "OutputItem": [
@@ -187,7 +186,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_CarbuncleEssence",
-                                    "RequiredCount": 100
+                                    "RequiredCount": 5
                                 }
                             ],
                             "OutputItem": [
@@ -203,7 +202,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_KirinEssence",
-                                    "RequiredCount": 100
+                                    "RequiredCount": 5
                                 }
                             ],
                             "OutputItem": [
@@ -219,7 +218,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_LeviathanEssence",
-                                    "RequiredCount": 100
+                                    "RequiredCount": 5
                                 }
                             ],
                             "OutputItem": [
@@ -235,7 +234,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_PhoenixEssence",
-                                    "RequiredCount": 100
+                                    "RequiredCount": 5
                                 }
                             ],
                             "OutputItem": [
@@ -251,7 +250,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_RamuhEssence",
-                                    "RequiredCount": 100
+                                    "RequiredCount": 5
                                 }
                             ],
                             "OutputItem": [
@@ -267,7 +266,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_TitanEssence",
-                                    "RequiredCount": 100
+                                    "RequiredCount": 5
                                 }
                             ],
                             "OutputItem": [
@@ -278,10 +277,19 @@
                             ],
                             "DaysUntilReady": 7
                         }
+                    ],
+                    "AdditionalConsumedItems":[
+                        {
+                            "ItemId": "(O)335",
+                            "RequiredCount": 5
+                        },
+                        {
+                            "ItemId": "(O)338",
+                            "RequiredCount": 10
+                        }
                     ]
                 },
                 "(BC){{ModId}}_SoulExtractor": {
-                    "AllowFairyDust": false,
                     "OutputRules": [
                         // Soul
                         {
@@ -289,7 +297,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_IfritShard",
-                                    "RequiredCount": 10
+                                    "RequiredCount": 2
                                 }
                             ],
                             "OutputItem": [
@@ -304,7 +312,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_ShivaShard",
-                                    "RequiredCount": 10
+                                    "RequiredCount": 2
                                 }
                             ],
                             "OutputItem": [
@@ -319,7 +327,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_CarbuncleShard",
-                                    "RequiredCount": 10
+                                    "RequiredCount": 2
                                 }
                             ],
                             "OutputItem": [
@@ -334,7 +342,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_KirinShard",
-                                    "RequiredCount": 10
+                                    "RequiredCount": 2
                                 }
                             ],
                             "OutputItem": [
@@ -349,7 +357,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_LeviathanShard",
-                                    "RequiredCount": 10
+                                    "RequiredCount": 2
                                 }
                             ],
                             "OutputItem": [
@@ -364,7 +372,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_PhoenixShard",
-                                    "RequiredCount": 10
+                                    "RequiredCount": 2
                                 }
                             ],
                             "OutputItem": [
@@ -379,7 +387,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_RamuhShard",
-                                    "RequiredCount": 10
+                                    "RequiredCount": 2
                                 }
                             ],
                             "OutputItem": [
@@ -394,7 +402,7 @@
                             "Triggers": [
                                 {
                                     "RequiredItemId": "{{ModId}}_TitanShard",
-                                    "RequiredCount": 10
+                                    "RequiredCount": 2
                                 }
                             ],
                             "OutputItem": [
@@ -403,6 +411,16 @@
                                 }
                             ],
                             "DaysUntilReady": 3
+                        }
+                    ],
+                    "AdditionalConsumedItems":[
+                        {
+                            "ItemId": "(O)768",
+                            "RequiredCount": 10
+                        },
+                        {
+                            "ItemId": "(O)769",
+                            "RequiredCount": 5
                         }
                     ]
                 }

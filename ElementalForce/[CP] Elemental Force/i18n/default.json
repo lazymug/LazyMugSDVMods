@@ -80,6 +80,12 @@
     "soul.phoenix.name": "Phoenix's Nirvana Soul",
     "soul.phoenix.description": "The concentrated essence of Phoenix's fiery power, granting immortality and immense power.",
 
-    "tool.amphora.name": "Elemental Amphora",
-    "tool.amphora.description": "A mystical vessel capable of storing and channeling elemental essences."
+    "tool.amphora.name": "Amphora of Elementals",
+    "tool.amphora.description": "A mystical vessel capable of storing and channeling elemental essences.",
+    
+    "tool.amphora.level2.name": "Amphora of Echoes",
+    "tool.amphora.level2.description": "Given when the player collects all 8 essence items. It allows equipping shard items.",
+
+    "tool.amphora.level3.name": "Amphora of Spirits",
+    "tool.amphora.level3.description": "Given when the player collects all 8 shard items. It allows equipping soul items."
 }

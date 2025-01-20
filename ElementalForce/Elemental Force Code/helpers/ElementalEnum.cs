@@ -1,6 +1,6 @@
 namespace ElementalForce.Elemental_Force_Code.helpers
 {
-    public enum ElementalEssenceEnum
+    public enum ElementalEnum
     {
         Ifrit,
         Shiva,

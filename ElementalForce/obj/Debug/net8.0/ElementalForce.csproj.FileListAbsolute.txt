@@ -1,0 +1,11 @@
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/obj/Debug/net8.0/ElementalForce.csproj.AssemblyReference.cache
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/obj/Debug/net8.0/ElementalForce.GeneratedMSBuildEditorConfig.editorconfig
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/obj/Debug/net8.0/ElementalForce.AssemblyInfoInputs.cache
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/obj/Debug/net8.0/ElementalForce.AssemblyInfo.cs
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/obj/Debug/net8.0/ElementalForce.csproj.CoreCompileInputs.cache
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/obj/Debug/net8.0/ElementalForce.sourcelink.json
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/bin/Debug/net8.0/ElementalForce.deps.json
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/bin/Debug/net8.0/ElementalForce.dll
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/bin/Debug/net8.0/MailFrameworkMod.dll
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/obj/Debug/net8.0/ElementalForce.csproj.CopyComplete
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/obj/Debug/net8.0/ElementalForce.dll

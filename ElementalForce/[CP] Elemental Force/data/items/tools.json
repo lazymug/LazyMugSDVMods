@@ -19,6 +19,38 @@
                         "custom_tool",
                         "mod_amphora_tool"
                     ]
+                },
+                "{{ModId}}_Amphora_Echoes": {
+                    "ClassName": "GenericTool",
+                    "Name": "{{ModId}}_Amphora_Echoes",
+                    "Category": -99,
+                    "SalePrice": "0",
+                    "SpriteIndex": 461,
+                    "MenuSpriteIndex": 461,
+                    "AttachmentSlots": 4,
+                    "DisplayName": "{{i18n: tool.amphora.level2.name}}",
+                    "Description": "{{i18n: tool.amphora.level2.description}}",
+                    "Texture": "Maps/springobjects",
+                    "ContextTags": [
+                        "custom_tool",
+                        "mod_amphora_tool"
+                    ]
+                },
+                "{{ModId}}_Amphora_Spirits": {
+                    "ClassName": "GenericTool",
+                    "Name": "{{ModId}}_Amphora_Spirits",
+                    "Category": -99,
+                    "SalePrice": "0",
+                    "SpriteIndex": 461,
+                    "MenuSpriteIndex": 461,
+                    "AttachmentSlots": 10,
+                    "DisplayName": "{{i18n: tool.amphora.level3.name}}",
+                    "Description": "{{i18n: tool.amphora.level3.description}}",
+                    "Texture": "Maps/springobjects",
+                    "ContextTags": [
+                        "custom_tool",
+                        "mod_amphora_tool"
+                    ]
                 }
             }
         }

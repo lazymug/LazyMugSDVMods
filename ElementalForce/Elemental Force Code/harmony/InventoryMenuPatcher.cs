@@ -8,7 +8,7 @@ using StardewValley.Menus;
 namespace ElementalForce.Elemental_Force_Code.harmony
 {
     [HarmonyPatch(typeof(InventoryMenu))]
-    public static class InventoryMenuPatch
+    public static class InventoryMenuPatcher
     {
         [HarmonyPatch(nameof(InventoryMenu.rightClick))]
         [HarmonyTranspiler]
@@ -27,7 +27,7 @@ namespace ElementalForce.Elemental_Force_Code.harmony
 
             // Get the custom replacement method
             var customMethod = AccessTools.Method(
-                typeof(InventoryMenuPatch),
+                typeof(InventoryMenuPatcher),
                 nameof(CustomCanThisBeAttached)
             );
 
@@ -44,21 +44,47 @@ namespace ElementalForce.Elemental_Force_Code.harmony
             return codes;
         }
 
-        public static bool CustomCanThisBeAttached(Tool tool, StardewValley.Object? obj)
+        public static bool CustomCanThisBeAttached(Tool tool, StardewValley.Object? o)
         {
             if (ItemHelper.IsAmphoraTool(tool.ItemId))
             {
                 ModEntry.Instance.OnCheckIfEquipmentHasChanged();
-                
-                if (obj != null)
+
+                if (o != null)
                 {
-                    var canThisBeAttached = ItemHelper.IsElementalEssenceItem(obj.ItemId);
+                    var canThisBeAttached = ItemHelper.IsElementalEssenceItem(o.ItemId);
+                    return canThisBeAttached;
+                }
+            }
+
+            if (ItemHelper.IsAmphoraLevel2Tool(tool.ItemId))
+            {
+                ModEntry.Instance.OnCheckIfEquipmentHasChanged();
+
+                if (o != null)
+                {
+                    var canThisBeAttached = ItemHelper.IsElementalEssenceItem(o.ItemId) ||
+                                            ItemHelper.IsElementalShardItem(o.ItemId);
+                    return canThisBeAttached;
+                }
+            }
+
+            if (ItemHelper.IsAmphoraLevel3Tool(tool.ItemId))
+            {
+                ModEntry.Instance.OnCheckIfEquipmentHasChanged();
+                
+                if (o != null)
+                {
+                    var canThisBeAttached = ItemHelper.IsElementalEssenceItem(o.ItemId) ||
+                                            ItemHelper.IsElementalShardItem(o.ItemId) ||
+                                            ItemHelper.IsElementalSoulItem(o.ItemId);
                     return canThisBeAttached;
                 }
             }
 
             // Default logic for other tools
-            return tool.canThisBeAttached(obj);
+            return tool.canThisBeAttached(o);
         }
+        
     }
 }

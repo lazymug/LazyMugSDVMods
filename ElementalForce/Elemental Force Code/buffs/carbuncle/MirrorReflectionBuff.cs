@@ -1,3 +1,4 @@
+using ElementalForce.Elemental_Force_Code.buffEffects;
 using ElementalForce.Elemental_Force_Code.helpers;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
@@ -15,10 +16,10 @@ namespace ElementalForce.Elemental_Force_Code.buffs.carbuncle
             displayName: ModEntry.Instance.GetTextTranslation("buff.mirror_reflection.name"),
             description: ModEntry.Instance.GetTextTranslation("buff.mirror_reflection.description"),  
             duration: ENDLESS, 
-            effects: new BuffEffects()
+            effects: new ProtectionBuffEffects()
             {
-                // todo: it has a chance to absorb the damage and return a percent of the damage to the enemy
-            }, 
+                ProtectionChance = { 1.0f }
+            },
             iconTexture: BuffHelper.GetIconTexture(), 
             iconSheetIndex: BuffHelper.GetBuffIndexMirrorReflection())
         {
