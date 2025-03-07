@@ -46,44 +46,39 @@ namespace ElementalForce.Elemental_Force_Code.harmony
 
         public static bool CustomCanThisBeAttached(Tool tool, StardewValley.Object? o)
         {
+            // First check if it's a vanilla tool - if so, use vanilla logic
+            if (!ItemHelper.IsAmphoraTool(tool.ItemId) && 
+                !ItemHelper.IsAmphoraLevel2Tool(tool.ItemId) && 
+                !ItemHelper.IsAmphoraLevel3Tool(tool.ItemId))
+            {
+                return tool.canThisBeAttached(o);
+            }
+
+            // Always allow detachment (o == null)
+            if (o == null) return true;
+
+            ModEntry.Instance.OnCheckIfEquipmentHasChanged();
+            
+            // Handle Amphora tool logic
             if (ItemHelper.IsAmphoraTool(tool.ItemId))
             {
-                ModEntry.Instance.OnCheckIfEquipmentHasChanged();
-
-                if (o != null)
-                {
-                    var canThisBeAttached = ItemHelper.IsElementalEssenceItem(o.ItemId);
-                    return canThisBeAttached;
-                }
+                return ItemHelper.IsElementalEssenceItem(o.ItemId);
             }
 
             if (ItemHelper.IsAmphoraLevel2Tool(tool.ItemId))
             {
-                ModEntry.Instance.OnCheckIfEquipmentHasChanged();
-
-                if (o != null)
-                {
-                    var canThisBeAttached = ItemHelper.IsElementalEssenceItem(o.ItemId) ||
-                                            ItemHelper.IsElementalShardItem(o.ItemId);
-                    return canThisBeAttached;
-                }
+                return ItemHelper.IsElementalEssenceItem(o.ItemId) ||
+                       ItemHelper.IsElementalShardItem(o.ItemId);
             }
 
             if (ItemHelper.IsAmphoraLevel3Tool(tool.ItemId))
             {
-                ModEntry.Instance.OnCheckIfEquipmentHasChanged();
-                
-                if (o != null)
-                {
-                    var canThisBeAttached = ItemHelper.IsElementalEssenceItem(o.ItemId) ||
-                                            ItemHelper.IsElementalShardItem(o.ItemId) ||
-                                            ItemHelper.IsElementalSoulItem(o.ItemId);
-                    return canThisBeAttached;
-                }
+                return ItemHelper.IsElementalEssenceItem(o.ItemId) ||
+                       ItemHelper.IsElementalShardItem(o.ItemId) ||
+                       ItemHelper.IsElementalSoulItem(o.ItemId);
             }
 
-            // Default logic for other tools
-            return tool.canThisBeAttached(o);
+            return false;
         }
         
     }
