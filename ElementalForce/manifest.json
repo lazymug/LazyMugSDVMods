@@ -1,7 +1,7 @@
 {
     "Name": "Elemental Force",
     "Author": "Lazy Mug",
-    "Version": "1.2.1",
+    "Version": "1.2.0",
     "Description": "Adds custom elements based on Elemental Spirits from phantasy worlds.",
     "UniqueID": "LazyMug.ElementalForce",
     "EntryDll": "ElementalForce.dll",
