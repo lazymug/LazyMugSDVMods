@@ -1,8 +1,8 @@
 {
     "Name": "Elemental Force",
     "Author": "Lazy Mug",
-    "Version": "1.1.1",
-    "Description": "Adds custom rings based on Elemental Spirits from phantasy worlds.",
+    "Version": "1.2.1",
+    "Description": "Adds custom elements based on Elemental Spirits from phantasy worlds.",
     "UniqueID": "LazyMug.ElementalForce",
     "EntryDll": "ElementalForce.dll",
     "MinimumApiVersion": "4.0.0",

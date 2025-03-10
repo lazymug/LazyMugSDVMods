@@ -17,7 +17,7 @@ namespace ElementalForce.Elemental_Force_Code.buffs.titan
                 duration: ENDLESS, 
                 effects: new BuffEffects()
                 {
-                    AttackMultiplier = { 1.25f }
+                    KnockbackMultiplier = { 1.25f }
                 }, 
                 iconTexture: BuffHelper.GetIconTexture(), 
                 iconSheetIndex: BuffHelper.GetBuffIndexWrathPalm())

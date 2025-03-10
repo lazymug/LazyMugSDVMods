@@ -17,6 +17,7 @@
     <ItemGroup>
         <Folder Include="Elemental Force Code\assets\" />
         <Folder Include="Elemental Force Code\models\" />
+        <Folder Include="Images\" />
         <Folder Include="[CP] Elemental Force\" />
       <!--<Folder Include="Content\assets\" />-->
     </ItemGroup>
