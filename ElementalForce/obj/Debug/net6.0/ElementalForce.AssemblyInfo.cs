@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ElementalForce")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b76b8cfe2e2908a2bd3b8c0c239e6a820a9d7930")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55548d6f016cf7961d52651d39baafe3f4440e03")]
 [assembly: System.Reflection.AssemblyProductAttribute("ElementalForce")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ElementalForce")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
