@@ -25,6 +25,12 @@ public static class LocationWeatherPatcher
         {
             updateWeatherChance += 40;
         }
+
+        if (updateWeatherChance == 0)
+        {
+            return;
+        }
+        
         var chance = random.Next(0, 100);
         if (chance == 40 && updateWeatherChance < chance)
         {
