@@ -499,6 +499,68 @@
                         "not_placeable",
                         "soul"
                     ]
+                },
+                "{{ModId}}_CactuarEssence": {
+                    "Name": "{{ModId}}_CactuarEssence",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 8,
+                    "DisplayName": "{{i18n: essence.cactuar.name}}",
+                    "Description": "{{i18n: essence.cactuar.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_green",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable"
+                    ]
+                },
+                "{{ModId}}_CactuarShard": {
+                    "Name": "{{ModId}}_CactuarShard",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 16,
+                    "DisplayName": "{{i18n: shard.cactuar.name}}",
+                    "Description": "{{i18n: shard.cactuar.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_green",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "shard"
+                    ]
+                },
+                "{{ModId}}_CactuarSoul": {
+                    "Name": "{{ModId}}_CactuarSoul",
+                    "Category": 0,
+                    "Type": "Basic",
+                    "Price": "0",
+                    "SpriteIndex": 24,
+                    "DisplayName": "{{i18n: soul.cactuar.name}}",
+                    "Description": "{{i18n: soul.cactuar.description}}",
+                    "Texture": "LazyMug.ElementalForce/Objects",
+                    "Edibility": -300,
+                    "CanBeGivenAsGift": false,
+                    "CanBeTrashed": false,
+                    "ExcludeFromShippingCollection": true,
+                    "ContextTags": [
+                        "color_green",
+                        "not_museum_donatable",
+                        "prevent_loss_on_death",
+                        "not_placeable",
+                        "soul"
+                    ]
                 }
             }
         }

@@ -133,6 +133,22 @@
                                 }
                             ],
                             "DaysUntilReady": 1
+                        },
+                        {
+                            "Id": "{{ModId}}_CactuarEssence",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "90",
+                                    "RequiredCount": 5
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_CactuarEssence",
+                                    "IncrementMachineParentSheetIndex": 1
+                                }
+                            ],
+                            "DaysUntilReady": 1
                         }
                     ],
                     "AdditionalConsumedItems":[
@@ -276,6 +292,22 @@
                                 }
                             ],
                             "DaysUntilReady": 7
+                        },
+                        {
+                            "Id": "{{ModId}}_CactuarShard",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_CactuarEssence",
+                                    "RequiredCount": 5
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_CactuarShard",
+                                    "IncrementMachineParentSheetIndex": 1
+                                }
+                            ],
+                            "DaysUntilReady": 7
                         }
                     ],
                     "AdditionalConsumedItems":[
@@ -408,6 +440,21 @@
                             "OutputItem": [
                                 {
                                     "ItemId": "{{ModId}}_TitanSoul"
+                                }
+                            ],
+                            "DaysUntilReady": 3
+                        },
+                        {
+                            "Id": "{{ModId}}_CactuarSoul",
+                            "Triggers": [
+                                {
+                                    "RequiredItemId": "{{ModId}}_CactuarShard",
+                                    "RequiredCount": 2
+                                }
+                            ],
+                            "OutputItem": [
+                                {
+                                    "ItemId": "{{ModId}}_CactuarSoul"
                                 }
                             ],
                             "DaysUntilReady": 3

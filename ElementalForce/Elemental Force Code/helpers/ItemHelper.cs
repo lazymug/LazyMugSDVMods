@@ -201,6 +201,15 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         
         public static bool IsPhoenixElementalSoulItem(string itemId) =>
             IsAnyElementalSoulItem(itemId, ElementalEnum.Phoenix);
+        
+        public static bool IsCactuarElementalEssenceItem(string itemId) =>
+            IsAnyElementalEssenceItem(itemId, ElementalEnum.Cactuar);
+        
+        public static bool IsCactuarElementalShardItem(string itemId) =>
+            IsAnyElementalShardItem(itemId, ElementalEnum.Cactuar);
+        
+        public static bool IsCactuarElementalSoulItem(string itemId) =>
+            IsAnyElementalSoulItem(itemId, ElementalEnum.Cactuar);
 
         private static bool IsAnyElementalEssenceItem(string itemId, ElementalEnum type)
         {

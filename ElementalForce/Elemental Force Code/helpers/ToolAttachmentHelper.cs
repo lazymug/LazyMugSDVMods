@@ -76,6 +76,12 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         
         public static bool IsPhoenixSoulEquipped() => IsModItemEquipped(ElementalEnum.Phoenix, ItemEnum.Soul);
         
+        public static bool IsCactuarEssenceEquipped() => IsModItemEquipped(ElementalEnum.Cactuar, ItemEnum.Essence);
+        
+        public static bool IsCactuarShardEquipped() => IsModItemEquipped(ElementalEnum.Cactuar, ItemEnum.Shard);
+        
+        public static bool IsCactuarSoulEquipped() => IsModItemEquipped(ElementalEnum.Cactuar, ItemEnum.Soul);
+        
         private static bool IsModItemEquipped(ElementalEnum type, ItemEnum itemEnum)
         {
             foreach (var item in Game1.player.Items)
@@ -184,6 +190,18 @@ namespace ElementalForce.Elemental_Force_Code.helpers
                                     } else if (itemEnum == ItemEnum.Soul)
                                     {
                                         hasFind = ItemHelper.IsPhoenixElementalSoulItem(attachment.ItemId);
+                                    }
+                                    break;
+                                case ElementalEnum.Cactuar: 
+                                    if (itemEnum == ItemEnum.Essence)
+                                    {
+                                        hasFind = ItemHelper.IsCactuarElementalEssenceItem(attachment.ItemId);
+                                    } else if (itemEnum == ItemEnum.Shard)
+                                    {
+                                        hasFind = ItemHelper.IsCactuarElementalShardItem(attachment.ItemId);
+                                    } else if (itemEnum == ItemEnum.Soul)
+                                    {
+                                        hasFind = ItemHelper.IsCactuarElementalSoulItem(attachment.ItemId);
                                     }
                                     break;
                                 default: continue;

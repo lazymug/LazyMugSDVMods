@@ -22,6 +22,9 @@
 
     "essence.phoenix.name": "Blazing Essence of Phoenix",
     "essence.phoenix.description": "A fiery essence that amplifies both power and precision.",
+
+    "essence.cactuar.name": "Cactuar's Essence",
+    "essence.cactuar.description": "Essence Lorem Ipsum.",
     
     "machine.essence_infuser.name": "Essence Infuser",
     "machine.essence_infuser.description": "Infuse minerals with elemental magic to create elemental essences.",
@@ -56,6 +59,9 @@
     "shard.phoenix.name": "Phoenix's Rebirth Shard",
     "shard.phoenix.description": "A fragment of Phoenix's fiery power, pulsating with life and renewal.",
 
+    "shard.cactuar.name": "Cactuar's Shard",
+    "shard.cactuar.description": "Shard Lorem Ipsum.",
+
     "soul.ifrit.name": "Ifrit's Inferno Soul",
     "soul.ifrit.description": "The concentrated essence of Ifrit's fiery power, capable of unleashing devastating flames.",
 
@@ -79,6 +85,9 @@
 
     "soul.phoenix.name": "Phoenix's Nirvana Soul",
     "soul.phoenix.description": "The concentrated essence of Phoenix's fiery power, granting immortality and immense power.",
+
+    "soul.cactuar.name": "Cactuar's Soul",
+    "soul.cactuar.description": "Soul Lorem Ipsum.",
 
     "tool.amphora.name": "Amphora of Elementals",
     "tool.amphora.description": "A mystical vessel capable of storing and channeling elemental essences.",

@@ -1,4 +1,5 @@
 using ElementalForce.Elemental_Force_Code;
+using ElementalForce.Elemental_Force_Code.buffs.cactuar;
 using ElementalForce.Elemental_Force_Code.buffs.carbuncle;
 using ElementalForce.Elemental_Force_Code.helpers;
 using ElementalForce.Elemental_Force_Code.buffs.ifrit;
@@ -528,6 +529,45 @@ namespace ElementalForce
                     Game1.player.buffs.Remove(BuffHelper.GetBuffPhoenixDownId());
             }
         }
+        
+        private void CheckIfCactuarEssenceIsAttached()
+        {
+            if (ToolAttachmentHelper.IsCactuarEssenceEquipped())
+            {
+                Game1.player.applyBuff(new WarySpeedAuxBuff());
+            }
+            else
+            {
+                if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffWarySpeedAuxId()))
+                    Game1.player.buffs.Remove(BuffHelper.GetBuffWarySpeedAuxId());
+            }
+        }
+        
+        private void CheckIfCactuarShardIsAttached()
+        {
+            if (ToolAttachmentHelper.IsCactuarShardEquipped())
+            {
+                Game1.player.applyBuff(new NeedlepointStrikesBuff());
+            }
+            else
+            {
+                if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffNeedlepointStrikesId()))
+                    Game1.player.buffs.Remove(BuffHelper.GetBuffNeedlepointStrikesId());
+            }
+        }
+        
+        private void CheckIfCactuarSoulIsAttached()
+        {
+            if (ToolAttachmentHelper.IsCactuarSoulEquipped())
+            {
+                Game1.player.applyBuff(new InitiativeMasterBuff());
+            }
+            else
+            {
+                if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffInitiativeMasterId()))
+                    Game1.player.buffs.Remove(BuffHelper.GetBuffInitiativeMasterId());
+            }
+        }
 
         private void KirinRegenBlessing()
         {
@@ -577,9 +617,21 @@ namespace ElementalForce
             {
                 if (Game1.player.Items[i] == null || Game1.player.Items[i] is not Tool) continue;
                 if (((Tool)Game1.player.Items[i]).ItemId != ItemHelper.GetToolAmphoraId()) continue;
-                var attachments = ((Tool) Game1.player.Items[i]).attachments;
-                Game1.player.Items[i] = new GenericTool();
-                Game1.player.Items[i].ItemId = ItemHelper.GetToolAmphoraEchoesId();
+                
+                var oldTool = (Tool) Game1.player.Items[i];
+                var attachments = oldTool.attachments.ToList();
+                
+                for (int j = 0; j < oldTool.attachments.Length; j++)
+                {
+                    oldTool.attachments[j] = null;
+                }
+
+                var newTool = new GenericTool();
+                newTool.ItemId = ItemHelper.GetToolAmphoraEchoesId();
+                newTool.AttachmentSlotsCount = 4;
+                
+                Game1.player.Items[i] = newTool;
+                
                 foreach (var attachment in attachments)
                 {
                     ((Tool)Game1.player.Items[i]).attach(attachment);

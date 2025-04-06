@@ -10,6 +10,7 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         Carbuncle,
         Kirin,
         Ramuh,
-        Phoenix
+        Phoenix,
+        Cactuar
     }
 }

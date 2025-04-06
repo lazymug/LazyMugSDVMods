@@ -25,23 +25,31 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         
         public static bool GetGaiaAmphoraShardCondition()
         {
-            return IsValid(GaiaAmphoraShardContentEntryKey)
-                && !Game1.player.mailReceived.Contains(GaiaAmphoraShardContentEntryKey)
+            return IsValid(GaiaAmphoraShardId)
+                && !Game1.player.mailReceived.Contains(GaiaAmphoraShardId)
                 && Game1.player.Items.ContainsId(ItemHelper.GetToolAmphoraId())
-                && Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceCarbuncleId())
-                && Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceIfritId())
-                && Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceKirinId())
-                && Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceLeviathanId())
-                && Game1.player.Items.ContainsId(ItemHelper.GetObjectEssencePhoenixId())
-                && Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceRamuhId())
-                && Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceShivaId())
-                && Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceTitanId());
+                && (Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceCarbuncleId()) ||
+                    ToolAttachmentHelper.IsCarbuncleEssenceEquipped())
+                && (Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceIfritId()) ||
+                    ToolAttachmentHelper.IsIfritEssenceEquipped())
+                && (Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceKirinId()) ||
+                    ToolAttachmentHelper.IsKirinEssenceEquipped())
+                && (Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceLeviathanId()) ||
+                    ToolAttachmentHelper.IsLeviathanEssenceEquipped())
+                && (Game1.player.Items.ContainsId(ItemHelper.GetObjectEssencePhoenixId()) ||
+                    ToolAttachmentHelper.IsPhoenixEssenceEquipped())
+                && (Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceRamuhId()) ||
+                    ToolAttachmentHelper.IsRamuhEssenceEquipped())
+                && (Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceShivaId()) ||
+                    ToolAttachmentHelper.IsShivaEssenceEquipped())
+                && (Game1.player.Items.ContainsId(ItemHelper.GetObjectEssenceTitanId()) ||
+                    ToolAttachmentHelper.IsTitanEssenceEquipped());
         }
         
         public static bool GetGaiaAmphoraSoulCondition()
         {
-            return IsValid(GaiaAmphoraSoulContentEntryKey)
-                   && !Game1.player.mailReceived.Contains(GaiaAmphoraSoulContentEntryKey)
+            return IsValid(GaiaAmphoraSoulId)
+                   && !Game1.player.mailReceived.Contains(GaiaAmphoraSoulId)
                    && Game1.player.Items.ContainsId(ItemHelper.GetToolAmphoraEchoesId())
                    && Game1.player.Items.ContainsId(ItemHelper.GetObjectShardCarbuncleId())
                    && Game1.player.Items.ContainsId(ItemHelper.GetObjectShardIfritId())
@@ -69,6 +77,14 @@ namespace ElementalForce.Elemental_Force_Code.helpers
             if (GaiaWelcomeId == letterId)
             {
                 return GetTextFromContent(GaiaWelcomeContentEntryKey);
+            }
+            if (GaiaAmphoraShardId == letterId)
+            {
+                return GetTextFromContent(GaiaAmphoraShardContentEntryKey);
+            }
+            if (GaiaAmphoraSoulId == letterId)
+            {
+                return GetTextFromContent(GaiaAmphoraSoulContentEntryKey);
             }
 
             return String.Empty;

@@ -1,3 +1,4 @@
+using ElementalForce.Elemental_Force_Code.buffs.cactuar;
 using ElementalForce.Elemental_Force_Code.helpers;
 using HarmonyLib;
 using Microsoft.Xna.Framework;
@@ -31,12 +32,28 @@ public class FarmerPatcher
     [HarmonyPrefix]
     public static bool Prefix_takeDamage(Farmer __instance, int damage, bool overrideParry, Monster damager)
     {
-        if (!__instance.hasBuff(BuffHelper.GetBuffMirrorReflectionId()))
+        if (__instance.hasBuff(BuffHelper.GetBuffMirrorReflectionId()))
         {
-            return true;
+            CustomTakeDamage(__instance, damage, overrideParry, damager);
+            return false;
         }
-        CustomTakeDamage(__instance, damage, overrideParry, damager);
-        return false;
+        if (__instance.hasBuff(BuffHelper.GetBuffWarySpeedAuxId())) // Companion Protection Buff
+        {
+            // Check if the player is taking damage from an enemy
+            if (damager != null)
+            {
+                // Apply the Speed buff effect
+                __instance.applyBuff(new WarySpeedBuff());
+                Timer timer = new Timer(new TimerCallback(RemoveBuffs), __instance, 5000, Timeout.Infinite);
+            }
+        }
+        return true;
+    }
+    
+    private static void RemoveBuffs(object state)
+    {
+        if (state is not Farmer __instance) return;
+        __instance.buffs.Remove(BuffHelper.GetBuffWarySpeedId());
     }
     
     private static void CustomTakeDamage(Farmer __instance, int damage, bool overrideParry, Monster damager)

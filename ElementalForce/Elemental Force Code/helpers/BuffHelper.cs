@@ -28,6 +28,10 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         private static readonly string BuffSunnySpeedId = $"{ModEntry.Instance.GetModId()}_SunnySpeedBuff";
         private static readonly string BuffThunderCallerId = $"{ModEntry.Instance.GetModId()}_ThunderCallerBuff";
         private static readonly string BuffWrathPalmId = $"{ModEntry.Instance.GetModId()}_WrathPalmBuff";
+        private static readonly string BuffWarySpeedId = $"{ModEntry.Instance.GetModId()}_WarySpeedBuff";
+        private static readonly string BuffWarySpeedAuxId = $"{ModEntry.Instance.GetModId()}_WarySpeedAuxBuff";
+        private static readonly string BuffNeedlepointStrikesId = $"{ModEntry.Instance.GetModId()}_NeedlepointStrikesBuff";
+        private static readonly string BuffInitiativeMasterId = $"{ModEntry.Instance.GetModId()}_InitiativeMasterBuff";
         
         private const string Filepath = "assets/buffs/";
         private const string Filename = "BuffIcons.png";
@@ -58,6 +62,9 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         private const int BuffIndexHealingAura = 21;
         private const int BuffIndexExplosion = 22;
         private const int BuffIndexPhoenixDown = 23;
+        private const int BuffIndexWarySpeed = 24;
+        private const int BuffIndexNeedlepointStrikes = 25;
+        private const int BuffIndexInitiativeMaster = 26;
         
         public static string GetBuffBlizzardSlashId() => BuffBlizzardSlashId;
         
@@ -109,6 +116,14 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         public static string GetBuffThunderCallerId() => BuffThunderCallerId;
         
         public static string GetBuffWrathPalmId() => BuffWrathPalmId;
+        
+        public static string GetBuffWarySpeedId() => BuffWarySpeedId;
+        
+        public static string GetBuffWarySpeedAuxId() => BuffWarySpeedAuxId;
+
+        public static string GetBuffNeedlepointStrikesId() => BuffNeedlepointStrikesId;
+
+        public static string GetBuffInitiativeMasterId() => BuffInitiativeMasterId;
         
         public static Texture2D GetIconTexture()
         {
@@ -162,5 +177,11 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         public static int GetBuffIndexExplosion() => BuffIndexExplosion;
         
         public static int GetBuffIndexPhoenixDown() => BuffIndexPhoenixDown;
+        
+        public static int GetBuffIndexInitiativeMaster() => BuffIndexInitiativeMaster;
+
+        public static int GetBuffIndexNeedlepointStrikes() => BuffIndexNeedlepointStrikes;
+
+        public static int GetBuffIndexWarySpeed() => BuffIndexWarySpeed;
     }
 }
