@@ -29,3 +29,12 @@
 /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.AssemblyInfo.cs
 /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.csproj.CoreCompileInputs.cache
 /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.dll
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/I Need Funds/bin/Debug/net6.0/INeedFunds.deps.json
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/I Need Funds/bin/Debug/net6.0/INeedFunds.dll
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.csproj.AssemblyReference.cache
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.GeneratedMSBuildEditorConfig.editorconfig
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.AssemblyInfoInputs.cache
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.AssemblyInfo.cs
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.csproj.CoreCompileInputs.cache
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.sourcelink.json
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/I Need Funds/obj/Debug/net6.0/INeedFunds.dll

@@ -8,3 +8,14 @@
 /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/AWarmWelcome/obj/Debug/net6.0/AWarmWelcome.csproj.CoreCompileInputs.cache
 /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/AWarmWelcome/obj/Debug/net6.0/AWarmWelcome.csproj.CopyComplete
 /Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/AWarmWelcome/obj/Debug/net6.0/AWarmWelcome.dll
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/AWarmWelcome/bin/Debug/net6.0/AWarmWelcome.deps.json
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/AWarmWelcome/bin/Debug/net6.0/AWarmWelcome.dll
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/AWarmWelcome/bin/Debug/net6.0/MailFrameworkMod.dll
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/AWarmWelcome/obj/Debug/net6.0/AWarmWelcome.csproj.AssemblyReference.cache
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/AWarmWelcome/obj/Debug/net6.0/AWarmWelcome.GeneratedMSBuildEditorConfig.editorconfig
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/AWarmWelcome/obj/Debug/net6.0/AWarmWelcome.AssemblyInfoInputs.cache
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/AWarmWelcome/obj/Debug/net6.0/AWarmWelcome.AssemblyInfo.cs
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/AWarmWelcome/obj/Debug/net6.0/AWarmWelcome.csproj.CoreCompileInputs.cache
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/AWarmWelcome/obj/Debug/net6.0/AWarmWelcome.sourcelink.json
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/AWarmWelcome/obj/Debug/net6.0/AWarmWelcome.csproj.CopyComplete
+/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/AWarmWelcome/obj/Debug/net6.0/AWarmWelcome.dll

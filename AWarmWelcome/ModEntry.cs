@@ -15,6 +15,11 @@ namespace AWarmWelcome
             "Gus", "Jas", "Jodi", "Kent", "Krobus", "Lewis", "Linus", "Marnie", "Pam", "Pierre",
             "Robin", "Sandy", "Vincent", "Willy"
         };
+
+        private readonly string[] _villagersExpanded =
+        {
+            "Andy", "Gunther", "Morris", "Olivia", "Sophia", "Victor"
+        };
         
         public override void Entry(IModHelper helper)
         {
@@ -69,7 +74,31 @@ namespace AWarmWelcome
                     whichBG: npc == "Sandy" ? 1 : 0
                 ));
             }
+
+            foreach (var npc in _villagersExpanded)
+            {
+                var stringKey = GetMailStringKey(npc);
+                var letterId = $"{Game1.uniqueIDForThisGame}.{ModManifest.UniqueID}.{stringKey}";
+                MailRepository.SaveLetter(new Letter(
+                    letterId,
+                    GetMailContent(stringKey),
+                    GetMailListOfItems(npc),
+                    l=>!Game1.player.mailReceived.Contains(l.Id) && l.Id.Contains(Game1.uniqueIDForThisGame.ToString()) && new Switch<String, bool>(npc)
+                        .Case("Olivia").Then(Game1.player.friendshipData.ContainsKey(npc) && Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Sophia").Then(Game1.player.friendshipData.ContainsKey(npc) && Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Victor").Then(Game1.player.friendshipData.ContainsKey(npc) && Game1.player.friendshipData[npc]?.Points >= 150)
+                        .Case("Andy").Then(Game1.dayOfMonth > 5)
+                        .Case("Gunther").Then(Game1.dayOfMonth > 11)
+                        .Case("Morris").Then(Game1.dayOfMonth > 1)
+                        .Default(false),
+                    (l)=>Game1.player.mailReceived.Add(l.Id),
+                    whichBG: npc == "Sandy" ? 1 : 0
+                ));
+            }
+            
         }
+
+        private bool IsSdvExpandedLoaded => this.Helper.ModRegistry.IsLoaded("");
 
         private string GetMailContent(string mailId)
         {
@@ -116,6 +145,13 @@ namespace AWarmWelcome
                 .Case("Sandy").Then(new List<Item>() { new StardewValley.Object("90", 1) })
                 .Case("Vincent").Then(new List<Item>() { new StardewValley.Object("398", 1) })
                 .Case("Willy").Then(new List<Item>() { new StardewValley.Object("685", 10) })
+                // Expanded Villagers
+                .Case("Andy").Then(new List<Item>() { new StardewValley.Object("22", 3) })
+                .Case("Gunther").Then(new List<Item>() { new StardewValley.Object("535", 1) })
+                .Case("Morris").Then(new List<Item>() { new StardewValley.Object("167", 3) })
+                .Case("Olivia").Then(new List<Item>() { new StardewValley.Object("220", 1) })
+                .Case("Sophia").Then(new List<Item>() { new StardewValley.Object("595", 1) })
+                .Case("Victor").Then(new List<Item>() { new StardewValley.Object("709", 5) })
                 .Default(new List<Item>());
         }
     }

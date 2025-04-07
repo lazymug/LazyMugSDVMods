@@ -38,25 +38,24 @@
     ]
   },
   "packageFolders": {
-    "/Users/andre.ikeda/.nuget/packages/": {}
+    "/Users/lazymug/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/GotoroEmpire/GotoroEmpire.csproj",
+      "projectUniqueName": "/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/GotoroEmpire/GotoroEmpire.csproj",
       "projectName": "GotoroEmpire",
-      "projectPath": "/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/GotoroEmpire/GotoroEmpire.csproj",
-      "packagesPath": "/Users/andre.ikeda/.nuget/packages/",
-      "outputPath": "/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/GotoroEmpire/obj/",
+      "projectPath": "/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/GotoroEmpire/GotoroEmpire.csproj",
+      "packagesPath": "/Users/lazymug/.nuget/packages/",
+      "outputPath": "/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/GotoroEmpire/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/andre.ikeda/.nuget/NuGet/NuGet.Config"
+        "/Users/lazymug/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "/Users/andre.ikeda/.dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -91,12 +90,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/Users/andre.ikeda/.dotnet/sdk/6.0.418/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet@8/8.0.11/libexec/sdk/8.0.111/RuntimeIdentifierGraph.json"
       }
     }
   }

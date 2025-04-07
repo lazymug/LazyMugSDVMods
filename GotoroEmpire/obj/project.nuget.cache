@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "LVrjhIIxd+Y=",
+  "dgSpecHash": "kO33C7E4N8E=",
   "success": true,
-  "projectFilePath": "/Users/andre.ikeda/Documents/workspace/personal/mods/sdv/LazyMugSDVMods/GotoroEmpire/GotoroEmpire.csproj",
+  "projectFilePath": "/Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/GotoroEmpire/GotoroEmpire.csproj",
   "expectedPackageFiles": [
-    "/Users/andre.ikeda/.nuget/packages/pathoschild.stardew.modbuildconfig/4.3.2/pathoschild.stardew.modbuildconfig.4.3.2.nupkg.sha512"
+    "/Users/lazymug/.nuget/packages/pathoschild.stardew.modbuildconfig/4.3.2/pathoschild.stardew.modbuildconfig.4.3.2.nupkg.sha512",
+    "/Users/lazymug/.nuget/packages/microsoft.netcore.app.ref/6.0.36/microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "/Users/lazymug/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.36/microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512"
   ],
   "logs": []
 }
