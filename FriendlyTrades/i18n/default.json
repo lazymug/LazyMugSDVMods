@@ -1,0 +1,28 @@
+{
+  "config.enablemod": "Enable Mod",
+  "config.bonusmultiplier": "Bonus Multiplier",
+  "config.bonusmultiplier.tooltip": "Scales the friendship bonus up or down (1.0 = default, 2.0 = double bonus)",
+  "config.showbonusmessages": "Show Bonus Messages",
+
+  "dialogue.question": "{{npc}} can trade specialty items with you. Current bonus: +{{bonus}}%. What would you like to do?",
+  "dialogue.sell": "I'd like to sell you some items",
+  "dialogue.chat": "Just chatting",
+
+  "shop.bonus": "{{npc}} — {{specialty}} — Friendship Bonus: +{{bonus}}%",
+
+  "shop.greeting.clint": "Show me what you've got! I'll pay well for quality ores and gems.",
+  "shop.greeting.marnie": "I'm always looking for good animal products! Let me see what you have.",
+  "shop.greeting.gus": "Got any delicious dishes or premium produce? I'll happily take them off your hands!",
+  "shop.greeting.willy": "Fresh catch? I know quality fish when I see it!",
+  "shop.greeting.robin": "Building materials or fences? I can always use more supplies!",
+  "shop.greeting.pierre": "Fresh produce from the farm? Let me take a look!",
+  "shop.greeting.krobus": "I sense... interesting items. Show me what you carry.",
+
+  "specialty.clint": "Ores, Bars & Gems",
+  "specialty.marnie": "Animal Products",
+  "specialty.gus": "Cooked Food & Premium Crops",
+  "specialty.willy": "Fish & Seafood",
+  "specialty.robin": "Building Materials & Fences",
+  "specialty.pierre": "Crops & Produce",
+  "specialty.krobus": "Void & Shadow Items"
+}

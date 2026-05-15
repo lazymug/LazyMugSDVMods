@@ -1,0 +1,198 @@
+[center][size=6]🌿 Allellopathy[/size]
+
+[i]Adds realistic allelopathy to farming. Nearby crops help or hinder each other through biochemical interactions, affecting growth speed, quality, and yield. Plan your farm layout wisely — companion planting matters![/i][/center]
+
+[line]
+
+[size=5]🧪 What is Allelopathy?[/size]
+
+In real life, [b]allelopathy[/b] is a biological phenomenon where plants release biochemical compounds that influence the growth of neighboring plants — for better or worse. Some plants are natural companions that boost each other, while others are rivals that compete and suppress growth.
+
+This mod brings that concept into Stardew Valley! Every crop you plant now interacts with its neighbors. Choose your farm layout wisely to maximize profits, or suffer the consequences of poor planning. 🌾
+
+[line]
+
+[size=5]✨ Features[/size]
+
+[list]
+[*]🌱 [b]Companion Planting System[/b] — Crops placed near each other can have positive or negative effects
+[*]⚡ [b]Growth Speed Effects[/b] — Some combinations speed up or slow down growth phases
+[*]⭐ [b]Quality Effects[/b] — Certain neighbors can apply, upgrade, or even remove fertilizer effects
+[*]📦 [b]Yield Effects[/b] — Boost or reduce harvest cycles for regrowth crops
+[*]💧 [b]Soil Effects[/b] — Some plants auto-water dry soil, while others dry it out
+[*]💬 [b]Hover Tooltips[/b] — Hover over any crop to see if it's being affected by allelopathy
+[*]✨ [b]Particle Effects[/b] — Occasional visual sparkles show positive and negative interactions
+[*]🔔 [b]In-game Messages[/b] — Get notified when nearby crops interact
+[*]⚙️ [b]Fully Configurable[/b] — Adjust effect strength, toggle messages, tooltips, and particles
+[*]📋 [b]Generic Mod Config Menu Support[/b] — Configure everything from the in-game menu
+[/list]
+
+[line]
+
+[size=5]🌸 Spring Interactions[/size]
+
+[code]
+Source              → Target              | Effect       | Type          | Description
+────────────────────────────────────────────────────────────────────────────────────────────
+Green Bean          → All nearby crops    | ✅ Positive  | Quality       | Fixes nitrogen in the soil, improving quality
+Parsnip             → Cauliflower         | ❌ Negative  | Quality       | Inhibits cauliflower growth
+Cauliflower         → Potato              | ❌ Negative  | Quantity      | Competes for nutrients, reducing harvest
+Cauliflower         → Parsnip             | ❌ Negative  | Quality       | Inhibits parsnip growth
+Cauliflower         → Green Bean          | ✅ Positive  | Quality       | Benefits from nitrogen fixation
+Garlic              → Strawberry          | ✅ Positive  | Quality       | Repels pests that damage strawberries
+Garlic              → Green Bean          | ❌ Negative  | Quality       | Inhibits green bean growth
+Kale                → Potato              | ✅ Positive  | Quantity      | Deep roots bring up nutrients for potatoes
+Kale                → Green Bean          | ✅ Positive  | Quality       | Benefits from nitrogen fixation
+Potato              → Rhubarb             | ✅ Positive  | Quality       | Deters pests that attack rhubarb
+Rhubarb             → Cauliflower         | ✅ Positive  | Quality       | Provides beneficial shade
+Rhubarb             → Parsnip             | ✅ Positive  | Quality       | Enhances parsnip growth
+Rhubarb             → Green Bean          | ✅ Positive  | Quality       | Benefits from nitrogen fixation
+Rhubarb             → Potato              | ❌ Negative  | Quantity      | Competes for nutrients
+Strawberry          → Garlic              | ✅ Positive  | Growth Speed  | Mutually beneficial, speeds garlic growth
+Strawberry          → Potato              | ✅ Positive  | Quality       | Improves potato quality
+Strawberry          → Green Bean          | ✅ Positive  | Growth Speed  | Nitrogen fixation reduces growth time
+Strawberry          → Strawberry          | ❌ Negative  | Quality       | Compete when planted too closely
+[/code]
+
+[line]
+
+[size=5]☀️ Summer Interactions[/size]
+
+[code]
+Source              → Target              | Effect       | Type          | Description
+────────────────────────────────────────────────────────────────────────────────────────────
+Tomato              → Potato              | ❌ Negative  | Default       | Releases substances that inhibit potato growth
+Sunflower           → All nearby crops    | ✅ Positive  | Default       | Attracts beneficial insects (radius: 2)
+Green Bean          → Corn                | ✅ Positive  | Default       | Nitrogen fixation benefits corn growth
+Blueberry           → Strawberry          | ❌ Negative  | Default       | Compete for similar soil resources
+Strawberry          → Blueberry           | ❌ Negative  | Default       | Compete for similar soil resources
+Hot Pepper          → All nearby crops    | ✅ Positive  | Default       | Deters pests from nearby plants
+Melon               → Radish              | ❌ Negative  | Default       | Don't grow well together
+[/code]
+
+[line]
+
+[size=5]🍂 Fall Interactions[/size]
+
+[code]
+Source              → Target              | Effect       | Type          | Description
+────────────────────────────────────────────────────────────────────────────────────────────
+Pumpkin             → All nearby crops    | ❌ Negative  | Default       | Heavy feeder, depletes soil nutrients
+Fairy Rose          → All nearby crops    | ✅ Positive  | Default       | Attracts beneficial insects (radius: 2)
+Amaranth            → All nearby crops    | ✅ Positive  | Default       | Helps suppress weeds
+Eggplant            → Potato              | ❌ Negative  | Default       | Same family, share diseases
+Yam                 → Beet                | ❌ Negative  | Default       | Compete for similar soil resources
+Beet                → Bok Choy            | ✅ Positive  | Default       | Improves soil conditions for bok choy
+[/code]
+
+[line]
+
+[size=5]💎 Special Crop Interactions[/size]
+
+[code]
+Source              → Target              | Effect       | Type          | Description
+────────────────────────────────────────────────────────────────────────────────────────────
+Ancient Fruit       → All nearby crops    | ✅ Positive  | Default       | Mysterious beneficial properties (radius: 2)
+Any crop            → Sweet Gem Berry     | ❌ Negative  | Default       | Extremely sensitive to any nearby plants
+Coffee Bean         → All nearby crops    | ✅ Positive  | Default       | Releases compounds that stimulate growth
+[/code]
+
+[line]
+
+[size=5]🎮 How Effects Work[/size]
+
+Each interaction has a [b]type[/b] that determines what happens to the target crop:
+
+[code]
+Effect Type         | ✅ Positive                                            | ❌ Negative
+────────────────────────────────────────────────────────────────────────────────────────────
+⚡ Growth Speed     | Advances growth phase                                 | Delays day progress in current phase
+⭐ Quality          | Applies/upgrades fertilizer (Basic → Quality → Deluxe)| Downgrades/removes fertilizer
+📦 Quantity         | Advances growth (more harvest cycles)                 | Resets day progress (fewer harvests)
+💧 Default          | Auto-waters dry soil                                  | Dries out watered soil
+[/code]
+
+Effects are processed [b]once at the start of each day[/b] and [b]every 2 in-game hours[/b]. Each effect has a random chance to trigger based on the interaction's strength multiplied by your configured Effect Strength.
+
+[line]
+
+[size=5]⚙️ Configuration[/size]
+
+All options can be changed via [b]Generic Mod Config Menu[/b] or by editing [font=Courier New]config.json[/font]:
+
+[code]
+Option                | Default  | Description
+────────────────────────────────────────────────────────────────────────────────────────────
+EnableMod             | true     | Enable or disable the mod
+EffectStrength        | 0.5      | Global multiplier for all effects (0.0 – 1.0)
+ShowEffectMessages    | true     | Show in-game messages when interactions occur
+ShowParticleEffects   | true     | Show sparkle particles on affected crops
+ShowHoverText         | true     | Show tooltip when hovering over affected crops
+[/code]
+
+[line]
+
+[size=5]📥 Installation[/size]
+
+[list=1]
+[*]Install [url=https://smapi.io/]SMAPI[/url] (4.0+)
+[*][i](Optional)[/i] Install [url=https://www.nexusmods.com/stardewvalley/mods/5098]Generic Mod Config Menu[/url] for in-game configuration
+[*]Download this mod and unzip it into your [font=Courier New]Stardew Valley/Mods[/font] folder
+[*]Launch the game through SMAPI
+[/list]
+
+[line]
+
+[size=5]🔧 Compatibility[/size]
+
+[list]
+[*]✅ Stardew Valley [b]1.6+[/b]
+[*]✅ Windows, macOS, and Linux
+[*]✅ Single-player and multiplayer
+[*]✅ Compatible with most other mods
+[*]✅ Works on Farm, Greenhouse, and Ginger Island
+[/list]
+
+[line]
+
+[size=5]🌐 Supported Languages[/size]
+
+[list]
+[*]✅ English (default)
+[*]✅ Português (Brazilian)
+[/list]
+
+Want to help translate? Create a new file in the [font=Courier New]i18n[/font] folder following the [url=https://stardewvalleywiki.com/Modding:Translations]SMAPI translation guide[/url].
+
+[line]
+
+[size=5]💡 Tips for Players[/size]
+
+[list]
+[*]🫘 [b]Green Beans are your best friend[/b] — They fix nitrogen and benefit ALL nearby crops. Plant them everywhere!
+[*]🌻 [b]Sunflowers and Fairy Roses are area buffers[/b] — They help all crops in a 2-tile radius
+[*]🍓 [b]Don't mass-plant strawberries[/b] — They compete with each other when too close
+[*]🎃 [b]Isolate your pumpkins[/b] — They drain nutrients from everything nearby
+[*]💠 [b]Give Sweet Gem Berries space[/b] — Any crop next to them causes negative effects
+[*]☕ [b]Coffee is a great neighbor[/b] — Stimulates growth in all nearby plants
+[*]🧄🍓 [b]Garlic + Strawberry[/b] is one of the strongest positive combos in spring
+[/list]
+
+[line]
+
+[size=5]🗺️ Future Plans[/size]
+
+[list]
+[*]🎨 Visual tile indicators when holding seeds (showing compatible/incompatible spots)
+[*]📖 In-game almanac with all crop interactions
+[*]🌿 Support for modded crops (Cornucopia and others)
+[*]🏆 Achievements for discovering crop combinations
+[/list]
+
+[line]
+
+[center][size=4]👤 Credits[/size]
+
+Developed by [b]Lazy Mug[/b] 🍵
+
+[i]"Nature is not a place to visit. It is home." — Gary Snyder[/i] 🌍[/center]

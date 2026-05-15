@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWarmWelcome", "AWarmWelcome\AWarmWelcome.csproj", "{0DDA19EC-88FB-4C0E-B071-7741C05BDBE0}"
 EndProject
@@ -7,6 +7,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INeedFunds", "I Need Funds\INeedFunds.csproj", "{03E0A9F3-40FD-44E6-B0CD-C0B777B05746}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElementalForce", "ElementalForce\ElementalForce.csproj", "{003CD5AB-16BF-4671-9367-CCA138551A3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allellopathy", "Allellopathy\Allellopathy.csproj", "{B4D7A5C2-8F1D-4E3B-8A9C-7E76C9E5F75D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +32,9 @@ Global
 		{003CD5AB-16BF-4671-9367-CCA138551A3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{003CD5AB-16BF-4671-9367-CCA138551A3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{003CD5AB-16BF-4671-9367-CCA138551A3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4D7A5C2-8F1D-4E3B-8A9C-7E76C9E5F75D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4D7A5C2-8F1D-4E3B-8A9C-7E76C9E5F75D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4D7A5C2-8F1D-4E3B-8A9C-7E76C9E5F75D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4D7A5C2-8F1D-4E3B-8A9C-7E76C9E5F75D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

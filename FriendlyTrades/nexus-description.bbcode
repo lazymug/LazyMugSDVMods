@@ -1,0 +1,104 @@
+[center][size=6]Friendly Trades[/size]
+
+[i]Sell items directly to NPCs based on their specialty for bonus prices. The bonus scales with friendship level — the closer you are, the better the deal![/i][/center]
+
+[line]
+
+[size=5]How It Works[/size]
+
+Each specialist NPC buys items related to their profession at premium prices. The bonus increases with your friendship level:
+
+[code]
+Hearts    | Bonus per Heart | Total Bonus
+----------+-----------------+--------------------
+1 - 4     | +2.5%           | 2.5% - 10%
+5 - 6     | +5.0%           | 15% - 20%
+7 - 8     | +7.5%           | 27.5% - 35%
+[/code]
+
+[b]Maximum bonus: 35% at 8 hearts[/b] (scalable via config multiplier).
+
+[line]
+
+[size=5]NPC Specialists[/size]
+
+[code]
+NPC       | Specialty       | Items They Buy
+----------+-----------------+----------------------------------------------------------
+Clint     | Blacksmith      | Ores, Bars, Gems, Minerals, Geodes, Coal
+Marnie    | Rancher         | Eggs, Milk, Wool, Cheese, Mayonnaise, Truffle Oil, Cloth
+Gus       | Chef            | Cooked food, Coffee, Tea, Gold+ Vegetables & Fruits
+Willy     | Fisherman       | All fish, Crab pot items, Roe, Aged Roe, Caviar
+Robin     | Carpenter       | Wood, Hardwood, Stone, Clay, Fiber, Fences, Gates, Torches
+Pierre    | Farmer          | All Vegetables, Fruits, and Flowers
+Krobus    | Shadow Trader   | Monster loot, Void/Solar Essence, Void items
+[/code]
+
+[line]
+
+[size=5]Two Ways to Sell[/size]
+
+[size=4]1. Inside NPC Shops (Automatic)[/size]
+
+When you open any specialist NPC's regular shop (Pierre's store, Willy's fish shop, Robin's carpenter shop, etc.), the bonus is [b]automatically applied[/b]. Just sell items from your inventory as usual — specialty items get the friendship bonus, other items sell at normal price.
+
+A HUD message will show your current bonus when the shop opens.
+
+[size=4]2. Direct Trade (Outside Shops)[/size]
+
+When you meet a specialist NPC outside their shop (walking in town, at festivals, etc.), click them with empty hands to get a trade dialogue. Choose [b]"I'd like to sell you some items"[/b] to open a dedicated trade menu where only specialty items can be sold.
+
+[line]
+
+[size=5]Configuration[/size]
+
+All options can be changed via [b]Generic Mod Config Menu[/b] or by editing [font=Courier New]config.json[/font]:
+
+[code]
+Option              | Default | Description
+--------------------+---------+---------------------------------------------------
+EnableMod           | true    | Enable or disable the mod
+BonusMultiplier     | 1.0     | Scales the friendship bonus (0.5 = half, 2.0 = double)
+ShowBonusMessages   | true    | Show HUD message with current bonus when opening a shop
+[/code]
+
+[line]
+
+[size=5]Installation[/size]
+
+[list=1]
+[*]Install [url=https://smapi.io/]SMAPI[/url] (4.0+)
+[*][i](Optional)[/i] Install [url=https://www.nexusmods.com/stardewvalley/mods/5098]Generic Mod Config Menu[/url] for in-game configuration
+[*]Download this mod and unzip it into your [font=Courier New]Stardew Valley/Mods[/font] folder
+[*]Launch the game through SMAPI
+[/list]
+
+[line]
+
+[size=5]Compatibility[/size]
+
+[list]
+[*]Stardew Valley [b]1.6+[/b]
+[*]Windows, macOS, and Linux
+[*]Single-player and multiplayer
+[*]Compatible with most other mods
+[/list]
+
+[line]
+
+[size=5]Supported Languages[/size]
+
+[list]
+[*]English (default)
+[*]Português (Brazilian)
+[/list]
+
+Want to help translate? Create a new file in the [font=Courier New]i18n[/font] folder following the [url=https://stardewvalleywiki.com/Modding:Translations]SMAPI translation guide[/url].
+
+[line]
+
+[center][size=4]Credits[/size]
+
+Developed by [b]Lazy Mug[/b]
+
+[i]"A friend in need is a friend with better prices."[/i][/center]

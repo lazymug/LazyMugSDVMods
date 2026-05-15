@@ -1,0 +1,20 @@
+{
+  "allellopathy.config.title": "Allellopathy Configuration",
+  "allellopathy.config.enablemod": "Enable Mod",
+  "allellopathy.config.effectstrength": "Effect Strength",
+  "allellopathy.config.showeffectmessages": "Show Effect Messages",
+  "allellopathy.config.showvisualindicators": "Show Visual Indicators",
+  "allellopathy.config.showparticleeffects": "Show Particle Effects",
+  "allellopathy.config.showhovertext": "Show Hover Text",
+  "allellopathy.config.indicatoropacity": "Indicator Opacity",
+
+  "allellopathy.hud.positive": "Positive Allelopathic Effect",
+  "allellopathy.hud.negative": "Negative Allelopathic Effect",
+  "allellopathy.hud.neutral": "No Allelopathic Effect",
+
+  "allellopathy.tooltip.companion": "Companion Plant: Provides benefits to nearby crops",
+  "allellopathy.tooltip.antagonist": "Antagonist Plant: May hinder nearby crops",
+
+  "allellopathy.message.positive": "Your {{crop1}} is helping your {{crop2}} grow!",
+  "allellopathy.message.negative": "Your {{crop1}} is hindering your {{crop2}} growth."
+}

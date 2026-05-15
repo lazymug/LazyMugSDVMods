@@ -1,0 +1,141 @@
+{
+  "config.enablemod": "Enable Mod",
+  "config.dialoguechance": "Dialogue Chance",
+  "config.dialoguechance.tooltip": "Chance (0.1 to 1.0) that each interested NPC will comment on your activities.",
+  "config.showdebug": "Show Debug Messages",
+
+  "dialogue.alex.cooking": "Hey! I heard you were cooking yesterday. Did you make anything with eggs? I love a good Complete Breakfast.",
+  "dialogue.alex.farming": "Working hard on the farm, huh? That's how you build real muscles!",
+
+  "dialogue.elliott.fishing": "I noticed you were fishing yesterday... {item} — what a magnificent catch! The ocean provides endlessly.",
+  "dialogue.elliott.cooking": "The aroma of home-cooked meals... you made {item}? How delightful!",
+
+  "dialogue.harvey.cooking": "I see you've been cooking! A balanced diet is the foundation of good health. What did you make?",
+  "dialogue.harvey.artisangoods": "You've been busy producing artisan goods! {item} is quite a fine product.",
+  "dialogue.harvey.farming": "Fresh produce from your own farm — nothing is healthier than that. Keep it up!",
+  "dialogue.harvey.beverages": "I heard you were working with beverages yesterday. Coffee, I hope? It's my favorite.",
+
+  "dialogue.sam.mining": "Dude, you went mining yesterday? Did you find anything cool down there?",
+  "dialogue.sam.cooking": "You made some food? Sweet! Did you make any pizza? I could eat pizza every day.",
+
+  "dialogue.sebastian.mining": "You were in the mines yesterday, huh? I like the dark, quiet places down there... when there aren't monsters.",
+  "dialogue.sebastian.voiditems": "Wait... you found {item}? That's... actually really cool. Where did you get it?",
+  "dialogue.sebastian.combat": "Heard you took down some monsters yesterday. {count} of them? Not bad.",
+
+  "dialogue.shane.beverages": "You were making drinks yesterday? ...Got any beer?",
+  "dialogue.shane.cooking": "You cooked something? Was it Pepper Poppers? Those are the best.",
+  "dialogue.shane.animalcare": "You're taking care of your animals, right? ...Good. They deserve it.",
+
+  "dialogue.abigail.mining": "You went to the mines yesterday! Find any amethysts? I love those.",
+  "dialogue.abigail.combat": "You fought {count} monsters yesterday? That's awesome! I wish I could've been there.",
+  "dialogue.abigail.sweets": "Mmm, {item}? I have such a sweet tooth... save some for me next time!",
+  "dialogue.abigail.farming": "I saw you harvested some pumpkins! ...Wait, you didn't? Well, you should.",
+
+  "dialogue.emily.mining": "You found gems yesterday? Oh, I can feel their energy from here! {item} has such beautiful vibrations.",
+  "dialogue.emily.animalcare": "You spent time with your animals? I can sense the positive energy flowing between you and them.",
+
+  "dialogue.haley.flowers": "Oh! You picked {item}? Sunflowers are my absolute favorite, but all flowers are beautiful.",
+  "dialogue.haley.sweets": "Did you bake something sweet yesterday? {item}? ...Maybe you could bring me some?",
+  "dialogue.haley.cooking": "You were cooking? I hope it was something cute like a Fruit Salad!",
+
+  "dialogue.leah.foraging": "I heard you were foraging in the forest! There's something magical about finding wild ingredients.",
+  "dialogue.leah.cooking": "You cooked {item}? I love meals made with fresh, natural ingredients.",
+  "dialogue.leah.artisangoods": "Making artisan goods, huh? There's an art to it, really. {item} sounds wonderful.",
+
+  "dialogue.maru.technology": "You collected {item}? Oh! I could use something like that for my latest experiment!",
+  "dialogue.maru.mining": "You were mining! Did you find any rare minerals? I'm always looking for interesting specimens.",
+  "dialogue.maru.farming": "Your crops are doing well! I've been studying soil composition — it's fascinating stuff.",
+  "dialogue.maru.cooking": "I see you cooked yesterday! I burn things sometimes... science and cooking don't always mix.",
+
+  "dialogue.penny.cooking": "You cooked {item} yesterday? That sounds lovely. I've been trying to learn more recipes myself.",
+  "dialogue.penny.farming": "Your farm must be beautiful with all those crops. The children and I walked by the other day.",
+  "dialogue.penny.flowers": "You picked {item}? How lovely! Flowers always brighten up a room.",
+
+  "dialogue.caroline.cooking": "I heard you were cooking yesterday! You should try making it with Green Tea — it adds a nice flavor.",
+  "dialogue.caroline.beverages": "You made some beverages? I've been really into tea lately. Have you tried my tea garden?",
+  "dialogue.caroline.flowers": "Oh, you picked {item}? I love keeping flowers in the house. They make everything feel alive.",
+
+  "dialogue.clint.mining": "You were in the mines, huh? I hope you found some quality ore. Bring it by the shop if you need anything processed.",
+
+  "dialogue.demetrius.technology": "Interesting! You collected {item}? I'd love to study the properties of that material.",
+  "dialogue.demetrius.farming": "I noticed your farm has been productive! Have you considered rotating your crops for better soil health?",
+
+  "dialogue.dwarf.mining": "Mining. Good. Gems underground. You find good ones? {item}?",
+
+  "dialogue.evelyn.flowers": "{item}? Oh dear, that's one of my favorites! Flowers remind me of when George and I were young.",
+  "dialogue.evelyn.sweets": "Did you bake something sweet? I made some cookies myself yesterday. We should trade recipes!",
+  "dialogue.evelyn.farming": "Your garden is coming along nicely, dear. Fresh vegetables are so important for a healthy life.",
+
+  "dialogue.george.cooking": "Hmph. You were cooking yesterday? I hope it was something simple. Fancy food is overrated.",
+  "dialogue.george.farming": "I saw your crops from the window. ...Not bad. I used to farm too, you know.",
+
+  "dialogue.gus.cooking": "You cooked {item}? Not bad! But you should come try mine at the Saloon — I've perfected the recipe.",
+  "dialogue.gus.fishing": "Fresh fish! {item}? Bring some to the Saloon and I'll cook something special for you.",
+
+  "dialogue.jas.sweets": "Did you make {item}? Can I try some? Please please please?",
+  "dialogue.jas.flowers": "Pretty flowers! {item} is so pretty! Can I have one for my room?",
+
+  "dialogue.jodi.cooking": "You were cooking yesterday! {item}? I'm always looking for new dinner ideas for the family.",
+  "dialogue.jodi.fishing": "You caught fish? {item}? Kent loves fish... I should ask for your recipe.",
+  "dialogue.jodi.farming": "Fresh vegetables from your farm? That's wonderful! I wish I had more time to garden.",
+
+  "dialogue.kent.foraging": "Foraging, huh? Reminds me of survival training. There's good stuff out in those woods.",
+  "dialogue.kent.cooking": "You cooked {item}? Smells like it was good. After my time away, I appreciate a home-cooked meal more than ever.",
+  "dialogue.kent.combat": "You were fighting monsters? Be careful out there. I know what it's like to face dangerous situations.",
+
+  "dialogue.krobus.voiditems": "You found {item}? ...Good. The void is not something to fear. It is part of balance.",
+  "dialogue.krobus.combat": "You fought monsters... Were they shadow creatures? I hope you were gentle... some of them are my friends.",
+  "dialogue.krobus.mining": "The deep places underground... they are familiar to me. Did you find anything strange down there?",
+  "dialogue.krobus.magic": "I sense you touched something magical yesterday. {item}... yes, that has power.",
+
+  "dialogue.leo.animalcare": "You... take care of animals? Like parrots? I like parrots. They are my friends on the island.",
+  "dialogue.leo.foraging": "You find food in the wild? Me too! Island has many good things to eat if you know where to look.",
+
+  "dialogue.lewis.cooking": "I heard you were cooking up a storm yesterday! The town could use more good cooks.",
+  "dialogue.lewis.farming": "Your farm is a credit to this community! {count} crops harvested? Impressive!",
+  "dialogue.lewis.beverages": "You've been making beverages? Perhaps you could supply the next town festival!",
+
+  "dialogue.linus.foraging": "You were foraging yesterday! Nature provides everything we need, doesn't it? I found some good berries myself.",
+  "dialogue.linus.fishing": "Fishing... there's nothing more peaceful. Did you catch {item}? That's a fine one.",
+  "dialogue.linus.cooking": "You cooked with wild ingredients? That's the best way to eat. Simple and honest.",
+
+  "dialogue.marnie.animalcare": "You're taking such good care of your animals! I can tell they're happy. Keep it up!",
+  "dialogue.marnie.cooking": "You made {item}? Oh, that sounds delicious! I love a good home-cooked meal.",
+  "dialogue.marnie.farming": "Your farm is looking wonderful! There's nothing like working the land with your own hands.",
+
+  "dialogue.pam.beverages": "You made {item}? ...That's my kind of farmer. Ha!",
+  "dialogue.pam.cooking": "You were cooking? Make anything filling? A good meal hits the spot after a long day of driving.",
+
+  "dialogue.pierre.farming": "I heard your harvest was impressive yesterday — {count} crops! You should sell them here. My prices are fair... better than that Joja place.",
+
+  "dialogue.robin.artisangoods": "You produced {item}? Nice work! Crafting things with your own hands is the best feeling.",
+  "dialogue.robin.cooking": "You cooked {item}? You'll have to share the recipe! Demetrius always appreciates a good meal.",
+  "dialogue.robin.farming": "Your farm is growing nicely! If you need any buildings, you know where to find me.",
+
+  "dialogue.sandy.flowers": "You picked {item}? Oh, I miss flowers so much out here in the desert. They're so rare here!",
+  "dialogue.sandy.cooking": "You made something tropical? {item}? I love anything with exotic flavors!",
+
+  "dialogue.vincent.sweets": "{item}?! Can I have some? Mom says I eat too much candy but I don't think that's true!",
+  "dialogue.vincent.animalcare": "You have animals on your farm? Can I come see them? I want to pet the chickens!",
+
+  "dialogue.willy.fishing": "Ye caught {item} yesterday? Fine work! That's a {count}-catch day — not bad at all, matey.",
+  "dialogue.willy.mining": "Been down in the mines, have ye? I've found some good gold bars that way. Useful for tackle and gear.",
+
+  "dialogue.wizard.magic": "{item}... yes, I sensed a disturbance in the magical field yesterday. You've been handling arcane materials.",
+  "dialogue.wizard.voiditems": "Void essence... be cautious with those. The void is a source of great power, but also great danger.",
+
+  "dialogue.generic.fishing": "I heard you went fishing yesterday! Caught {count} fish, right?",
+  "dialogue.generic.mining": "You were in the mines yesterday? That takes courage!",
+  "dialogue.generic.farming": "Your farm seems to be doing well! {count} crops harvested?",
+  "dialogue.generic.cooking": "Something smells good... did you cook yesterday?",
+  "dialogue.generic.combat": "I heard there was some commotion in the mines. Was that you fighting monsters?",
+  "dialogue.generic.foraging": "You were out foraging yesterday? I love what nature has to offer.",
+  "dialogue.generic.animalcare": "Your animals look happy! You must be taking good care of them.",
+  "dialogue.generic.artisangoods": "You've been making artisan goods? That's quite a skill!",
+  "dialogue.generic.flowers": "I noticed some fresh flowers around. Did you pick those?",
+  "dialogue.generic.beverages": "Were you making beverages yesterday? I could use a drink!",
+  "dialogue.generic.sweets": "Something sweet was made yesterday... I could smell it from here!",
+  "dialogue.generic.technology": "I heard you were working with some interesting materials yesterday.",
+  "dialogue.generic.voiditems": "I heard you found some... unusual items. Be careful with those.",
+  "dialogue.generic.magic": "There was a strange energy in the air yesterday. Did you notice?"
+}

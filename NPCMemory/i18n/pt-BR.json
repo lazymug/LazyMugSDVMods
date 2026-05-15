@@ -1,0 +1,141 @@
+{
+  "config.enablemod": "Ativar Mod",
+  "config.dialoguechance": "Chance de Dialogo",
+  "config.dialoguechance.tooltip": "Chance (0.1 a 1.0) de cada NPC interessado comentar sobre suas atividades.",
+  "config.showdebug": "Mostrar Mensagens de Debug",
+
+  "dialogue.alex.cooking": "E ai! Soube que voce estava cozinhando ontem. Fez algo com ovos? Adoro um bom Cafe da Manha Completo.",
+  "dialogue.alex.farming": "Trabalhando duro na fazenda, hein? E assim que se constroi musculos de verdade!",
+
+  "dialogue.elliott.fishing": "Percebi que voce estava pescando ontem... {item} — que captura magnifica! O oceano e generoso.",
+  "dialogue.elliott.cooking": "O aroma de comida caseira... voce fez {item}? Que delicia!",
+
+  "dialogue.harvey.cooking": "Vejo que voce andou cozinhando! Uma dieta equilibrada e a base da boa saude. O que voce fez?",
+  "dialogue.harvey.artisangoods": "Voce andou produzindo produtos artesanais! {item} e um produto muito bom.",
+  "dialogue.harvey.farming": "Produtos frescos da sua propria fazenda — nada mais saudavel que isso. Continue assim!",
+  "dialogue.harvey.beverages": "Soube que voce estava trabalhando com bebidas ontem. Cafe, espero? E meu favorito.",
+
+  "dialogue.sam.mining": "Cara, voce foi minerar ontem? Encontrou algo legal la embaixo?",
+  "dialogue.sam.cooking": "Voce fez comida? Legal! Fez pizza? Eu como pizza todo dia, facil.",
+
+  "dialogue.sebastian.mining": "Voce estava nas minas ontem, ne? Eu gosto dos lugares escuros e quietos la embaixo... quando nao tem monstros.",
+  "dialogue.sebastian.voiditems": "Espera... voce encontrou {item}? Isso e... bem legal, na verdade. Onde achou?",
+  "dialogue.sebastian.combat": "Soube que voce derrotou alguns monstros ontem. {count} deles? Nada mal.",
+
+  "dialogue.shane.beverages": "Voce estava fazendo bebidas ontem? ...Tem cerveja?",
+  "dialogue.shane.cooking": "Voce cozinhou algo? Eram Pepper Poppers? Esses sao os melhores.",
+  "dialogue.shane.animalcare": "Voce esta cuidando bem dos seus animais, certo? ...Bom. Eles merecem.",
+
+  "dialogue.abigail.mining": "Voce foi nas minas ontem! Achou alguma ametista? Eu amo ametistas.",
+  "dialogue.abigail.combat": "Voce lutou contra {count} monstros ontem? Incrivel! Queria ter estado la!",
+  "dialogue.abigail.sweets": "Hmm, {item}? Eu adoro doces... guarda um pouco pra mim da proxima vez!",
+  "dialogue.abigail.farming": "Vi que voce colheu aboboras! ...Espera, nao colheu? Bom, deveria.",
+
+  "dialogue.emily.mining": "Voce encontrou gemas ontem? Consigo sentir a energia delas daqui! {item} tem vibracoes lindas.",
+  "dialogue.emily.animalcare": "Voce passou tempo com seus animais? Sinto a energia positiva fluindo entre voces.",
+
+  "dialogue.haley.flowers": "Ah! Voce pegou {item}? Girassois sao meus favoritos, mas todas as flores sao lindas.",
+  "dialogue.haley.sweets": "Voce fez algo doce ontem? {item}? ...Talvez possa me trazer um pouco?",
+  "dialogue.haley.cooking": "Voce estava cozinhando? Espero que tenha sido algo bonito como uma Salada de Frutas!",
+
+  "dialogue.leah.foraging": "Soube que voce estava coletando na floresta! Tem algo magico em encontrar ingredientes selvagens.",
+  "dialogue.leah.cooking": "Voce fez {item}? Adoro refeicoes com ingredientes frescos e naturais.",
+  "dialogue.leah.artisangoods": "Fazendo produtos artesanais, ne? Tem uma arte nisso, de verdade. {item} parece maravilhoso.",
+
+  "dialogue.maru.technology": "Voce coletou {item}? Ah! Eu poderia usar algo assim no meu ultimo experimento!",
+  "dialogue.maru.mining": "Voce foi minerar! Encontrou minerais raros? Sempre procuro especimes interessantes.",
+  "dialogue.maru.farming": "Suas plantacoes estao indo bem! Tenho estudado composicao do solo — e fascinante.",
+  "dialogue.maru.cooking": "Vi que voce cozinhou ontem! Eu queimo coisas as vezes... ciencia e culinaria nem sempre combinam.",
+
+  "dialogue.penny.cooking": "Voce fez {item} ontem? Que lindo. Tenho tentado aprender mais receitas tambem.",
+  "dialogue.penny.farming": "Sua fazenda deve estar linda com todas essas plantacoes. As criancas e eu passamos por la outro dia.",
+  "dialogue.penny.flowers": "Voce pegou {item}? Que lindo! Flores sempre alegram um ambiente.",
+
+  "dialogue.caroline.cooking": "Soube que voce andou cozinhando! Deveria tentar fazer com Cha Verde — da um sabor especial.",
+  "dialogue.caroline.beverages": "Voce fez bebidas? Tenho adorado cha ultimamente. Ja experimentou meu jardim de cha?",
+  "dialogue.caroline.flowers": "Ah, voce pegou {item}? Adoro ter flores em casa. Elas fazem tudo parecer vivo.",
+
+  "dialogue.clint.mining": "Voce foi nas minas, hein? Espero que tenha achado minerio de qualidade. Passe na loja se precisar processar algo.",
+
+  "dialogue.demetrius.technology": "Interessante! Voce coletou {item}? Adoraria estudar as propriedades desse material.",
+  "dialogue.demetrius.farming": "Percebi que sua fazenda tem sido produtiva! Ja considerou rotacao de culturas para melhorar o solo?",
+
+  "dialogue.dwarf.mining": "Mineracao. Bom. Gemas no subsolo. Achou boas? {item}?",
+
+  "dialogue.evelyn.flowers": "{item}? Ah querido, essa e uma das minhas favoritas! Flores me lembram de quando George e eu eramos jovens.",
+  "dialogue.evelyn.sweets": "Voce fez algo doce? Eu mesma fiz biscoitos ontem. Deveríamos trocar receitas!",
+  "dialogue.evelyn.farming": "Sua horta esta ficando otima, querido. Vegetais frescos sao tao importantes para a saude.",
+
+  "dialogue.george.cooking": "Hmph. Voce estava cozinhando ontem? Espero que tenha sido algo simples. Comida chique e superestimada.",
+  "dialogue.george.farming": "Vi suas plantacoes da janela. ...Nada mal. Eu tambem ja fui fazendeiro, sabia?",
+
+  "dialogue.gus.cooking": "Voce fez {item}? Nada mal! Mas venha experimentar o meu no Saloon — perfeccionei a receita.",
+  "dialogue.gus.fishing": "Peixe fresco! {item}? Traga pro Saloon e eu preparo algo especial pra voce.",
+
+  "dialogue.jas.sweets": "Voce fez {item}? Posso experimentar? Por favor, por favor, por favor?",
+  "dialogue.jas.flowers": "Flores bonitas! {item} e tao linda! Posso ter uma pro meu quarto?",
+
+  "dialogue.jodi.cooking": "Voce estava cozinhando ontem! {item}? Sempre procuro novas ideias de jantar para a familia.",
+  "dialogue.jodi.fishing": "Voce pescou? {item}? Kent adora peixe... deveria pedir sua receita.",
+  "dialogue.jodi.farming": "Vegetais frescos da sua fazenda? Que maravilha! Queria ter mais tempo para cuidar de um jardim.",
+
+  "dialogue.kent.foraging": "Coletando na natureza, hein? Lembra meu treinamento de sobrevivencia. Tem coisas boas naquelas matas.",
+  "dialogue.kent.cooking": "Voce fez {item}? Deve ter ficado bom. Depois do tempo fora, valorizo mais uma refeicao caseira.",
+  "dialogue.kent.combat": "Voce estava lutando contra monstros? Cuidado la fora. Sei como e enfrentar situacoes perigosas.",
+
+  "dialogue.krobus.voiditems": "Voce encontrou {item}?... Bom. O vazio nao e algo a temer. Faz parte do equilibrio.",
+  "dialogue.krobus.combat": "Voce lutou contra monstros... Eram criaturas das sombras? Espero que tenha sido gentil... alguns sao meus amigos.",
+  "dialogue.krobus.mining": "Os lugares profundos no subsolo... sao familiares para mim. Encontrou algo estranho la embaixo?",
+  "dialogue.krobus.magic": "Sinto que voce tocou algo magico ontem. {item}... sim, isso tem poder.",
+
+  "dialogue.leo.animalcare": "Voce... cuida de animais? Como papagaios? Eu gosto de papagaios. Sao meus amigos na ilha.",
+  "dialogue.leo.foraging": "Voce acha comida na natureza? Eu tambem! A ilha tem muitas coisas boas se voce sabe onde procurar.",
+
+  "dialogue.lewis.cooking": "Soube que voce cozinhou bastante ontem! A cidade precisa de mais bons cozinheiros.",
+  "dialogue.lewis.farming": "Sua fazenda e um orgulho para a comunidade! {count} cultivos colhidos? Impressionante!",
+  "dialogue.lewis.beverages": "Voce andou fazendo bebidas? Talvez possa abastecer o proximo festival da cidade!",
+
+  "dialogue.linus.foraging": "Voce estava coletando ontem! A natureza nos da tudo que precisamos, nao e? Eu achei umas frutas boas tambem.",
+  "dialogue.linus.fishing": "Pescar... nada mais pacifico. Pegou {item}? Bela captura.",
+  "dialogue.linus.cooking": "Voce cozinhou com ingredientes selvagens? Essa e a melhor forma de comer. Simples e honesto.",
+
+  "dialogue.marnie.animalcare": "Voce esta cuidando tao bem dos seus animais! Da pra ver que eles estao felizes. Continue assim!",
+  "dialogue.marnie.cooking": "Voce fez {item}? Ah, parece delicioso! Adoro uma boa comida caseira.",
+  "dialogue.marnie.farming": "Sua fazenda esta linda! Nao ha nada como trabalhar a terra com as proprias maos.",
+
+  "dialogue.pam.beverages": "Voce fez {item}? ...Esse e meu tipo de fazendeiro. Ha!",
+  "dialogue.pam.cooking": "Voce estava cozinhando? Fez algo que enche a barriga? Uma boa refeicao cai bem depois de um longo dia dirigindo.",
+
+  "dialogue.pierre.farming": "Soube que sua colheita foi impressionante ontem — {count} cultivos! Deveria vender aqui. Meus precos sao justos... melhores que aquele Joja.",
+
+  "dialogue.robin.artisangoods": "Voce produziu {item}? Bom trabalho! Fazer coisas com as proprias maos e a melhor sensacao.",
+  "dialogue.robin.cooking": "Voce fez {item}? Vai ter que compartilhar a receita! Demetrius sempre gosta de uma boa refeicao.",
+  "dialogue.robin.farming": "Sua fazenda esta crescendo bem! Se precisar de construcoes, sabe onde me encontrar.",
+
+  "dialogue.sandy.flowers": "Voce pegou {item}? Ah, sinto tanta falta de flores aqui no deserto. Sao tao raras aqui!",
+  "dialogue.sandy.cooking": "Voce fez algo tropical? {item}? Adoro qualquer coisa com sabores exoticos!",
+
+  "dialogue.vincent.sweets": "{item}?! Posso comer um pouco? A mae diz que como muito doce mas acho que nao e verdade!",
+  "dialogue.vincent.animalcare": "Voce tem animais na fazenda? Posso ir ver? Quero fazer carinho nas galinhas!",
+
+  "dialogue.willy.fishing": "Voce pescou {item} ontem? Bom trabalho! {count} peixes no dia — nada mal, marujo.",
+  "dialogue.willy.mining": "Andou nas minas, ne? Ja encontrei boas barras de ouro por la. Uteis pra equipamento de pesca.",
+
+  "dialogue.wizard.magic": "{item}... sim, senti uma perturbacao no campo magico ontem. Voce andou mexendo com materiais arcanos.",
+  "dialogue.wizard.voiditems": "Essencia do vazio... tenha cautela. O vazio e fonte de grande poder, mas tambem de grande perigo.",
+
+  "dialogue.generic.fishing": "Soube que voce foi pescar ontem! Pegou {count} peixes, certo?",
+  "dialogue.generic.mining": "Voce foi nas minas ontem? Isso requer coragem!",
+  "dialogue.generic.farming": "Sua fazenda parece estar indo bem! {count} cultivos colhidos?",
+  "dialogue.generic.cooking": "Algo cheira bem... voce cozinhou ontem?",
+  "dialogue.generic.combat": "Ouvi um barulho vindo das minas. Era voce lutando contra monstros?",
+  "dialogue.generic.foraging": "Voce estava coletando ontem? Adoro o que a natureza oferece.",
+  "dialogue.generic.animalcare": "Seus animais parecem felizes! Voce deve estar cuidando bem deles.",
+  "dialogue.generic.artisangoods": "Voce andou fazendo produtos artesanais? Que habilidade!",
+  "dialogue.generic.flowers": "Percebi algumas flores frescas por ai. Voce que pegou?",
+  "dialogue.generic.beverages": "Voce estava fazendo bebidas ontem? Eu aceitaria uma!",
+  "dialogue.generic.sweets": "Algo doce foi feito ontem... dava pra sentir o cheiro daqui!",
+  "dialogue.generic.technology": "Soube que voce estava trabalhando com materiais interessantes ontem.",
+  "dialogue.generic.voiditems": "Ouvi que voce encontrou itens... incomuns. Tenha cuidado com eles.",
+  "dialogue.generic.magic": "Tinha uma energia estranha no ar ontem. Voce percebeu?"
+}

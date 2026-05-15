@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <ModFolderName>Allellopathy</ModFolderName>
+    <EnableModZip>false</EnableModZip>
+  </PropertyGroup>
+</Project>

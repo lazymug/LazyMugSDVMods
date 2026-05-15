@@ -1,0 +1,20 @@
+{
+  "allellopathy.config.title": "Configuração do Alelopatia",
+  "allellopathy.config.enablemod": "Ativar Mod",
+  "allellopathy.config.effectstrength": "Força do Efeito",
+  "allellopathy.config.showeffectmessages": "Mostrar Mensagens de Efeito",
+  "allellopathy.config.showvisualindicators": "Mostrar Indicadores Visuais",
+  "allellopathy.config.showparticleeffects": "Mostrar Efeitos de Partículas",
+  "allellopathy.config.showhovertext": "Mostrar Texto ao Passar o Mouse",
+  "allellopathy.config.indicatoropacity": "Opacidade do Indicador",
+
+  "allellopathy.hud.positive": "Efeito Alelopático Positivo",
+  "allellopathy.hud.negative": "Efeito Alelopático Negativo",
+  "allellopathy.hud.neutral": "Sem Efeito Alelopático",
+
+  "allellopathy.tooltip.companion": "Planta Companheira: Beneficia as plantações próximas",
+  "allellopathy.tooltip.antagonist": "Planta Antagonista: Pode prejudicar as plantações próximas",
+
+  "allellopathy.message.positive": "Seu(a) {{crop1}} está ajudando seu(a) {{crop2}} a crescer!",
+  "allellopathy.message.negative": "Seu(a) {{crop1}} está prejudicando o crescimento do(a) {{crop2}}."
+}

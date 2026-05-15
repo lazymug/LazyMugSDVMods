@@ -1,0 +1,28 @@
+{
+  "config.enablemod": "Ativar Mod",
+  "config.bonusmultiplier": "Multiplicador de Bônus",
+  "config.bonusmultiplier.tooltip": "Aumenta ou diminui o bônus de amizade (1.0 = padrão, 2.0 = bônus dobrado)",
+  "config.showbonusmessages": "Mostrar Mensagens de Bônus",
+
+  "dialogue.question": "{{npc}} pode negociar itens especiais com você. Bônus atual: +{{bonus}}%. O que deseja fazer?",
+  "dialogue.sell": "Quero vender alguns itens",
+  "dialogue.chat": "Só vim conversar",
+
+  "shop.bonus": "{{npc}} — {{specialty}} — Bônus de Amizade: +{{bonus}}%",
+
+  "shop.greeting.clint": "Me mostre o que você tem! Pago bem por minérios e gemas de qualidade.",
+  "shop.greeting.marnie": "Estou sempre procurando bons produtos animais! Deixe-me ver o que você tem.",
+  "shop.greeting.gus": "Tem algum prato delicioso ou produtos premium? Ficarei feliz em comprá-los!",
+  "shop.greeting.willy": "Pesca fresca? Eu reconheço um bom peixe quando vejo!",
+  "shop.greeting.robin": "Materiais de construção ou cercas? Sempre preciso de mais suprimentos!",
+  "shop.greeting.pierre": "Produtos frescos da fazenda? Deixe-me dar uma olhada!",
+  "shop.greeting.krobus": "Eu sinto... itens interessantes. Mostre-me o que você carrega.",
+
+  "specialty.clint": "Minérios, Barras e Gemas",
+  "specialty.marnie": "Produtos Animais",
+  "specialty.gus": "Comidas & Cultivos Premium",
+  "specialty.willy": "Peixes e Frutos do Mar",
+  "specialty.robin": "Materiais & Cercas",
+  "specialty.pierre": "Cultivos e Produtos",
+  "specialty.krobus": "Itens do Vazio e Sombras"
+}

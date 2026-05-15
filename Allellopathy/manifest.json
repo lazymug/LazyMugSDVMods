@@ -1,0 +1,20 @@
+{
+  "Name": "Allellopathy",
+  "Author": "Lazy Mug",
+  "Version": "1.1.0",
+  "Description": "Adds realistic allelopathy to farming. Nearby crops help or hinder each other through biochemical interactions, affecting growth speed, quality, and yield. Plan your farm layout wisely — companion planting matters! Includes per-crop effects for spring, summer, fall, and special crops.",
+  "UniqueID": "LazyMug.Allellopathy",
+  "EntryDll": "Allellopathy.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [],
+  "Dependencies": [
+    {
+      "UniqueID": "Pathoschild.ContentPatcher",
+      "IsRequired": false
+    },
+    {
+      "UniqueID": "spacechase0.GenericModConfigMenu",
+      "IsRequired": false
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+[center][size=6]NPC Memory[/size]
+
+[i]NPCs remember your daily activities and comment on them based on their personal interests. Fish a lot? Willy will notice. Explore the mines? Abigail wants to hear about it![/i][/center]
+
+[line]
+
+[size=5]How It Works[/size]
+
+The mod tracks what you do each day — fishing, mining, farming, cooking, combat, and more. The next morning, NPCs who share an interest in those activities may comment on what you did. Each NPC has unique dialogue lines that match their personality.
+
+[b]Example:[/b] You spend a day fishing and catch 8 fish including a Catfish. The next morning:
+[list]
+[*][b]Willy[/b]: "Ye caught Catfish yesterday? Fine work! That's a 8-catch day — not bad at all, matey."
+[*][b]Elliott[/b]: "I noticed you were fishing yesterday... Catfish — what a magnificent catch! The ocean provides endlessly."
+[*][b]Linus[/b]: "Fishing... there's nothing more peaceful. Did you catch Catfish? That's a fine one."
+[/list]
+
+Not every NPC will comment every day — there's a configurable chance (default 30%) to keep things feeling natural.
+
+[line]
+
+[size=5]Tracked Activities[/size]
+
+[code]
+Activity        | How It's Tracked
+----------------+--------------------------------------------------
+Fishing         | Catching fish (any type)
+Mining          | Collecting gems, minerals, ores, visiting mines
+Farming         | Harvesting vegetables and fruits
+Cooking         | Preparing cooked dishes
+Combat          | Defeating monsters (monster loot drops)
+Foraging        | Collecting wild items
+Animal Care     | Collecting eggs, milk, animal products
+Artisan Goods   | Producing artisan items (wine, cheese, etc.)
+Flowers         | Picking flowers
+Beverages       | Making beer, wine, coffee, tea, mead, etc.
+Sweets          | Baking cakes, cookies, puddings, etc.
+Technology      | Collecting bars, battery packs, gadgets
+Void Items      | Finding void eggs, void essence, void mayo
+Magic           | Handling solar/void essence, arcane materials
+[/code]
+
+[line]
+
+[size=5]NPC Interests[/size]
+
+Each NPC has specific interests based on their personality and loved gifts:
+
+[code]
+NPC          | Interested In
+-------------+--------------------------------------------------
+Willy        | Fishing, Mining
+Elliott      | Fishing, Cooking
+Abigail      | Mining, Combat, Sweets, Farming
+Sebastian    | Mining, Void Items, Combat
+Maru         | Technology, Mining, Farming, Cooking
+Shane        | Beverages, Cooking, Animal Care
+Leah         | Foraging, Cooking, Artisan Goods
+Harvey       | Cooking, Artisan Goods, Farming, Beverages
+Penny        | Cooking, Farming, Flowers
+Emily        | Mining, Animal Care
+Haley        | Flowers, Sweets, Cooking
+Sam          | Mining, Cooking
+Alex         | Cooking
+Pierre       | Farming
+Clint        | Mining
+Gus          | Cooking, Fishing
+Marnie       | Animal Care, Cooking, Farming
+Robin        | Artisan Goods, Cooking, Farming
+Krobus       | Void Items, Combat, Mining, Magic
+Wizard       | Magic, Void Items
+Evelyn       | Flowers, Sweets, Farming
+Linus        | Foraging, Fishing, Cooking
+Caroline     | Cooking, Beverages, Flowers
+Kent         | Foraging, Cooking, Combat
+Lewis        | Cooking, Farming, Beverages
+Pam          | Beverages, Cooking
+Demetrius    | Technology, Farming
+Jodi         | Cooking, Fishing, Farming
+Leo          | Animal Care, Foraging
+Vincent      | Sweets, Animal Care
+Jas          | Sweets, Flowers
+Sandy        | Flowers, Cooking
+George       | Cooking, Farming
+Dwarf        | Mining
+[/code]
+
+[line]
+
+[size=5]Dialogue System[/size]
+
+[list]
+[*]Each NPC has [b]unique, personality-driven dialogue[/b] for their interests
+[*]Dialogues reference [b]specific items[/b] you collected and [b]quantities[/b]
+[*]If no NPC-specific dialogue exists, a generic fallback is used
+[*]NPCs pick the activity you did [b]most[/b] among their interests
+[*]Memory stores the [b]last 7 days[/b] of activity history per save
+[/list]
+
+[line]
+
+[size=5]Configuration[/size]
+
+All options can be changed via [b]Generic Mod Config Menu[/b] or by editing [font=Courier New]config.json[/font]:
+
+[code]
+Option              | Default | Description
+--------------------+---------+---------------------------------------------------
+EnableMod           | true    | Enable or disable the mod
+DialogueChance      | 0.3     | Chance (0.1 - 1.0) each interested NPC will comment
+ShowDebugMessages   | false   | Log activity tracking and dialogue injection to console
+[/code]
+
+[line]
+
+[size=5]Installation[/size]
+
+[list=1]
+[*]Install [url=https://smapi.io/]SMAPI[/url] (4.0+)
+[*][i](Optional)[/i] Install [url=https://www.nexusmods.com/stardewvalley/mods/5098]Generic Mod Config Menu[/url] for in-game configuration
+[*]Download this mod and unzip it into your [font=Courier New]Stardew Valley/Mods[/font] folder
+[*]Launch the game through SMAPI
+[/list]
+
+[line]
+
+[size=5]Compatibility[/size]
+
+[list]
+[*]Stardew Valley [b]1.6+[/b]
+[*]Windows, macOS, and Linux
+[*]Single-player and multiplayer
+[*]Compatible with most other mods (no Harmony patches used)
+[/list]
+
+[line]
+
+[size=5]Supported Languages[/size]
+
+[list]
+[*]English (default)
+[*]Portugues (Brazilian)
+[/list]
+
+Want to help translate? Create a new file in the [font=Courier New]i18n[/font] folder following the [url=https://stardewvalleywiki.com/Modding:Translations]SMAPI translation guide[/url].
+
+[line]
+
+[center][size=4]Credits[/size]
+
+Developed by [b]Lazy Mug[/b]
+
+[i]"A good neighbor remembers what matters to you."[/i][/center]

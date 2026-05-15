@@ -1,0 +1,16 @@
+{
+  "Name": "Friendly Trades",
+  "Author": "Lazy Mug",
+  "Version": "1.1.0",
+  "Description": "Sell items directly to NPCs based on their specialty for bonus prices. The bonus scales with friendship level — the closer you are, the better the deal!",
+  "UniqueID": "LazyMug.FriendlyTrades",
+  "EntryDll": "FriendlyTrades.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [],
+  "Dependencies": [
+    {
+      "UniqueID": "spacechase0.GenericModConfigMenu",
+      "IsRequired": false
+    }
+  ]
+}

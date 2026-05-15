@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <ModFolderName>FriendlyTrades</ModFolderName>
+    <EnableModZip>true</EnableModZip>
+  </PropertyGroup>
+</Project>

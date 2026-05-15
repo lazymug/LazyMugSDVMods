@@ -1,0 +1,16 @@
+{
+  "Name": "NPC Memory",
+  "Author": "Lazy Mug",
+  "Version": "1.0.0",
+  "Description": "NPCs remember what you did and comment on your recent activities based on their personal interests.",
+  "UniqueID": "LazyMug.NPCMemory",
+  "EntryDll": "NPCMemory.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [],
+  "Dependencies": [
+    {
+      "UniqueID": "spacechase0.GenericModConfigMenu",
+      "IsRequired": false
+    }
+  ]
+}
