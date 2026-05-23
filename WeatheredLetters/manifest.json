@@ -1,0 +1,16 @@
+{
+  "Name": "Weathered Letters",
+  "Author": "Lazy Mug",
+  "Version": "1.0.0",
+  "Description": "Discover old weathered letters scattered across the valley. Piece together the story of your grandfather and the people who came before you.",
+  "UniqueID": "LazyMug.WeatheredLetters",
+  "EntryDll": "WeatheredLetters.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [],
+  "Dependencies": [
+    {
+      "UniqueID": "spacechase0.GenericModConfigMenu",
+      "IsRequired": false
+    }
+  ]
+}

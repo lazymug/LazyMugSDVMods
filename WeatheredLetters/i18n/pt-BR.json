@@ -1,0 +1,49 @@
+{
+  "config.enablemod": "Ativar Mod",
+  "config.daysbetween": "Dias Entre Cartas",
+  "config.daysbetween.tooltip": "Número mínimo de dias entre encontrar novas cartas (1-28).",
+  "config.showhints": "Mostrar Dicas de Spawn",
+
+  "hint.farm": "Você nota algo incomum saindo do solo na sua fazenda...",
+  "hint.beach": "Algo apareceu na praia hoje...",
+  "hint.mines": "Há um pedaço de papel desbotado no chão aqui...",
+  "hint.trash": "Você tem a sensação de que algo interessante pode aparecer no lixo hoje...",
+  "hint.fishing": "A água parece guardar um segredo hoje... tente a sorte pescando.",
+
+  "found.message": "Carta Desgastada encontrada! ({{current}}/{{total}})",
+  "reward.message": "Você coletou todas as cartas. O vovô ficaria orgulhoso.",
+
+  "letter.title": "Carta de {{author}}",
+
+  "letter.grandpa_01": "Para quem encontrar isto — estou escrevendo na minha primeira noite no vale. A casa da fazenda é menor do que eu esperava, e o campo está coberto de pedras e ervas daninhas. Mas o ar aqui é diferente. Limpo. Honesto. Acho que fiz a escolha certa ao deixar a cidade.^Não sei o que o amanhã trará, mas pela primeira vez em anos, sinto que consigo respirar.",
+
+  "letter.grandpa_02": "A primavera está a todo vapor. Meus primeiros nabos saíram da terra hoje — coisinhas pequenas e tortas, mas nunca tive tanto orgulho de nada na minha vida. O solo aqui é bom. Só precisava de alguém para cuidar dele de novo.^O velho Mulligan na loja geral riu da minha colheita, mas me vendeu mais sementes com desconto. Acho que ele está torcendo por mim.",
+
+  "letter.lewis_01": "Caro amigo,^Sei que sou apenas um jovem com grandes ideias, mas queria te agradecer como se deve. Quando assumi como prefeito, metade da cidade achava que eu era uma piada. Você foi a primeira pessoa a apertar minha mão e dizer 'esta cidade tem sorte de ter você.'^Guardei essas palavras comigo todos os dias. Este vale precisa de pessoas como você — pessoas que constroem ao invés de destruir.^Seu amigo sempre,^Lewis",
+
+  "letter.grandpa_03": "Verão. O oceano aqui não é nada como o porto da cidade — sem navios, sem óleo, apenas azul infinito. Tenho passado as noites na praia assistindo o pôr do sol. Um pescador chamado Walt me ensinou a lançar uma linha. Diz que o mar te dá o que você precisa, não o que você quer.^Estou começando a entender o que ele quis dizer.",
+
+  "letter.grandpa_04": "Pesquei meu maior peixe hoje — um bagre, logo após uma tempestade. Walt diz que é quando eles aparecem, quando a água está agitada e a maioria das pessoas fica em casa. Há uma lição nisso, eu acho. As melhores coisas vêm quando você está disposto a enfrentar a tempestade.^Estou guardando a receita que Walt me ensinou. Talvez um dia eu passe adiante.",
+
+  "letter.grandpa_lewis": "Caro Lewis,^Parabéns pela reeleição. Sempre soube que você cresceria no cargo. A reunião da cidade ontem me lembrou por que amo este lugar — todos discutindo sobre altura de cercas e arranjos de flores como se o destino do mundo dependesse disso.^Não deixe a política te desgastar, filho. Você se importa com essas pessoas, e elas sabem disso, mesmo quando são teimosas demais para admitir. Mantenha a cidade unida. É isso que importa.^Seu velho amigo",
+
+  "letter.grandpa_05": "O vale está dourado hoje. Cada árvore, cada colina — tudo está banhado em luz âmbar. Colhi mais abóboras do que consigo contar. Dei metade delas aos vizinhos.^Tenho pensado sobre legado ultimamente. O que deixamos para trás quando partimos. Espero que quando as pessoas passarem por esta fazenda daqui a anos, saibam que alguém amou esta terra.",
+
+  "letter.grandpa_06": "Fui mais fundo nas minas do que nunca. Encontrei algo estranho lá embaixo — estruturas antigas, pedra entalhada, símbolos que não reconheço. Este vale tem segredos mais antigos do que qualquer pessoa sabe.^Cruzei com uma criatura pequena em um dos níveis mais baixos. Ela falou comigo, mas não entendi uma única palavra — alguma língua que nunca ouvi. Não parecia hostil, apenas... surpresa em me ver. Deixei um pouco de comida e segui em frente.^Também peguei um cristal do nível 80. Ele brilha fracamente no escuro. Eu o mantenho no meu criado-mudo. Me lembra que sempre há algo mais profundo para descobrir.",
+
+  "letter.evelyn_01": "Querido amigo,^Estou escrevendo com lágrimas nos olhos, mas são lágrimas de gratidão. As flores que você deixou na nossa varanda esta manhã — George fingiu que não se importou, mas eu o vi olhando para elas pela janela por um longo tempo.^Ele está sofrendo. Não admite, mas a cadeira de rodas tirou algo dele que eu não consigo devolver. Seu orgulho, talvez. Ele costumava caminhar até sua fazenda toda manhã para ajudar com os postes da cerca. Agora mal sai de casa.^Mas suas visitas significam mais do que você imagina. Quando você senta com ele e conversa sobre os velhos tempos, vejo uma centelha do homem com quem me casei. Por favor, não pare de nos visitar.^Com carinho,^Evelyn",
+
+  "letter.grandpa_07": "Inverno. A fazenda está quieta agora. A neve cobre tudo como uma página em branco esperando para ser escrita. Passo a maioria dos dias junto à lareira, lendo, pensando.^Estou neste vale há anos, e ainda descubro algo novo a cada estação. Uma flor que nunca tinha notado. Um caminho que nunca tinha percorrido. Uma conversa que muda como vejo tudo.^Esse é o presente de ficar em um lugar — você não fica sem coisas para encontrar. Você só aprende a olhar com mais cuidado.",
+
+  "letter.grandpa_08": "Algo terrível aconteceu hoje. Houve uma explosão nas minas — um desabamento no nível 40. George estava lá embaixo. Quando o tiramos, suas pernas estavam esmagadas sob as rochas.^Evelyn não parou de chorar. O médico disse que ele nunca mais vai andar. George apenas olha para o teto e não diz uma palavra.^Fico pensando — eu deveria ter ido com ele naquela manhã. Ele me pediu, mas fiquei para consertar o telhado do celeiro. Se eu estivesse lá, talvez pudesse ter... Não sei. Não sei.^As minas são perigosas. Sempre soube disso. Mas saber e ver seu amigo sendo carregado numa maca são duas coisas muito diferentes.",
+
+  "letter.oldfisherman_01": "Ao novo fazendeiro,^Seu avô e eu passamos muitos invernos naquele píer, sem pescar muita coisa mas sem nos importar também. Ele costumava dizer que pescar não é sobre o peixe — é sobre ser paciente o suficiente para deixar o mundo vir até você.^Sinto falta daqueles dias. Sinto falta dele. Cuide daquela fazenda. Ele iria querer isso.^— Walt",
+
+  "letter.grandpa_09": "Estou envelhecendo. Meus joelhos doem quando chove, e não consigo mais balançar o machado como antes. Mas toda manhã eu caminho até o campo e sinto a mesma coisa que senti naquele primeiro dia — gratidão.^Esta fazenda, este vale, estas pessoas — me deram uma vida que vale a pena viver. Eu era ninguém na cidade. Aqui, me tornei vizinho de alguém, amigo de alguém.^Isso vale mais do que qualquer colheita.",
+
+  "letter.grandpa_10": "Ela teria amado esta época do ano. Minha esposa sempre dizia que o vale ficava mais bonito no outono, quando as folhas mudavam e o ar ficava frio o suficiente para justificar uma xícara extra de café na varanda.^Faz anos que ela se foi, mas ainda acordo alguns dias esperando ouvir ela cantarolando na cozinha. O silêncio é o que mais dói.^Plantei tulipas ao lado da casa — as favoritas dela. Toda primavera, quando elas florescem, é como se ela estivesse me dizendo que está tudo bem.^Espero que nosso neto conheça o amor assim um dia. O tipo que não vai embora, mesmo quando a pessoa vai.",
+
+  "letter.mystery_01": "O vale lembra. As pedras lembram. A água correndo sob a terra carrega a memória de cada mão que cultivou este solo, cada voz que ecoou por estas colinas.^Você não é o primeiro, e não será o último. Mas você está aqui agora, e é isso que importa.^Cuide deste lugar. Ele tem cuidado de você desde antes de você chegar.^— [O resto da carta está desbotado demais para ler]",
+
+  "letter.reward": "Meu querido neto,^^Você encontrou todas — cada carta, cada memória que espalhei por este vale. Eu as escondi nos lugares que mais significaram para mim, esperando que um dia você percorresse os mesmos caminhos e entendesse.^^Esta fazenda não é apenas terra. É uma história. Minha história, e agora a sua.^^Deixei algo especial para você junto com esta carta — um cristal que encontrei nas profundezas das minas há muito tempo. Ele brilha com todas as cores que já vi e algumas que nunca tinha visto. Nunca entendi o que era, mas sempre senti que estava esperando pela pessoa certa. Acho que essa pessoa é você.^^Estou tão orgulhoso de você.^^Com amor eterno,^Vovô"
+}

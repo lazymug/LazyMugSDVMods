@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <ModFolderName>WeatheredLetters</ModFolderName>
+    <EnableModZip>true</EnableModZip>
+  </PropertyGroup>
+</Project>

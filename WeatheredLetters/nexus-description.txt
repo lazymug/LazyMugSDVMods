@@ -1,0 +1,76 @@
+[size=5][b]Weathered Letters[/b][/size]
+
+[i]"The valley remembers. The stones remember."[/i]
+
+[size=4][b]About[/b][/size]
+Scattered across Stardew Valley, old weathered letters lie hidden — waiting to be found. Each one reveals a piece of your grandfather's life: the day he arrived at the farm, the friends he made, the hardships he endured, and the love he carried until the very end.
+
+Discover [b]15 handwritten letters[/b] from Grandpa and other familiar faces, and uncover a story that spans all four seasons.
+
+[size=4][b]How It Works[/b][/size]
+Letters appear naturally as you play. Every few days, a new letter becomes available in one of five discovery methods:
+
+[list]
+[*][b]Farm[/b] — A mysterious note appears on the ground somewhere on your farm.
+[*][b]Beach[/b] — Something washes ashore on the beach.
+[*][b]Mines[/b] — A faded piece of paper is found deep underground.
+[*][b]Trash Cans[/b] — A crumpled letter turns up while checking the garbage.
+[*][b]Fishing[/b] — An old note is caught inside a treasure chest.
+[/list]
+
+When hints are enabled, you'll receive a subtle HUD message at the start of the day telling you where to look.
+
+[size=4][b]The Letters[/b][/size]
+[list]
+[*][b]10 letters from Grandpa[/b] — His journey from city life to the valley, his friendships, his discoveries in the mines, and his reflections on love and legacy.
+[*][b]1 letter from Lewis[/b] — A young mayor's heartfelt thanks.
+[*][b]1 letter from Evelyn[/b] — A wife's plea about George, and the accident that changed everything.
+[*][b]1 letter from Walt[/b] — The old fisherman who taught Grandpa patience.
+[*][b]1 letter from ???[/b] — Something ancient. Something that remembers.
+[*][b]1 final reward letter[/b] — Grandpa's last message to you, along with a very special gift.
+[/list]
+
+Letters are tied to seasons — spring letters appear in spring, summer in summer, and so on — but they'll eventually appear regardless if you play long enough.
+
+[size=4][b]Collect Them All[/b][/size]
+Track your progress as you find each letter. A HUD message shows your count ([i]"Weathered Letter found! (3/15)"[/i]), and once all 15 are collected, you'll receive a final letter from Grandpa in the mail — along with a [b]Prismatic Shard[/b] as his parting gift.
+
+[size=4][b]Configuration[/b][/size]
+Fully configurable via [url=https://www.nexusmods.com/stardewvalley/mods/5098]Generic Mod Config Menu[/url] (optional):
+
+[list]
+[*][b]Enable Mod[/b] — Toggle the mod on or off.
+[*][b]Days Between Letters[/b] — Minimum days between letter discoveries (1-28, default: 7).
+[*][b]Show Spawn Hints[/b] — Toggle HUD hints for where to look.
+[/list]
+
+[size=4][b]Console Commands[/b][/size]
+For testing or screenshots:
+[code]
+wl_status          — Show collection progress
+wl_spawn           — Force the next letter to spawn
+wl_spawn_here [id] — Spawn a letter next to the player
+wl_read list       — List all letter IDs
+wl_read [id]       — Open a specific letter to read
+[/code]
+
+[size=4][b]Languages[/b][/size]
+[list]
+[*]English
+[*]Portugues (Brasil)
+[/list]
+
+[size=4][b]Compatibility[/b][/size]
+[list]
+[*]Stardew Valley 1.6+
+[*]SMAPI 4.0+
+[*]Works in single-player
+[*]No known mod conflicts
+[/list]
+
+[size=4][b]Installation[/b][/size]
+[list=1]
+[*]Install [url=https://smapi.io]SMAPI[/url].
+[*]Download this mod and extract it into your [code]Mods[/code] folder.
+[*]Run the game via SMAPI.
+[/list]

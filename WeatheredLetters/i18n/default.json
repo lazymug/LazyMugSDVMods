@@ -1,0 +1,49 @@
+{
+  "config.enablemod": "Enable Mod",
+  "config.daysbetween": "Days Between Letters",
+  "config.daysbetween.tooltip": "Minimum number of days between finding new letters (1-28).",
+  "config.showhints": "Show Spawn Hints",
+
+  "hint.farm": "You notice something unusual sticking out of the soil on your farm...",
+  "hint.beach": "Something washed ashore on the beach today...",
+  "hint.mines": "There's a faded piece of paper on the ground here...",
+  "hint.trash": "You have a feeling something interesting might turn up in the trash today...",
+  "hint.fishing": "The water seems to hold a secret today... try your luck fishing.",
+
+  "found.message": "Weathered Letter found! ({{current}}/{{total}})",
+  "reward.message": "You've collected all the letters. Grandpa would be proud.",
+
+  "letter.title": "Letter from {{author}}",
+
+  "letter.grandpa_01": "To whoever finds this — I'm writing on my first night in the valley. The farmhouse is smaller than I expected, and the field is covered in stones and weeds. But the air is different here. Clean. Honest. I think I made the right choice leaving the city.^I don't know what tomorrow will bring, but for the first time in years, I feel like I can breathe.",
+
+  "letter.grandpa_02": "Spring is in full swing. My first parsnips came out of the ground today — tiny, crooked little things, but I've never been prouder of anything in my life. The soil here is good. It just needed someone to care for it again.^Old Mulligan at the general store laughed at my harvest, but he sold me more seeds at a discount. I think he's rooting for me.",
+
+  "letter.lewis_01": "Dear friend,^I know I'm just a young man with big ideas, but I wanted to thank you properly. When I first took over as mayor, half the town thought I was a joke. You were the first person to shake my hand and say 'this town is lucky to have you.'^I've kept those words with me every single day. This valley needs people like you — people who build things up instead of tearing them down.^Your friend always,^Lewis",
+
+  "letter.grandpa_03": "Summer. The ocean here is nothing like the city harbor — no ships, no oil, just endless blue. I've been spending evenings on the beach watching the sunset. A fisherman named Walt taught me to cast a line. Says the sea gives you what you need, not what you want.^I'm starting to understand what he means.",
+
+  "letter.grandpa_04": "Caught my biggest fish today — a catfish, right after a storm. Walt says that's when they come out, when the water is churning and most people stay indoors. There's a lesson in that, I think. The best things come when you're willing to face the storm.^I'm saving the recipe Walt taught me. Maybe someday I'll pass it on.",
+
+  "letter.grandpa_lewis": "Dear Lewis,^Congratulations on your re-election. I always knew you'd grow into the role. The town meeting last night reminded me of why I love this place — everyone arguing about fence heights and flower arrangements as if the fate of the world depended on it.^Don't let the politics wear you down, son. You care about these people, and they know it, even when they're too stubborn to say so. Keep the town together. That's all that matters.^Your old friend",
+
+  "letter.grandpa_05": "The valley is golden today. Every tree, every hill — everything is bathed in amber light. I harvested more pumpkins than I can count. Gave half of them away to the neighbors.^I've been thinking about legacy lately. What we leave behind when we're gone. I hope when people walk past this farm years from now, they'll know someone loved this land.",
+
+  "letter.grandpa_06": "Went deeper into the mines than ever before. Found something strange down there — old structures, carved stone, symbols I don't recognize. This valley has secrets older than anyone knows.^I ran into a small creature on one of the lower levels. It spoke to me, but I couldn't understand a single word — some language I've never heard. It didn't seem hostile, just... surprised to see me. I left it some food and moved on.^I also took a crystal from level 80. It glows faintly in the dark. I keep it on my nightstand. It reminds me that there's always something deeper to discover.",
+
+  "letter.evelyn_01": "Dear friend,^I'm writing this with tears in my eyes, but they're grateful tears. The flowers you left on our porch this morning — George pretended not to care, but I saw him looking at them through the window for a long time.^He's struggling. He won't admit it, but the wheelchair has taken something from him that I can't give back. His pride, maybe. He used to walk to your farm every morning to help with the fence posts. Now he barely leaves the house.^But your visits mean more than you know. When you sit with him and talk about the old days, I see a spark of the man I married. Please don't stop coming by.^With love,^Evelyn",
+
+  "letter.grandpa_07": "Winter. The farm is quiet now. Snow covers everything like a blank page waiting to be written on. I spend most days by the fire, reading, thinking.^I've been in this valley for years now, and I still discover something new every season. A flower I'd never noticed. A path I'd never taken. A conversation that changes how I see everything.^That's the gift of staying in one place — you don't run out of things to find. You just learn to look more carefully.",
+
+  "letter.grandpa_08": "Something terrible happened today. There was an explosion in the mines — a collapse on level 40. George was down there. By the time we pulled him out, his legs were crushed under the rock.^Evelyn hasn't stopped crying. The doctor says he'll never walk again. George just stares at the ceiling and doesn't say a word.^I keep thinking — I was supposed to go with him that morning. He asked me to, but I stayed to fix the barn roof. If I'd been there, maybe I could have... I don't know. I don't know.^The mines are dangerous. I've always known that. But knowing it and seeing your friend carried out on a stretcher are two very different things.",
+
+  "letter.oldfisherman_01": "To the new farmer,^Your grandfather and I spent many winters on that pier, not catching much of anything but not minding either. He used to say that fishing isn't about the fish — it's about being patient enough to let the world come to you.^I miss those days. I miss him. Take care of that farm. He'd want that.^— Walt",
+
+  "letter.grandpa_09": "I'm getting older. My knees hurt when it rains, and I can't swing the axe like I used to. But every morning I walk out to the field and feel the same thing I felt on that first day — gratitude.^This farm, this valley, these people — they gave me a life worth living. I was nobody in the city. Here, I became someone's neighbor, someone's friend.^That's worth more than any harvest.",
+
+  "letter.grandpa_10": "She would have loved this time of year. My wife always said the valley was most beautiful in fall, when the leaves turned and the air got cold enough to justify an extra cup of coffee on the porch.^It's been years since she passed, but I still wake up some mornings expecting to hear her humming in the kitchen. The silence is what hurts the most.^I planted tulips by the house — her favorites. Every spring when they bloom, it feels like she's telling me it's okay.^I hope our grandchild knows love like that someday. The kind that doesn't leave, even when the person does.",
+
+  "letter.mystery_01": "The valley remembers. The stones remember. The water running beneath the earth carries the memory of every hand that has tilled this soil, every voice that has echoed through these hills.^You are not the first, and you will not be the last. But you are here now, and that is what matters.^Care for this place. It has been caring for you since before you arrived.^— [The rest of the letter is too faded to read]",
+
+  "letter.reward": "My dearest grandchild,^^You found them all — every letter, every memory I left scattered across this valley. I hid them in the places that meant the most to me, hoping that someday you'd walk the same paths and understand.^^This farm isn't just land. It's a story. My story, and now yours.^^I left something special for you along with this letter — a crystal I found deep in the mines long ago. It shimmers with every color I've ever seen and some I haven't. I never understood what it was, but it always felt like it was waiting for the right person. I think that person is you.^^I'm so proud of you.^^With eternal love,^Grandpa"
+}
