@@ -203,6 +203,7 @@ namespace WeatheredLetters.Data
 
                 if (!location.Objects.ContainsKey(tile)
                     && !location.terrainFeatures.ContainsKey(tile)
+                    && !location.isWaterTile(x, y)
                     && location.isTilePassable(new xTile.Dimensions.Location(x, y), Game1.viewport))
                 {
                     return tile;
