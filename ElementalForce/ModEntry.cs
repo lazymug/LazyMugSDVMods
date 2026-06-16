@@ -35,6 +35,7 @@ namespace ElementalForce
         // End Variables for Buffs states
 
         public static ModEntry Instance;
+        public ModConfig Config;
 
         public string GetModId()
         {
@@ -54,6 +55,7 @@ namespace ElementalForce
         public override void Entry(IModHelper helper)
         {
             Instance = this;
+            Config = helper.ReadConfig<ModConfig>();
             var harmony = new Harmony(ModManifest.UniqueID);
             harmony.PatchAll();
             helper.Events.Player.Warped += OnWarped;
@@ -71,6 +73,8 @@ namespace ElementalForce
 
         private void OnGameLaunched(object? sender, GameLaunchedEventArgs e)
         {
+            RegisterConfigMenu();
+
             MailRepository.SaveLetter(
                 new Letter(
                     id: LettersHelper.MagnusInvitationId,
@@ -156,6 +160,7 @@ namespace ElementalForce
                     CheckIfLeviathanEssenceIsAttached();
                     CheckIfPhoenixEssenceIsAttached();
                     CheckIfRamuhEssenceIsAttached(location);
+                    CheckIfCactuarEssenceIsAttached();
 
                     // Shards
                     CheckIfCarbuncleShardIsAttached();
@@ -166,6 +171,7 @@ namespace ElementalForce
                     CheckIfRamuhShardIsAttached();
                     CheckIfShivaShardIsAttached();
                     CheckIfTitanShardIsAttached();
+                    CheckIfCactuarShardIsAttached();
 
                     // Souls
                     CheckIfCarbuncleSoulIsAttached();
@@ -176,6 +182,7 @@ namespace ElementalForce
                     CheckIfRamuhSoulIsAttached();
                     CheckIfShivaSoulIsAttached();
                     CheckIfTitanSoulIsAttached();
+                    CheckIfCactuarSoulIsAttached();
 
                     // Disable checks
                     _checkIfEquipmentHasChanged = false;
@@ -405,8 +412,8 @@ namespace ElementalForce
             if ((isHealthLow || isStaminaLow) && !_phoenixHealingAuraUsed)
             {
                 _phoenixHealingAuraUsed = true;
-                Game1.player.health += (int)(Game1.player.maxHealth * BuffConstants.HealingAuraRecoveryRate);
-                Game1.player.Stamina += (int)(Game1.player.MaxStamina * BuffConstants.HealingAuraRecoveryRate);
+                Game1.player.health += (int)(Game1.player.maxHealth * Config.HealingAuraRecoveryRate);
+                Game1.player.Stamina += (int)(Game1.player.MaxStamina * Config.HealingAuraRecoveryRate);
                 Game1.currentLocation.playSound("healSound");
             }
         }
@@ -416,13 +423,13 @@ namespace ElementalForce
             if ((Game1.player.health <= 0 || Game1.player.stamina <= 0) && !_phoenixPhoenixDownUsed)
             {
                 _phoenixPhoenixDownUsed = true;
-                if (Game1.player.health <= (int)(Game1.player.maxHealth * BuffConstants.PhoenixDownHealthRecovery))
+                if (Game1.player.health <= (int)(Game1.player.maxHealth * Config.PhoenixDownHealthRecovery))
                 {
-                    Game1.player.health = (int) (Game1.player.maxHealth * BuffConstants.PhoenixDownHealthRecovery);
+                    Game1.player.health = (int) (Game1.player.maxHealth * Config.PhoenixDownHealthRecovery);
                 }
-                if (Game1.player.stamina <= (int)(Game1.player.MaxStamina * BuffConstants.PhoenixDownStaminaRecovery))
+                if (Game1.player.stamina <= (int)(Game1.player.MaxStamina * Config.PhoenixDownStaminaRecovery))
                 {
-                    Game1.player.Stamina = (int) (Game1.player.MaxStamina * BuffConstants.PhoenixDownStaminaRecovery);
+                    Game1.player.Stamina = (int) (Game1.player.MaxStamina * Config.PhoenixDownStaminaRecovery);
                 }
                 Game1.currentLocation.playSound("healSound");
             }
@@ -478,5 +485,82 @@ namespace ElementalForce
             Game1.player.mailReceived.Add(l.Id);
         }
 
+        private void RegisterConfigMenu()
+        {
+            var configMenu = Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
+            if (configMenu == null)
+                return;
+
+            configMenu.Register(
+                mod: ModManifest,
+                reset: () => Config = new ModConfig(),
+                save: () => Helper.WriteConfig(Config)
+            );
+
+            // Ifrit
+            configMenu.AddSectionTitle(mod: ModManifest, text: () => "Ifrit");
+            configMenu.AddNumberOption(mod: ModManifest, name: () => "Fireball Chance (%)",
+                tooltip: () => "Chance to cast fireball on melee attack",
+                getValue: () => Config.FireballChancePercent, setValue: v => Config.FireballChancePercent = v,
+                min: 10, max: 100, interval: 5);
+            configMenu.AddNumberOption(mod: ModManifest, name: () => "Fireball Damage",
+                getValue: () => Config.FireballDamage, setValue: v => Config.FireballDamage = v,
+                min: 10, max: 100, interval: 5);
+
+            // Shiva
+            configMenu.AddSectionTitle(mod: ModManifest, text: () => "Shiva");
+            configMenu.AddNumberOption(mod: ModManifest, name: () => "Ice Tomb Freeze Chance (%)",
+                tooltip: () => "Chance to freeze enemy on hit",
+                getValue: () => Config.IceTombFreezeChancePercent, setValue: v => Config.IceTombFreezeChancePercent = v,
+                min: 10, max: 100, interval: 5);
+
+            // Carbuncle
+            configMenu.AddSectionTitle(mod: ModManifest, text: () => "Carbuncle");
+            configMenu.AddNumberOption(mod: ModManifest, name: () => "Companion Protection Chance (%)",
+                tooltip: () => "Chance to avoid damage",
+                getValue: () => Config.CompanionProtectionChancePercent, setValue: v => Config.CompanionProtectionChancePercent = v,
+                min: 10, max: 80, interval: 5);
+
+            // Kirin
+            configMenu.AddSectionTitle(mod: ModManifest, text: () => "Kirin");
+            configMenu.AddNumberOption(mod: ModManifest, name: () => "Regen Blessing Rate (%)",
+                tooltip: () => "Percentage of max health/stamina restored per tick",
+                getValue: () => (int)(Config.RegenBlessingRate * 100), setValue: v => Config.RegenBlessingRate = v / 100f,
+                min: 1, max: 10);
+
+            // Phoenix
+            configMenu.AddSectionTitle(mod: ModManifest, text: () => "Phoenix");
+            configMenu.AddNumberOption(mod: ModManifest, name: () => "Healing Aura Recovery (%)",
+                tooltip: () => "Percentage of max health/stamina restored",
+                getValue: () => (int)(Config.HealingAuraRecoveryRate * 100), setValue: v => Config.HealingAuraRecoveryRate = v / 100f,
+                min: 10, max: 80, interval: 5);
+            configMenu.AddNumberOption(mod: ModManifest, name: () => "Phoenix Down Health (%)",
+                tooltip: () => "Health percentage restored on revival",
+                getValue: () => (int)(Config.PhoenixDownHealthRecovery * 100), setValue: v => Config.PhoenixDownHealthRecovery = v / 100f,
+                min: 10, max: 80, interval: 5);
+            configMenu.AddNumberOption(mod: ModManifest, name: () => "Phoenix Down Stamina (%)",
+                tooltip: () => "Stamina percentage restored on revival",
+                getValue: () => (int)(Config.PhoenixDownStaminaRecovery * 100), setValue: v => Config.PhoenixDownStaminaRecovery = v / 100f,
+                min: 10, max: 80, interval: 5);
+            configMenu.AddNumberOption(mod: ModManifest, name: () => "Explosion Damage",
+                getValue: () => Config.ExplosionDamage, setValue: v => Config.ExplosionDamage = v,
+                min: 5, max: 100, interval: 5);
+
+            // Cactuar
+            configMenu.AddSectionTitle(mod: ModManifest, text: () => "Cactuar");
+            configMenu.AddNumberOption(mod: ModManifest, name: () => "Wary Speed Duration (ms)",
+                tooltip: () => "Duration of speed boost when hit",
+                getValue: () => Config.WarySpeedDurationMs, setValue: v => Config.WarySpeedDurationMs = v,
+                min: 1000, max: 15000, interval: 1000);
+        }
+
     }
+}
+
+public interface IGenericModConfigMenuApi
+{
+    void Register(IManifest mod, Action reset, Action save);
+    void AddSectionTitle(IManifest mod, Func<string> text, Func<string>? tooltip = null);
+    void AddNumberOption(IManifest mod, Func<int> getValue, Action<int> setValue, Func<string> name, Func<string>? tooltip = null, int? min = null, int? max = null, int? interval = null, Func<int, string>? formatValue = null, string? fieldId = null);
+    void AddNumberOption(IManifest mod, Func<float> getValue, Action<float> setValue, Func<string> name, Func<string>? tooltip = null, float? min = null, float? max = null, float? interval = null, Func<float, string>? formatValue = null, string? fieldId = null);
 }

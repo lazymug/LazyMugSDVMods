@@ -2,12 +2,12 @@ namespace ElementalForce.Elemental_Force_Code.helpers
 {
     public static class BuffConstants
     {
-        // Phoenix Healing Aura
+        // Phoenix Healing Aura (Essence)
         public const float HealingAuraHealthThreshold = 0.3f;
         public const float HealingAuraStaminaThreshold = 0.2f;
         public const float HealingAuraRecoveryRate = 0.4f;
 
-        // Phoenix Down
+        // Phoenix Down (Soul)
         public const float PhoenixDownHealthRecovery = 0.3f;
         public const float PhoenixDownStaminaRecovery = 0.2f;
 
@@ -33,12 +33,19 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         public const int WarySpeedDurationMs = 5000;
 
         // Ice Tomb (Shiva Soul)
-        public const int IceTombStunDurationMs = 3000;
-        public const int IceTombDetectionRange = 128;
+        public const int IceTombFreezeChancePercent = 45;
+        public const int IceTombFreezeDurationMs = 6000;
+        public const int IceTombStunDurationMs = 4000;
 
         // Explosion (Phoenix Shard)
         public const int ExplosionDetectionRange = 32;
         public const int ExplosionRadius = 2;
         public const int ExplosionDamage = 20;
+
+        // Rain Wish (Leviathan Shard)
+        public const int RainWishWeatherChanceBonus = 50;
+
+        // Thunder Caller (Ramuh Soul)
+        public const int ThunderCallerWeatherChanceBonus = 40;
     }
 }

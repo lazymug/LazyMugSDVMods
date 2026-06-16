@@ -47,9 +47,7 @@ namespace ElementalForce.Elemental_Force_Code.harmony
         public static bool CustomCanThisBeAttached(Tool tool, StardewValley.Object? o)
         {
             // First check if it's a vanilla tool - if so, use vanilla logic
-            if (!ItemHelper.IsAmphoraTool(tool.ItemId) && 
-                !ItemHelper.IsAmphoraLevel2Tool(tool.ItemId) && 
-                !ItemHelper.IsAmphoraLevel3Tool(tool.ItemId))
+            if (!ItemHelper.IsAnyAmphoraTool(tool.ItemId))
             {
                 return tool.canThisBeAttached(o);
             }

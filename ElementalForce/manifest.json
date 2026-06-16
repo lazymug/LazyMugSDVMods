@@ -1,7 +1,7 @@
 {
     "Name": "Elemental Force",
     "Author": "Lazy Mug",
-    "Version": "1.4.0",
+    "Version": "1.5.0",
     "Description": "Adds custom elements based on Elemental Spirits from phantasy worlds.",
     "UniqueID": "LazyMug.ElementalForce",
     "EntryDll": "ElementalForce.dll",
@@ -13,6 +13,10 @@
         },
         {
             "UniqueId": "DIGUS.MailFrameworkMod"
+        },
+        {
+            "UniqueId": "spacechase0.GenericModConfigMenu",
+            "IsRequired": false
         }
     ]
 }

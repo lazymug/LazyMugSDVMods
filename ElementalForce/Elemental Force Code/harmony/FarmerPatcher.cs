@@ -9,7 +9,6 @@ using StardewValley.Menus;
 using StardewValley.Monsters;
 using StardewValley.Objects.Trinkets;
 using StardewValley.Tools;
-using Object = System.Object;
 
 namespace ElementalForce.Elemental_Force_Code.harmony;
 
@@ -20,13 +19,13 @@ public class FarmerPatcher
     [HarmonyPostfix]
     public static void Postfix_CanBeDamaged(ref bool __result, Farmer __instance)
     {
-        if (__instance.hasBuff(BuffHelper.GetBuffCompanionProtectionId())) // Companion Protection Buff
+        if (__instance.hasBuff(BuffHelper.GetBuffCompanionProtectionId()))
         {
             var chance = Game1.random.Next(0, 100);
-            __result = chance < CompanionProtectionChancePercent;
+            __result = chance < ModEntry.Instance.Config.CompanionProtectionChancePercent;
         }
     }
-    
+
     [HarmonyPatch(nameof(Farmer.takeDamage))]
     [HarmonyPatch(new []{ typeof(int), typeof(bool), typeof(Monster) })]
     [HarmonyPrefix]
@@ -37,25 +36,13 @@ public class FarmerPatcher
             CustomTakeDamage(__instance, damage, overrideParry, damager);
             return false;
         }
-        if (__instance.hasBuff(BuffHelper.GetBuffWarySpeedAuxId())) // Companion Protection Buff
+        if (__instance.hasBuff(BuffHelper.GetBuffWarySpeedAuxId()) && damager != null)
         {
-            // Check if the player is taking damage from an enemy
-            if (damager != null)
-            {
-                // Apply the Speed buff effect
-                __instance.applyBuff(new WarySpeedBuff());
-                Timer timer = new Timer(new TimerCallback(RemoveBuffs), __instance, WarySpeedDurationMs, Timeout.Infinite);
-            }
+            __instance.applyBuff(new WarySpeedBuff());
         }
         return true;
     }
-    
-    private static void RemoveBuffs(object state)
-    {
-        if (state is not Farmer __instance) return;
-        __instance.buffs.Remove(BuffHelper.GetBuffWarySpeedId());
-    }
-    
+
     private static void CustomTakeDamage(Farmer __instance, int damage, bool overrideParry, Monster damager)
     {
         if (Game1.eventUp || __instance.IsDedicatedPlayer || __instance.FarmerSprite.isPassingOut() || __instance.isInBed.Value && Game1.activeClickableMenu != null && Game1.activeClickableMenu is ReadyCheckDialog)
@@ -84,13 +71,13 @@ public class FarmerPatcher
                 defense -= (int) ((double) defense * (double) Game1.random.Next(3) / 10.0);
             if (damager != null)
             {
-                Microsoft.Xna.Framework.Rectangle boundingBox = damager.GetBoundingBox();
+                Rectangle boundingBox = damager.GetBoundingBox();
                 Vector2 vector2 = Utility.getAwayFromPlayerTrajectory(boundingBox, __instance) / 2f;
                 int num3 = damage;
                 int num4 = Math.Max(1, damage - defense);
                 if (num4 < 10)
                     num3 = (int) Math.Ceiling((double) (num3 + num4) / 2.0);
-                int ofWornRingsWithId = __instance.getNumberOfWornRingsWithID("839") + 1; // increment for the mirror reflection damage
+                int ofWornRingsWithId = __instance.getNumberOfWornRingsWithID("839") + 1;
                 int minDamage = num3 * ofWornRingsWithId;
                 __instance.currentLocation?.damageMonster(boundingBox, minDamage, minDamage + 1, false, __instance);
             }
@@ -125,7 +112,7 @@ public class FarmerPatcher
                     for (int index = 0; index < 13; ++index)
                     {
                         float num8 = (float) Game1.random.Next(-32, 33);
-                        __instance.currentLocation.temporarySprites.Add(new TemporaryAnimatedSprite("LooseSprites\\Cursors2", new Microsoft.Xna.Framework.Rectangle(114, 46, 2, 2), 200f, 5, 1, new Vector2(num8 + 32f, -96f), false, false, 1f, 0.0f, Color.White, 4f, 0.0f, 0.0f, 0.0f)
+                        __instance.currentLocation.temporarySprites.Add(new TemporaryAnimatedSprite("LooseSprites\\Cursors2", new Rectangle(114, 46, 2, 2), 200f, 5, 1, new Vector2(num8 + 32f, -96f), false, false, 1f, 0.0f, Color.White, 4f, 0.0f, 0.0f, 0.0f)
                         {
                             attachedCharacter = (Character) __instance,
                             positionFollowsAttachedCharacter = true,
@@ -135,7 +122,7 @@ public class FarmerPatcher
                             acceleration = new Vector2(0.0f, 0.1f)
                         });
                     }
-                    __instance.currentLocation.temporarySprites.Add(new TemporaryAnimatedSprite("LooseSprites\\Cursors2", new Microsoft.Xna.Framework.Rectangle(157, 280, 28, 19), 2000f, 1, 1, new Vector2(-20f, -16f), false, false, 1E-06f, 0.0f, Color.White, 4f, 0.0f, 0.0f, 0.0f)
+                    __instance.currentLocation.temporarySprites.Add(new TemporaryAnimatedSprite("LooseSprites\\Cursors2", new Rectangle(157, 280, 28, 19), 2000f, 1, 1, new Vector2(-20f, -16f), false, false, 1E-06f, 0.0f, Color.White, 4f, 0.0f, 0.0f, 0.0f)
                     {
                         attachedCharacter = (Character) __instance,
                         positionFollowsAttachedCharacter = true,

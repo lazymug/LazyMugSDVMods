@@ -13,24 +13,18 @@ public static class LocationWeatherPatcher
     public static void Postfix(LocationWeather __instance, string locationContextId, LocationContextData data, Random random)
     {
         if (__instance.WeatherForTomorrow == "Festival")
-        {
             return;
-        }
+
         var updateWeatherChance = 0;
         if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffRainWishId()))
-        {
-            updateWeatherChance += 50;
-        }
+            updateWeatherChance += BuffConstants.RainWishWeatherChanceBonus;
+
         if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffThunderCallerId()))
-        {
-            updateWeatherChance += 40;
-        }
+            updateWeatherChance += BuffConstants.ThunderCallerWeatherChanceBonus;
 
         if (updateWeatherChance == 0)
-        {
             return;
-        }
-        
+
         var chance = random.Next(0, 100);
         if (chance == 40 && updateWeatherChance < chance)
         {

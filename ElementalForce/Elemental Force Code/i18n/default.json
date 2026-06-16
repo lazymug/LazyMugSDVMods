@@ -47,6 +47,12 @@
     "buff.sunny_speed.name": "Sunny Speed",
     "buff.wrath_palm.description": "Channel your rage... into a very angry slap.",
     "buff.wrath_palm.name": "Wrath Palm",
+    "buff.wary_speed.description": "Danger sharpens your reflexes! Speed boost when hit.",
+    "buff.wary_speed.name": "Wary Speed",
+    "buff.needlepoint_strikes.description": "Strike fast, strike true! Precision meets velocity.",
+    "buff.needlepoint_strikes.name": "Needlepoint Strikes",
+    "buff.initiative_master.description": "Always the first to act. Speed is your greatest weapon.",
+    "buff.initiative_master.name": "Initiative Master",
 
     "letter.magnus.invitation": "Greetings, @.^For some time now, I've observed a unique energy emanating from you, a resonance with the very elements that shape our world. It's a rare and intriguing phenomenon, one that calls for further exploration.^^I believe you possess a latent potential, a connection to ancient powers that have long been dormant. If you seek to understand this connection and unlock its secrets, I invite you to my tower at your earliest convenience.^We shall delve into the mysteries of the elements, unraveling their secrets and harnessing their might. Together, we may uncover truths that have been hidden for ages.^Come, @, and let us embark on this extraordinary journey together.^^        - M. Rasmodius, Wizard",
     "letter.gaia.amphora.shard": "@,^Your journey has reached a crucial turning point. You have gathered all eight elemental essences, a feat that few have ever achieved.^^But this is only the beginning. To truly unlock their potential, you will need a vessel capable of channeling their fragmented power.^^Enclosed, you will find the Amphora of Echoes. With it, you can equip the Elemental Shards—remnants of lost spirits, each carrying a fragment of their former strength. Only by wielding these shards will you begin to understand the deeper mysteries of the elements.^^Use this gift wisely, @. The path ahead is filled with echoes of the past, waiting to be restored.^^ - ???",

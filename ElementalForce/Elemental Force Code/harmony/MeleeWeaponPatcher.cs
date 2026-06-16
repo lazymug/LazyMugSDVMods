@@ -34,7 +34,7 @@ public class MeleeWeaponPatcher
         {
             Monster monster = Utility.findClosestMonsterWithinRange(who.currentLocation, who.getStandingPosition(), BuffConstants.FireballDetectionRange);
             var chance = Game1.random.Next(0, 100);
-            if (chance > BuffConstants.FireballChancePercent && monster != null)
+            if (chance > ModEntry.Instance.Config.FireballChancePercent && monster != null)
             {
                 who.currentLocation.projectiles.Add(CreateFireball(who, monster));
             }
@@ -47,17 +47,7 @@ public class MeleeWeaponPatcher
             if (monster != null)
             {
                 GameLocation location = who.currentLocation;
-                location?.explode(monster.Tile, BuffConstants.ExplosionRadius, who, damageFarmers: false, BuffConstants.ExplosionDamage, !(location is Farm) && !(location is SlimeHutch));
-            }
-        }
-
-        if (who.hasBuff(BuffHelper.GetBuffIceTombId()))
-        {
-            Monster monster = Utility.findClosestMonsterWithinRange(who.currentLocation, who.getStandingPosition(), BuffConstants.IceTombDetectionRange);
-            if (monster != null)
-            {
-                monster.stunTime.Value = BuffConstants.IceTombStunDurationMs;
-                monster.currentLocation?.playSound("frozen");
+                location?.explode(monster.Tile, BuffConstants.ExplosionRadius, who, damageFarmers: false, ModEntry.Instance.Config.ExplosionDamage, !(location is Farm) && !(location is SlimeHutch));
             }
         }
     }
@@ -66,7 +56,7 @@ public class MeleeWeaponPatcher
     {
         Vector2 standingPixel = who.getStandingPosition();
         Vector2 motion = Utility.getVelocityTowardPoint(standingPixel, nearestMonster.getStandingPosition(), BuffConstants.FireballSpeed);
-        BasicProjectile fireball = new BasicProjectile(BuffConstants.FireballDamage, 10, 0, 2, 0f, motion.X, motion.Y, standingPixel - new Vector2(32f, 0f), "flameSpellHit", null, "flameSpell", explode: true, damagesMonsters: true, who.currentLocation, who)
+        BasicProjectile fireball = new BasicProjectile(ModEntry.Instance.Config.FireballDamage, 10, 0, 2, 0f, motion.X, motion.Y, standingPixel - new Vector2(32f, 0f), "flameSpellHit", null, "flameSpell", explode: true, damagesMonsters: true, who.currentLocation, who)
             {
                 collisionBehavior = BasicProjectile.explodeOnImpact,
                 ignoreCharacterCollisions =

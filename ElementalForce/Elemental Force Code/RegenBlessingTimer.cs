@@ -32,11 +32,11 @@ public class RegenBlessingTimer
         if (Game1.player.health == Game1.player.maxHealth && Game1.player.stamina >= Game1.player.MaxStamina)
             return;
 
-        Game1.player.health += (int)(Game1.player.maxHealth * BuffConstants.RegenBlessingRate);
+        Game1.player.health += (int)(Game1.player.maxHealth * ModEntry.Instance.Config.RegenBlessingRate);
         if (Game1.player.health > Game1.player.maxHealth)
             Game1.player.health = Game1.player.maxHealth;
 
-        Game1.player.stamina += (float)(Game1.player.MaxStamina * BuffConstants.RegenBlessingRate);
+        Game1.player.stamina += (float)(Game1.player.MaxStamina * ModEntry.Instance.Config.RegenBlessingRate);
         if (Game1.player.stamina > Game1.player.MaxStamina)
             Game1.player.stamina = Game1.player.MaxStamina;
     }
