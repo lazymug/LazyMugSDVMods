@@ -437,52 +437,37 @@ namespace ElementalForce
 
         private void LetterCallbackUpgradeAmphoraLevel2(Letter l)
         {
-            for (var i = 0; i < Game1.player.Items.Count; i++)
-            {
-                if (Game1.player.Items[i] == null || Game1.player.Items[i] is not Tool) continue;
-                if (((Tool)Game1.player.Items[i]).ItemId != ItemHelper.GetToolAmphoraId()) continue;
-
-                var oldTool = (Tool) Game1.player.Items[i];
-                var attachments = oldTool.attachments.ToList();
-
-                for (int j = 0; j < oldTool.attachments.Length; j++)
-                {
-                    oldTool.attachments[j] = null;
-                }
-
-                var newTool = new GenericTool();
-                newTool.ItemId = ItemHelper.GetToolAmphoraEchoesId();
-                newTool.AttachmentSlotsCount = 4;
-
-                Game1.player.Items[i] = newTool;
-
-                foreach (var attachment in attachments)
-                {
-                    ((Tool)Game1.player.Items[i]).attach(attachment);
-                }
-                break;
-            }
-
+            UpgradeAmphora(ItemHelper.GetToolAmphoraId(), ItemHelper.GetToolAmphoraEchoesId(), 4);
             Game1.player.mailReceived.Add(l.Id);
         }
 
         private void LetterCallbackUpgradeAmphoraLevel3(Letter l)
         {
+            UpgradeAmphora(ItemHelper.GetToolAmphoraEchoesId(), ItemHelper.GetToolAmphoraSpiritsId(), 10);
+            Game1.player.mailReceived.Add(l.Id);
+        }
+
+        private static void UpgradeAmphora(string sourceToolId, string targetToolId, int newSlotCount)
+        {
             for (var i = 0; i < Game1.player.Items.Count; i++)
             {
-                if (Game1.player.Items[i] == null || Game1.player.Items[i] is not Tool) continue;
-                if (((Tool)Game1.player.Items[i]).ItemId != ItemHelper.GetToolAmphoraEchoesId()) continue;
-                var attachments = ((Tool) Game1.player.Items[i]).attachments;
-                Game1.player.Items[i] = new GenericTool();
-                Game1.player.Items[i].ItemId = ItemHelper.GetToolAmphoraSpiritsId();
+                if (Game1.player.Items[i] is not Tool oldTool || oldTool.ItemId != sourceToolId)
+                    continue;
+
+                var attachments = oldTool.attachments.ToList();
+                for (int j = 0; j < oldTool.attachments.Length; j++)
+                    oldTool.attachments[j] = null;
+
+                var newTool = new GenericTool();
+                newTool.ItemId = targetToolId;
+                newTool.AttachmentSlotsCount = newSlotCount;
+                Game1.player.Items[i] = newTool;
+
                 foreach (var attachment in attachments)
-                {
                     ((Tool)Game1.player.Items[i]).attach(attachment);
-                }
+
                 break;
             }
-
-            Game1.player.mailReceived.Add(l.Id);
         }
 
         private void RegisterConfigMenu()

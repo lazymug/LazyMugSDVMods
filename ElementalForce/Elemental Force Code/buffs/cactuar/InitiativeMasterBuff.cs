@@ -1,6 +1,4 @@
-using ElementalForce.Elemental_Force_Code.buffEffects;
 using ElementalForce.Elemental_Force_Code.helpers;
-using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
 using StardewValley.Buffs;
 
