@@ -134,6 +134,7 @@ namespace ElementalForce
                 if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffRegenBlessingId()))
                 {
                     KirinRegenBlessing();
+                    _regenTimer?.Tick();
                     if (_checkIfLocationHasChanged)
                     {
                         _regenTimer?.UpdateInterval(Game1.player.currentLocation.Name == "SkullCave"
@@ -143,15 +144,18 @@ namespace ElementalForce
                 }
                 if (_checkIfLocationHasChanged || _checkIfEquipmentHasChanged)
                 {
+                    var location = Game1.player.currentLocation;
+                    var locationName = location?.Name ?? "";
+
                     // Essences
-                    CheckIfIfritEssenceIsAttached();
-                    CheckIfShivaEssenceIsAttached();
+                    CheckIfIfritEssenceIsAttached(locationName);
+                    CheckIfShivaEssenceIsAttached(locationName);
                     CheckIfTitanEssenceIsAttached();
-                    CheckIfCarbuncleEssenceIsAttached();
+                    CheckIfCarbuncleEssenceIsAttached(location);
                     CheckIfKirinEssenceIsAttached();
                     CheckIfLeviathanEssenceIsAttached();
                     CheckIfPhoenixEssenceIsAttached();
-                    CheckIfRamuhEssenceIsAttached();
+                    CheckIfRamuhEssenceIsAttached(location);
 
                     // Shards
                     CheckIfCarbuncleShardIsAttached();
@@ -206,9 +210,9 @@ namespace ElementalForce
             }
         }
 
-        private void CheckIfIfritEssenceIsAttached()
+        private void CheckIfIfritEssenceIsAttached(string locationName)
         {
-            var isEquipped = ToolAttachmentHelper.IsIfritEssenceEquipped() && Game1.player.currentLocation.Name == "Desert";
+            var isEquipped = ToolAttachmentHelper.IsIfritEssenceEquipped() && locationName == "Desert";
             if (isEquipped)
             {
                 // need to check shiva is attached before so it won't sum the buffs
@@ -231,10 +235,10 @@ namespace ElementalForce
                 () => new FireballBuff());
         }
 
-        private void CheckIfShivaEssenceIsAttached()
+        private void CheckIfShivaEssenceIsAttached(string locationName)
         {
             ApplyOrRemoveBuff(
-                ToolAttachmentHelper.IsShivaEssenceEquipped() && Game1.IsWinter && Game1.player.currentLocation.Name != "Desert",
+                ToolAttachmentHelper.IsShivaEssenceEquipped() && Game1.IsWinter && locationName != "Desert",
                 BuffHelper.GetBuffSnowSpeedId(),
                 () => new SnowSpeedBuff(playerCurrentSpeed: Game1.player.buffs.Speed));
         }
@@ -287,10 +291,9 @@ namespace ElementalForce
                 () => new DragonScaleBuff());
         }
 
-        private void CheckIfCarbuncleEssenceIsAttached()
+        private void CheckIfCarbuncleEssenceIsAttached(GameLocation? location)
         {
-            var location = Game1.player.currentLocation;
-            var isSunny = !Game1.IsRainingHere(location) && !Game1.IsLightningHere(location) && !Game1.IsGreenRainingHere(location);
+            var isSunny = location != null && !Game1.IsRainingHere(location) && !Game1.IsLightningHere(location) && !Game1.IsGreenRainingHere(location);
             ApplyOrRemoveBuff(
                 ToolAttachmentHelper.IsCarbuncleEssenceEquipped() && isSunny,
                 BuffHelper.GetBuffSunnySpeedId(),
@@ -328,10 +331,9 @@ namespace ElementalForce
                 onRemove: () => _regenTimer = null);
         }
 
-        private void CheckIfRamuhEssenceIsAttached()
+        private void CheckIfRamuhEssenceIsAttached(GameLocation? location)
         {
-            var location = Game1.player.currentLocation;
-            var isStorming = Game1.IsLightningHere(location);
+            var isStorming = location != null && Game1.IsLightningHere(location);
             ApplyOrRemoveBuff(
                 ToolAttachmentHelper.IsRamuhEssenceEquipped() && isStorming,
                 BuffHelper.GetBuffFlashSpeedId(),

@@ -211,14 +211,28 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         public static bool IsCactuarElementalSoulItem(string itemId) =>
             IsAnyElementalSoulItem(itemId, ElementalEnum.Cactuar);
 
+        public static bool IsElementalItem(string itemId, ElementalEnum type, ItemEnum itemType)
+        {
+            return itemType switch
+            {
+                ItemEnum.Essence => IsAnyElementalEssenceItem(itemId, type),
+                ItemEnum.Shard => IsAnyElementalShardItem(itemId, type),
+                ItemEnum.Soul => IsAnyElementalSoulItem(itemId, type),
+                _ => false
+            };
+        }
+
+        public static bool IsAnyAmphoraTool(string itemId) =>
+            IsAmphoraTool(itemId) || IsAmphoraLevel2Tool(itemId) || IsAmphoraLevel3Tool(itemId);
+
         private static bool IsAnyElementalEssenceItem(string itemId, ElementalEnum type)
         {
             return $"{ModEntry.Instance.GetModId()}.CP_{Enum.GetName(typeof(ElementalEnum), type)}Essence".Equals(itemId);
         }
-        
+
         private static bool IsAnyElementalShardItem(string itemId, ElementalEnum type) =>
             $"{ModEntry.Instance.GetModId()}.CP_{Enum.GetName(typeof(ElementalEnum), type)}Shard".Equals(itemId);
-        
+
         private static bool IsAnyElementalSoulItem(string itemId, ElementalEnum type) =>
             $"{ModEntry.Instance.GetModId()}.CP_{Enum.GetName(typeof(ElementalEnum), type)}Soul".Equals(itemId);
     }

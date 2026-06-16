@@ -1,43 +1,45 @@
-using System.Timers;
 using ElementalForce.Elemental_Force_Code.helpers;
 using StardewValley;
-using Timer = System.Timers.Timer;
 
 namespace ElementalForce.Elemental_Force_Code;
 
 public class RegenBlessingTimer
 {
-    private Timer timer;
+    private const int TicksPerSecond = 60;
+
+    private int _tickCounter;
+    private int _intervalTicks;
 
     public RegenBlessingTimer()
     {
-        timer = new Timer(BuffConstants.RegenBlessingTickMs);
-        timer.Elapsed += TimerElapsed;
-        timer.AutoReset = true;
-        timer.Start();
+        _intervalTicks = MsToTicks(BuffConstants.RegenBlessingTickMs);
+        _tickCounter = 0;
     }
 
-    public void UpdateInterval(double interval)
+    public void UpdateInterval(int intervalMs)
     {
-        timer.Interval = interval;
+        _intervalTicks = MsToTicks(intervalMs);
     }
 
-    private void TimerElapsed(object? sender, ElapsedEventArgs e)
+    public void Tick()
     {
-        if (Game1.player.health == Game1.player.maxHealth && Game1.player.stamina >= Game1.player.MaxStamina)
-        {
+        _tickCounter++;
+        if (_tickCounter < _intervalTicks)
             return;
-        }
 
-        Game1.player.health += (int) (Game1.player.maxHealth * BuffConstants.RegenBlessingRate);
+        _tickCounter = 0;
+
+        if (Game1.player.health == Game1.player.maxHealth && Game1.player.stamina >= Game1.player.MaxStamina)
+            return;
+
+        Game1.player.health += (int)(Game1.player.maxHealth * BuffConstants.RegenBlessingRate);
         if (Game1.player.health > Game1.player.maxHealth)
-        {
             Game1.player.health = Game1.player.maxHealth;
-        }
-        Game1.player.stamina += (float) (Game1.player.MaxStamina * BuffConstants.RegenBlessingRate);
+
+        Game1.player.stamina += (float)(Game1.player.MaxStamina * BuffConstants.RegenBlessingRate);
         if (Game1.player.stamina > Game1.player.MaxStamina)
-        {
             Game1.player.stamina = Game1.player.MaxStamina;
-        }
     }
+
+    private static int MsToTicks(int ms) => ms * TicksPerSecond / 1000;
 }
