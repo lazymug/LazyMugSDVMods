@@ -1,0 +1,16 @@
+{
+  "Name": "LM QoL",
+  "Author": "Lazy Mug",
+  "Version": "1.2.0",
+  "Description": "A collection of small quality-of-life improvements. Each feature can be toggled independently.",
+  "UniqueID": "LazyMug.LMQoL",
+  "EntryDll": "LMQoL.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [],
+  "Dependencies": [
+    {
+      "UniqueID": "spacechase0.GenericModConfigMenu",
+      "IsRequired": false
+    }
+  ]
+}

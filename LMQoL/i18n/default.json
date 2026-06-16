@@ -1,0 +1,20 @@
+{
+  "section.autogate": "Auto Gate",
+  "autogate.enabled": "Enable Auto Gate",
+  "autogate.closedelay": "Close Delay (ticks)",
+  "autogate.closedelay.tooltip": "How long the gate stays open after you walk away. 60 ticks = ~1 second.",
+
+  "section.magnet": "Magnet Radius Foraging",
+  "magnet.enabled": "Enable Magnet Foraging",
+  "magnet.radius": "Pickup Radius (tiles)",
+  "magnet.radius.tooltip": "How far away items will be pulled towards you, in tiles.",
+  "magnet.speed": "Pull Speed",
+  "magnet.speed.tooltip": "How fast items move towards you. Higher = faster pickup.",
+
+  "section.sellprice": "Sell Price Tooltip",
+  "sellprice.enabled": "Enable Sell Price Tooltip",
+  "sellprice.showartisan": "Show Artisan Prices",
+  "sellprice.showartisan.tooltip": "If you have the Artisan profession, show the boosted (+40%) prices instead of base prices.",
+  "sellprice.highlight": "Highlight Best Option",
+  "sellprice.highlight.tooltip": "Mark the most profitable processing option with an asterisk (*)."
+}

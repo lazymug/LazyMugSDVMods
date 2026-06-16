@@ -1,0 +1,20 @@
+{
+  "section.autogate": "Portão Automático",
+  "autogate.enabled": "Ativar Portão Automático",
+  "autogate.closedelay": "Atraso para Fechar (ticks)",
+  "autogate.closedelay.tooltip": "Quanto tempo o portão fica aberto após você se afastar. 60 ticks = ~1 segundo.",
+
+  "section.magnet": "Coleta Magnética",
+  "magnet.enabled": "Ativar Coleta Magnética",
+  "magnet.radius": "Raio de Coleta (tiles)",
+  "magnet.radius.tooltip": "A distância máxima em que itens serão puxados até você, em tiles.",
+  "magnet.speed": "Velocidade de Atração",
+  "magnet.speed.tooltip": "Velocidade com que os itens se movem até você. Maior = coleta mais rápida.",
+
+  "section.sellprice": "Tooltip de Preço de Venda",
+  "sellprice.enabled": "Ativar Tooltip de Preço",
+  "sellprice.showartisan": "Mostrar Preços Artesão",
+  "sellprice.showartisan.tooltip": "Se você tem a profissão Artesão, mostra os preços com bônus (+40%) ao invés dos preços base.",
+  "sellprice.highlight": "Destacar Melhor Opção",
+  "sellprice.highlight.tooltip": "Marca a opção de processamento mais lucrativa com um asterisco (*)."
+}

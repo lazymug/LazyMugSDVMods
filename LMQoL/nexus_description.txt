@@ -1,0 +1,68 @@
+[size=5][b]LM QoL[/b][/size]
+A growing collection of small quality-of-life improvements for Stardew Valley, bundled into a single mod.
+
+[line]
+
+[size=4][b]Features[/b][/size]
+
+[size=3][b]Auto Gate[/b][/size]
+Gates open automatically when you walk near them and close after you move away.
+
+[list]
+[*]Opens any gate within 1 tile of the player
+[*]Closes automatically after a configurable delay (default: ~1 second)
+[*]Works with all gate types
+[*]No more fumbling with right-click while carrying items!
+[/list]
+
+[size=3][b]Sell Price Tooltip[/b][/size]
+Hover over any raw item to see how much it's worth after processing.
+
+[list]
+[*]Shows prices for Keg, Preserves Jar, Oil Maker, and Smoker
+[*]Supports Artisan profession bonus (+40%) — tagged with [A]
+[*]Highlights the most profitable option with an asterisk (*)
+[*]Covers special recipes: Wheat to Beer, Hops to Pale Ale, Coffee Bean to Coffee, and more
+[/list]
+
+[b]Example tooltip:[/b]
+[code]
+--- Processing ---
+Keg: 2250g (Wine) [A] *
+Preserves Jar: 1330g (Jelly) [A]
+* = best profit
+[/code]
+
+[line]
+
+[size=4][b]Configuration[/b][/size]
+All features can be toggled and customized individually through [url=https://www.nexusmods.com/stardewvalley/mods/5098]Generic Mod Config Menu[/url].
+
+[list]
+[*][b]Auto Gate[/b] — Enable/disable, adjust close delay (10–300 ticks)
+[*][b]Sell Price Tooltip[/b] — Enable/disable, toggle Artisan prices, toggle best option highlight
+[/list]
+
+[line]
+
+[size=4][b]Installation[/b][/size]
+[list=1]
+[*]Install [url=https://smapi.io]SMAPI[/url]
+[*]Install [url=https://www.nexusmods.com/stardewvalley/mods/5098]Generic Mod Config Menu[/url] (optional, for in-game settings)
+[*]Download this mod and extract the [b]LMQoL[/b] folder into your [b]Mods[/b] directory
+[*]Launch the game through SMAPI
+[/list]
+
+[line]
+
+[size=4][b]Compatibility[/b][/size]
+[list]
+[*]Stardew Valley 1.6+
+[*]SMAPI 4.0+
+[*]Works in single-player and multiplayer
+[/list]
+
+[line]
+
+[size=4][b]Planned Features[/b][/size]
+More QoL features will be added over time. Suggestions are welcome!

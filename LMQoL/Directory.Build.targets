@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <ModFolderName>LMQoL</ModFolderName>
+    <EnableModZip>true</EnableModZip>
+  </PropertyGroup>
+</Project>
