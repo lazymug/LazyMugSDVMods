@@ -2,7 +2,6 @@ using ElementalForce.Elemental_Force_Code.helpers;
 using HarmonyLib;
 using Microsoft.Xna.Framework;
 using StardewValley;
-using StardewValley.GameData.Weapons;
 using StardewValley.Monsters;
 using StardewValley.Projectiles;
 using StardewValley.Tools;
@@ -14,7 +13,7 @@ public class MeleeWeaponPatcher
 {
 
     private static bool CanCastFireball = true;
-    
+
     [HarmonyPatch(nameof(MeleeWeapon.leftClick))]
     [HarmonyPatch(new []{ typeof(Farmer) })]
     [HarmonyPrefix]
@@ -25,7 +24,7 @@ public class MeleeWeaponPatcher
             CanCastFireball = true;
         }
     }
-    
+
     [HarmonyPatch(nameof(MeleeWeapon.leftClick))]
     [HarmonyPatch(new []{ typeof(Farmer) })]
     [HarmonyPostfix]
@@ -33,13 +32,10 @@ public class MeleeWeaponPatcher
     {
         if (who.hasBuff(BuffHelper.GetBuffFireballId()) && CanCastFireball)
         {
-            // Get nearest monster
-            Monster monster = Utility.findClosestMonsterWithinRange(who.currentLocation, who.getStandingPosition(), 640);
-            var random = new Random();
-            var chance = random.Next(0, 100);
-            if (chance > 60 && monster != null)
+            Monster monster = Utility.findClosestMonsterWithinRange(who.currentLocation, who.getStandingPosition(), BuffConstants.FireballDetectionRange);
+            var chance = Game1.random.Next(0, 100);
+            if (chance > BuffConstants.FireballChancePercent && monster != null)
             {
-                // Call create fireball
                 who.currentLocation.projectiles.Add(CreateFireball(who, monster));
             }
             CanCastFireball = false;
@@ -47,39 +43,49 @@ public class MeleeWeaponPatcher
 
         if (who.hasBuff(BuffHelper.GetBuffExplosionId()))
         {
-            Monster monster = Utility.findClosestMonsterWithinRange(who.currentLocation, who.getStandingPosition(), 32);
-            GameLocation location = who.currentLocation;
-            location?.explode(monster.Tile, 2, who, damageFarmers: false, 20, !(location is Farm) && !(location is SlimeHutch));
+            Monster monster = Utility.findClosestMonsterWithinRange(who.currentLocation, who.getStandingPosition(), BuffConstants.ExplosionDetectionRange);
+            if (monster != null)
+            {
+                GameLocation location = who.currentLocation;
+                location?.explode(monster.Tile, BuffConstants.ExplosionRadius, who, damageFarmers: false, BuffConstants.ExplosionDamage, !(location is Farm) && !(location is SlimeHutch));
+            }
+        }
+
+        if (who.hasBuff(BuffHelper.GetBuffIceTombId()))
+        {
+            Monster monster = Utility.findClosestMonsterWithinRange(who.currentLocation, who.getStandingPosition(), BuffConstants.IceTombDetectionRange);
+            if (monster != null)
+            {
+                monster.stunTime.Value = BuffConstants.IceTombStunDurationMs;
+                monster.currentLocation?.playSound("frozen");
+            }
         }
     }
 
     private static Projectile CreateFireball(Farmer who, Monster nearestMonster)
     {
         Vector2 standingPixel = who.getStandingPosition();
-        Vector2 motion = Utility.getVelocityTowardPoint(standingPixel, nearestMonster.getStandingPosition(), 12.0f); //todo: check if speed is okay
-        BasicProjectile fireball = new BasicProjectile(30, 10, 0, 2, 0f, motion.X, motion.Y, standingPixel - new Vector2(32f, 0f), "flameSpellHit", null, "flameSpell", explode: true, damagesMonsters: true, who.currentLocation, who)
+        Vector2 motion = Utility.getVelocityTowardPoint(standingPixel, nearestMonster.getStandingPosition(), BuffConstants.FireballSpeed);
+        BasicProjectile fireball = new BasicProjectile(BuffConstants.FireballDamage, 10, 0, 2, 0f, motion.X, motion.Y, standingPixel - new Vector2(32f, 0f), "flameSpellHit", null, "flameSpell", explode: true, damagesMonsters: true, who.currentLocation, who)
             {
-                collisionBehavior = GetFireballCollisionBehavior(),
+                collisionBehavior = BasicProjectile.explodeOnImpact,
                 ignoreCharacterCollisions =
                 {
                     Value = true
                 },
                 maxTravelDistance =
                 {
-                    Value = 960
+                    Value = BuffConstants.FireballMaxTravelDistance
                 },
                 maxVelocity =
                 {
-                    Value = 16.0f
+                    Value = BuffConstants.FireballMaxVelocity
                 },
                 height =
                 {
-                    Value = 32.0f
+                    Value = BuffConstants.FireballHeight
                 }
             };
         return fireball;
     }
-
-    private static BasicProjectile.onCollisionBehavior GetFireballCollisionBehavior() =>
-        BasicProjectile.explodeOnImpact;
 }

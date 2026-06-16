@@ -1,5 +1,6 @@
 using ElementalForce.Elemental_Force_Code.buffs.cactuar;
 using ElementalForce.Elemental_Force_Code.helpers;
+using static ElementalForce.Elemental_Force_Code.helpers.BuffConstants;
 using HarmonyLib;
 using Microsoft.Xna.Framework;
 using StardewValley;
@@ -21,9 +22,8 @@ public class FarmerPatcher
     {
         if (__instance.hasBuff(BuffHelper.GetBuffCompanionProtectionId())) // Companion Protection Buff
         {
-            var random = new Random();
-            var chance = random.Next(0, 100);
-            __result = chance < 35;
+            var chance = Game1.random.Next(0, 100);
+            __result = chance < CompanionProtectionChancePercent;
         }
     }
     
@@ -44,7 +44,7 @@ public class FarmerPatcher
             {
                 // Apply the Speed buff effect
                 __instance.applyBuff(new WarySpeedBuff());
-                Timer timer = new Timer(new TimerCallback(RemoveBuffs), __instance, 5000, Timeout.Infinite);
+                Timer timer = new Timer(new TimerCallback(RemoveBuffs), __instance, WarySpeedDurationMs, Timeout.Infinite);
             }
         }
         return true;

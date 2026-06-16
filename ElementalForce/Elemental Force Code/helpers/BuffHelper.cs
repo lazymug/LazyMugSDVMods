@@ -20,9 +20,9 @@ namespace ElementalForce.Elemental_Force_Code.helpers
         private static readonly string BuffJoltingSwingId = $"{ModEntry.Instance.GetModId()}_JoltingSwingBuff";
         private static readonly string BuffLuckDayId = $"{ModEntry.Instance.GetModId()}_LuckDayBuff";
         private static readonly string BuffMirrorReflectionId = $"{ModEntry.Instance.GetModId()}_MirrorReflectionBuff";
-        private static readonly string BuffPhoenixDownId = $"{ModEntry.Instance.GetModId()}_MirrorPhoenixDownBuff";
-        private static readonly string BuffRegenBlessingId = $"{ModEntry.Instance.GetModId()}_MirrorRegenBlessingBuff";
-        private static readonly string BuffRainWishId = $"{ModEntry.Instance.GetModId()}_MirrorRainWishBuff";
+        private static readonly string BuffPhoenixDownId = $"{ModEntry.Instance.GetModId()}_PhoenixDownBuff";
+        private static readonly string BuffRegenBlessingId = $"{ModEntry.Instance.GetModId()}_RegenBlessingBuff";
+        private static readonly string BuffRainWishId = $"{ModEntry.Instance.GetModId()}_RainWishBuff";
         private static readonly string BuffSavageIfritId = $"{ModEntry.Instance.GetModId()}_SavageIfritBuff";
         private static readonly string BuffSnowSpeedId = $"{ModEntry.Instance.GetModId()}_SnowSpeedBuff";
         private static readonly string BuffSunnySpeedId = $"{ModEntry.Instance.GetModId()}_SunnySpeedBuff";

@@ -17,8 +17,7 @@ namespace ElementalForce.Elemental_Force_Code.buffs.shiva
             duration: ENDLESS, 
             effects: new BuffEffects()
             {
-                // todo: can freeze the enemy for some seconds
-            }, 
+            },
             iconTexture: BuffHelper.GetIconTexture(), 
             iconSheetIndex: BuffHelper.GetBuffIndexIceTomb())
         {

@@ -1,4 +1,5 @@
 using System.Timers;
+using ElementalForce.Elemental_Force_Code.helpers;
 using StardewValley;
 using Timer = System.Timers.Timer;
 
@@ -10,7 +11,7 @@ public class RegenBlessingTimer
 
     public RegenBlessingTimer()
     {
-        timer = new Timer(7000);
+        timer = new Timer(BuffConstants.RegenBlessingTickMs);
         timer.Elapsed += TimerElapsed;
         timer.AutoReset = true;
         timer.Start();
@@ -20,7 +21,7 @@ public class RegenBlessingTimer
     {
         timer.Interval = interval;
     }
-    
+
     private void TimerElapsed(object? sender, ElapsedEventArgs e)
     {
         if (Game1.player.health == Game1.player.maxHealth && Game1.player.stamina >= Game1.player.MaxStamina)
@@ -28,12 +29,12 @@ public class RegenBlessingTimer
             return;
         }
 
-        Game1.player.health += (int) (Game1.player.maxHealth * 0.015);
+        Game1.player.health += (int) (Game1.player.maxHealth * BuffConstants.RegenBlessingRate);
         if (Game1.player.health > Game1.player.maxHealth)
         {
             Game1.player.health = Game1.player.maxHealth;
         }
-        Game1.player.stamina += (float) (Game1.player.MaxStamina * 0.015);
+        Game1.player.stamina += (float) (Game1.player.MaxStamina * BuffConstants.RegenBlessingRate);
         if (Game1.player.stamina > Game1.player.MaxStamina)
         {
             Game1.player.stamina = Game1.player.MaxStamina;

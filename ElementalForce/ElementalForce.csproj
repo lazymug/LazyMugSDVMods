@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputType>Library</OutputType>
-        <ModFolder>/Users/lazymug/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods/ElementalForce</ModFolder>
+        <ModFolder>$(GamePath)/Mods/ElementalForce</ModFolder>
         <DllSubFolder>Elemental Force Code</DllSubFolder>
     </PropertyGroup>
 
@@ -35,9 +35,9 @@
         <MakeDir Directories="$(ModFolder)/$(DllSubFolder)" Condition="!Exists('$(ModFolder)/$(DllSubFolder)')" />
         <Copy SourceFiles="$(TargetDir)/ElementalForce.dll" DestinationFolder="$(ModFolder)/$(DllSubFolder)" />
         <Copy SourceFiles="$(ProjectDir)/manifest.json" DestinationFolder="$(ModFolder)/$(DllSubFolder)" />
-        <Exec Command="cp -R /Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/[CP]\ Elemental\ Force /Users/lazymug/Library/Application\ Support/Steam/steamapps/common/Stardew\ Valley/Contents/MacOS/Mods/ElementalForce/[CP]\ Elemental\ Force"/>
-        <Exec Command="cp -R /Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/Elemental\ Force\ Code/i18n /Users/lazymug/Library/Application\ Support/Steam/steamapps/common/Stardew\ Valley/Contents/MacOS/Mods/ElementalForce/Elemental\ Force\ Code/i18n"/>
-        <Exec Command="cp -R /Users/lazymug/Documents/workspace/LazyMug/LazyMugSDVMods/ElementalForce/Elemental\ Force\ Code/assets /Users/lazymug/Library/Application\ Support/Steam/steamapps/common/Stardew\ Valley/Contents/MacOS/Mods/ElementalForce/Elemental\ Force\ Code/assets"/>
+        <Exec Command="cp -R &quot;$(ProjectDir)/[CP] Elemental Force&quot; &quot;$(ModFolder)/[CP] Elemental Force&quot;"/>
+        <Exec Command="cp -R &quot;$(ProjectDir)/Elemental Force Code/i18n&quot; &quot;$(ModFolder)/$(DllSubFolder)/i18n&quot;"/>
+        <Exec Command="cp -R &quot;$(ProjectDir)/Elemental Force Code/assets&quot; &quot;$(ModFolder)/$(DllSubFolder)/assets&quot;"/>
     </Target>
 
 </Project>
