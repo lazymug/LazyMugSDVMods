@@ -37,6 +37,7 @@ public class MeleeWeaponPatcher
             if (chance > ModEntry.Instance.Config.FireballChancePercent && monster != null)
             {
                 who.currentLocation.projectiles.Add(CreateFireball(who, monster));
+                BuffAnimationHelper.PlayFireballCast(who);
             }
             CanCastFireball = false;
         }

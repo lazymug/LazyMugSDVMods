@@ -22,7 +22,11 @@ public class FarmerPatcher
         if (__instance.hasBuff(BuffHelper.GetBuffCompanionProtectionId()))
         {
             var chance = Game1.random.Next(0, 100);
-            __result = chance < ModEntry.Instance.Config.CompanionProtectionChancePercent;
+            if (chance >= ModEntry.Instance.Config.CompanionProtectionChancePercent)
+            {
+                __result = false;
+                BuffAnimationHelper.PlayCompanionProtectionBlock(__instance);
+            }
         }
     }
 
@@ -34,11 +38,13 @@ public class FarmerPatcher
         if (__instance.hasBuff(BuffHelper.GetBuffMirrorReflectionId()))
         {
             CustomTakeDamage(__instance, damage, overrideParry, damager);
+            BuffAnimationHelper.PlayMirrorReflection(__instance, damager);
             return false;
         }
         if (__instance.hasBuff(BuffHelper.GetBuffWarySpeedAuxId()) && damager != null)
         {
             __instance.applyBuff(new WarySpeedBuff());
+            BuffAnimationHelper.PlayWarySpeedActivation(__instance);
         }
         return true;
     }

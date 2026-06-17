@@ -417,6 +417,7 @@ namespace ElementalForce
                 Game1.player.health += (int)(Game1.player.maxHealth * Config.HealingAuraRecoveryRate);
                 Game1.player.Stamina += (int)(Game1.player.MaxStamina * Config.HealingAuraRecoveryRate);
                 Game1.currentLocation.playSound("healSound");
+                BuffAnimationHelper.PlayHealingAura(Game1.player);
             }
         }
 
@@ -433,7 +434,7 @@ namespace ElementalForce
                 {
                     Game1.player.Stamina = (int) (Game1.player.MaxStamina * Config.PhoenixDownStaminaRecovery);
                 }
-                Game1.currentLocation.playSound("healSound");
+                BuffAnimationHelper.PlayPhoenixDownRevival(Game1.player);
             }
         }
 

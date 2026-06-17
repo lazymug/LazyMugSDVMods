@@ -39,6 +39,7 @@ public class GameLocationPatcher
                 if (chance < ModEntry.Instance.Config.IceTombFreezeChancePercent)
                 {
                     FreezeEnemy(__instance, who, monster);
+                    BuffAnimationHelper.PlayIceTombFreeze(__instance, monster);
                 }
             }
         }

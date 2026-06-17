@@ -39,6 +39,8 @@ public class RegenBlessingTimer
         Game1.player.stamina += (float)(Game1.player.MaxStamina * ModEntry.Instance.Config.RegenBlessingRate);
         if (Game1.player.stamina > Game1.player.MaxStamina)
             Game1.player.stamina = Game1.player.MaxStamina;
+
+        BuffAnimationHelper.PlayRegenBlessingTick(Game1.player);
     }
 
     private static int MsToTicks(int ms) => ms * TicksPerSecond / 1000;
