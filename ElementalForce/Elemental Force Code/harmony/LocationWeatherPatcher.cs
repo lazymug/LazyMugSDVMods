@@ -15,37 +15,25 @@ public static class LocationWeatherPatcher
         if (__instance.WeatherForTomorrow == "Festival")
             return;
 
-        var updateWeatherChance = 0;
-        if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffRainWishId()))
-            updateWeatherChance += BuffConstants.RainWishWeatherChanceBonus;
+        var hasRainWish = Game1.player.buffs.IsApplied(BuffHelper.GetBuffRainWishId());
+        var hasThunderCaller = Game1.player.buffs.IsApplied(BuffHelper.GetBuffThunderCallerId());
 
-        if (Game1.player.buffs.IsApplied(BuffHelper.GetBuffThunderCallerId()))
-            updateWeatherChance += BuffConstants.ThunderCallerWeatherChanceBonus;
-
-        if (updateWeatherChance == 0)
+        if (!hasRainWish && !hasThunderCaller)
             return;
 
-        var chance = random.Next(0, 100);
-        if (chance == 40 && updateWeatherChance < chance)
-        {
+        var totalChance = 0;
+        if (hasRainWish)
+            totalChance += BuffConstants.RainWishWeatherChanceBonus;
+        if (hasThunderCaller)
+            totalChance += BuffConstants.ThunderCallerWeatherChanceBonus;
+
+        var roll = random.Next(0, 100);
+        if (roll >= totalChance)
+            return;
+
+        if (hasThunderCaller && roll < BuffConstants.ThunderCallerWeatherChanceBonus)
             __instance.WeatherForTomorrow = "Storm";
-        }
-        if (chance == 50 && updateWeatherChance < chance)
-        {
-            __instance.WeatherForTomorrow = "Rain";
-        }
-        if (chance == 90 && updateWeatherChance >= chance)
-        {
-            return;
-        }
-
-        if (chance < 60)
-        {
-            __instance.WeatherForTomorrow = "Rain";
-        }
         else
-        {
-            __instance.WeatherForTomorrow = "Storm";
-        }
+            __instance.WeatherForTomorrow = "Rain";
     }
 }

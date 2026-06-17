@@ -1,5 +1,4 @@
 using ElementalForce.Elemental_Force_Code.helpers;
-using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
 using StardewValley.Buffs;
 
@@ -15,10 +14,7 @@ namespace ElementalForce.Elemental_Force_Code.buffs.phoenix
             displayName: ModEntry.Instance.GetTextTranslation("buff.phoenix_down.name"),
             description: ModEntry.Instance.GetTextTranslation("buff.phoenix_down.description"),  
             duration: ENDLESS, 
-            effects: new BuffEffects()
-            {
-                // Revives the hero when dead or fatigued with 25% of energy or health
-            }, 
+            effects: new BuffEffects(),
             iconTexture: BuffHelper.GetIconTexture(), 
             iconSheetIndex: BuffHelper.GetBuffIndexPhoenixDown())
         {

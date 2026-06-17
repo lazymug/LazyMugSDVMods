@@ -63,6 +63,8 @@ namespace ElementalForce
             helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             helper.Events.GameLoop.DayEnding += OnDayEnding;
+
+            RegisterDebugCommands(helper);
         }
 
         private void OnDayEnding(object? sender, DayEndingEventArgs e)
@@ -468,6 +470,174 @@ namespace ElementalForce
 
                 break;
             }
+        }
+
+        private void RegisterDebugCommands(IModHelper helper)
+        {
+            helper.ConsoleCommands.Add("ef_status", "Show Elemental Force mod status (amphora, buffs, daily flags).", (_, _) =>
+            {
+                if (!Context.IsWorldReady) { Monitor.Log("Save not loaded.", LogLevel.Warn); return; }
+
+                var hasAmphora = Game1.player.Items.ContainsId(ItemHelper.GetToolAmphoraId());
+                var hasEchoes = Game1.player.Items.ContainsId(ItemHelper.GetToolAmphoraEchoesId());
+                var hasSpirits = Game1.player.Items.ContainsId(ItemHelper.GetToolAmphoraSpiritsId());
+                var amphoraLevel = hasSpirits ? "Spirits (Lv3)" : hasEchoes ? "Echoes (Lv2)" : hasAmphora ? "Base (Lv1)" : "None";
+
+                Monitor.Log($"=== Elemental Force Status ===", LogLevel.Info);
+                Monitor.Log($"Amphora: {amphoraLevel}", LogLevel.Info);
+                Monitor.Log($"Healing Aura used today: {_phoenixHealingAuraUsed}", LogLevel.Info);
+                Monitor.Log($"Phoenix Down used today: {_phoenixPhoenixDownUsed}", LogLevel.Info);
+                Monitor.Log($"Regen Timer active: {_regenTimer != null}", LogLevel.Info);
+                Monitor.Log($"Health: {Game1.player.health}/{Game1.player.maxHealth} | Stamina: {(int)Game1.player.stamina}/{Game1.player.MaxStamina}", LogLevel.Info);
+            });
+
+            helper.ConsoleCommands.Add("ef_buffs", "List all active Elemental Force buffs.", (_, _) =>
+            {
+                if (!Context.IsWorldReady) { Monitor.Log("Save not loaded.", LogLevel.Warn); return; }
+
+                var buffIds = new Dictionary<string, string>
+                {
+                    { BuffHelper.GetBuffHeatSpeedId(), "Heat Speed (Ifrit Essence)" },
+                    { BuffHelper.GetBuffSavageIfritId(), "Savage Ifrit (Ifrit Shard)" },
+                    { BuffHelper.GetBuffFireballId(), "Fireball (Ifrit Soul)" },
+                    { BuffHelper.GetBuffSnowSpeedId(), "Snow Speed (Shiva Essence)" },
+                    { BuffHelper.GetBuffBlizzardSlashId(), "Blizzard Slash (Shiva Shard)" },
+                    { BuffHelper.GetBuffIceTombId(), "Ice Tomb (Shiva Soul)" },
+                    { BuffHelper.GetBuffIronBodyId(), "Iron Body (Titan Essence)" },
+                    { BuffHelper.GetBuffWrathPalmId(), "Wrath Palm (Titan Shard)" },
+                    { BuffHelper.GetBuffEndlessStaminaId(), "Endless Stamina (Titan Soul)" },
+                    { BuffHelper.GetBuffHeavyBodyId(), "Heavy Body (Leviathan Essence)" },
+                    { BuffHelper.GetBuffRainWishId(), "Rain Wish (Leviathan Shard)" },
+                    { BuffHelper.GetBuffDragonScaleId(), "Dragon Scale (Leviathan Soul)" },
+                    { BuffHelper.GetBuffSunnySpeedId(), "Sunny Speed (Carbuncle Essence)" },
+                    { BuffHelper.GetBuffCompanionProtectionId(), "Companion Protection (Carbuncle Shard)" },
+                    { BuffHelper.GetBuffMirrorReflectionId(), "Mirror Reflection (Carbuncle Soul)" },
+                    { BuffHelper.GetBuffImmunityBandId(), "Immunity Band (Kirin Essence)" },
+                    { BuffHelper.GetBuffLuckDayId(), "Lucky Day (Kirin Shard)" },
+                    { BuffHelper.GetBuffRegenBlessingId(), "Regen Blessing (Kirin Soul)" },
+                    { BuffHelper.GetBuffFlashSpeedId(), "Flash Speed (Ramuh Essence)" },
+                    { BuffHelper.GetBuffJoltingSwingId(), "Jolting Swing (Ramuh Shard)" },
+                    { BuffHelper.GetBuffThunderCallerId(), "Thunder Caller (Ramuh Soul)" },
+                    { BuffHelper.GetBuffHealingAuraId(), "Healing Aura (Phoenix Essence)" },
+                    { BuffHelper.GetBuffExplosionId(), "Explosion (Phoenix Shard)" },
+                    { BuffHelper.GetBuffPhoenixDownId(), "Phoenix Down (Phoenix Soul)" },
+                    { BuffHelper.GetBuffWarySpeedAuxId(), "Wary Speed Aux (Cactuar Essence)" },
+                    { BuffHelper.GetBuffWarySpeedId(), "Wary Speed (Cactuar Essence - Active)" },
+                    { BuffHelper.GetBuffNeedlepointStrikesId(), "Needlepoint Strikes (Cactuar Shard)" },
+                    { BuffHelper.GetBuffInitiativeMasterId(), "Initiative Master (Cactuar Soul)" },
+                };
+
+                Monitor.Log("=== Active Elemental Buffs ===", LogLevel.Info);
+                var count = 0;
+                foreach (var (id, name) in buffIds)
+                {
+                    if (Game1.player.buffs.IsApplied(id))
+                    {
+                        Monitor.Log($"  [ON] {name}", LogLevel.Info);
+                        count++;
+                    }
+                }
+                if (count == 0) Monitor.Log("  No elemental buffs active.", LogLevel.Info);
+            });
+
+            helper.ConsoleCommands.Add("ef_give", "Give an elemental item. Usage: ef_give <elemental> <type>\n  elemental: ifrit, shiva, titan, leviathan, carbuncle, kirin, ramuh, phoenix, cactuar\n  type: essence, shard, soul", (_, args) =>
+            {
+                if (!Context.IsWorldReady) { Monitor.Log("Save not loaded.", LogLevel.Warn); return; }
+                if (args.Length < 2) { Monitor.Log("Usage: ef_give <elemental> <type>", LogLevel.Warn); return; }
+
+                var elemental = args[0].ToLower();
+                var type = args[1].ToLower();
+
+                if (!Enum.TryParse<ElementalEnum>(elemental, true, out var elementalEnum) || elementalEnum == ElementalEnum.None)
+                {
+                    Monitor.Log($"Unknown elemental: {elemental}. Valid: ifrit, shiva, titan, leviathan, carbuncle, kirin, ramuh, phoenix, cactuar", LogLevel.Warn);
+                    return;
+                }
+
+                var suffix = type switch
+                {
+                    "essence" => "Essence",
+                    "shard" => "Shard",
+                    "soul" => "Soul",
+                    _ => ""
+                };
+                if (suffix == "")
+                {
+                    Monitor.Log($"Unknown type: {type}. Valid: essence, shard, soul", LogLevel.Warn);
+                    return;
+                }
+
+                var itemId = $"{ModManifest.UniqueID}.CP_{elementalEnum}{suffix}";
+                Game1.player.addItemByMenuIfNecessary(new Object(itemId, 1));
+                Monitor.Log($"Added {elementalEnum} {suffix} to inventory.", LogLevel.Info);
+            });
+
+            helper.ConsoleCommands.Add("ef_amphora", "Give or upgrade amphora. Usage: ef_amphora <level>\n  level: 1 (base), 2 (echoes), 3 (spirits)", (_, args) =>
+            {
+                if (!Context.IsWorldReady) { Monitor.Log("Save not loaded.", LogLevel.Warn); return; }
+
+                var level = args.Length > 0 && int.TryParse(args[0], out var l) ? l : 1;
+                var (toolId, slots) = level switch
+                {
+                    3 => (ItemHelper.GetToolAmphoraSpiritsId(), 10),
+                    2 => (ItemHelper.GetToolAmphoraEchoesId(), 4),
+                    _ => (ItemHelper.GetToolAmphoraId(), 2)
+                };
+
+                var tool = new GenericTool { ItemId = toolId, AttachmentSlotsCount = slots };
+                Game1.player.addItemByMenuIfNecessary(tool);
+                Monitor.Log($"Added Amphora Lv{level} ({slots} slots) to inventory.", LogLevel.Info);
+            });
+
+            helper.ConsoleCommands.Add("ef_reset", "Reset daily flags (Healing Aura, Phoenix Down).", (_, _) =>
+            {
+                if (!Context.IsWorldReady) { Monitor.Log("Save not loaded.", LogLevel.Warn); return; }
+                _phoenixHealingAuraUsed = false;
+                _phoenixPhoenixDownUsed = false;
+                Monitor.Log("Daily flags reset. Healing Aura and Phoenix Down can trigger again.", LogLevel.Info);
+            });
+
+            helper.ConsoleCommands.Add("ef_heal", "Fully restore health and stamina.", (_, _) =>
+            {
+                if (!Context.IsWorldReady) { Monitor.Log("Save not loaded.", LogLevel.Warn); return; }
+                Game1.player.health = Game1.player.maxHealth;
+                Game1.player.stamina = Game1.player.MaxStamina;
+                Monitor.Log($"Health and stamina fully restored.", LogLevel.Info);
+            });
+
+            helper.ConsoleCommands.Add("ef_hurt", "Set health/stamina to a low value for testing. Usage: ef_hurt [percent]\n  percent: 1-99 (default: 10)", (_, args) =>
+            {
+                if (!Context.IsWorldReady) { Monitor.Log("Save not loaded.", LogLevel.Warn); return; }
+                var percent = args.Length > 0 && int.TryParse(args[0], out var p) ? Math.Clamp(p, 1, 99) : 10;
+                Game1.player.health = (int)(Game1.player.maxHealth * percent / 100f);
+                Game1.player.stamina = (int)(Game1.player.MaxStamina * percent / 100f);
+                Monitor.Log($"Health and stamina set to {percent}% ({Game1.player.health}/{Game1.player.maxHealth} HP, {(int)Game1.player.stamina}/{Game1.player.MaxStamina} SP).", LogLevel.Info);
+            });
+
+            helper.ConsoleCommands.Add("ef_weather", "Set tomorrow's weather. Usage: ef_weather <type>\n  type: sun, rain, storm, snow, wind", (_, args) =>
+            {
+                if (!Context.IsWorldReady) { Monitor.Log("Save not loaded.", LogLevel.Warn); return; }
+                if (args.Length < 1) { Monitor.Log("Usage: ef_weather <sun|rain|storm|snow|wind>", LogLevel.Warn); return; }
+
+                var weather = args[0].ToLower() switch
+                {
+                    "sun" => "Sun",
+                    "rain" => "Rain",
+                    "storm" => "Storm",
+                    "snow" => "Snow",
+                    "wind" => "Wind",
+                    _ => ""
+                };
+                if (weather == "")
+                {
+                    Monitor.Log($"Unknown weather: {args[0]}. Valid: sun, rain, storm, snow, wind", LogLevel.Warn);
+                    return;
+                }
+
+                var locationWeather = Game1.netWorldState.Value.GetWeatherForLocation("Default");
+                locationWeather.WeatherForTomorrow = weather;
+                Monitor.Log($"Tomorrow's weather set to: {weather}", LogLevel.Info);
+            });
         }
 
         private void RegisterConfigMenu()
