@@ -35,7 +35,7 @@
         <MakeDir Directories="$(ModFolder)/$(DllSubFolder)" Condition="!Exists('$(ModFolder)/$(DllSubFolder)')" />
         <Copy SourceFiles="$(TargetDir)/ElementalForce.dll" DestinationFolder="$(ModFolder)/$(DllSubFolder)" />
         <Copy SourceFiles="$(ProjectDir)/manifest.json" DestinationFolder="$(ModFolder)/$(DllSubFolder)" />
-        <Exec Command="cp -R &quot;$(ProjectDir)/[CP] Elemental Force&quot; &quot;$(ModFolder)/[CP] Elemental Force&quot;"/>
+        <Exec Command="cp -R &quot;$(ProjectDir)/[CP] Elemental Force&quot; &quot;$(GamePath)/Mods/[CP] Elemental Force&quot;"/>
         <Exec Command="cp -R &quot;$(ProjectDir)/Elemental Force Code/i18n&quot; &quot;$(ModFolder)/$(DllSubFolder)/i18n&quot;"/>
         <Exec Command="cp -R &quot;$(ProjectDir)/Elemental Force Code/assets&quot; &quot;$(ModFolder)/$(DllSubFolder)/assets&quot;"/>
     </Target>
