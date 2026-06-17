@@ -638,6 +638,62 @@ namespace ElementalForce
                 locationWeather.WeatherForTomorrow = weather;
                 Monitor.Log($"Tomorrow's weather set to: {weather}", LogLevel.Info);
             });
+
+            helper.ConsoleCommands.Add("ef_letter", "Trigger a letter event. Usage: ef_letter <name>\n  name: magnus, welcome, shard, soul, list, reset_all\n\n  magnus  - Magnus invitation (adds to mailbox)\n  welcome - Gaia welcome with Kirin Essence (adds to mailbox)\n  shard   - Amphora upgrade Lv1 -> Lv2 Echoes (adds to mailbox)\n  soul    - Amphora upgrade Lv2 -> Lv3 Spirits (adds to mailbox)\n  list    - Show which letters have been received\n  reset_all - Reset all letter flags so they can be received again", (_, args) =>
+            {
+                if (!Context.IsWorldReady) { Monitor.Log("Save not loaded.", LogLevel.Warn); return; }
+                if (args.Length < 1) { Monitor.Log("Usage: ef_letter <magnus|welcome|shard|soul|list|reset_all>", LogLevel.Warn); return; }
+
+                var letterIds = new Dictionary<string, string>
+                {
+                    { "magnus", LettersHelper.MagnusInvitationId },
+                    { "welcome", LettersHelper.GaiaWelcomeId },
+                    { "shard", LettersHelper.GaiaAmphoraShardId },
+                    { "soul", LettersHelper.GaiaAmphoraSoulId },
+                };
+
+                var name = args[0].ToLower();
+
+                if (name == "list")
+                {
+                    Monitor.Log("=== Letter Status ===", LogLevel.Info);
+                    foreach (var (key, id) in letterIds)
+                    {
+                        var received = Game1.player.mailReceived.Contains(id);
+                        Monitor.Log($"  {key,-8} [{(received ? "RECEIVED" : "PENDING ")}] {id}", LogLevel.Info);
+                    }
+                    return;
+                }
+
+                if (name == "reset_all")
+                {
+                    foreach (var (key, id) in letterIds)
+                    {
+                        Game1.player.mailReceived.Remove(id);
+                        Monitor.Log($"  Reset: {key} ({id})", LogLevel.Info);
+                    }
+                    Monitor.Log("All letter flags reset. Letters can be delivered again when conditions are met.", LogLevel.Info);
+                    return;
+                }
+
+                if (!letterIds.TryGetValue(name, out var letterId))
+                {
+                    Monitor.Log($"Unknown letter: {name}. Valid: magnus, welcome, shard, soul, list, reset_all", LogLevel.Warn);
+                    return;
+                }
+
+                Game1.player.mailReceived.Remove(letterId);
+
+                if (!Game1.player.mailbox.Contains(letterId))
+                    Game1.player.mailbox.Add(letterId);
+
+                Monitor.Log($"Letter '{name}' added to mailbox. Check your mailbox to receive it!", LogLevel.Info);
+
+                if (name == "shard" && !Game1.player.Items.ContainsId(ItemHelper.GetToolAmphoraId()))
+                    Monitor.Log("  Warning: You need a base Amphora (Lv1) in your inventory for the upgrade to work.", LogLevel.Warn);
+                if (name == "soul" && !Game1.player.Items.ContainsId(ItemHelper.GetToolAmphoraEchoesId()))
+                    Monitor.Log("  Warning: You need an Amphora Echoes (Lv2) in your inventory for the upgrade to work.", LogLevel.Warn);
+            });
         }
 
         private void RegisterConfigMenu()
