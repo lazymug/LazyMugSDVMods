@@ -18,10 +18,6 @@
   "sellprice.highlight": "Highlight Best Option",
   "sellprice.highlight.tooltip": "Mark the most profitable processing option with an asterisk (*).",
 
-  "section.skipfade": "Skip Fade Transitions",
-  "skipfade.enabled": "Enable Skip Fade",
-  "skipfade.enabled.tooltip": "Makes door/warp screen fades near-instant. Sleeping, cutscenes and festivals are unaffected.",
-
   "section.quickstack": "Quick Stack to Nearby Chests",
   "quickstack.enabled": "Enable Quick Stack",
   "quickstack.key": "Quick Stack Key",

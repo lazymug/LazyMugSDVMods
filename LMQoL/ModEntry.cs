@@ -4,7 +4,6 @@ using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using LMQoL.Features.AutoGate;
 using LMQoL.Features.MagnetRadiusForaging;
-using LMQoL.Features.SkipFade;
 using LMQoL.Features.QuickStack;
 
 namespace LMQoL
@@ -25,7 +24,6 @@ namespace LMQoL
             // Register features
             _features.Add(new AutoGateFeature());
             _features.Add(new MagnetRadiusForagingFeature());
-            _features.Add(new SkipFadeFeature());
             _features.Add(new QuickStackFeature());
 
             foreach (var feature in _features)
@@ -131,20 +129,6 @@ namespace LMQoL
                 setValue: v => Config.SellPriceHighlightBest = v,
                 name: () => Helper.Translation.Get("sellprice.highlight").ToString(),
                 tooltip: () => Helper.Translation.Get("sellprice.highlight.tooltip").ToString()
-            );
-
-            // --- Skip Fade Transitions ---
-            gmcm.AddSectionTitle(
-                mod: ModManifest,
-                text: () => Helper.Translation.Get("section.skipfade").ToString()
-            );
-
-            gmcm.AddBoolOption(
-                mod: ModManifest,
-                getValue: () => Config.SkipFadeEnabled,
-                setValue: v => Config.SkipFadeEnabled = v,
-                name: () => Helper.Translation.Get("skipfade.enabled").ToString(),
-                tooltip: () => Helper.Translation.Get("skipfade.enabled.tooltip").ToString()
             );
 
             // --- Quick Stack to Nearby Chests ---

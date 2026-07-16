@@ -18,10 +18,6 @@
   "sellprice.highlight": "Destacar Melhor Opção",
   "sellprice.highlight.tooltip": "Marca a opção de processamento mais lucrativa com um asterisco (*).",
 
-  "section.skipfade": "Pular Transições de Fade",
-  "skipfade.enabled": "Ativar Pular Fade",
-  "skipfade.enabled.tooltip": "Torna os fades de porta/passagem quase instantâneos. Dormir, cutscenes e festivais não são afetados.",
-
   "section.quickstack": "Empilhar Rápido em Baús Próximos",
   "quickstack.enabled": "Ativar Empilhar Rápido",
   "quickstack.key": "Tecla de Empilhar Rápido",

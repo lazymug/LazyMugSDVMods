@@ -18,9 +18,6 @@ namespace LMQoL
         public bool SellPriceShowArtisan { get; set; } = true;
         public bool SellPriceHighlightBest { get; set; } = true;
 
-        // Skip Fade Transitions
-        public bool SkipFadeEnabled { get; set; } = true;
-
         // Quick Stack to Nearby Chests
         public bool QuickStackEnabled { get; set; } = true;
         public int QuickStackRadius { get; set; } = 5;

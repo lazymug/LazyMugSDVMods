@@ -4,6 +4,20 @@ LM QoL — Planned Features (future releases)
 These are approved-but-not-yet-implemented quality-of-life features for LM QoL.
 Each should follow the existing IFeature pattern (independent toggle in GMCM).
 
+0. Skip Fade Transitions  [REVERTED — needs a tested reimplementation]
+   - Goal: make door/warp screen fades near-instant, without touching sleep,
+     cutscenes or festivals.
+   - Why reverted: the first attempt drove Game1.fadeToBlackAlpha directly every
+     UpdateTicked (snapping it to 0/1 based on Game1.fadeIn). This soft-locked the
+     game on a black screen after warping (confirmed via SMAPI log: freeze right
+     after "Warping to Farm", no exception). Pinning the alpha at the completion
+     threshold breaks the warp fade state machine.
+   - Correct approach: a Harmony patch on ScreenFade.UpdateFadeAlpha (or
+     Game1.screenFade) that multiplies the per-tick fade delta, letting the game's
+     own completion logic fire naturally — never snapping to the boundary. MUST be
+     tested in-game (warp between locations, enter/exit buildings, sleep, an event,
+     a festival) before shipping.
+
 1. No Fence Decay
    - Goal: fences stop losing health / breaking over time, so they don't need
      constant re-crafting.
