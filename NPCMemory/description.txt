@@ -1,0 +1,47 @@
+[size=6][b]NPC Memory[/b][/size]
+
+[i]The town is paying attention.[/i]
+
+[b]NPC Memory[/b] makes the people of Pelican Town remember what you've been up to and bring it up in conversation — based on what each of them actually cares about. Spend a day in the mines and Sebastian or Clint might mention it. Bring in a big harvest and Pierre takes notice. Every villager reacts through their own interests and personality.
+
+[line]
+
+[size=5][b]Features[/b][/size]
+[list]
+[*][b]They notice what you do.[/b] The mod quietly tracks your daily activities — fishing, mining, farming, cooking, combat, foraging, animal care, artisan goods, flowers, beverages, sweets, technology, void items and magic.
+[*][b]Interest-based dialogue.[/b] Each villager only comments on the activities that match their personality, in their own voice.
+[*][b]Not every day, not everyone.[/b] Comments are rolled per villager so conversations stay fresh rather than spammy (configurable chance).
+[/list]
+
+[size=5][b]NEW: The Valley Gazette (weekly newsletter)[/b][/size]
+[list]
+[*][b]A weekly recap in your mailbox.[/b] Every week you receive a small town newspaper summarizing what you got up to.
+[*][b]Beat reporters.[/b] Each headline is "reported" by the townsperson whose specialty fits — Willy on fishing, Clint on mining, Pierre on farming, Gus on cooking, and so on.
+[*][b]Fully configurable.[/b] Toggle it on/off, change how often it arrives, and set how many headlines it can carry.
+[*][b]Requires Mail Framework Mod[/b] — if you don't have it installed, the newsletter simply turns off and the rest of the mod works as normal.
+[/list]
+
+[line]
+
+[size=5][b]Configuration[/b][/size]
+Everything is configurable in-game via [b]Generic Mod Config Menu[/b]: enable/disable the mod, dialogue chance, and all newsletter options.
+
+[line]
+
+[size=5][b]Requirements[/b][/size]
+[list]
+[*]Generic Mod Config Menu (optional, for in-game settings)
+[*]Mail Framework Mod (optional, enables the weekly newsletter)
+[/list]
+
+[line]
+
+[size=5][b]Changelog[/b][/size]
+
+[b]2.0.0[/b]
+[list]
+[*]Added [b]The Valley Gazette[/b], a weekly newsletter delivered to your mailbox recapping the week's activity, with each headline attributed to the matching town NPC.
+[*]Added config options for the newsletter (enable, cadence, max headlines).
+[*]Mail Framework Mod added as an optional dependency (the newsletter cleanly disables itself when it isn't installed).
+[*]Fixed Portuguese (pt-BR) accentuation across all dialogue lines.
+[/list]

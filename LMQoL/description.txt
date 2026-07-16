@@ -1,0 +1,37 @@
+[size=6][b]LM QoL[/b][/size]
+
+[i]A collection of small quality-of-life improvements — each one toggleable.[/i]
+
+[b]LM QoL[/b] bundles a handful of little conveniences that smooth out the rough edges of daily farm life. Every feature can be turned on or off independently, so you only run what you actually want.
+
+[line]
+
+[size=5][b]Features[/b][/size]
+[list]
+[*][b]Auto Gate[/b] — fences with gates open automatically as you approach and close behind you, so you never get stuck fumbling with them.
+[*][b]Magnet Radius Foraging[/b] — nearby items are gently pulled toward you for easy pickup. Adjustable radius and pull speed.
+[*][b]Sell Price Tooltip[/b] — see an item's sell value (and its best processed value) right in the tooltip. Optionally accounts for the Artisan profession and highlights the most profitable option.
+[*][b]Quick Stack to Nearby Chests[/b] [i](New in 1.3.0)[/i] — press a key to top up matching item stacks in nearby chests straight from your inventory. It only fills stacks a chest already has (nothing gets misplaced) and never touches mini-shipping bins.
+[/list]
+
+[line]
+
+[size=5][b]Configuration[/b][/size]
+Every feature and its settings — including the Quick Stack key and search radius — can be adjusted in-game via [b]Generic Mod Config Menu[/b].
+
+[line]
+
+[size=5][b]Requirements[/b][/size]
+[list]
+[*]Generic Mod Config Menu (optional, for in-game settings)
+[/list]
+
+[line]
+
+[size=5][b]Changelog[/b][/size]
+
+[b]1.3.0[/b]
+[list]
+[*]Added [b]Quick Stack to Nearby Chests[/b] — a configurable key that tops up existing stacks in nearby chests (mini-shipping bins are safely ignored).
+[*]Added Generic Mod Config Menu options for Quick Stack (toggle, keybind, search radius).
+[/list]

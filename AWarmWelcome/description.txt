@@ -1,0 +1,50 @@
+[size=6][b]A Warm Welcome[/b][/size]
+
+[i]Starting a new life in a strange town can be daunting — but not in Pelican Town![/i]
+
+With [b]A Warm Welcome[/b], every villager greets your arrival with a personalized letter and a small gift to help you settle into your new farming life. Each note is written in the character's own voice, and each gift is something that villager personally loves.
+
+[line]
+
+[size=5][b]Features[/b][/size]
+[list]
+[*][b]A letter from everyone.[/b] Every villager sends you a personal welcome letter as you get to know the valley.
+[*][b]Thoughtful, in-character gifts.[/b] Each gift is an item the villager loves. Fruits and vegetables are sent as seeds so you can grow them yourself.
+[*][b]Personality-driven writing.[/b] Every letter reflects the sender's personality, quirks and speech.
+[*][b]Sensible pacing.[/b] Romanceable villagers write once you've grown a little closer (2.5 hearts); everyone else writes over the first few weeks, spread out so your mailbox is never flooded.
+[*][b]Fully translatable.[/b] Ships with English and Brazilian Portuguese (pt-BR).
+[/list]
+
+[line]
+
+[size=5][b]Compatibility[/b][/size]
+[list]
+[*][b]Stardew Valley Expanded[/b] — welcome letters for the SVE villagers.
+[*][b]Ridgeside Village[/b] — welcome letters and loved gifts for the Ridgeside cast. [i](New in 1.3.0)[/i]
+[*][b]East Scarp[/b] — welcome letters and loved gifts for the East Scarp cast. [i](New in 1.3.0)[/i]
+[/list]
+All of the above are optional — install any combination and A Warm Welcome adapts automatically.
+
+[line]
+
+[size=5][b]Requirements[/b][/size]
+[list]
+[*][b]Mail Framework Mod[/b] (required)
+[*]Content Patcher (optional)
+[*]Stardew Valley Expanded (optional)
+[*]Ridgeside Village (optional)
+[*]East Scarp (optional)
+[/list]
+
+[line]
+
+[size=5][b]Changelog[/b][/size]
+
+[b]1.3.0[/b]
+[list]
+[*]Added compatibility with [b]Ridgeside Village[/b] (welcome letters + loved gifts for its villagers).
+[*]Added compatibility with [b]East Scarp[/b] (welcome letters + loved gifts for its villagers).
+[*]Gifts prefer items from the mod itself; fruits/vegetables are sent as seeds.
+[*]Animals and non-humanoid creatures are excluded — only true villagers receive letters.
+[*]Added the four new mods as optional dependencies.
+[/list]
