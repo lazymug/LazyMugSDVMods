@@ -6,7 +6,7 @@
   "UniqueID": "LazyMug.WeatheredLetters",
   "EntryDll": "WeatheredLetters.dll",
   "MinimumApiVersion": "4.0.0",
-  "UpdateKeys": [],
+  "UpdateKeys": ["Nexus:46553"],
   "Dependencies": [
     {
       "UniqueID": "spacechase0.GenericModConfigMenu",

@@ -6,7 +6,7 @@
   "UniqueID": "LazyMug.Allellopathy",
   "EntryDll": "Allellopathy.dll",
   "MinimumApiVersion": "4.0.0",
-  "UpdateKeys": [],
+  "UpdateKeys": ["Nexus:46221"],
   "Dependencies": [
     {
       "UniqueID": "Pathoschild.ContentPatcher",

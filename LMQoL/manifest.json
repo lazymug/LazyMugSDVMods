@@ -6,7 +6,7 @@
   "UniqueID": "LazyMug.LMQoL",
   "EntryDll": "LMQoL.dll",
   "MinimumApiVersion": "4.0.0",
-  "UpdateKeys": [],
+  "UpdateKeys": ["Nexus:46698"],
   "Dependencies": [
     {
       "UniqueID": "spacechase0.GenericModConfigMenu",

@@ -6,7 +6,7 @@
   "UniqueID": "LazyMug.FriendlyTrades",
   "EntryDll": "FriendlyTrades.dll",
   "MinimumApiVersion": "4.0.0",
-  "UpdateKeys": [],
+  "UpdateKeys": ["Nexus:46230"],
   "Dependencies": [
     {
       "UniqueID": "spacechase0.GenericModConfigMenu",
