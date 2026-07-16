@@ -4,6 +4,13 @@
   "config.dialoguechance.tooltip": "Chance (0.1 to 1.0) that each interested NPC will comment on your activities.",
   "config.showdebug": "Show Debug Messages",
 
+  "config.newsletter.enabled": "Enable Weekly Newsletter",
+  "config.newsletter.enabled.tooltip": "Deliver a weekly town newsletter to your mailbox (requires MailFrameworkMod).",
+  "config.newsletter.cadence": "Newsletter Cadence (days)",
+  "config.newsletter.cadence.tooltip": "How many days between each newsletter delivery.",
+  "config.newsletter.headlines": "Max Headlines",
+  "config.newsletter.headlines.tooltip": "Maximum number of activity headlines per newsletter.",
+
   "dialogue.alex.cooking": "Hey! I heard you were cooking yesterday. Did you make anything with eggs? I love a good Complete Breakfast.",
   "dialogue.alex.farming": "Working hard on the farm, huh? That's how you build real muscles!",
 
@@ -137,5 +144,23 @@
   "dialogue.generic.sweets": "Something sweet was made yesterday... I could smell it from here!",
   "dialogue.generic.technology": "I heard you were working with some interesting materials yesterday.",
   "dialogue.generic.voiditems": "I heard you found some... unusual items. Be careful with those.",
-  "dialogue.generic.magic": "There was a strange energy in the air yesterday. Did you notice?"
+  "dialogue.generic.magic": "There was a strange energy in the air yesterday. Did you notice?",
+
+  "newsletter.title": "~ THE VALLEY GAZETTE ~",
+  "newsletter.intro": "Word travels fast in a small town. Here's what folks have been saying about you this week, @:",
+  "newsletter.footer": "That's all the news that's fit to print. See you next week!",
+  "newsletter.headline.fishing": "{reporter} says the docks have been lively — word is you reeled in {count} fish, {item} among the catch.",
+  "newsletter.headline.mining": "{reporter} mentions the mines rang with your pickaxe — some {count} finds hauled up, {item} included.",
+  "newsletter.headline.farming": "{reporter} reports a bountiful harvest from your fields — {count} crops gathered, {item} and more.",
+  "newsletter.headline.cooking": "{reporter} claims the smell of your cooking reached town — {count} dishes prepared, like {item}.",
+  "newsletter.headline.combat": "{reporter} heard you've been holding your own against monsters — {count} of them dealt with. Stay sharp.",
+  "newsletter.headline.foraging": "{reporter} spotted you wandering the wilds — {count} bits of forage collected, {item} included.",
+  "newsletter.headline.animalcare": "{reporter} says your animals are the picture of health — {count} goods collected this week, like {item}.",
+  "newsletter.headline.artisangoods": "{reporter} is impressed by your craftsmanship — {count} artisan goods produced, {item} among them.",
+  "newsletter.headline.flowers": "{reporter} noticed your garden in bloom — {count} flowers gathered, including the lovely {item}.",
+  "newsletter.headline.beverages": "{reporter} raises a glass to you — {count} drinks made this week, {item} included. Cheers!",
+  "newsletter.headline.sweets": "{reporter} has a sweet tooth for your creations — {count} treats made, like {item}.",
+  "newsletter.headline.technology": "{reporter} is intrigued by your tinkering — {count} gadgets and materials handled, including {item}.",
+  "newsletter.headline.voiditems": "{reporter} whispers about strange happenings — {count} void items in your possession, like {item}...",
+  "newsletter.headline.magic": "{reporter} senses arcane energies about you — {count} magical items gathered, {item} among them."
 }
