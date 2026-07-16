@@ -1,3 +1,5 @@
+using StardewModdingAPI.Utilities;
+
 namespace LMQoL
 {
     public class ModConfig
@@ -15,5 +17,13 @@ namespace LMQoL
         public bool SellPriceTooltipEnabled { get; set; } = true;
         public bool SellPriceShowArtisan { get; set; } = true;
         public bool SellPriceHighlightBest { get; set; } = true;
+
+        // Skip Fade Transitions
+        public bool SkipFadeEnabled { get; set; } = true;
+
+        // Quick Stack to Nearby Chests
+        public bool QuickStackEnabled { get; set; } = true;
+        public int QuickStackRadius { get; set; } = 5;
+        public KeybindList QuickStackKey { get; set; } = KeybindList.Parse("Z");
     }
 }

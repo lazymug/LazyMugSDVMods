@@ -4,6 +4,8 @@ using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using LMQoL.Features.AutoGate;
 using LMQoL.Features.MagnetRadiusForaging;
+using LMQoL.Features.SkipFade;
+using LMQoL.Features.QuickStack;
 
 namespace LMQoL
 {
@@ -23,6 +25,8 @@ namespace LMQoL
             // Register features
             _features.Add(new AutoGateFeature());
             _features.Add(new MagnetRadiusForagingFeature());
+            _features.Add(new SkipFadeFeature());
+            _features.Add(new QuickStackFeature());
 
             foreach (var feature in _features)
                 feature.Register(helper, Monitor);
@@ -127,6 +131,52 @@ namespace LMQoL
                 setValue: v => Config.SellPriceHighlightBest = v,
                 name: () => Helper.Translation.Get("sellprice.highlight").ToString(),
                 tooltip: () => Helper.Translation.Get("sellprice.highlight.tooltip").ToString()
+            );
+
+            // --- Skip Fade Transitions ---
+            gmcm.AddSectionTitle(
+                mod: ModManifest,
+                text: () => Helper.Translation.Get("section.skipfade").ToString()
+            );
+
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.SkipFadeEnabled,
+                setValue: v => Config.SkipFadeEnabled = v,
+                name: () => Helper.Translation.Get("skipfade.enabled").ToString(),
+                tooltip: () => Helper.Translation.Get("skipfade.enabled.tooltip").ToString()
+            );
+
+            // --- Quick Stack to Nearby Chests ---
+            gmcm.AddSectionTitle(
+                mod: ModManifest,
+                text: () => Helper.Translation.Get("section.quickstack").ToString()
+            );
+
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.QuickStackEnabled,
+                setValue: v => Config.QuickStackEnabled = v,
+                name: () => Helper.Translation.Get("quickstack.enabled").ToString()
+            );
+
+            gmcm.AddKeybindList(
+                mod: ModManifest,
+                getValue: () => Config.QuickStackKey,
+                setValue: v => Config.QuickStackKey = v,
+                name: () => Helper.Translation.Get("quickstack.key").ToString(),
+                tooltip: () => Helper.Translation.Get("quickstack.key.tooltip").ToString()
+            );
+
+            gmcm.AddNumberOption(
+                mod: ModManifest,
+                getValue: () => Config.QuickStackRadius,
+                setValue: v => Config.QuickStackRadius = v,
+                name: () => Helper.Translation.Get("quickstack.radius").ToString(),
+                tooltip: () => Helper.Translation.Get("quickstack.radius.tooltip").ToString(),
+                min: 1,
+                max: 15,
+                interval: 1
             );
         }
     }

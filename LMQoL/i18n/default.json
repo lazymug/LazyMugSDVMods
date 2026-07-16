@@ -16,5 +16,19 @@
   "sellprice.showartisan": "Show Artisan Prices",
   "sellprice.showartisan.tooltip": "If you have the Artisan profession, show the boosted (+40%) prices instead of base prices.",
   "sellprice.highlight": "Highlight Best Option",
-  "sellprice.highlight.tooltip": "Mark the most profitable processing option with an asterisk (*)."
+  "sellprice.highlight.tooltip": "Mark the most profitable processing option with an asterisk (*).",
+
+  "section.skipfade": "Skip Fade Transitions",
+  "skipfade.enabled": "Enable Skip Fade",
+  "skipfade.enabled.tooltip": "Makes door/warp screen fades near-instant. Sleeping, cutscenes and festivals are unaffected.",
+
+  "section.quickstack": "Quick Stack to Nearby Chests",
+  "quickstack.enabled": "Enable Quick Stack",
+  "quickstack.key": "Quick Stack Key",
+  "quickstack.key.tooltip": "Press this to top up matching stacks in nearby chests with items from your inventory.",
+  "quickstack.radius": "Chest Search Radius (tiles)",
+  "quickstack.radius.tooltip": "How far around you chests are searched for matching stacks.",
+  "quickstack.moved": "Quick stacked {{count}} items into nearby chests.",
+  "quickstack.nothing": "No matching stacks found in nearby chests.",
+  "quickstack.nochests": "No chests nearby."
 }

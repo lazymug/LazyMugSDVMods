@@ -16,5 +16,19 @@
   "sellprice.showartisan": "Mostrar Preços Artesão",
   "sellprice.showartisan.tooltip": "Se você tem a profissão Artesão, mostra os preços com bônus (+40%) ao invés dos preços base.",
   "sellprice.highlight": "Destacar Melhor Opção",
-  "sellprice.highlight.tooltip": "Marca a opção de processamento mais lucrativa com um asterisco (*)."
+  "sellprice.highlight.tooltip": "Marca a opção de processamento mais lucrativa com um asterisco (*).",
+
+  "section.skipfade": "Pular Transições de Fade",
+  "skipfade.enabled": "Ativar Pular Fade",
+  "skipfade.enabled.tooltip": "Torna os fades de porta/passagem quase instantâneos. Dormir, cutscenes e festivais não são afetados.",
+
+  "section.quickstack": "Empilhar Rápido em Baús Próximos",
+  "quickstack.enabled": "Ativar Empilhar Rápido",
+  "quickstack.key": "Tecla de Empilhar Rápido",
+  "quickstack.key.tooltip": "Pressione para completar pilhas existentes nos baús próximos com itens do seu inventário.",
+  "quickstack.radius": "Raio de Busca de Baús (tiles)",
+  "quickstack.radius.tooltip": "A que distância ao seu redor os baús são procurados para completar pilhas.",
+  "quickstack.moved": "{{count}} itens empilhados nos baús próximos.",
+  "quickstack.nothing": "Nenhuma pilha compatível encontrada nos baús próximos.",
+  "quickstack.nochests": "Nenhum baú por perto."
 }

@@ -1,0 +1,29 @@
+LM QoL — Planned Features (future releases)
+===========================================
+
+These are approved-but-not-yet-implemented quality-of-life features for LM QoL.
+Each should follow the existing IFeature pattern (independent toggle in GMCM).
+
+1. No Fence Decay
+   - Goal: fences stop losing health / breaking over time, so they don't need
+     constant re-crafting.
+   - Approach: Harmony patch on Fence.minutesElapsed / the fence-aging logic to
+     skip health reduction when the toggle is on. Alternatively reset
+     fence.health each day for placed fences.
+   - Config: NoFenceDecayEnabled (bool, default off — it changes game balance).
+
+2. Trash Can Refund
+   - Goal: recover a configurable percentage of an item's sell value when it is
+     trashed (dropped into the inventory trash can), instead of losing it entirely.
+   - Approach: detect items removed via the trash can (InventoryChanged / Harmony
+     patch on the trash-can utility) and add back gold equal to
+     round(item.sellToStorePrice() * stack * percent).
+   - Config: TrashRefundEnabled (bool, default off), TrashRefundPercent (int 0-100,
+     default 25). Mind the existing Trash Can iridium-quality bonus so it stacks
+     sensibly rather than double-counting.
+
+Notes
+-----
+- Both are gated behind their own GMCM section, defaulting OFF since they alter
+  balance (unlike the current always-on QoL features).
+- Add i18n keys to both i18n/default.json and i18n/pt-BR.json (pt-BR WITH accents).
