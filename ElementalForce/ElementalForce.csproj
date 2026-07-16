@@ -33,8 +33,8 @@
         <Message Text="Copying extra files..." />
         <MakeDir Directories="$(ModFolder)" Condition="!Exists('$(ModFolder)')" />
         <Exec Command="cp -R &quot;$(ProjectDir)/[CP] Elemental Force&quot; &quot;$(GamePath)/Mods/[CP] Elemental Force&quot;"/>
-        <Exec Command="cp -R &quot;$(ProjectDir)/Elemental Force Code/i18n&quot; &quot;$(ModFolder)/i18n&quot;"/>
-        <Exec Command="cp -R &quot;$(ProjectDir)/Elemental Force Code/assets&quot; &quot;$(ModFolder)/assets&quot;"/>
+        <Exec Command="mkdir -p &quot;$(ModFolder)/i18n&quot; &amp;&amp; cp -R &quot;$(ProjectDir)/Elemental Force Code/i18n/&quot;* &quot;$(ModFolder)/i18n/&quot;"/>
+        <Exec Command="mkdir -p &quot;$(ModFolder)/assets&quot; &amp;&amp; cp -R &quot;$(ProjectDir)/Elemental Force Code/assets/&quot;* &quot;$(ModFolder)/assets/&quot;"/>
     </Target>
 
 </Project>
