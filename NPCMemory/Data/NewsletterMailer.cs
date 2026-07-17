@@ -11,7 +11,7 @@ namespace NPCMemory.Data
     /// MailFrameworkMod types directly, so it must only be instantiated when the
     /// mod is actually loaded (see ModEntry's soft-dependency guard).
     /// </summary>
-    public class NewsletterMailer
+    public class NewsletterMailer : INewsletterMailer
     {
         private readonly IManifest _manifest;
 

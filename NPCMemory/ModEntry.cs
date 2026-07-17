@@ -15,7 +15,7 @@ namespace NPCMemory
         private MemoryStore _memoryStore = null!;
         private DialogueGenerator _dialogueGenerator = null!;
         private NewsletterGenerator _newsletterGenerator = null!;
-        private NewsletterMailer? _newsletterMailer;
+        private INewsletterMailer? _newsletterMailer;
 
         public override void Entry(IModHelper helper)
         {
@@ -25,9 +25,10 @@ namespace NPCMemory
             _dialogueGenerator = new DialogueGenerator(helper, _memoryStore);
             _newsletterGenerator = new NewsletterGenerator(helper, _memoryStore, _config);
 
-            // Soft dependency: only touch MailFrameworkMod types when it's actually loaded.
+            // Soft dependency: MailerFactory.Create is [NoInlining] so MFM types are only JIT'd
+            // when the factory method is actually called — never when Entry() is compiled.
             if (helper.ModRegistry.IsLoaded("DIGUS.MailFrameworkMod"))
-                _newsletterMailer = new NewsletterMailer(ModManifest);
+                _newsletterMailer = MailerFactory.Create(ModManifest);
 
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
             helper.Events.GameLoop.DayStarted += OnDayStarted;
