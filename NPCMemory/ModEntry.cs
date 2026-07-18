@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Reflection;
 using NPCMemory.Data;
 using NPCMemory.Models;
 using StardewModdingAPI;
@@ -15,7 +16,7 @@ namespace NPCMemory
         private MemoryStore _memoryStore = null!;
         private DialogueGenerator _dialogueGenerator = null!;
         private NewsletterGenerator _newsletterGenerator = null!;
-        private INewsletterMailer? _newsletterMailer;
+        private NewsletterMailer? _newsletterMailer;
 
         public override void Entry(IModHelper helper)
         {
@@ -25,10 +26,20 @@ namespace NPCMemory
             _dialogueGenerator = new DialogueGenerator(helper, _memoryStore);
             _newsletterGenerator = new NewsletterGenerator(helper, _memoryStore, _config);
 
-            // Soft dependency: MailerFactory.Create is [NoInlining] so MFM types are only JIT'd
-            // when the factory method is actually called — never when Entry() is compiled.
+            // Soft dependency: the newsletter integration talks to MailFrameworkMod purely via
+            // reflection (see NewsletterMailer), so this mod carries no compile-time reference to
+            // it and loads fine when it's absent. We only wire it up when MFM is actually present.
             if (helper.ModRegistry.IsLoaded("DIGUS.MailFrameworkMod"))
-                _newsletterMailer = MailerFactory.Create(ModManifest);
+            {
+                Assembly? mfm = helper.ModRegistry.GetApi("DIGUS.MailFrameworkMod")?.GetType().Assembly
+                    ?? AppDomain.CurrentDomain.GetAssemblies()
+                        .FirstOrDefault(a => a.GetName().Name == "MailFrameworkMod");
+
+                if (mfm != null)
+                    _newsletterMailer = new NewsletterMailer(ModManifest, mfm);
+                else
+                    Monitor.Log("MailFrameworkMod is loaded but its assembly couldn't be located; the newsletter will be disabled.", LogLevel.Warn);
+            }
 
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
             helper.Events.GameLoop.DayStarted += OnDayStarted;

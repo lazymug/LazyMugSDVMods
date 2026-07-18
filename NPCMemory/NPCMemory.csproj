@@ -8,10 +8,4 @@
     <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="MailFrameworkMod">
-      <HintPath>..\..\DLLs\MailFrameworkMod.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-  </ItemGroup>
 </Project>
