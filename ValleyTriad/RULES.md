@@ -182,11 +182,19 @@ de desafio/chefe com espíritos. Dependência opcional via reflection apenas
 - ✅ **Renderer** (`Rendering/CardRenderer.cs`): compõe a carta em runtime (chassi + cena por
   categoria + herói destacado + fonte pixel `PixelFont.cs`), cache em `RenderTarget2D`,
   invalida no idioma, herói via `ItemRegistry`/conteúdo do jogo, nome localizado.
-- ✅ **Interação** (`UI/TriadMenu.cs`): partida jogável — clicar carta na mão + casa vazia;
-  IA gulosa do oponente; casas elementais; placar e resultado. Comando `vt_open`.
-- 🟡 Falta testar in-game (só valida em build). Próximo: UI de coleção/montagem de deck,
-  aplicar apostas (Amigável/Difícil/Ragnarök) + morte súbita, evento da Abigail, animações
-  de captura, IA por NPC/amizade, polir cenas.
+- ✅ **Interação** (`UI/TriadMenu.cs`): partida jogável com animação de captura (flash),
+  delay de turno do oponente, **apostas** (Amigável/Difícil/Ragnarök), **morte súbita** (teto
+  configurável), **escolha de recompensa** na vitória, e callback de resultado.
+- ✅ **Coleção + deck** (`Data/CollectionManager.cs`, `UI/DeckMenu.cs`): persistência por save
+  (owned + deck), montagem com tetos (1 Lendária/2 Raras), auto-deck legal. Comando `vt_deck`.
+- ✅ **Integração no mundo** (`ModEntry.cs`): evento inicial da **Abigail** (sexta no Saloon →
+  pacote inicial), **desafiar NPCs** (ação sobre aldeão no Saloon nas sextas → partida),
+  ganho/perda de carta + amizade conforme resultado.
+- ✅ **IA/deck por amizade** (`Game/Opponents.cs`): tiers do deck e skill da IA escalam com os
+  corações do NPC. Pacote inicial definido.
+- 🟡 Falta **testar in-game** (só valida em build). Polimentos futuros: animação de "virar"
+  carta (não só flash), variar folhagem por cultivo, som/juice, mais cartas no roster (planilha
+  → assets/cards.json), balancear recompensas/amizade.
 
 ## 7. Apresentação / UX — ⏭ discutir via wireframes
 

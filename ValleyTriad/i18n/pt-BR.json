@@ -9,6 +9,15 @@
   "config.stakes": "Apostas",
   "config.stakemode": "Modo de derrota (Amigável / Difícil / Ragnarök)",
 
+  "intro.abigail": "Ah, você joga Valley Triad? É o melhor passatempo do Saloon! Toma um baralho inicial — desafie o pessoal aqui nas sextas e ganhe as cartas deles.",
+  "challenge.question": "Jogar uma rodada de Valley Triad com {{name}}?",
+  "challenge.yes": "Claro!",
+  "challenge.no": "Talvez depois",
+  "hud.starter": "Você recebeu um baralho inicial de Valley Triad!",
+  "hud.won": "Você ganhou a carta {{card}}!",
+  "hud.lost": "Você perdeu uma carta…",
+  "hud.builddeck": "Monte um baralho de 5 cartas primeiro (menu do Valley Triad).",
+
   "card.parsnip": "Pastinaga",
   "card.cauliflower": "Couve-flor",
   "card.pumpkin": "Abóbora",

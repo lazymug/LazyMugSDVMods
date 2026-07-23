@@ -9,6 +9,15 @@
   "config.stakes": "Stakes",
   "config.stakemode": "Loss mode (Friendly / Hard / Ragnarok)",
 
+  "intro.abigail": "Oh, you play Valley Triad? It's the best pastime in the Saloon! Here, take a starter deck — challenge folks here on Fridays and win their cards.",
+  "challenge.question": "Play a round of Valley Triad with {{name}}?",
+  "challenge.yes": "Sure!",
+  "challenge.no": "Maybe later",
+  "hud.starter": "You received a Valley Triad starter deck!",
+  "hud.won": "You won the {{card}} card!",
+  "hud.lost": "You lost a card…",
+  "hud.builddeck": "Build a 5-card deck first (Valley Triad menu).",
+
   "card.parsnip": "Parsnip",
   "card.cauliflower": "Cauliflower",
   "card.pumpkin": "Pumpkin",
