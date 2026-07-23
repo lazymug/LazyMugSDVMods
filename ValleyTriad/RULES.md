@@ -115,6 +115,13 @@ de desafio/chefe com espíritos. Dependência opcional via reflection apenas
   jogo + **cor de raridade**. Cada carta é só uma **linha de dados** (sprite, bordas,
   raridade, estação, locais). Não é "gerar pixelart do zero" (isso ficaria feio); é
   **composição** de sprites reais — o que também reforça o "sem arte de IA" (§0).
+- 🟡 **Opção de arte: fundo temático por composição procedural.** Além do sprite no
+  pergaminho, dá para montar uma cena por categoria a partir de sprites do jogo + desenho
+  algorítmico — ex.: carta de crop com **plantação em fileiras** (sprite da planta madura do
+  `crops.png`) + céu/solo/sulcos; minérios na mina; peixes no mar; aldeões no Saloon. Provado
+  viável (protótipo em `tools/render_field.py`; preview local em `card-previews/`). Compõe
+  uma vez e **cacheia em `RenderTarget2D`** — custo por frame = desenhar 1 textura. Decidir se
+  entra no v1 ou fica como polimento posterior.
 - 🟡 **Acervo de ~50 cartas no v1**, em 4 tiers de raridade:
   | Tier | Qtd. aprox. | Temas | Soma das bordas (4 lados, 1–10) |
   |---|---|---|---|
