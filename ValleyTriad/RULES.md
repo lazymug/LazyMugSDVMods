@@ -129,9 +129,17 @@ de desafio/chefe com espíritos. Dependência opcional via reflection apenas
   distância) + sulcos convergindo ao ponto de fuga. Enche a janela como um campo de verdade.
 - ✅ **Fonte pixel própria** (bitmap 5×7 desenhado, com acentos pt-BR — Ó/Ã/Ê/Ç…) para
   números, nome e selo. Sem TTF suavizada. Números N/L/S/O nas moedas.
-- 🟡 Folhagem dos canteiros é genérica (touceira verde); dá para variar por cultivo/categoria
-  (mina p/ minério, mar p/ peixe, Saloon p/ aldeão) depois. Template vetorial anterior
-  (artifact) foi **descartado** em favor do pixel.
+- ✅ **Cenas por categoria** (uma "receita" de fundo por tipo), prototipadas em
+  `tools/render_pixel_card.py` — previews em `card-previews/scene_*.png`:
+  campo (crop/forrageável) · pasto+cerca (animal) · mina+cristais (minério/monstro) ·
+  mar+ondas (peixe) · Saloon+prateleira (aldeão) · noite estrelada (especial).
+- ✅ **i18n do nome:** o nome é desenhado em runtime a partir de string **localizada**
+  (`Item.DisplayName` do jogo p/ objetos; chaves i18n p/ o resto), nunca queimado numa
+  imagem. Cache do `RenderTarget2D` **invalida no `Content.LocaleChanged`**. Fonte pixel
+  cobre latim + acentos pt-BR; **fallback p/ `Game1.smallFont`** em scripts que ela não tem
+  (CJK/ru), então funciona em todos os idiomas.
+- 🟡 Folhagem dos canteiros ainda é genérica; dá para variar por cultivo depois. Template
+  vetorial anterior (artifact) foi **descartado** em favor do pixel.
 - 🟡 **Acervo de ~50 cartas no v1**, em 4 tiers de raridade:
   | Tier | Qtd. aprox. | Temas | Soma das bordas (4 lados, 1–10) |
   |---|---|---|---|
