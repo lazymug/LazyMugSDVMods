@@ -93,9 +93,18 @@ Flower Dance Rhythm › Foraging Quiz / Fish Hunt.
 - **Legendary Fish Hunt** — only with a strong distinct mechanic, else cut.
 
 ### 📋 Valley Triad (tavern card game) — anchor feature; Triple Triad (FF8) style
+> **Canonical, up-to-date rules live in `ValleyTriad/RULES.md`.** The notes below are a
+> high-level snapshot; where they differ, RULES.md wins (e.g. acquisition is now
+> play-based with no vendor, and the Elemental Force spirit design is deferred).
+
 Direction chosen: adapt **FF8's Triple Triad**. Cards use **in-game sprites** (crops,
 villagers, monsters, forageables, legendary creatures) — no custom art needed. 1v1 vs
 NPCs at the Saloon; collectible.
+
+**Intro event (tutorial):** on a **Friday when Abigail is at the Saloon**, entering triggers
+an event where **Abigail introduces Valley Triad**, explains the rules, and hands the player
+a **starter pack**. Abigail fits as the resident gamer. After this, the Friday-Saloon CTA
+lets the player challenge villagers.
 
 **Core ruleset (as FF8):**
 - 3×3 board; each player holds 5 cards.
@@ -108,8 +117,9 @@ NPCs at the Saloon; collectible.
 **Valley flavor:**
 - Tiered pool from game sprites: crops/animals (low) → villagers (mid) → bosses/legendary
   (Wizard, Junimo King, Legendary Fish; high).
-- Acquisition via **trade rule**: beating a villager can win one of their cards; card packs
-  from a vendor (Traveling Cart); monster cards as rare drops.
+- Acquisition (v1) is **100% play-based** (no vendor/gacha, to stay distinct from the
+  Pelican Packs mod): Abigail's starter pack, then winning cards from NPCs via the trade
+  rule. Monster/fishing drops deferred.
 
 **Advanced rules (all at launch):** Same, Plus, Combo.
 

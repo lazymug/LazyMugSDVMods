@@ -1,0 +1,444 @@
+<title>Valley Triad — Wireframes</title>
+<style>
+  :root{
+    --paper:#f4f2ea; --surface:#fbfaf5; --surface-2:#eceadf;
+    --ink:#23281d; --ink-soft:#5c6350; --line:#c9c7b6; --line-strong:#a9a691;
+    --accent:#5f8f3a;              /* Stardew spring green — estrutura/realces */
+    --player:#3a6fae; --player-bg:#dce7f4;
+    --opp:#bd4f3f;    --opp-bg:#f4dcd6;
+    --spring:#4f9a45; --summer:#d99a20; --fall:#c56a29; --winter:#4c8db0;
+    --r-comum:#7f8f6d; --r-incomum:#4a8fc0; --r-raro:#b56a2e; --r-lendario:#c7a017;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#13150e; --surface:#1c1f14; --surface-2:#262a1b;
+      --ink:#e9eadd; --ink-soft:#9aa088; --line:#3a3f2b; --line-strong:#525737;
+      --accent:#8bc25a; --player:#6fa3dd; --player-bg:#22304a;
+      --opp:#e07868; --opp-bg:#402019;
+      --spring:#6cbf5f; --summer:#e8b23f; --fall:#e08542; --winter:#5fa8cf;
+      --r-comum:#9aab86; --r-incomum:#66a9d6; --r-raro:#d0873f; --r-lendario:#ddb63a;
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#f4f2ea; --surface:#fbfaf5; --surface-2:#eceadf; --ink:#23281d; --ink-soft:#5c6350;
+    --line:#c9c7b6; --line-strong:#a9a691; --accent:#5f8f3a; --player:#3a6fae; --player-bg:#dce7f4;
+    --opp:#bd4f3f; --opp-bg:#f4dcd6; --spring:#4f9a45; --summer:#d99a20; --fall:#c56a29; --winter:#4c8db0;
+    --r-comum:#7f8f6d; --r-incomum:#4a8fc0; --r-raro:#b56a2e; --r-lendario:#c7a017;
+  }
+  :root[data-theme="dark"]{
+    --paper:#13150e; --surface:#1c1f14; --surface-2:#262a1b; --ink:#e9eadd; --ink-soft:#9aa088;
+    --line:#3a3f2b; --line-strong:#525737; --accent:#8bc25a; --player:#6fa3dd; --player-bg:#22304a;
+    --opp:#e07868; --opp-bg:#402019; --spring:#6cbf5f; --summer:#e8b23f; --fall:#e08542; --winter:#5fa8cf;
+    --r-comum:#9aab86; --r-incomum:#66a9d6; --r-raro:#d0873f; --r-lendario:#ddb63a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:40px 24px 72px}
+  .eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.18em;font-size:11px;
+    color:var(--accent);font-weight:700}
+  h1{font-size:34px;margin:.15em 0 .1em;letter-spacing:-.01em;text-wrap:balance}
+  h2{font-size:20px;margin:0;letter-spacing:-.005em}
+  .lede{color:var(--ink-soft);max-width:64ch;margin:.5em 0 0}
+  .screen{margin-top:44px;border:1px solid var(--line);border-radius:14px;background:var(--surface);
+    overflow:hidden}
+  .screen-hd{display:flex;align-items:baseline;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);
+    background:var(--surface-2)}
+  .screen-hd .tag{font-family:var(--mono);font-size:11px;color:var(--ink-soft)}
+  .screen-body{display:grid;grid-template-columns:1fr;gap:22px;padding:22px}
+  @media(min-width:800px){.screen-body.split{grid-template-columns:1.35fr .9fr}}
+  .stage{background:var(--paper);border:1px dashed var(--line-strong);border-radius:10px;padding:20px;
+    display:flex;flex-direction:column;align-items:center;gap:16px}
+  .notes{font-size:14px}
+  .notes h3{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft);
+    margin:0 0 10px;font-family:var(--mono)}
+  .notes ol{margin:0;padding-left:0;list-style:none;counter-reset:n;display:flex;flex-direction:column;gap:10px}
+  .notes li{counter-increment:n;position:relative;padding-left:30px;color:var(--ink)}
+  .notes li::before{content:counter(n);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;
+    background:var(--accent);color:#fff;font-family:var(--mono);font-size:11px;font-weight:700;
+    display:grid;place-items:center}
+  .notes b{color:var(--ink)}
+  /* ---------- carta ---------- */
+  .card{position:relative;width:74px;height:94px;border-radius:7px;border:3px solid var(--r-comum);
+    background:var(--surface);flex:0 0 auto;box-shadow:0 1px 2px rgba(0,0,0,.15)}
+  .card.p{background:linear-gradient(var(--player-bg),var(--surface))}
+  .card.o{background:linear-gradient(var(--opp-bg),var(--surface))}
+  .card.incomum{border-color:var(--r-incomum)} .card.raro{border-color:var(--r-raro)}
+  .card.lendario{border-color:var(--r-lendario)}
+  .card .sprite{position:absolute;inset:20px 16px;border:1px dashed var(--line-strong);border-radius:4px;
+    display:grid;place-items:center;font-size:9px;color:var(--ink-soft);text-align:center;font-family:var(--mono)}
+  .card .num{position:absolute;font-family:var(--mono);font-weight:700;font-size:13px;
+    font-variant-numeric:tabular-nums;color:var(--ink);text-shadow:0 1px 0 var(--surface)}
+  .card .n{top:1px;left:50%;transform:translateX(-50%)}
+  .card .e{right:4px;top:50%;transform:translateY(-50%)}
+  .card .s{bottom:1px;left:50%;transform:translateX(-50%)}
+  .card .w{left:4px;top:50%;transform:translateY(-50%)}
+  .card .elem{position:absolute;top:-7px;right:-7px;width:16px;height:16px;border-radius:50%;
+    border:2px solid var(--surface);font-family:var(--mono);font-size:9px;font-weight:700;color:#fff;
+    display:grid;place-items:center}
+  .e-spring{background:var(--spring)} .e-summer{background:var(--summer)}
+  .e-fall{background:var(--fall)} .e-winter{background:var(--winter)}
+  .card .name{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);white-space:nowrap;
+    font-size:9px;color:var(--ink-soft);font-family:var(--mono)}
+  .back{width:74px;height:94px;border-radius:7px;border:3px solid var(--line-strong);flex:0 0 auto;
+    background:repeating-linear-gradient(45deg,var(--surface-2),var(--surface-2) 5px,var(--surface) 5px,var(--surface) 10px)}
+  .back.o{border-color:var(--opp)}
+  .hand{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  /* ---------- tabuleiro ---------- */
+  .board{display:grid;grid-template-columns:repeat(3,90px);grid-template-rows:repeat(3,110px);gap:8px}
+  .cell{border:1px solid var(--line-strong);border-radius:8px;background:var(--surface-2);
+    display:grid;place-items:center;position:relative}
+  .cell.el-spring{box-shadow:inset 0 0 0 3px var(--spring)} .cell.el-fall{box-shadow:inset 0 0 0 3px var(--fall)}
+  .cell.el-winter{box-shadow:inset 0 0 0 3px var(--winter)}
+  .cell .badge{position:absolute;top:4px;left:4px;font-family:var(--mono);font-size:9px;padding:1px 5px;
+    border-radius:20px;color:#fff}
+  .b-spring{background:var(--spring)} .b-fall{background:var(--fall)} .b-winter{background:var(--winter)}
+  .rowlabel{display:flex;align-items:center;gap:12px;width:100%;justify-content:space-between;max-width:420px}
+  .who{font-family:var(--mono);font-size:12px;font-weight:700}
+  .who.p{color:var(--player)} .who.o{color:var(--opp)}
+  .turnchip,.stakechip{font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:20px;
+    border:1px solid var(--line-strong);color:var(--ink-soft)}
+  .turnchip{background:var(--player-bg);color:var(--player);border-color:var(--player)}
+  /* ---------- legenda ---------- */
+  .legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:22px;padding:14px 18px;border:1px solid var(--line);
+    border-radius:12px;background:var(--surface);font-size:12.5px}
+  .legend .k{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);color:var(--ink-soft)}
+  .sw{width:13px;height:13px;border-radius:3px;display:inline-block}
+  /* ---------- diálogo / evento ---------- */
+  .dialog{width:100%;max-width:460px;border:2px solid var(--line-strong);border-radius:10px;background:var(--surface);
+    display:flex;gap:14px;padding:16px}
+  .portrait{width:64px;height:64px;border:1px dashed var(--line-strong);border-radius:6px;flex:0 0 auto;
+    display:grid;place-items:center;font-family:var(--mono);font-size:9px;color:var(--ink-soft);text-align:center}
+  .dialog .txt{font-size:13.5px}
+  .dialog .speaker{font-family:var(--mono);font-size:11px;color:var(--opp);font-weight:700;text-transform:uppercase;
+    letter-spacing:.1em}
+  .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .btn{font-family:var(--mono);font-size:12px;padding:7px 14px;border-radius:7px;border:1px solid var(--accent);
+    background:var(--accent);color:#fff;cursor:default}
+  .btn.ghost{background:transparent;color:var(--accent)}
+  /* ---------- coleção ---------- */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+  .chip{font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid var(--line-strong);
+    color:var(--ink-soft);background:var(--surface)}
+  .chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .grid-cards{display:flex;gap:14px 12px;flex-wrap:wrap;justify-content:center}
+  .cardwrap{position:relative}
+  .count{position:absolute;bottom:-15px;right:-4px;font-family:var(--mono);font-size:10px;color:var(--ink-soft)}
+  .locked{opacity:.4;filter:grayscale(1)}
+  /* ---------- deck builder ---------- */
+  .slots{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .slot{width:74px;height:94px;border-radius:7px;border:2px dashed var(--line-strong);display:grid;place-items:center;
+    font-family:var(--mono);font-size:10px;color:var(--ink-soft)}
+  .caps{display:flex;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;margin-top:6px}
+  .cap{padding:3px 9px;border-radius:20px;border:1px solid var(--line-strong);color:var(--ink-soft)}
+  .cap.ok{color:var(--accent);border-color:var(--accent)}
+  .cap.full{color:var(--r-lendario);border-color:var(--r-lendario)}
+  .statelabel{align-self:flex-start;font-family:var(--mono);font-size:10px;text-transform:uppercase;
+    letter-spacing:.12em;color:var(--ink-soft)}
+  .toast{margin-top:10px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);
+    border:1px dashed var(--line-strong);border-radius:6px;padding:6px 10px;display:inline-block}
+  .taken{position:relative}
+  .taken::after{content:"levada";position:absolute;inset:0;background:rgba(189,79,63,.16);
+    border-radius:5px;display:grid;place-items:center;font-family:var(--mono);font-size:10px;
+    color:var(--opp);font-weight:700}
+  .best-ring{box-shadow:0 0 0 3px var(--opp)}
+  .verdict{font-size:15px;font-weight:700}
+  .verdict.win{color:var(--player)} .verdict.lose{color:var(--opp)}
+  footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:13px}
+  .flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft)}
+  .flow .step{padding:5px 11px;border:1px solid var(--line-strong);border-radius:7px;background:var(--surface);color:var(--ink)}
+  .flow .arw{color:var(--accent);font-weight:700}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Valley Triad · Documento de UX</div>
+    <h1>Wireframes — telas &amp; fluxos</h1>
+    <p class="lede">Rascunhos de layout para discutirmos a interface antes de codar. São
+      <b>estruturas anotadas</b>, não a arte final — os quadros tracejados representam sprites do jogo
+      compostos em runtime. Player = azul, oponente = vermelho (padrão Triple Triad).</p>
+
+    <div class="legend" aria-label="Legenda de cores">
+      <span class="k"><span class="sw" style="background:var(--player)"></span>Suas cartas</span>
+      <span class="k"><span class="sw" style="background:var(--opp)"></span>Cartas do oponente</span>
+      <span class="k"><span class="sw" style="background:var(--spring)"></span>Primavera</span>
+      <span class="k"><span class="sw" style="background:var(--summer)"></span>Verão</span>
+      <span class="k"><span class="sw" style="background:var(--fall)"></span>Outono</span>
+      <span class="k"><span class="sw" style="background:var(--winter)"></span>Inverno</span>
+      <span class="k"><span class="sw" style="background:var(--r-comum)"></span>Comum</span>
+      <span class="k"><span class="sw" style="background:var(--r-incomum)"></span>Incomum</span>
+      <span class="k"><span class="sw" style="background:var(--r-raro)"></span>Raro</span>
+      <span class="k"><span class="sw" style="background:var(--r-lendario)"></span>Lendário</span>
+    </div>
+  </header>
+
+  <!-- FLUXO GERAL -->
+  <section class="screen">
+    <div class="screen-hd"><h2>Fluxo geral</h2><span class="tag">como o jogador chega até uma partida</span></div>
+    <div class="screen-body">
+      <div class="flow">
+        <span class="step">Sexta no Saloon</span><span class="arw">→</span>
+        <span class="step">Evento da Abigail (1ª vez)</span><span class="arw">→</span>
+        <span class="step">Pacote inicial</span><span class="arw">→</span>
+        <span class="step">Falar com um NPC</span><span class="arw">→</span>
+        <span class="step">Montar deck (5)</span><span class="arw">→</span>
+        <span class="step">Partida</span><span class="arw">→</span>
+        <span class="step">Resultado / troca</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. TABULEIRO -->
+  <section class="screen">
+    <div class="screen-hd"><h2>1 · Tela de partida</h2><span class="tag">IClickableMenu · 3×3</span></div>
+    <div class="screen-body split">
+      <div class="stage">
+        <div class="rowlabel"><span class="who o">● Abigail</span><span class="stakechip">Aposta: Amigável</span></div>
+        <div class="hand" aria-label="Mão do oponente">
+          <div class="back o"></div><div class="back o"></div><div class="back o"></div><div class="back o"></div>
+        </div>
+
+        <div class="board" aria-label="Tabuleiro 3x3">
+          <div class="cell">
+            <div class="card p"><span class="num n">6</span><span class="num e">3</span><span class="num s">4</span><span class="num w">2</span>
+              <span class="elem e-fall">O</span><span class="sprite">Abóbora</span></div>
+          </div>
+          <div class="cell el-spring"><span class="badge b-spring">Prim.</span></div>
+          <div class="cell">
+            <div class="card o"><span class="num n">2</span><span class="num e">5</span><span class="num s">5</span><span class="num w">1</span>
+              <span class="sprite">Slime</span></div>
+          </div>
+          <div class="cell"></div>
+          <div class="cell">
+            <div class="card p incomum"><span class="num n">5</span><span class="num e">6</span><span class="num s">5</span><span class="num w">4</span>
+              <span class="sprite">Sebastian</span></div>
+          </div>
+          <div class="cell el-fall"><span class="badge b-fall">Out.</span></div>
+          <div class="cell">
+            <div class="card o incomum"><span class="num n">4</span><span class="num e">5</span><span class="num s">6</span><span class="num w">5</span>
+              <span class="sprite">Gus</span></div>
+          </div>
+          <div class="cell"></div>
+          <div class="cell el-winter"><span class="badge b-winter">Inv.</span></div>
+        </div>
+
+        <div class="rowlabel"><span class="who p">● Você</span><span class="turnchip">Seu turno</span></div>
+        <div class="hand" aria-label="Sua mão">
+          <div class="card p"><span class="num n">3</span><span class="num e">2</span><span class="num s">4</span><span class="num w">2</span>
+            <span class="elem e-spring">P</span><span class="sprite">Pastinaga</span></div>
+          <div class="card p"><span class="num n">2</span><span class="num e">4</span><span class="num s">3</span><span class="num w">4</span>
+            <span class="elem e-summer">V</span><span class="sprite">Mirtilo</span></div>
+          <div class="card p raro"><span class="num n">7</span><span class="num e">6</span><span class="num s">5</span><span class="num w">6</span>
+            <span class="sprite">Esqueleto</span></div>
+        </div>
+      </div>
+      <div class="notes">
+        <h3>Anotações</h3>
+        <ol>
+          <li>Mão do oponente fica <b>virada</b> no topo; a sua, aberta embaixo.</li>
+          <li><b>Casas elementais</b> (2–3 por partida) têm borda colorida + selo da estação; carta
+            da mesma estação ganha +1, diferente/Nenhum leva −1.</li>
+          <li>Cor da <b>borda da carta</b> = raridade; o preenchimento azul/vermelho = dono atual.</li>
+          <li>Os <b>4 números</b> (N/L/S/O) na fonte do jogo; sprite composto no centro.</li>
+          <li>Chips de <b>turno</b> e <b>modo de aposta</b> sempre visíveis.</li>
+          <li>Interação: clicar a carta na mão → clicar a casa. Captura anima o virar.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANATOMIA DA CARTA -->
+  <section class="screen">
+    <div class="screen-hd"><h2>Anatomia da carta</h2><span class="tag">composição em runtime · zero PNG por carta</span></div>
+    <div class="screen-body split">
+      <div class="stage">
+        <div style="transform:scale(2.1);margin:34px 0">
+          <div class="card p raro"><span class="num n">7</span><span class="num e">6</span><span class="num s">5</span><span class="num w">6</span>
+            <span class="elem e-fall">O</span><span class="sprite">sprite<br>do jogo</span></div>
+        </div>
+      </div>
+      <div class="notes">
+        <h3>Partes</h3>
+        <ol>
+          <li><b>Moldura</b> colorida pela raridade (1–2 texturas compartilhadas).</li>
+          <li><b>Sprite</b> puxado do conteúdo já carregado do jogo (crop/aldeão/monstro).</li>
+          <li><b>Bordas N/L/S/O</b> — os valores de 1 a 10 (10 = "A").</li>
+          <li><b>Selo de estação</b> no canto (ou nada, se elemento = Nenhum).</li>
+          <li>Tudo desenhado ao vivo → o mod não embarca imagem por carta.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. MONTAGEM DE DECK -->
+  <section class="screen">
+    <div class="screen-hd"><h2>2 · Montagem de deck</h2><span class="tag">escolher 5 · tetos por raridade</span></div>
+    <div class="screen-body split">
+      <div class="stage">
+        <div class="who p" style="align-self:flex-start">Seu deck (3/5)</div>
+        <div class="slots">
+          <div class="card p raro"><span class="num n">7</span><span class="num e">6</span><span class="num s">5</span><span class="num w">6</span><span class="sprite">Esqueleto</span></div>
+          <div class="card p incomum"><span class="num n">5</span><span class="num e">6</span><span class="num s">5</span><span class="num w">4</span><span class="sprite">Sebastian</span></div>
+          <div class="card p"><span class="num n">6</span><span class="num e">3</span><span class="num s">4</span><span class="num w">2</span><span class="elem e-fall">O</span><span class="sprite">Abóbora</span></div>
+          <div class="slot">vazio</div><div class="slot">vazio</div>
+        </div>
+        <div class="caps">
+          <span class="cap full">Lendária 0/1</span>
+          <span class="cap ok">Rara 1/2</span>
+          <span class="cap">Total 3/5</span>
+        </div>
+      </div>
+      <div class="notes">
+        <h3>Anotações</h3>
+        <ol>
+          <li>5 espaços; arrasta/clica da coleção para preencher.</li>
+          <li><b>Tetos:</b> máx. 1 Lendária e máx. 2 Raras — o contador avisa quando cheio.</li>
+          <li>Botão <b>"Jogar"</b> só habilita com 5 cartas dentro das regras.</li>
+          <li>Mostrar a <b>soma de bordas</b> do deck ajuda a avaliar força.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. COLEÇÃO -->
+  <section class="screen">
+    <div class="screen-hd"><h2>3 · Coleção / álbum</h2><span class="tag">ver, filtrar, gerenciar</span></div>
+    <div class="screen-body split">
+      <div class="stage">
+        <div class="filters">
+          <span class="chip on">Todas</span><span class="chip">Comum</span><span class="chip">Incomum</span>
+          <span class="chip">Raro</span><span class="chip">Lendário</span>
+        </div>
+        <div class="grid-cards">
+          <div class="cardwrap"><div class="card"><span class="num n">3</span><span class="num e">2</span><span class="num s">4</span><span class="num w">2</span><span class="elem e-spring">P</span><span class="sprite">Pastinaga</span></div><span class="count">×3</span></div>
+          <div class="cardwrap"><div class="card"><span class="num n">2</span><span class="num e">5</span><span class="num s">5</span><span class="num w">1</span><span class="sprite">Slime</span></div><span class="count">×2</span></div>
+          <div class="cardwrap"><div class="card incomum"><span class="num n">6</span><span class="num e">5</span><span class="num s">4</span><span class="num w">5</span><span class="sprite">Abigail</span></div><span class="count">×1</span></div>
+          <div class="cardwrap"><div class="card raro"><span class="num n">8</span><span class="num e">6</span><span class="num s">7</span><span class="num w">5</span><span class="sprite">Frag. Prism.</span></div><span class="count">×1</span></div>
+          <div class="cardwrap"><div class="card lendario locked"><span class="num n">?</span><span class="num e">?</span><span class="num s">?</span><span class="num w">?</span><span class="sprite">???</span></div><span class="count">não obtida</span></div>
+        </div>
+      </div>
+      <div class="notes">
+        <h3>Anotações</h3>
+        <ol>
+          <li>Grade agrupável/filtrável por <b>tier</b> (e depois por categoria/estação).</li>
+          <li><b>Contagem de duplicatas</b> (×N) no canto de cada carta.</li>
+          <li>Cartas <b>não obtidas</b> aparecem como silhueta "???" — incentiva completar.</li>
+          <li>Contador de progresso da coleção (ex.: 17/50).</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. EVENTO INICIAL -->
+  <section class="screen">
+    <div class="screen-hd"><h2>4 · Evento inicial (tutorial)</h2><span class="tag">sexta no Saloon · Abigail</span></div>
+    <div class="screen-body split">
+      <div class="stage">
+        <div class="statelabel">Estado A · oferta</div>
+        <div class="dialog">
+          <div class="portrait">retrato<br>Abigail</div>
+          <div class="txt">
+            <div class="speaker">Abigail</div>
+            <p style="margin:.35em 0 0">Ei! Você joga <b>Valley Triad</b>? É o melhor passatempo do Saloon.
+              Toma um baralho inicial — te ensino as regras rapidinho.</p>
+            <div class="btnrow"><span class="btn">Aprender a jogar</span><span class="btn ghost">Agora não</span></div>
+          </div>
+        </div>
+
+        <div class="statelabel" style="margin-top:6px">Estado B · se escolher “Agora não”</div>
+        <div class="dialog">
+          <div class="portrait">retrato<br>Abigail</div>
+          <div class="txt">
+            <div class="speaker">Abigail</div>
+            <p style="margin:.35em 0 0">Tranquilo! Se mudar de ideia, é só me achar aqui numa
+              sexta dessas. 😉</p>
+            <div class="toast">Sem pacote inicial ainda · o convite reaparece em outra sexta</div>
+          </div>
+        </div>
+      </div>
+      <div class="notes">
+        <h3>Anotações</h3>
+        <ol>
+          <li>Dispara na <b>primeira sexta</b> em que a Abigail está no Saloon e o jogador entra.</li>
+          <li><b>Aceitar</b> → tutorial curto + entrega do <b>pacote inicial</b> → CTA de desafiar
+            NPCs fica ativo nas sextas.</li>
+          <li><b>“Agora não”</b> → nada é travado: o convite <b>reaparece numa sexta futura</b>
+            (o jogador não perde o acesso ao conteúdo).</li>
+          <li>Depois de aceito uma vez, o evento não repete — vira só o CTA de desafiar.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. RESULTADO — VITÓRIA -->
+  <section class="screen">
+    <div class="screen-hd"><h2>5 · Resultado — Vitória</h2><span class="tag">regra "One" · você escolhe a carta</span></div>
+    <div class="screen-body split">
+      <div class="stage">
+        <div class="verdict win">Você venceu! (placar 6–3) — escolha uma carta da Abigail:</div>
+        <div class="hand">
+          <div class="card o"><span class="num n">2</span><span class="num e">5</span><span class="num s">5</span><span class="num w">1</span><span class="sprite">Slime</span></div>
+          <div class="card o incomum"><span class="num n">4</span><span class="num e">5</span><span class="num s">6</span><span class="num w">5</span><span class="sprite">Gus</span></div>
+          <div class="card o"><span class="num n">3</span><span class="num e">3</span><span class="num s">2</span><span class="num w">4</span><span class="elem e-summer">V</span><span class="sprite">Mirtilo</span></div>
+          <div class="card o"><span class="num n">2</span><span class="num e">2</span><span class="num s">4</span><span class="num w">3</span><span class="sprite">Galinha</span></div>
+          <div class="card o incomum"><span class="num n">5</span><span class="num e">4</span><span class="num s">5</span><span class="num w">6</span><span class="sprite">Abigail</span></div>
+        </div>
+        <span class="btn">Confirmar escolha</span>
+      </div>
+      <div class="notes">
+        <h3>Anotações</h3>
+        <ol>
+          <li><b>Vitória:</b> você escolhe 1 entre as 5 cartas que o NPC jogou.</li>
+          <li><b>Derrota — Amigável:</b> nada acontece.</li>
+          <li><b>Derrota — Difícil:</b> perde 1 carta <b>aleatória</b> das suas 5.</li>
+          <li><b>Derrota — Ragnarök:</b> o NPC leva a sua carta <b>mais valiosa</b> das 5.</li>
+          <li>Tela mostra placar final e ganho de amizade.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. RESULTADO — DERROTA -->
+  <section class="screen">
+    <div class="screen-hd"><h2>6 · Resultado — Derrota</h2><span class="tag">varia conforme o modo de aposta</span></div>
+    <div class="screen-body split">
+      <div class="stage">
+        <div class="statelabel">Modo Amigável</div>
+        <div class="verdict lose">Você perdeu (placar 3–6).</div>
+        <div class="toast">Nenhuma carta foi levada — jogue de novo quando quiser.</div>
+
+        <div class="statelabel" style="margin-top:14px">Modo Difícil · perde 1 carta aleatória</div>
+        <div class="hand">
+          <div class="card p"><span class="num n">3</span><span class="num e">2</span><span class="num s">4</span><span class="num w">2</span><span class="elem e-spring">P</span><span class="sprite">Pastinaga</span></div>
+          <div class="cardwrap"><div class="card p taken"><span class="num n">2</span><span class="num e">4</span><span class="num s">3</span><span class="num w">4</span><span class="sprite">Mirtilo</span></div></div>
+          <div class="card p raro"><span class="num n">7</span><span class="num e">6</span><span class="num s">5</span><span class="num w">6</span><span class="sprite">Esqueleto</span></div>
+        </div>
+
+        <div class="statelabel" style="margin-top:14px">Modo Ragnarök · o NPC leva a sua carta mais valiosa</div>
+        <div class="hand">
+          <div class="card p"><span class="num n">3</span><span class="num e">2</span><span class="num s">4</span><span class="num w">2</span><span class="elem e-spring">P</span><span class="sprite">Pastinaga</span></div>
+          <div class="card p"><span class="num n">2</span><span class="num e">4</span><span class="num s">3</span><span class="num w">4</span><span class="sprite">Mirtilo</span></div>
+          <div class="cardwrap"><div class="card p raro taken best-ring"><span class="num n">7</span><span class="num e">6</span><span class="num s">5</span><span class="num w">6</span><span class="sprite">Esqueleto</span></div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <h3>Anotações</h3>
+        <ol>
+          <li><b>Amigável:</b> derrota sem custo — só o placar e uma mensagem.</li>
+          <li><b>Difícil:</b> uma das suas 5 jogadas some, escolhida <b>aleatoriamente</b>.</li>
+          <li><b>Ragnarök:</b> o NPC leva a sua <b>carta mais valiosa</b> (maior soma de bordas) —
+            destacada em vermelho. A perda mais dolorosa possível.</li>
+          <li>Em todos os casos: mostra o placar final; amizade não sobe (talvez leve queda mínima?).</li>
+          <li>❓ A definir: telas separadas por modo, ou uma só que se adapta ao modo ativo.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Wireframes de trabalho para o Valley Triad — foco em layout e fluxo, não na arte final.
+    As decisões de regras vivem em <b>ValleyTriad/RULES.md</b>; o acervo de cartas em <b>cards.xlsx</b>.
+  </footer>
+</div>
