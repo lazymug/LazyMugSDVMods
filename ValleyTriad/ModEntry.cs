@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
@@ -6,6 +7,7 @@ using StardewValley;
 using ValleyTriad.Data;
 using ValleyTriad.Game;
 using ValleyTriad.Models;
+using ValleyTriad.Rendering;
 using ValleyTriad.UI;
 
 namespace ValleyTriad
@@ -14,11 +16,13 @@ namespace ValleyTriad
     {
         private ModConfig _config = null!;
         private readonly CardDatabase _cards = new();
+        private CardRenderer _renderer = null!;
 
         public override void Entry(IModHelper helper)
         {
             _config = helper.ReadConfig<ModConfig>();
             _cards.Load(helper, Monitor);
+            _renderer = new CardRenderer(helper, Monitor);
 
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
 
@@ -54,7 +58,11 @@ namespace ValleyTriad
         private void OpenMenu()
         {
             if (!Context.IsWorldReady) { Monitor.Log("Load a save first.", LogLevel.Warn); return; }
-            Game1.activeClickableMenu = new TriadMenu();
+            var all = _cards.All.ToList();
+            if (all.Count < 5) { Monitor.Log("Not enough cards loaded.", LogLevel.Warn); return; }
+            // Milestone decks: player gets the first 5, opponent the next 5 (wrapping).
+            List<Card> Deal(int start) => Enumerable.Range(0, 5).Select(i => all[(start + i) % all.Count]).ToList();
+            Game1.activeClickableMenu = new TriadMenu(_renderer, _config, Deal(0), Deal(4));
         }
 
         /// <summary>Headless validation of the capture engine (no save required).</summary>

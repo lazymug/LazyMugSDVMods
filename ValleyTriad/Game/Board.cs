@@ -143,5 +143,26 @@ namespace ValleyTriad.Game
             foreach (var cell in Cells) if (cell.Empty) return false;
             return true;
         }
+
+        /// <summary>Deep copy (for AI look-ahead / move evaluation).</summary>
+        public Board Clone()
+        {
+            var b = new Board(RuleSame, RulePlus, RuleCombo, RuleElemental);
+            for (int r = 0; r < N; r++)
+                for (int c = 0; c < N; c++)
+                {
+                    b.Cells[r, c].Card = Cells[r, c].Card;
+                    b.Cells[r, c].Owner = Cells[r, c].Owner;
+                    b.Cells[r, c].Element = Cells[r, c].Element;
+                }
+            return b;
+        }
+
+        /// <summary>Net cards gained for <paramref name="owner"/> if it played this card here (no mutation).</summary>
+        public int EvaluatePlacement(Card card, Owner owner, int r, int c)
+        {
+            var clone = Clone();
+            return clone.Place(card, owner, r, c).Count;
+        }
     }
 }

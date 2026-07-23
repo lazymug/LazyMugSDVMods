@@ -176,6 +176,18 @@ de desafio/chefe com espíritos. Dependência opcional via reflection apenas
 - ✅ **Recompensas:** a carta trocada + um pequeno ganho de amizade ao vencer. Uma questline
   de colecionador ("complete a coleção") é uma meta esticada para depois.
 
+## Status de implementação (v0.1.0)
+
+- ✅ Motor Triple Triad (`Game/Board.cs`): captura básica + Same/Plus/Combo + elemental.
+- ✅ **Renderer** (`Rendering/CardRenderer.cs`): compõe a carta em runtime (chassi + cena por
+  categoria + herói destacado + fonte pixel `PixelFont.cs`), cache em `RenderTarget2D`,
+  invalida no idioma, herói via `ItemRegistry`/conteúdo do jogo, nome localizado.
+- ✅ **Interação** (`UI/TriadMenu.cs`): partida jogável — clicar carta na mão + casa vazia;
+  IA gulosa do oponente; casas elementais; placar e resultado. Comando `vt_open`.
+- 🟡 Falta testar in-game (só valida em build). Próximo: UI de coleção/montagem de deck,
+  aplicar apostas (Amigável/Difícil/Ragnarök) + morte súbita, evento da Abigail, animações
+  de captura, IA por NPC/amizade, polir cenas.
+
 ## 7. Apresentação / UX — ⏭ discutir via wireframes
 
 Esta seção será trabalhada com **wireframes** antes de definir. Telas a esboçar:
