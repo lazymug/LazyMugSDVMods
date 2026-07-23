@@ -124,8 +124,14 @@ de desafio/chefe com espíritos. Dependência opcional via reflection apenas
 - ✅ **Composição em runtime + cache `RenderTarget2D`** — só o chassi é asset fixo (1 textura);
   a cena por categoria é uma "receita" de sprites do jogo. Custo por frame = desenhar 1
   textura. Nenhuma arte de IA, nada de assets redistribuídos.
-- 🟡 A "profundidade" das fileiras da cena ainda é simples; refinar por categoria (mina, mar,
-  Saloon) depois. Template vetorial anterior (artifact) foi **descartado** em favor do pixel.
+- ✅ **Cena com perspectiva** (estilo "campo" da referência): céu quente + linha de árvores +
+  **canteiros procedurais** (touceiras verdes sobrepostas que recuam, com neblina de
+  distância) + sulcos convergindo ao ponto de fuga. Enche a janela como um campo de verdade.
+- ✅ **Fonte pixel própria** (bitmap 5×7 desenhado, com acentos pt-BR — Ó/Ã/Ê/Ç…) para
+  números, nome e selo. Sem TTF suavizada. Números N/L/S/O nas moedas.
+- 🟡 Folhagem dos canteiros é genérica (touceira verde); dá para variar por cultivo/categoria
+  (mina p/ minério, mar p/ peixe, Saloon p/ aldeão) depois. Template vetorial anterior
+  (artifact) foi **descartado** em favor do pixel.
 - 🟡 **Acervo de ~50 cartas no v1**, em 4 tiers de raridade:
   | Tier | Qtd. aprox. | Temas | Soma das bordas (4 lados, 1–10) |
   |---|---|---|---|
