@@ -1,0 +1,21 @@
+{
+  "config.enablemod": "Enable Mod",
+  "config.rules": "Advanced Rules",
+  "config.same": "Same rule",
+  "config.plus": "Plus rule",
+  "config.combo": "Combo rule",
+  "config.elemental": "Elemental (seasons) rule",
+  "config.elementalcells": "Elemental tiles per match",
+  "config.stakes": "Stakes",
+  "config.stakemode": "Loss mode (Friendly / Hard / Ragnarok)",
+
+  "card.parsnip": "Parsnip",
+  "card.cauliflower": "Cauliflower",
+  "card.pumpkin": "Pumpkin",
+  "card.chicken": "Chicken",
+  "card.abigail": "Abigail",
+  "card.skeleton": "Skeleton",
+  "card.diamond": "Diamond",
+  "card.crimsonfish": "Crimsonfish",
+  "card.prismaticshard": "Prismatic Shard"
+}

@@ -1,0 +1,11 @@
+[
+  { "Id": "parsnip",      "NameKey": "card.parsnip",      "Tier": "Common",    "Element": "Spring", "Category": "Crop",     "Sprite": "(O)24",  "SpriteIndex": 24,  "N": 3,  "E": 1, "S": 2, "W": 2 },
+  { "Id": "cauliflower",  "NameKey": "card.cauliflower",  "Tier": "Common",    "Element": "Spring", "Category": "Crop",     "Sprite": "(O)190", "SpriteIndex": 190, "N": 5,  "E": 4, "S": 3, "W": 2 },
+  { "Id": "pumpkin",      "NameKey": "card.pumpkin",      "Tier": "Common",    "Element": "Fall",   "Category": "Crop",     "Sprite": "(O)276", "SpriteIndex": 276, "N": 6,  "E": 3, "S": 4, "W": 1 },
+  { "Id": "chicken",      "NameKey": "card.chicken",      "Tier": "Common",    "Element": "None",   "Category": "Animal",   "Sprite": "Animal:Chicken", "SpriteIndex": 0, "N": 2, "E": 2, "S": 3, "W": 2 },
+  { "Id": "abigail",      "NameKey": "card.abigail",      "Tier": "Uncommon",  "Element": "None",   "Category": "Villager", "Sprite": "Villager:Abigail", "SpriteIndex": 0, "N": 6, "E": 6, "S": 4, "W": 5 },
+  { "Id": "skeleton",     "NameKey": "card.skeleton",     "Tier": "Rare",      "Element": "None",   "Category": "Monster",  "Sprite": "Monster:Skeleton", "SpriteIndex": 0, "N": 7, "E": 6, "S": 6, "W": 5 },
+  { "Id": "diamond",      "NameKey": "card.diamond",      "Tier": "Rare",      "Element": "None",   "Category": "Mineral",  "Sprite": "(O)72",  "SpriteIndex": 72,  "N": 7,  "E": 6, "S": 7, "W": 6 },
+  { "Id": "crimsonfish",  "NameKey": "card.crimsonfish",  "Tier": "Legendary", "Element": "None",   "Category": "Fish",     "Sprite": "(O)159", "SpriteIndex": 159, "N": 9,  "E": 8, "S": 9, "W": 7 },
+  { "Id": "prismaticshard","NameKey": "card.prismaticshard","Tier": "Legendary","Element": "None",  "Category": "Mineral",  "Sprite": "(O)74",  "SpriteIndex": 74,  "N": 10, "E": 9, "S": 9, "W": 8 }
+]

@@ -1,0 +1,21 @@
+{
+  "config.enablemod": "Ativar o mod",
+  "config.rules": "Regras avançadas",
+  "config.same": "Regra Same (Igual)",
+  "config.plus": "Regra Plus (Soma)",
+  "config.combo": "Regra Combo",
+  "config.elemental": "Regra elemental (estações)",
+  "config.elementalcells": "Casas elementais por partida",
+  "config.stakes": "Apostas",
+  "config.stakemode": "Modo de derrota (Amigável / Difícil / Ragnarök)",
+
+  "card.parsnip": "Pastinaga",
+  "card.cauliflower": "Couve-flor",
+  "card.pumpkin": "Abóbora",
+  "card.chicken": "Galinha",
+  "card.abigail": "Abigail",
+  "card.skeleton": "Esqueleto",
+  "card.diamond": "Diamante",
+  "card.crimsonfish": "Peixe Carmesim",
+  "card.prismaticshard": "Fragmento Prismático"
+}

@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="assets\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- Design/reference files: not part of the build output -->
+  <ItemGroup>
+    <None Remove="cards.xlsx" />
+    <None Remove="wireframes.html" />
+    <None Remove="RULES.md" />
+    <None Remove="tools\**" />
+    <None Remove="card-previews\**" />
+  </ItemGroup>
+</Project>
