@@ -17,8 +17,8 @@ namespace ValleyTriad.UI
     public class MatchResult
     {
         public Outcome Outcome;
-        public string? GainedCardId; // card the player took on a win
-        public string? LostCardId;   // card the player lost (Hard/Ragnarok)
+        public string? GainedCardId;
+        public string? LostCardId;
     }
 
     public class MatchSettings
@@ -34,13 +34,13 @@ namespace ValleyTriad.UI
         public Action<MatchResult>? OnComplete;
     }
 
-    /// <summary>
-    /// Full Triple Triad match: placement, greedy AI (skill-scaled), capture flashes, stakes,
-    /// sudden death, and a win-reward pick. Reports the result via <see cref="MatchSettings.OnComplete"/>.
-    /// </summary>
+    /// <summary>Playable Triple Triad match with a clean banded layout (opponent hand · board · your hand · status).</summary>
     public class TriadMenu : IClickableMenu
     {
-        private const int Cell = 96, Gap = 6, HandCardW = 72, HandCardH = 100;
+        // layout
+        private const int Cell = 100, Gap = 8, HandH = 106, BandGap = 14, TopPad = 46, StatusH = 44;
+        private const float CardAspect = 92f / 128f;
+        private static readonly int HandW = (int)(HandH * CardAspect);
         private enum State { Playing, PickReward, Done }
 
         private readonly CardRenderer _renderer;
@@ -56,7 +56,7 @@ namespace ValleyTriad.UI
         private float _oppTimer;
         private readonly Dictionary<(int, int), float> _flash = new();
         private MatchResult? _result;
-        private int _boardX, _boardY;
+        private int _boardX, _boardY, _oppHandY, _playerHandY, _statusY;
 
         private static readonly Color P1Tint = new(90, 150, 214), P2Tint = new(206, 96, 80);
 
@@ -68,12 +68,18 @@ namespace ValleyTriad.UI
             _renderer.Prewarm(_s.PlayerDeck.Concat(_s.OppDeck));
 
             int boardPx = 3 * Cell + 2 * Gap;
-            width = boardPx + borderWidth * 2 + 220;
-            height = boardPx + borderWidth * 2 + HandCardH * 2 + 60;
+            int handRowW = Deck.Size * (HandW + 10) - 10;
+            int contentW = Math.Max(boardPx, handRowW);
+            width = contentW + borderWidth * 2 + 64;
+            height = borderWidth * 2 + TopPad + HandH + BandGap + boardPx + BandGap + HandH + StatusH + 16;
             xPositionOnScreen = (Game1.uiViewport.Width - width) / 2;
             yPositionOnScreen = (Game1.uiViewport.Height - height) / 2;
+
             _boardX = xPositionOnScreen + (width - boardPx) / 2;
-            _boardY = yPositionOnScreen + HandCardH + 40;
+            _oppHandY = yPositionOnScreen + borderWidth + TopPad;
+            _boardY = _oppHandY + HandH + BandGap;
+            _playerHandY = _boardY + boardPx + BandGap;
+            _statusY = _playerHandY + HandH + 8;
 
             StartRound(new List<Card>(_s.PlayerDeck), new List<Card>(_s.OppDeck));
         }
@@ -106,7 +112,6 @@ namespace ValleyTriad.UI
         {
             base.receiveLeftClick(x, y, playSound);
             if (upperRightCloseButton != null && upperRightCloseButton.containsPoint(x, y)) { Close(); return; }
-
             if (_state == State.Done) { Close(); return; }
 
             if (_state == State.PickReward)
@@ -168,16 +173,13 @@ namespace ValleyTriad.UI
             }
         }
 
-        private void FlashCaptures(List<(int r, int c)> caps)
-        {
-            foreach (var p in caps) _flash[p] = 1f;
-        }
+        private void FlashCaptures(List<(int r, int c)> caps) { foreach (var p in caps) _flash[p] = 1f; }
 
         private void OpponentMove()
         {
             if (_oppHand.Count == 0) return;
             var rng = Game1.random;
-            bool loose = _s.AiSkill == 0 ? rng.NextDouble() < 0.4 : _s.AiSkill == 1 ? rng.NextDouble() < 0.15 : false;
+            bool loose = _s.AiSkill == 0 ? rng.NextDouble() < 0.4 : _s.AiSkill == 1 && rng.NextDouble() < 0.15;
 
             int bi = 0, br = 0, bc = 0, best = -1;
             var empties = new List<(int r, int c)>();
@@ -219,9 +221,7 @@ namespace ValleyTriad.UI
                 {
                     _round++;
                     _statusOverride = $"Morte súbita! (round {_round + 1})";
-                    var p1cards = ControlledCards(Owner.P1);
-                    var p2cards = ControlledCards(Owner.P2);
-                    StartRound(p1cards, p2cards);
+                    StartRound(ControlledCards(Owner.P1), ControlledCards(Owner.P2));
                     return;
                 }
                 _result = new MatchResult { Outcome = Outcome.Draw };
@@ -234,8 +234,8 @@ namespace ValleyTriad.UI
             if (p1 > p2)
             {
                 _result = new MatchResult { Outcome = Outcome.Win };
-                _statusOverride = $"Você venceu!  ({p1} × {p2})  —  escolha uma carta:";
-                _state = State.PickReward; // wait for the player to pick a card
+                _statusOverride = $"Você venceu!  ({p1} × {p2})";
+                _state = State.PickReward;
             }
             else
             {
@@ -254,7 +254,7 @@ namespace ValleyTriad.UI
             {
                 StakeMode.Hard => five[Game1.random.Next(five.Count)].Id,
                 StakeMode.Ragnarok => five.OrderByDescending(c => c.EdgeSum()).First().Id,
-                _ => null, // Friendly
+                _ => null,
             };
         }
 
@@ -270,33 +270,40 @@ namespace ValleyTriad.UI
         private void Close()
         {
             if (_state != State.Done && _result == null)
-            {
-                // closed early — treat as a draw with no stakes
                 _s.OnComplete?.Invoke(new MatchResult { Outcome = Outcome.Draw });
-            }
             exitThisMenu();
         }
 
         // ---- layout ----
         private Rectangle CellRect(int r, int c) => new(_boardX + c * (Cell + Gap), _boardY + r * (Cell + Gap), Cell, Cell);
+
         private Rectangle HandRect(int i, bool bottom)
         {
-            var hand = bottom ? _playerHand : _oppHand;
-            int total = hand.Count * (HandCardW + 6);
+            int count = (bottom ? _playerHand : _oppHand).Count;
+            int total = count * (HandW + 10) - 10;
             int sx = xPositionOnScreen + (width - total) / 2;
-            int y = bottom ? _boardY + 3 * (Cell + Gap) + 12 : yPositionOnScreen + 24;
-            return new Rectangle(sx + i * (HandCardW + 6), y, HandCardW, HandCardH);
+            return new Rectangle(sx + i * (HandW + 10), bottom ? _playerHandY : _oppHandY, HandW, HandH);
         }
+
         private Rectangle RewardRect(int i, int n)
         {
-            int total = n * (HandCardW + 8);
+            int total = n * (HandW + 12) - 12;
             int sx = xPositionOnScreen + (width - total) / 2;
-            return new Rectangle(sx + i * (HandCardW + 8), yPositionOnScreen + height / 2 - HandCardH / 2, HandCardW, HandCardH);
+            return new Rectangle(sx + i * (HandW + 12), yPositionOnScreen + (height - HandH) / 2, HandW, HandH);
+        }
+
+        /// <summary>Centres a card at the correct 92:128 aspect inside <paramref name="box"/>.</summary>
+        private static Rectangle Fit(Rectangle box)
+        {
+            int h = box.Height, w = (int)(h * CardAspect);
+            if (w > box.Width) { w = box.Width; h = (int)(w / CardAspect); }
+            return new Rectangle(box.X + (box.Width - w) / 2, box.Y + (box.Height - h) / 2, w, h);
         }
 
         // ---- draw ----
-        private void DrawCard(SpriteBatch b, Card card, Rectangle dest, Color? tint = null)
+        private void DrawCard(SpriteBatch b, Card card, Rectangle box, Color? tint = null)
         {
+            var dest = Fit(box);
             if (tint != null) b.Draw(Game1.staminaRect, new Rectangle(dest.X - 3, dest.Y - 3, dest.Width + 6, dest.Height + 6), tint.Value);
             b.Draw(_renderer.Get(card), dest, Color.White);
         }
@@ -306,6 +313,11 @@ namespace ValleyTriad.UI
             b.Draw(Game1.fadeToBlackRect, Game1.graphics.GraphicsDevice.Viewport.Bounds, Color.Black * 0.6f);
             Game1.drawDialogueBox(xPositionOnScreen, yPositionOnScreen, width, height, false, true);
 
+            // opponent name
+            string opp = string.IsNullOrEmpty(_s.OpponentDisplay) ? "Oponente" : _s.OpponentDisplay;
+            b.DrawString(Game1.smallFont, opp, new Vector2(xPositionOnScreen + borderWidth + 12, yPositionOnScreen + borderWidth + 8), Game1.textColor);
+
+            // board
             for (int r = 0; r < 3; r++)
                 for (int c = 0; c < 3; c++)
                 {
@@ -314,35 +326,42 @@ namespace ValleyTriad.UI
                     Color slot = cell.Element switch
                     {
                         Season.Spring => new(79, 170, 69), Season.Summer => new(224, 168, 40),
-                        Season.Fall => new(210, 120, 50), Season.Winter => new(90, 165, 205), _ => new(64, 46, 28),
+                        Season.Fall => new(210, 120, 50), Season.Winter => new(90, 165, 205), _ => new(74, 54, 34),
                     };
-                    IClickableMenu.drawTextureBox(b, Game1.menuTexture, new Rectangle(0, 256, 60, 60), rect.X, rect.Y, rect.Width, rect.Height, slot * 0.6f, 1f, false);
+                    IClickableMenu.drawTextureBox(b, Game1.menuTexture, new Rectangle(0, 256, 60, 60), rect.X, rect.Y, rect.Width, rect.Height, slot * 0.7f, 1f, false);
                     if (!cell.Empty)
-                        DrawCard(b, cell.Card!, new Rectangle(rect.X + 4, rect.Y + 2, rect.Width - 8, rect.Height - 4),
+                        DrawCard(b, cell.Card!, new Rectangle(rect.X + 6, rect.Y + 6, rect.Width - 12, rect.Height - 12),
                                  cell.Owner == Owner.P1 ? P1Tint : P2Tint);
                     if (_flash.TryGetValue((r, c), out float f))
-                        b.Draw(Game1.staminaRect, rect, Color.White * (f * 0.6f));
+                        b.Draw(Game1.staminaRect, rect, Color.White * (f * 0.55f));
                 }
 
+            // hands
             for (int i = 0; i < _oppHand.Count; i++) DrawCard(b, _oppHand[i], HandRect(i, false), P2Tint);
             for (int i = 0; i < _playerHand.Count; i++)
             {
                 var rect = HandRect(i, true);
-                if (i == _selected) rect = new Rectangle(rect.X, rect.Y - 10, rect.Width, rect.Height);
+                if (i == _selected) rect = new Rectangle(rect.X, rect.Y - 12, rect.Width, rect.Height);
                 DrawCard(b, _playerHand[i], rect, P1Tint);
             }
 
+            // status strip
+            string status = _statusOverride ?? (_turn == Owner.P1 ? "Seu turno — escolha uma carta e uma casa" : "Vez do oponente…");
+            b.DrawString(Game1.smallFont, status, new Vector2(xPositionOnScreen + borderWidth + 12, _statusY), Game1.textColor);
+            string score = $"Você {_board.Count(Owner.P1)} × {_board.Count(Owner.P2)} {opp}";
+            var ssz = Game1.smallFont.MeasureString(score);
+            b.DrawString(Game1.smallFont, score, new Vector2(xPositionOnScreen + width - borderWidth - 12 - ssz.X, _statusY), Game1.textColor);
+
+            // reward pick overlay
             if (_state == State.PickReward)
             {
                 var five = OppFive();
-                b.Draw(Game1.fadeToBlackRect, new Rectangle(xPositionOnScreen, yPositionOnScreen, width, height), Color.Black * 0.35f);
+                b.Draw(Game1.fadeToBlackRect, new Rectangle(xPositionOnScreen, yPositionOnScreen, width, height), Color.Black * 0.55f);
+                string t = "Você venceu! Escolha uma carta:";
+                var tsz = Game1.dialogueFont.MeasureString(t);
+                b.DrawString(Game1.dialogueFont, t, new Vector2(xPositionOnScreen + (width - tsz.X) / 2, RewardRect(0, five.Count).Y - 56), Color.White);
                 for (int i = 0; i < five.Count; i++) DrawCard(b, five[i], RewardRect(i, five.Count), P2Tint);
             }
-
-            string status = _statusOverride ?? (_turn == Owner.P1 ? "Seu turno" : "Vez do oponente");
-            b.DrawString(Game1.dialogueFont, status, new Vector2(xPositionOnScreen + 40, yPositionOnScreen + height - 44), Game1.textColor);
-            string score = $"{_board.Count(Owner.P1)} × {_board.Count(Owner.P2)}";
-            b.DrawString(Game1.dialogueFont, score, new Vector2(xPositionOnScreen + width - 140, yPositionOnScreen + height - 44), Game1.textColor);
 
             base.draw(b);
             drawMouse(b);
