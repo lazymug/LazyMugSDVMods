@@ -190,8 +190,12 @@ Terrenos (locais do mapa) 📡 no radar, fora do v1.
 
 Tutorial/pacote inicial = **Abigail** (evento de sexta no Saloon).
 
+**Acervo v1 preenchido** em `cards.xlsx` — 52 cartas reais do SDV (24 Comuns, 15 Incomuns,
+8 Raras, 5 Lendárias). IDs de objeto **validados contra o `Content/Data/Objects.xnb` do jogo
+instalado (v1.6.15)** — cada `(O)id` confere com o Name interno. Stat lines com passe de
+balanceamento: força escala por tier e cada carta tem um "formato" (pico numa direção,
+fraqueza na oposta); todas dentro do orçamento de borda.
+
 **Em aberto 🟡/❓:**
-- **Conteúdo/balanceamento (§5):** preencher a planilha `cards.xlsx` — a lista das ~50
-  cartas e, para cada uma, sua **linha de status** (os 4 valores N/L/S/O) respeitando o
-  **orçamento de borda do tier** (Comum 8–15 · Incomum 16–22 · Raro 23–29 · Lendário 30–36).
+- Iterar balanceamento fino após playtest (as stat lines são um 1º passe coerente).
 - Toda a camada de **UX/menus** → via **wireframes** (§7).
