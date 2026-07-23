@@ -73,10 +73,24 @@ perks and dialogue, reusing the NPC Memory tracking backbone.
 
 ---
 
-## Minigames — umbrella mod "LM Minigames"
+## Minigames — separate standalone mods (revised)
 
-Decision: ship as a **single umbrella mod** where each minigame is an independently
-toggleable feature (same `IFeature` pattern as LM QoL). New minigames plug in over time.
+Decision (revised 2026-07-23): ship the substantial minigames as **separate, standalone
+mods**, not one umbrella. Rationale: Nexus counts *unique downloads per mod page*, so a
+user who wants several minigames generates one counted download per page (more than a
+single bundled page), and each mod ranks/searches independently — better for Donation
+Points and discovery. Shared minigame-engine code is **copied internally** per mod, never a
+required dependency (hard deps suppress downloads/DP). Only promote a minigame to its own
+page if it's robust enough to sustain one; fold the slight ones into existing themed mods.
+
+Priority (by download/DP potential): **Valley Triad** (flagship) › Monster Arena ›
+Flower Dance Rhythm › Foraging Quiz / Fish Hunt.
+
+- **Valley Triad** — own mod (flagship).
+- **Monster Arena** — own mod.
+- **Flower Dance Rhythm** — standalone-light, or a feature of a festivals mod.
+- **Foraging Quiz** — fold into NPC Memory / a Linus mod (not its own page).
+- **Legendary Fish Hunt** — only with a strong distinct mechanic, else cut.
 
 ### 📋 Valley Triad (tavern card game) — anchor feature; Triple Triad (FF8) style
 Direction chosen: adapt **FF8's Triple Triad**. Cards use **in-game sprites** (crops,
