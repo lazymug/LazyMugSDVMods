@@ -1,0 +1,63 @@
+[size=6][b]Valley Triad[/b][/size]
+
+[i]A cozy card game for Pelican Town — in the spirit of Triple Triad.[/i]
+
+[b]Valley Triad[/b] adds a collectible card game to Stardew Valley. Challenge the villagers,
+capture their cards, and build your collection — all rendered in a warm, pixel-art style using
+the game's own sprites. No AI art, no bundled assets: every card is composed at runtime from
+your installed game.
+
+[line]
+
+[size=5][b]How to play[/b][/size]
+[list]
+[*][b]Meet Abigail at the Saloon.[/b] On a Friday when she's there, she'll teach you the game and
+hand you a starter deck.
+[*][b]Challenge villagers.[/b] On Fridays at the Saloon, walk up to a villager (with an empty hand)
+and press the action button to play a round.
+[*][b]Win cards.[/b] Beat someone and pick one of their cards for your collection. Friendship goes up too.
+[*][b]Build your deck.[/b] Pick 5 cards (max 1 Legendary, 2 Rare) in the deck builder.
+[/list]
+
+[size=5][b]The rules (Triple Triad)[/b][/size]
+[list]
+[*]3×3 board, five cards each. Each card has four edge values (1–10, where 10 shows as "A").
+[*]Place a card next to an enemy card: if your facing edge is higher, you flip it.
+[*][b]Same, Plus and Combo[/b] rules are all on — chain captures for big swings.
+[*][b]Elemental tiles[/b]: a card matching a tile's season gets +1 to all edges (mismatch −1).
+[*][b]Sudden death[/b] breaks ties by replaying with the cards you control.
+[/list]
+
+[size=5][b]Stakes (your call)[/b][/size]
+[list]
+[*][b]Friendly[/b] (default) — win cards, never lose one.
+[*][b]Hard[/b] — lose a random card from the five you played.
+[*][b]Ragnarök[/b] — the winner takes your most valuable card. The real deal.
+[/list]
+
+[line]
+
+[size=5][b]Cards[/b][/size]
+52 cards to start, across four rarities — crops, forageables, farm animals, fish, monsters,
+minerals, villagers, and legendary bosses (the Wizard, the Junimo King, Mr. Qi, the Crimsonfish,
+the Prismatic Shard). Each card is drawn on a themed scene (a field, the mines, the sea, the
+Saloon…) with the subject in the spotlight.
+
+[size=5][b]Configuration[/b][/size]
+Everything is toggleable in-game via [b]Generic Mod Config Menu[/b]: the advanced rules, elemental
+tiles, and the stake mode.
+
+[size=5][b]Requirements[/b][/size]
+[list]
+[*]Generic Mod Config Menu (optional, for in-game settings)
+[/list]
+
+[line]
+
+[size=5][b]Changelog[/b][/size]
+
+[b]1.0.0[/b]
+[list]
+[*]First release: full Triple Triad match (Same/Plus/Combo/elemental), 52-card collection,
+deck builder, Abigail's intro event, challenge villagers on Fridays, stakes and sudden death.
+[/list]

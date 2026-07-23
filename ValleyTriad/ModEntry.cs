@@ -93,6 +93,8 @@ namespace ValleyTriad
             if (!e.Button.IsActionButton()) return;
             if (!_collection.IntroSeen || Game1.currentLocation?.Name != "Saloon" || !IsFriday()) return;
 
+            // only when the hand is empty, so gifting/other interactions still work normally
+            if (Game1.player.ActiveObject != null) return;
             var ch = Game1.currentLocation.isCharacterAtTile(e.Cursor.GrabTile);
             if (ch is NPC npc && npc.IsVillager)
             {

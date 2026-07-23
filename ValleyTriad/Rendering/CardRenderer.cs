@@ -86,6 +86,8 @@ namespace ValleyTriad.Rendering
             return _helper.Translation.Get(card.NameKey).ToString();
         }
 
+        private static Rectangle Clamp(Texture2D t, int w, int h) => new(0, 0, Math.Min(w, t.Width), Math.Min(h, t.Height));
+
         private (Texture2D tex, Rectangle src)? ResolveHero(Card card)
         {
             try
@@ -97,18 +99,23 @@ namespace ValleyTriad.Rendering
                 }
                 else if (card.Sprite.StartsWith("Villager:"))
                 {
-                    string n = card.Sprite["Villager:".Length..];
-                    return (Game1.content.Load<Texture2D>("Portraits/" + n), new Rectangle(0, 0, 64, 64));
+                    var t = Game1.content.Load<Texture2D>("Portraits/" + card.Sprite["Villager:".Length..]);
+                    return (t, Clamp(t, 64, 64));
                 }
                 else if (card.Sprite.StartsWith("Monster:"))
                 {
-                    string n = card.Sprite["Monster:".Length..];
-                    return (Game1.content.Load<Texture2D>("Characters/Monsters/" + n), new Rectangle(0, 0, 16, 24));
+                    var t = Game1.content.Load<Texture2D>("Characters/Monsters/" + card.Sprite["Monster:".Length..]);
+                    return (t, Clamp(t, 16, 24));
                 }
                 else if (card.Sprite.StartsWith("Animal:"))
                 {
-                    string n = card.Sprite["Animal:".Length..];
-                    return (Game1.content.Load<Texture2D>("Animals/" + n), new Rectangle(0, 0, 16, 16));
+                    var t = Game1.content.Load<Texture2D>("Animals/" + card.Sprite["Animal:".Length..]);
+                    return (t, Clamp(t, 16, 16));
+                }
+                else if (card.Sprite.StartsWith("Char:"))
+                {
+                    var t = Game1.content.Load<Texture2D>("Characters/" + card.Sprite["Char:".Length..]);
+                    return (t, Clamp(t, 16, 16));
                 }
             }
             catch (Exception e) { _monitor.LogOnce($"No sprite for {card.Id} ({card.Sprite}): {e.Message}", LogLevel.Trace); }
@@ -214,6 +221,7 @@ namespace ValleyTriad.Rendering
             Blob(b, hcx, hcy, 12, new Color(255, 246, 206), 0.5f);
             Blob(b, hcx, hcy + 8, 10, Color.Black, 0.35f); // shadow
             if (hero != null) DrawHero(b, hero.Value.tex, hero.Value.src, hcx, hcy);
+            else PixelFont.DrawCentered(b, Pixel, "?", (int)(hcx * S), (int)(hcy * S), S + 1, new Color(240, 236, 220), new Color(40, 30, 18));
         }
 
         private void DrawHero(SpriteBatch b, Texture2D tex, Rectangle src, float lcx, float lcy)

@@ -192,9 +192,14 @@ de desafio/chefe com espíritos. Dependência opcional via reflection apenas
   ganho/perda de carta + amizade conforme resultado.
 - ✅ **IA/deck por amizade** (`Game/Opponents.cs`): tiers do deck e skill da IA escalam com os
   corações do NPC. Pacote inicial definido.
-- 🟡 Falta **testar in-game** (só valida em build). Polimentos futuros: animação de "virar"
-  carta (não só flash), variar folhagem por cultivo, som/juice, mais cartas no roster (planilha
-  → assets/cards.json), balancear recompensas/amizade.
+- ✅ **Roster completo**: 52 cartas geradas de `cards.xlsx` → `assets/cards.json` + i18n
+  (EN/pt-BR) via `tools/gen_cards_json.py`. Sprites com **nomes reais de asset** (ex.:
+  `Animal:White Chicken`, `Monster:Shadow Brute`, `Villager:MrQi`, `Char:Junimo`); placeholder
+  "?" se algum faltar.
+- ✅ **Desafio não conflita com presentear** (só com a mão vazia).
+- ✅ **Empacotado**: `description.txt` (BBCode Nexus), `README.md`, `manifest` v1.0.0.
+- 🟡 Falta só o **teste in-game** (o usuário fará). Polimentos opcionais futuros: animação de
+  "virar" carta (hoje é flash), folhagem por cultivo, som/juice, balanceamento de recompensas.
 
 ## 7. Apresentação / UX — ⏭ discutir via wireframes
 

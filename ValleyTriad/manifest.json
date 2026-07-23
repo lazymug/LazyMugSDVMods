@@ -1,7 +1,7 @@
 {
   "Name": "Valley Triad",
   "Author": "Lazy Mug",
-  "Version": "0.1.0",
+  "Version": "1.0.0",
   "Description": "A Triple Triad (FF8) style collectible card game for Stardew Valley, using in-game sprites. Challenge villagers, win their cards, and build your collection.",
   "UniqueID": "LazyMug.ValleyTriad",
   "EntryDll": "ValleyTriad.dll",
