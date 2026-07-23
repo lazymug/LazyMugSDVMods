@@ -115,13 +115,17 @@ de desafio/chefe com espíritos. Dependência opcional via reflection apenas
   jogo + **cor de raridade**. Cada carta é só uma **linha de dados** (sprite, bordas,
   raridade, estação, locais). Não é "gerar pixelart do zero" (isso ficaria feio); é
   **composição** de sprites reais — o que também reforça o "sem arte de IA" (§0).
-- 🟡 **Opção de arte: fundo temático por composição procedural.** Além do sprite no
-  pergaminho, dá para montar uma cena por categoria a partir de sprites do jogo + desenho
-  algorítmico — ex.: carta de crop com **plantação em fileiras** (sprite da planta madura do
-  `crops.png`) + céu/solo/sulcos; minérios na mina; peixes no mar; aldeões no Saloon. Provado
-  viável (protótipo em `tools/render_field.py`; preview local em `card-previews/`). Compõe
-  uma vez e **cacheia em `RenderTarget2D`** — custo por frame = desenhar 1 textura. Decidir se
-  entra no v1 ou fica como polimento posterior.
+- ✅ **Direção de arte: carta 100% pixel art, estilo fofo SDV.** Chassi de madeira em pixel
+  com inlay/gemas por raridade + **cena procedural** na janela (céu + plantação/mina/mar +
+  solo) servindo de "fundo pintado", e o **sprite herói destacado** (spotlight atrás +
+  contorno escuro + sombra) para não se fundir ao fundo. Moedas de valor e selo de estação
+  também em pixel. Valores N/L/S/O = **moedas nas bordas da janela**. Protótipo em
+  `tools/render_pixel_card.py` (preview local `card-previews/pixel_*.png`).
+- ✅ **Composição em runtime + cache `RenderTarget2D`** — só o chassi é asset fixo (1 textura);
+  a cena por categoria é uma "receita" de sprites do jogo. Custo por frame = desenhar 1
+  textura. Nenhuma arte de IA, nada de assets redistribuídos.
+- 🟡 A "profundidade" das fileiras da cena ainda é simples; refinar por categoria (mina, mar,
+  Saloon) depois. Template vetorial anterior (artifact) foi **descartado** em favor do pixel.
 - 🟡 **Acervo de ~50 cartas no v1**, em 4 tiers de raridade:
   | Tier | Qtd. aprox. | Temas | Soma das bordas (4 lados, 1–10) |
   |---|---|---|---|
