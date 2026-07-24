@@ -37,6 +37,7 @@ namespace ValleyTriad.Rendering
         private readonly IMonitor _monitor;
         private readonly Dictionary<string, Texture2D> _cache = new();
         private readonly Dictionary<Tier, Texture2D?> _frames = new();
+        private readonly Dictionary<string, Texture2D?> _art = new();
         private Texture2D? _pixel, _circle;
         private string _locale = "";
 
@@ -147,15 +148,15 @@ namespace ValleyTriad.Rendering
             Texture2D? frame = FrameFor(card.Tier);
             if (frame != null)
             {
-                // template pipeline: scene under, frame (with transparent art window) over, then dynamic parts
-                DrawScene(b, card, ResolveHero(card));
+                // template pipeline: art/scene under, frame (with transparent art window) over, then dynamic parts
+                DrawWindowContent(b, card);
                 b.Draw(frame, new Rectangle(0, 0, DEVW, DEVH), Color.White);
                 DrawValues(b, card);
             }
             else
             {
                 DrawChassis(b, card);
-                DrawScene(b, card, ResolveHero(card));
+                DrawWindowContent(b, card);
                 DrawCoinsAndText(b, card);
             }
 
@@ -211,6 +212,27 @@ namespace ValleyTriad.Rendering
 
         // window logical area
         private const int WX = 8, WY = 12, WW = 76, WH = 73;
+
+        /// <summary>Per-card art override (assets/art/&lt;cardId&gt;.png), or null to use the procedural scene.</summary>
+        private Texture2D? ArtFor(string cardId)
+        {
+            if (_art.TryGetValue(cardId, out var cached)) return cached;
+            Texture2D? tex = null;
+            try { tex = _helper.ModContent.Load<Texture2D>($"assets/art/{cardId}.png"); }
+            catch { /* no dedicated art for this card — procedural scene is the default */ }
+            _art[cardId] = tex;
+            return tex;
+        }
+
+        /// <summary>Fills the art window: dedicated art PNG when present, else the procedural themed scene.</summary>
+        private void DrawWindowContent(SpriteBatch b, Card card)
+        {
+            Texture2D? art = ArtFor(card.Id);
+            if (art != null)
+                b.Draw(art, new Rectangle(WX * S, WY * S, WW * S, WH * S), Color.White);
+            else
+                DrawScene(b, card, ResolveHero(card));
+        }
 
         private void DrawScene(SpriteBatch b, Card card, (Texture2D tex, Rectangle src)? hero)
         {
