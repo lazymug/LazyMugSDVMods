@@ -1,63 +1,142 @@
-[size=6][b]Valley Triad[/b][/size]
+[size=6][b]🃏 Valley Triad[/b][/size]
 
 [i]A cozy card game for Pelican Town — in the spirit of Triple Triad.[/i]
 
-[b]Valley Triad[/b] adds a collectible card game to Stardew Valley. Challenge the villagers,
-capture their cards, and build your collection — all rendered in a warm, pixel-art style using
-the game's own sprites. No AI art, no bundled assets: every card is composed at runtime from
-your installed game.
+[color=#e0a030][b]🚧 WORK IN PROGRESS — v0.1.0 (preview) 🚧[/b][/color]
+This is an early public preview. The game is fully playable, but cards are drawn
+[i]procedurally[/i] from your game's own sprites for now — a hand-painted card-art pass is
+planned for 1.0.0. Expect rough edges, and please share feedback and bug reports! 🙏
 
 [line]
 
-[size=5][b]How to play[/b][/size]
-[list]
-[*][b]Meet Abigail at the Saloon.[/b] On a Friday when she's there, she'll teach you the game and
-hand you a starter deck.
-[*][b]Challenge villagers.[/b] On Fridays at the Saloon, walk up to a villager (with an empty hand)
-and press the action button to play a round.
-[*][b]Win cards.[/b] Beat someone and pick one of their cards for your collection. Friendship goes up too.
-[*][b]Build your deck.[/b] Pick 5 cards (max 1 Legendary, 2 Rare) in the deck builder.
+[size=6][b]🇬🇧 English[/b][/size]
+
+[size=5][b]📖 Description[/b][/size]
+[b]Valley Triad[/b] brings a Triple Triad–style collectible card game to Stardew Valley.
+Challenge the villagers, capture their cards, and build your collection — all rendered in a
+warm, pixel-art style. ✨ [b]No AI art and no bundled assets[/b]: every card is composed at
+runtime from the sprites already in your installed game, so nothing copyrighted ships with the mod.
+
+[size=5][b]💾 Installation[/b][/size]
+[list=1]
+[*]Install [b]SMAPI[/b] (4.0.0 or newer). 🧰
+[*]Install [b]Content Patcher[/b] (2.0.0 or newer). 🧩
+[*](Optional) Install [b]Generic Mod Config Menu[/b] for in-game settings. ⚙️
+[*]Download this mod and unzip it into your [b]Stardew Valley/Mods[/b] folder. You should end up
+with [b]both[/b] folders there: [font=Courier New]ValleyTriad[/font] and [font=Courier New][CP] Valley Triad[/font].
+[*]Launch the game through SMAPI. ▶️
 [/list]
 
-[size=5][b]The rules (Triple Triad)[/b][/size]
+[size=5][b]⭐ Main features[/b][/size]
 [list]
-[*]3×3 board, five cards each. Each card has four edge values (1–10, where 10 shows as "A").
-[*]Place a card next to an enemy card: if your facing edge is higher, you flip it.
-[*][b]Same, Plus and Combo[/b] rules are all on — chain captures for big swings.
-[*][b]Elemental tiles[/b]: a card matching a tile's season gets +1 to all edges (mismatch −1).
-[*][b]Sudden death[/b] breaks ties by replaying with the cards you control.
+[*]🎴 [b]Full Triple Triad match[/b] — 3×3 board, five cards each, four edge values per card
+(1–10, where 10 shows as "A"). [b]Same, Plus and Combo[/b] rules for big chain captures.
+[*]🌱 [b]Elemental tiles[/b] — a card matching a tile's season gets +1 to all edges (−1 on a mismatch).
+[*]⚔️ [b]Sudden death[/b] — ties are replayed with the cards you currently control.
+[*]📚 [b]52-card collection[/b] across four rarities — crops, forageables, farm animals, fish,
+monsters, minerals, villagers, and legendary bosses (the Wizard, the Junimo King, Mr. Qi,
+the Crimsonfish, the Prismatic Shard).
+[*]🛠️ [b]Deck builder[/b] — pick 5 cards (max 1 Legendary, 2 Rare).
+[*]🍺 [b]Meet Abigail at the Saloon[/b] — she teaches you the game and hands over a starter deck,
+then a guided tutorial match.
+[*]🗓️ [b]Challenge villagers on Fridays[/b] at the Saloon — walk up with an empty hand and press
+the action button. Win to claim one of their cards and gain friendship. 💛
+[*]🎲 [b]Stakes, your call[/b] — [b]Friendly[/b] (win cards, never lose one), [b]Hard[/b] (lose a
+random card you played), or [b]Ragnarök[/b] (winner takes your most valuable card).
+[*]🎨 [b]Runtime art[/b] — cards are composed from your own game's sprites; no AI, no bundled assets.
+[*]🌐 [b]Localization[/b] — English and Português (pt-BR).
 [/list]
 
-[size=5][b]Stakes (your call)[/b][/size]
+[size=5][b]📋 Requirements[/b][/size]
 [list]
-[*][b]Friendly[/b] (default) — win cards, never lose one.
-[*][b]Hard[/b] — lose a random card from the five you played.
-[*][b]Ragnarök[/b] — the winner takes your most valuable card. The real deal.
+[*][b]SMAPI[/b] 4.0.0+ — required. 🧰
+[*][b]Content Patcher[/b] 2.0.0+ — required (delivers Abigail's intro event). 🧩
+[*][b]Stardew Valley[/b] 1.6+ — required. 🌾
+[*][b]Generic Mod Config Menu[/b] — optional; enables in-game toggles for the advanced rules,
+elemental tiles, and the stake mode. ⚙️
+[/list]
+
+[size=5][b]💜 Shout outs[/b][/size]
+[list]
+[*][b]ConcernedApe[/b] — for Stardew Valley and every sprite these cards are built from. 🌟
+[*][b]SQUARE ENIX / Final Fantasy VIII[/b] — for Triple Triad, the game that inspired this one. 🎮
+[*][b]Pathoschild[/b] — for SMAPI, Content Patcher, and the mod build tooling. 🛠️
+[*][b]spacechase0[/b] — for Generic Mod Config Menu. ⚙️
+[*][b]The Stardew modding community[/b] — for the docs, help, and inspiration. 🙌
 [/list]
 
 [line]
 
-[size=5][b]Cards[/b][/size]
-52 cards to start, across four rarities — crops, forageables, farm animals, fish, monsters,
-minerals, villagers, and legendary bosses (the Wizard, the Junimo King, Mr. Qi, the Crimsonfish,
-the Prismatic Shard). Each card is drawn on a themed scene (a field, the mines, the sea, the
-Saloon…) with the subject in the spotlight.
+[size=6][b]🇧🇷 Português[/b][/size]
 
-[size=5][b]Configuration[/b][/size]
-Everything is toggleable in-game via [b]Generic Mod Config Menu[/b]: the advanced rules, elemental
-tiles, and the stake mode.
+[size=5][b]📖 Descrição[/b][/size]
+O [b]Valley Triad[/b] traz um jogo de cartas colecionáveis no estilo Triple Triad para o Stardew
+Valley. Desafie os moradores, capture as cartas deles e monte a sua coleção — tudo em pixel art
+aconchegante. ✨ [b]Sem arte de IA e sem assets embutidos[/b]: cada carta é montada em tempo real
+a partir dos sprites que já existem no seu jogo, então nada com direitos autorais é distribuído junto.
 
-[size=5][b]Requirements[/b][/size]
+[size=5][b]💾 Instalação[/b][/size]
+[list=1]
+[*]Instale o [b]SMAPI[/b] (4.0.0 ou mais recente). 🧰
+[*]Instale o [b]Content Patcher[/b] (2.0.0 ou mais recente). 🧩
+[*](Opcional) Instale o [b]Generic Mod Config Menu[/b] para as configurações no jogo. ⚙️
+[*]Baixe este mod e descompacte na sua pasta [b]Stardew Valley/Mods[/b]. As [b]duas[/b] pastas
+devem ficar lá: [font=Courier New]ValleyTriad[/font] e [font=Courier New][CP] Valley Triad[/font].
+[*]Inicie o jogo pelo SMAPI. ▶️
+[/list]
+
+[size=5][b]⭐ Principais recursos[/b][/size]
 [list]
-[*]Generic Mod Config Menu (optional, for in-game settings)
+[*]🎴 [b]Partida completa de Triple Triad[/b] — tabuleiro 3×3, cinco cartas cada, quatro valores
+de borda por carta (1–10, onde 10 aparece como "A"). Regras [b]Same, Plus e Combo[/b] para
+capturas em cadeia.
+[*]🌱 [b]Casas elementais[/b] — uma carta que combina com a estação da casa ganha +1 em todas as
+bordas (−1 se não combinar).
+[*]⚔️ [b]Morte súbita[/b] — empates são refeitos com as cartas que você controla no momento.
+[*]📚 [b]Coleção de 52 cartas[/b] em quatro raridades — plantações, coletáveis, animais da fazenda,
+peixes, monstros, minerais, moradores e chefes lendários (o Bruxo, o Rei Junimo, o Sr. Qi,
+o Peixe Carmesim, o Cristal Prismático).
+[*]🛠️ [b]Montador de deck[/b] — escolha 5 cartas (máx. 1 Lendária, 2 Raras).
+[*]🍺 [b]Encontre a Abigail no Saloon[/b] — ela te ensina o jogo, te dá um deck inicial e depois
+uma partida-tutorial guiada.
+[*]🗓️ [b]Desafie os moradores às sextas[/b] no Saloon — chegue perto com a mão vazia e aperte o
+botão de ação. Ao vencer, escolha uma carta do adversário e ganhe amizade. 💛
+[*]🎲 [b]As apostas são sua escolha[/b] — [b]Amigável[/b] (ganha cartas, nunca perde),
+[b]Difícil[/b] (perde uma carta aleatória que jogou) ou [b]Ragnarök[/b] (o vencedor leva a sua
+carta mais valiosa).
+[*]🎨 [b]Arte em tempo real[/b] — as cartas são montadas com os sprites do seu jogo; sem IA, sem
+assets embutidos.
+[*]🌐 [b]Tradução[/b] — Inglês e Português (pt-BR).
+[/list]
+
+[size=5][b]📋 Requisitos[/b][/size]
+[list]
+[*][b]SMAPI[/b] 4.0.0+ — obrigatório. 🧰
+[*][b]Content Patcher[/b] 2.0.0+ — obrigatório (entrega o evento de introdução da Abigail). 🧩
+[*][b]Stardew Valley[/b] 1.6+ — obrigatório. 🌾
+[*][b]Generic Mod Config Menu[/b] — opcional; habilita os ajustes no jogo para as regras avançadas,
+as casas elementais e o modo de aposta. ⚙️
+[/list]
+
+[size=5][b]💜 Agradecimentos[/b][/size]
+[list]
+[*][b]ConcernedApe[/b] — pelo Stardew Valley e por cada sprite que dá vida a estas cartas. 🌟
+[*][b]SQUARE ENIX / Final Fantasy VIII[/b] — pelo Triple Triad, o jogo que inspirou este aqui. 🎮
+[*][b]Pathoschild[/b] — pelo SMAPI, pelo Content Patcher e pelas ferramentas de build. 🛠️
+[*][b]spacechase0[/b] — pelo Generic Mod Config Menu. ⚙️
+[*][b]A comunidade de mods do Stardew[/b] — pela documentação, ajuda e inspiração. 🙌
 [/list]
 
 [line]
 
-[size=5][b]Changelog[/b][/size]
+[size=5][b]📝 Changelog[/b][/size]
 
-[b]1.0.0[/b]
+[b]0.1.0[/b] 🚧
 [list]
-[*]First release: full Triple Triad match (Same/Plus/Combo/elemental), 52-card collection,
-deck builder, Abigail's intro event, challenge villagers on Fridays, stakes and sudden death.
+[*]First public preview / Primeiro preview público: full Triple Triad match
+(Same/Plus/Combo/elemental), 52-card collection, deck builder, Abigail's intro event,
+challenge villagers on Fridays, stakes and sudden death.
+[*]Cards are composed at runtime from your game's own sprites (procedural art). A hand-drawn
+card-art pass is planned for 1.0.0. / As cartas são montadas em tempo real a partir dos sprites
+do seu jogo (arte procedural). Uma arte desenhada à mão está planejada para a 1.0.0.
 [/list]

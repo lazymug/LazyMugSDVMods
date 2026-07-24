@@ -23,4 +23,15 @@
     <None Remove="tools\**" />
     <None Remove="card-previews\**" />
   </ItemGroup>
+
+  <!-- Deploy the Content Patcher pack (lives at the repo root, alongside this project)
+       so the Abigail intro event is injected into Data/Events/Saloon. -->
+  <Target Name="DeployContentPack" AfterTargets="PostBuildEvent" Condition="'$(GamePath)' != ''">
+    <PropertyGroup>
+      <VtCpSource>$(ProjectDir)../[CP] Valley Triad</VtCpSource>
+      <VtCpDest>$(GamePath)/Mods/[CP] Valley Triad</VtCpDest>
+    </PropertyGroup>
+    <Message Text="Deploying [CP] Valley Triad -> $(VtCpDest)" Importance="high" />
+    <Exec Command="rm -rf &quot;$(VtCpDest)&quot; &amp;&amp; mkdir -p &quot;$(VtCpDest)&quot; &amp;&amp; cp -R &quot;$(VtCpSource)/&quot;* &quot;$(VtCpDest)/&quot;" />
+  </Target>
 </Project>

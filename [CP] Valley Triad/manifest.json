@@ -1,7 +1,7 @@
 {
   "Name": "[CP] Valley Triad Events",
   "Author": "Lazy Mug",
-  "Version": "1.0.0",
+  "Version": "0.1.0",
   "Description": "Events for the Valley Triad card game (intro at the Saloon).",
   "UniqueID": "LazyMug.ValleyTriad.CP",
   "ContentPackFor": {
