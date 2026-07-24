@@ -121,9 +121,15 @@ de desafio/chefe com espíritos. Dependência opcional via reflection apenas
   contorno escuro + sombra) para não se fundir ao fundo. Moedas de valor e selo de estação
   também em pixel. Valores N/L/S/O = **moedas nas bordas da janela**. Protótipo em
   `tools/render_pixel_card.py` (preview local `card-previews/pixel_*.png`).
-- ✅ **Composição em runtime + cache `RenderTarget2D`** — só o chassi é asset fixo (1 textura);
-  a cena por categoria é uma "receita" de sprites do jogo. Custo por frame = desenhar 1
-  textura. Nenhuma arte de IA, nada de assets redistribuídos.
+- ✅ **Composição em runtime + cache `RenderTarget2D`** — a cena por categoria é uma "receita"
+  de sprites do jogo. Custo por frame = desenhar 1 textura. Nenhuma arte de IA, nada de
+  assets redistribuídos.
+- ✅ **Card montado por partes (templates):** `assets/frames/{raridade}.png` — molduras
+  pixel-art NOSSAS (madeira + inlay/gemas da raridade + moedas vazias + faixa do nome) com
+  **janela de arte transparente**. Pipeline: cena por baixo → moldura por cima → partes
+  dinâmicas (valores nas moedas, nome localizado, selo de estação). Geradas por
+  `tools/gen_frames.py` nas coordenadas exatas do renderer — podem ser editadas à mão ou
+  substituídas por arte melhor sem tocar em código. Fallback procedural se o PNG faltar.
 - ✅ **Cena com perspectiva** (estilo "campo" da referência): céu quente + linha de árvores +
   **canteiros procedurais** (touceiras verdes sobrepostas que recuam, com neblina de
   distância) + sulcos convergindo ao ponto de fuga. Enche a janela como um campo de verdade.
