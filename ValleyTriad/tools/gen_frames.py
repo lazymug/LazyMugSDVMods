@@ -64,12 +64,8 @@ def make(tier):
     # abre a janela de arte (transparente); a borda de 1px em DARK permanece ao redor
     window = (8 * S, 12 * S, 84 * S, 85 * S)  # x8..83, y12..84 inclusivo
     d.rectangle([window[0], window[1], window[2] - 1, window[3] - 1], fill=(0, 0, 0, 0))
-
-    # moedas vazias por cima da janela (dígitos entram em runtime)
-    for (cx, cy) in [(46, 16), (46, 81), (12, 48), (80, 48)]:
-        blob(d, cx, cy, 11, DARK)
-        blob(d, cx, cy, 10, (198, 150, 78, 255))
-        blob(d, cx, cy, 8.2, (240, 211, 150, 255))
+    # NÃO desenhamos moedas: o runtime desenha disco + valor nas posições fixas
+    # (N 46,16 · S 46,81 · O 12,48 · L 80,48), garantindo alinhamento.
     return img
 
 if __name__ == "__main__":

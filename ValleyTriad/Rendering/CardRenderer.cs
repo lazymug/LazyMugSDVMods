@@ -148,10 +148,12 @@ namespace ValleyTriad.Rendering
             Texture2D? frame = FrameFor(card.Tier);
             if (frame != null)
             {
-                // template pipeline: art/scene under, frame (with transparent art window) over, then dynamic parts
+                // template pipeline: art/scene under, frame (transparent window) over, then the
+                // dynamic parts. Coins are drawn by the runtime (disc + value) so their positions
+                // are always correct regardless of what the frame art shows.
                 DrawWindowContent(b, card);
                 b.Draw(frame, new Rectangle(0, 0, DEVW, DEVH), Color.White);
-                DrawValues(b, card);
+                DrawCoinsAndText(b, card);
             }
             else
             {

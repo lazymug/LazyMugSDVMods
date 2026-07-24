@@ -6,18 +6,35 @@ usado como `[BASE] + [CENA da categoria] + linha específica da carta`.
 
 ## Especificações técnicas
 
-- **Janela de arte da carta**: 304×292 px reais (proporção ~1.04:1, quase quadrada).
-  Gere em 512×512 e reduza. Para o estilo hi-bit: reduza para **152×146** (nearest
-  neighbor) e amplie 2× — isso força o grid de pixel fino.
-- **Onde colocar**: `assets/art/<cardId>.png` (ex.: `assets/art/pumpkin.png`) — o renderer
-  usa a imagem automaticamente no lugar da cena procedural quando o arquivo existe.
-- **Molduras**: 368×512 px com a **janela transparente** em x32..335, y48..339 (px reais).
-  Use `tools/gen_frames.py` como referência de regiões (moedas, faixa do nome, gemas).
-- **Sem texto, sem moldura, sem marca d'água** dentro da arte — moldura/nome/valores são
-  compostos pelo mod em runtime.
-- Publicação no Nexus com arte gerada exige a tag **AI-Generated Content** (e o
-  description.txt atual anuncia "no AI art" — ajustar se for o caso). Alternativa: usar a
-  geração como concept e repassar em pixel manualmente.
+**Resoluções-alvo (entregue NESSE tamanho — ver "Tamanho & blur" abaixo):**
+
+| O quê | Resolução final | Proporção | Onde salvar |
+|---|---|---|---|
+| **Arte da carta** (conteúdo da janela) | **304×292 px** | ~1.04:1 (quase quadrada) | `assets/art/<cardId>.png` |
+| **Cena de categoria** (fundo genérico) | **304×292 px** | ~1.04:1 | (mesma janela; use como base das cartas) |
+| **Moldura por raridade** | **368×512 px** | 23:32 ≈ 0.72 (retrato) | `assets/frames/<raridade>.png` |
+
+- **Como gerar**: peça ao gerador em **512×512** (arte/cena) ou **512×704** (moldura) e
+  **reduza** para a resolução-alvo com `tools/fit_art.py`. Para reforçar o hi-bit, gere,
+  reduza a ~**152×146** (nearest) e volte a 304×292 — isso "trava" o grid de pixel fino.
+- **Override por carta**: salvar `assets/art/<cardId>.png` faz o renderer usar essa imagem
+  na janela **automaticamente** (senão, usa a cena procedural). Nada de código.
+- **Sem texto, sem moldura, sem marca d'água** dentro da arte — moldura/nome/valores/selo
+  são compostos pelo mod em runtime.
+
+### Tamanho & blur (por que 5 MB → KB, e por que não borra)
+- O card é montado num RenderTarget de **368×512** e a janela recebe a arte **1:1** em
+  **304×292**. Depois o card inteiro é só **reduzido** na mesa — **o jogo nunca amplia** sua
+  arte, então não há blur perceptível.
+- Entregue **já na resolução-alvo** (não maior). Uma imagem 512²+ full-color pesa MBs; a
+  mesma reduzida a 304×292 + PNG otimizado dá **dezenas de KB**. Rode `tools/fit_art.py`.
+- **Molduras por IA**: a IA não deixa a janela transparente (sai opaca e taparia a arte).
+  **Recomendado**: gerar por IA só as **artes das cartas** e manter as molduras procedurais
+  (KB, janela correta). Se insistir em molduras por IA, use `fit_art.py --punch` (fura a
+  janela nas coords fixas — pode cortar borda decorativa).
+- **Nexus**: arte gerada exige a tag **AI-Generated Content**; o `description.txt` atual diz
+  "no AI art" (ajustar). Alternativa que preserva o discurso: usar a IA como concept e
+  repassar em pixel manualmente.
 
 ## [BASE] — prefixo de estilo (use em TODOS os prompts)
 
@@ -37,14 +54,18 @@ vector art, anime lineart, oversaturated neon
 
 ## Molduras por raridade (4 imagens, 368×512, janela transparente)
 
+**NÃO desenhe as moedas de valor** — o mod desenha disco + número nas 4 bordas da janela em runtime (garante alinhamento). A moldura tem: madeira, inlay/cantos da raridade, faixa do nome vazia e as gemas de raridade.
+
 | Arquivo | Prompt (após [BASE]) |
 |---|---|
-| `frames/common.png` | rustic wooden card frame, warm oak planks, simple carved corners, thin moss-green inlay line, four small round brass coin slots at the window edges (top, bottom, left, right), empty wooden name plaque near the bottom, one small green gem below the plaque, large empty transparent window in the upper two thirds |
-| `frames/uncommon.png` | polished wooden card frame with sapphire-blue inlay line and blue corner studs, four brass coin slots at the window edges, wooden name plaque, two blue gems below the plaque, large empty transparent window |
-| `frames/rare.png` | dark hardwood card frame with copper-orange inlay, engraved corner flourishes, four bronze coin slots at the window edges, name plaque with copper trim, three orange gems below the plaque, large empty transparent window |
-| `frames/legendary.png` | ornate dark wooden card frame with glowing golden inlay and filigree corners, subtle sparkle highlights, four gold coin slots at the window edges, gilded name plaque, four gold gems below the plaque, large empty transparent window |
+| `frames/common.png` | rustic wooden card frame, warm oak planks, simple carved corners, thin moss-green inlay line, empty wooden name plaque near the bottom, one small green gem below the plaque, large empty transparent window in the upper two thirds |
+| `frames/uncommon.png` | polished wooden card frame with sapphire-blue inlay line and blue corner studs, wooden name plaque, two blue gems below the plaque, large empty transparent window |
+| `frames/rare.png` | dark hardwood card frame with copper-orange inlay, engraved corner flourishes, name plaque with copper trim, three orange gems below the plaque, large empty transparent window |
+| `frames/legendary.png` | ornate dark wooden card frame with glowing golden inlay and filigree corners, subtle sparkle highlights, gilded name plaque, four gold gems below the plaque, large empty transparent window |
 
 ## Cenas por categoria (fundos genéricos, usados quando não houver arte específica)
+
+**Resolução: 304×292 px** (quase quadrada, ~1.04:1). Gerar 512×512 → reduzir com `fit_art.py`.
 
 | Categoria | Prompt de cena (após [BASE]) |
 |---|---|
@@ -57,7 +78,8 @@ vector art, anime lineart, oversaturated neon
 
 ## Cartas (52)
 
-Formato: `id` — assunto. Use `[BASE] + [CENA da categoria] +` a linha abaixo.
+**Resolução: 304×292 px** (mesma janela das cenas). Formato: `id` — assunto.
+Use `[BASE] + [CENA da categoria] +` a linha abaixo.
 
 ### Crops — cena `field`
 - `parsnip` — a plump cream-white parsnip root with leafy green top, freshly pulled, resting on dark tilled soil
