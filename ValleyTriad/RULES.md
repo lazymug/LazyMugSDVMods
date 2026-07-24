@@ -202,6 +202,13 @@ de desafio/chefe com espíritos. Dependência opcional via reflection apenas
   "?" se algum faltar.
 - ✅ **Desafio não conflita com presentear** (só com a mão vazia).
 - ✅ **Empacotado**: `description.txt` (BBCode Nexus), `README.md`, `manifest` v1.0.0.
+- ✅ **Tutorial guiado (nível 2)** (`Game/Tutorial.cs` + modo tutorial no `TriadMenu`): partida
+  roteirizada vs. Abigail com decks fixos e casa de Primavera fixa — balão de fala com retrato
+  (clique para avançar), destaque pulsante na carta e casa obrigatórias, input travado no
+  movimento guiado, jogadas da oponente roteirizadas. Demonstra captura básica (6>4), bônus
+  elemental (+1) e Same (2=2 e 3=3 capturando duas de uma vez); resultado determinístico 8×2.
+  Abre automático ao responder "Sim" no evento (flag `ValleyTriad_TutorialYes` via
+  `addMailReceived`); comando `vt_tutorial` para abrir avulso. i18n EN/pt-BR.
 - 🟡 Falta só o **teste in-game** (o usuário fará). Polimentos opcionais futuros: animação de
   "virar" carta (hoje é flash), folhagem por cultivo, som/juice, balanceamento de recompensas.
 
