@@ -16,6 +16,7 @@ namespace ValleyTriad.Data
         public CollectionManager(IModHelper helper, CardDatabase db) { _helper = helper; _db = db; }
 
         public bool IntroSeen { get => _data.IntroSeen; set { _data.IntroSeen = value; Save(); } }
+        public bool TutorialSeen { get => _data.TutorialSeen; set { _data.TutorialSeen = value; Save(); } }
 
         public void Load() => _data = _helper.Data.ReadSaveData<SaveData>(Key) ?? new SaveData();
         public void Save() => _helper.Data.WriteSaveData(Key, _data);

@@ -15,6 +15,7 @@ namespace ValleyTriad
     public class ModEntry : Mod
     {
         private const string IntroEventId = "76227400"; // matches [CP] Valley Triad event key
+        private const string TutorialMailFlag = "ValleyTriad_TutorialYes"; // set by the event's "Yes" answer
 
         private ModConfig _config = null!;
         private readonly CardDatabase _cards = new();
@@ -37,6 +38,11 @@ namespace ValleyTriad
             helper.ConsoleCommands.Add("vt_open", "Open a practice match (uses your deck).", (_, _) => Practice());
             helper.ConsoleCommands.Add("vt_deck", "Open the collection / deck builder.", (_, _) => OpenDeck());
             helper.ConsoleCommands.Add("vt_grant", "Grant the starter pack (debug).", (_, _) => GrantStarter(true));
+            helper.ConsoleCommands.Add("vt_tutorial", "Open the guided tutorial vs Abigail.", (_, _) =>
+            {
+                if (!Context.IsWorldReady) { Monitor.Log("Load a save first.", LogLevel.Warn); return; }
+                OpenTutorial();
+            });
         }
 
         // ---------- config ----------
@@ -66,12 +72,39 @@ namespace ValleyTriad
         /// starter deck and enable challenges. Runs once per save.</summary>
         private void OnSecondTick(object? sender, OneSecondUpdateTickedEventArgs e)
         {
-            if (!Context.IsWorldReady || !_config.EnableMod || _collection.IntroSeen) return;
-            if (Game1.player.eventsSeen.Contains(IntroEventId))
+            if (!Context.IsWorldReady || !_config.EnableMod) return;
+
+            if (!_collection.IntroSeen && Game1.player.eventsSeen.Contains(IntroEventId))
             {
                 GrantStarter(false);
                 _collection.IntroSeen = true;
             }
+
+            // "Yes" to Abigail's rules question -> open the guided tutorial once the event ends
+            if (_collection.IntroSeen && !_collection.TutorialSeen
+                && Game1.player.mailReceived.Contains(TutorialMailFlag)
+                && Context.IsPlayerFree && Game1.activeClickableMenu == null)
+            {
+                _collection.TutorialSeen = true;
+                OpenTutorial();
+            }
+        }
+
+        private void OpenTutorial()
+        {
+            List<Card> pick(string[] ids) => ids.Select(id => _cards.Get(id)).Where(c => c != null).Select(c => c!).ToList();
+            var player = pick(Tutorial.PlayerDeck);
+            var opp = pick(Tutorial.OppDeck);
+            if (player.Count < 5 || opp.Count < 5)
+            {
+                Monitor.Log("Tutorial cards missing from assets/cards.json.", LogLevel.Warn);
+                return;
+            }
+            var settings = MakeSettings(player, opp, 2, "Abigail");
+            settings.Tutorial = Tutorial.BuildScript();
+            settings.Stakes = StakeMode.Friendly;
+            settings.OnComplete = _ => Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("tut.done.hud"), HUDMessage.achievement_type));
+            Game1.activeClickableMenu = new TriadMenu(_renderer, settings);
         }
 
         private void GrantStarter(bool announce)
@@ -158,6 +191,7 @@ namespace ValleyTriad
             RuleElemental = _config.RuleElemental,
             ElementalCells = _config.ElementalCells,
             OpponentDisplay = oppName,
+            T = key => Helper.Translation.Get(key),
         };
 
         // ---------- commands ----------

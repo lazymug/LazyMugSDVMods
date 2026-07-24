@@ -8,5 +8,6 @@ namespace ValleyTriad.Models
         public Dictionary<string, int> Owned { get; set; } = new();
         public List<string> Deck { get; set; } = new();
         public bool IntroSeen { get; set; }
+        public bool TutorialSeen { get; set; }
     }
 }

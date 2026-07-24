@@ -32,6 +32,10 @@ namespace ValleyTriad.UI
         public int ElementalCells = 3;
         public string OpponentDisplay = "";
         public Action<MatchResult>? OnComplete;
+        /// <summary>When set, the match runs as the guided tutorial (scripted moves, no stakes).</summary>
+        public TutorialScript? Tutorial;
+        /// <summary>Translation lookup (i18n key -> localized text).</summary>
+        public Func<string, string>? T;
     }
 
     /// <summary>Playable Triple Triad match with a clean banded layout (opponent hand · board · your hand · status).</summary>
@@ -57,6 +61,14 @@ namespace ValleyTriad.UI
         private readonly Dictionary<(int, int), float> _flash = new();
         private MatchResult? _result;
         private int _boardX, _boardY, _oppHandY, _playerHandY, _statusY;
+
+        // tutorial state
+        private int _tutIx;
+        private float _tutOppTimer;
+        private Texture2D? _abbyPortrait;
+        private TutStep? TutCurrent =>
+            _s.Tutorial != null && _tutIx < _s.Tutorial.Steps.Count ? _s.Tutorial.Steps[_tutIx] : null;
+        private string Tr(string key) => _s.T?.Invoke(key) ?? key;
 
         private static readonly Color P1Tint = new(90, 150, 214), P2Tint = new(206, 96, 80);
 
@@ -87,7 +99,10 @@ namespace ValleyTriad.UI
         private void StartRound(List<Card> playerHand, List<Card> oppHand)
         {
             _board = new Board(_s.RuleSame, _s.RulePlus, _s.RuleCombo, _s.RuleElemental);
-            if (_s.RuleElemental && _s.ElementalCells > 0) AssignElementalCells(_s.ElementalCells);
+            if (_s.Tutorial != null)
+                foreach (var (r, c, season) in _s.Tutorial.ElementalCells)
+                    _board.Cells[r, c].Element = season;
+            else if (_s.RuleElemental && _s.ElementalCells > 0) AssignElementalCells(_s.ElementalCells);
             _playerHand = playerHand;
             _oppHand = oppHand;
             _p1Played.Clear(); _p2Played.Clear();
@@ -129,6 +144,8 @@ namespace ValleyTriad.UI
                 return;
             }
 
+            if (_s.Tutorial != null) { TutorialClick(x, y); return; }
+
             if (_turn != Owner.P1 || _oppTimer > 0) return;
 
             for (int i = 0; i < _playerHand.Count; i++)
@@ -161,6 +178,12 @@ namespace ValleyTriad.UI
                 _flash[k] -= dt * 2.4f;
                 if (_flash[k] <= 0) _flash.Remove(k);
             }
+            if (_s.Tutorial != null)
+            {
+                if (_state == State.Playing) TutorialUpdate(dt);
+                return;
+            }
+
             if (_oppTimer > 0)
             {
                 _oppTimer -= dt;
@@ -205,6 +228,78 @@ namespace ValleyTriad.UI
             _oppHand.RemoveAt(bi);
             FlashCaptures(caps);
             Game1.playSound("bigSelect");
+        }
+
+        // ---- tutorial ----
+        private void TutorialClick(int x, int y)
+        {
+            switch (TutCurrent)
+            {
+                case TutSay:
+                    _tutIx++;
+                    Game1.playSound("smallSelect");
+                    TutMaybeFinish();
+                    return;
+
+                case TutPlayerMove pm:
+                    // selecting a hand card: only the required one is accepted
+                    for (int i = 0; i < _playerHand.Count; i++)
+                        if (HandRect(i, true).Contains(x, y))
+                        {
+                            if (_playerHand[i].Id == pm.CardId) { _selected = i; Game1.playSound("smallSelect"); }
+                            else Game1.playSound("cancel");
+                            return;
+                        }
+                    // placing: only the required cell is accepted
+                    if (_selected >= 0 && _selected < _playerHand.Count && _playerHand[_selected].Id == pm.CardId
+                        && CellRect(pm.R, pm.C).Contains(x, y) && _board.Cells[pm.R, pm.C].Empty)
+                    {
+                        var card = _playerHand[_selected];
+                        var caps = _board.Place(card, Owner.P1, pm.R, pm.C);
+                        _p1Played.Add(card);
+                        _playerHand.RemoveAt(_selected);
+                        _selected = -1;
+                        FlashCaptures(caps);
+                        Game1.playSound("bigSelect");
+                        _tutIx++;
+                        TutMaybeFinish();
+                    }
+                    return;
+
+                default: // TutOppMove pending or steps exhausted: ignore clicks
+                    return;
+            }
+        }
+
+        private void TutorialUpdate(float dt)
+        {
+            if (TutCurrent is not TutOppMove om) { _tutOppTimer = 0f; return; }
+            _tutOppTimer += dt;
+            if (_tutOppTimer < 0.7f) return;
+            _tutOppTimer = 0f;
+            int idx = _oppHand.FindIndex(c => c.Id == om.CardId);
+            if (idx >= 0)
+            {
+                var card = _oppHand[idx];
+                var caps = _board.Place(card, Owner.P2, om.R, om.C);
+                _p2Played.Add(card);
+                _oppHand.RemoveAt(idx);
+                FlashCaptures(caps);
+                Game1.playSound("bigSelect");
+            }
+            _tutIx++;
+            TutMaybeFinish();
+        }
+
+        private void TutMaybeFinish()
+        {
+            if (_s.Tutorial == null || _tutIx < _s.Tutorial.Steps.Count) return;
+            int p1 = _board.Count(Owner.P1) + _playerHand.Count;
+            int p2 = _board.Count(Owner.P2) + _oppHand.Count;
+            _result = new MatchResult { Outcome = p1 > p2 ? Outcome.Win : p1 < p2 ? Outcome.Loss : Outcome.Draw };
+            _statusOverride = $"{Tr("tut.done")}  ({p1} × {p2})";
+            _state = State.Done;
+            _s.OnComplete?.Invoke(_result);
         }
 
         private List<Card> OppFive() => _p2Played.Concat(_oppHand).ToList();
@@ -346,11 +441,42 @@ namespace ValleyTriad.UI
             }
 
             // status strip
-            string status = _statusOverride ?? (_turn == Owner.P1 ? "Seu turno — escolha uma carta e uma casa" : "Vez do oponente…");
-            b.DrawString(Game1.smallFont, status, new Vector2(xPositionOnScreen + borderWidth + 12, _statusY), Game1.textColor);
+            string status;
+            if (_s.Tutorial != null && _state == State.Playing)
+                status = TutCurrent switch
+                {
+                    TutPlayerMove pm => Tr(pm.HintKey),
+                    TutOppMove => Tr("tut.status.opp"),
+                    _ => Tr("tut.status.say"),
+                };
+            else
+                status = _statusOverride ?? (_turn == Owner.P1 ? "Seu turno — escolha uma carta e uma casa" : "Vez do oponente…");
+
             string score = $"Você {_board.Count(Owner.P1)} × {_board.Count(Owner.P2)} {opp}";
             var ssz = Game1.smallFont.MeasureString(score);
+            float availW = width - borderWidth * 2 - 36 - ssz.X;
+            var stsz = Game1.smallFont.MeasureString(status);
+            float stScale = Math.Min(1f, availW / Math.Max(1f, stsz.X));
+            b.DrawString(Game1.smallFont, status, new Vector2(xPositionOnScreen + borderWidth + 12, _statusY), Game1.textColor, 0f, Vector2.Zero, stScale, SpriteEffects.None, 0f);
             b.DrawString(Game1.smallFont, score, new Vector2(xPositionOnScreen + width - borderWidth - 12 - ssz.X, _statusY), Game1.textColor);
+
+            // tutorial visuals: pulsing highlights on the required card/cell, and Abigail's dialogue overlay
+            if (_s.Tutorial != null && _state == State.Playing)
+            {
+                float pulse = 0.45f + 0.35f * (float)Math.Sin(Game1.currentGameTime.TotalGameTime.TotalSeconds * 5.0);
+                if (TutCurrent is TutPlayerMove pmv)
+                {
+                    int hi = _playerHand.FindIndex(c => c.Id == pmv.CardId);
+                    if (hi >= 0)
+                    {
+                        var hr = HandRect(hi, true);
+                        if (hi == _selected) hr = new Rectangle(hr.X, hr.Y - 12, hr.Width, hr.Height);
+                        DrawHighlight(b, hr, pulse);
+                    }
+                    if (_selected >= 0) DrawHighlight(b, CellRect(pmv.R, pmv.C), pulse);
+                }
+                if (TutCurrent is TutSay say) DrawSayOverlay(b, say);
+            }
 
             // reward pick overlay
             if (_state == State.PickReward)
@@ -365,6 +491,32 @@ namespace ValleyTriad.UI
 
             base.draw(b);
             drawMouse(b);
+        }
+
+        private static void DrawHighlight(SpriteBatch b, Rectangle r, float a)
+        {
+            Color c = Color.Gold * a;
+            const int t = 4;
+            b.Draw(Game1.staminaRect, new Rectangle(r.X - t, r.Y - t, r.Width + 2 * t, t), c);
+            b.Draw(Game1.staminaRect, new Rectangle(r.X - t, r.Bottom, r.Width + 2 * t, t), c);
+            b.Draw(Game1.staminaRect, new Rectangle(r.X - t, r.Y, t, r.Height), c);
+            b.Draw(Game1.staminaRect, new Rectangle(r.Right, r.Y, t, r.Height), c);
+        }
+
+        private void DrawSayOverlay(SpriteBatch b, TutSay say)
+        {
+            _abbyPortrait ??= Game1.content.Load<Texture2D>("Portraits/Abigail");
+            string text = Tr(say.Key);
+            int w = Math.Min(920, width - 32);
+            int h = 172;
+            int x = xPositionOnScreen + (width - w) / 2;
+            int y = yPositionOnScreen + height - h - 46;
+            IClickableMenu.drawTextureBox(b, Game1.menuTexture, new Rectangle(0, 256, 60, 60), x, y, w, h, Color.White, 1f, true);
+            b.Draw(_abbyPortrait, new Rectangle(x + 18, y + 22, 128, 128), new Rectangle(0, 0, 64, 64), Color.White);
+            string wrapped = Game1.parseText(text, Game1.smallFont, w - 190);
+            b.DrawString(Game1.smallFont, wrapped, new Vector2(x + 164, y + 22), Game1.textColor);
+            float blink = 0.6f + 0.4f * (float)Math.Sin(Game1.currentGameTime.TotalGameTime.TotalSeconds * 4.0);
+            b.DrawString(Game1.smallFont, "▶", new Vector2(x + w - 34, y + h - 40), Game1.textColor * blink);
         }
     }
 }
