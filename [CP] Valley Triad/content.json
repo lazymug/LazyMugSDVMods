@@ -1,0 +1,12 @@
+{
+  "Format": "2.0.0",
+  "Changes": [
+    {
+      "Action": "EditData",
+      "Target": "Data/Events/Saloon",
+      "Entries": {
+        "76227400/d Fri/t 1500 2100": "continue/32 9/farmer 27 20 0 Abigail 33 9 1 Sam 31 9 1 Sebastian 34 9 3 Gus 11 18 2 Lewis 10 20 1 Pierre 12 20 3 Pam 11 21 0/skippable/emote farmer 8/pause 700/speak Sam \"{{i18n: event.sam.lost}}\"/speak Abigail \"{{i18n: event.abby.best}}$h\"/pause 400/advancedMove farmer false 4 0 0 -8/faceDirection farmer 0/speak Sam \"{{i18n: event.sam.hi}}\"/speak Abigail \"{{i18n: event.abby.hi}}\"/speak Abigail \"{{i18n: event.abby.playing}}\"/speak Sebastian \"{{i18n: event.seb.deck}}\"/message \"{{i18n: event.msg.deck}}\"/speak Abigail \"{{i18n: event.abby.rules}}\"/quickQuestion #{{i18n: event.q.yes}}#{{i18n: event.q.no}}(break)speak Abigail \"{{i18n: event.abby.yes}}\"(break)speak Abigail \"{{i18n: event.abby.no}}\"/end"
+      }
+    }
+  ]
+}

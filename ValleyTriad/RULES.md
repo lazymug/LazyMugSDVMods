@@ -187,9 +187,13 @@ de desafio/chefe com espíritos. Dependência opcional via reflection apenas
   configurável), **escolha de recompensa** na vitória, e callback de resultado.
 - ✅ **Coleção + deck** (`Data/CollectionManager.cs`, `UI/DeckMenu.cs`): persistência por save
   (owned + deck), montagem com tetos (1 Lendária/2 Raras), auto-deck legal. Comando `vt_deck`.
-- ✅ **Integração no mundo** (`ModEntry.cs`): evento inicial da **Abigail** (sexta no Saloon →
-  pacote inicial), **desafiar NPCs** (ação sobre aldeão no Saloon nas sextas → partida),
-  ganho/perda de carta + amizade conforme resultado.
+- ✅ **Integração no mundo** (`ModEntry.cs`): **desafiar NPCs** (ação sobre aldeão no Saloon nas
+  sextas, mão vazia → partida), ganho/perda de carta + amizade conforme resultado.
+- ✅ **Evento inicial via Content Patcher** (`[CP] Valley Triad/`): cena roteirizada no Saloon
+  (sexta, 15–21h) — balão de "?" no jogador, Gus/Lewis/Pierre/Pam numa mesa, Abigail/Sam/
+  Sebastian na sinuca, diálogos, jogador anda até o grupo, Sebastian dá o deck, pergunta
+  "aprender as regras? Sim/Não". O C# concede o pacote inicial quando detecta o evento visto
+  (`eventsSeen`), o que também libera os desafios. i18n EN/pt-BR no pack.
 - ✅ **IA/deck por amizade** (`Game/Opponents.cs`): tiers do deck e skill da IA escalam com os
   corações do NPC. Pacote inicial definido.
 - ✅ **Roster completo**: 52 cartas geradas de `cards.xlsx` → `assets/cards.json` + i18n

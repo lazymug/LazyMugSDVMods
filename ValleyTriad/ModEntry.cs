@@ -14,6 +14,8 @@ namespace ValleyTriad
 {
     public class ModEntry : Mod
     {
+        private const string IntroEventId = "76227400"; // matches [CP] Valley Triad event key
+
         private ModConfig _config = null!;
         private readonly CardDatabase _cards = new();
         private CardRenderer _renderer = null!;
@@ -28,7 +30,7 @@ namespace ValleyTriad
 
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             helper.Events.GameLoop.SaveLoaded += (_, _) => _collection.Load();
-            helper.Events.Player.Warped += OnWarped;
+            helper.Events.GameLoop.OneSecondUpdateTicked += OnSecondTick;
             helper.Events.Input.ButtonPressed += OnButtonPressed;
 
             helper.ConsoleCommands.Add("vt_test", "Headless engine self-test.", (_, _) => SelfTest());
@@ -60,24 +62,15 @@ namespace ValleyTriad
         // ---------- world integration ----------
         private static bool IsFriday() => Game1.dayOfMonth % 7 == 5;
 
-        private void OnWarped(object? sender, WarpedEventArgs e)
+        /// <summary>The Saloon intro is a Content Patcher event; when it's been watched, grant the
+        /// starter deck and enable challenges. Runs once per save.</summary>
+        private void OnSecondTick(object? sender, OneSecondUpdateTickedEventArgs e)
         {
-            if (!Context.IsWorldReady || !_config.EnableMod) return;
-            if (e.NewLocation?.Name != "Saloon" || _collection.IntroSeen || !IsFriday()) return;
-            if (e.NewLocation.characters.All(c => c.Name != "Abigail")) return;
-            TriggerIntro();
-        }
-
-        private void TriggerIntro()
-        {
-            GrantStarter(false);
-            _collection.IntroSeen = true;
-            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hud.starter"), HUDMessage.newQuest_type));
-            var abby = Game1.getCharacterFromName("Abigail");
-            if (abby != null)
+            if (!Context.IsWorldReady || !_config.EnableMod || _collection.IntroSeen) return;
+            if (Game1.player.eventsSeen.Contains(IntroEventId))
             {
-                abby.setNewDialogue(Helper.Translation.Get("intro.abigail"));
-                Game1.drawDialogue(abby);
+                GrantStarter(false);
+                _collection.IntroSeen = true;
             }
         }
 

@@ -1,0 +1,14 @@
+{
+  "event.sam.lost": "I can't believe I lost again!",
+  "event.abby.best": "Ha! I'm the best at Valley Triad!",
+  "event.sam.hi": "Hey @!",
+  "event.abby.hi": "Hi @!",
+  "event.abby.playing": "We're playing Valley Triad — want to give it a try?",
+  "event.seb.deck": "You can have my starter deck — I just bought a better one.",
+  "event.msg.deck": "You received a Valley Triad starter deck!",
+  "event.abby.rules": "Want to learn the rules?",
+  "event.q.yes": "Yes",
+  "event.q.no": "No",
+  "event.abby.yes": "Great! Come over here and I'll teach you.",
+  "event.abby.no": "No worries — just ask me whenever."
+}
