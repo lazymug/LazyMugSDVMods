@@ -36,6 +36,7 @@ namespace ValleyTriad.Rendering
         private readonly IModHelper _helper;
         private readonly IMonitor _monitor;
         private readonly Dictionary<string, Texture2D> _cache = new();
+        private readonly Dictionary<Tier, Texture2D?> _frames = new();
         private Texture2D? _pixel, _circle;
         private string _locale = "";
 
@@ -122,6 +123,17 @@ namespace ValleyTriad.Rendering
             return null;
         }
 
+        /// <summary>Frame template for a rarity (assets/frames/*.png), or null to fall back to procedural.</summary>
+        private Texture2D? FrameFor(Tier tier)
+        {
+            if (_frames.TryGetValue(tier, out var cached)) return cached;
+            Texture2D? tex = null;
+            try { tex = _helper.ModContent.Load<Texture2D>($"assets/frames/{tier.ToString().ToLowerInvariant()}.png"); }
+            catch (Exception e) { _monitor.LogOnce($"Frame template missing for {tier}, using procedural chassis. ({e.Message})", LogLevel.Trace); }
+            _frames[tier] = tex;
+            return tex;
+        }
+
         private Texture2D Compose(Card card)
         {
             var gd = Game1.graphics.GraphicsDevice;
@@ -132,9 +144,20 @@ namespace ValleyTriad.Rendering
             var b = new SpriteBatch(gd);
             b.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp);
 
-            DrawChassis(b, card);
-            DrawScene(b, card, ResolveHero(card));
-            DrawCoinsAndText(b, card);
+            Texture2D? frame = FrameFor(card.Tier);
+            if (frame != null)
+            {
+                // template pipeline: scene under, frame (with transparent art window) over, then dynamic parts
+                DrawScene(b, card, ResolveHero(card));
+                b.Draw(frame, new Rectangle(0, 0, DEVW, DEVH), Color.White);
+                DrawValues(b, card);
+            }
+            else
+            {
+                DrawChassis(b, card);
+                DrawScene(b, card, ResolveHero(card));
+                DrawCoinsAndText(b, card);
+            }
 
             b.End();
             b.Dispose();
@@ -311,24 +334,34 @@ namespace ValleyTriad.Rendering
             Fill(b, WX, WY + (int)(WH * 0.7f), WW, WH - (int)(WH * 0.7f), new Color(30, 40, 52));
         }
 
+        // coin centres shared by the frame templates (tools/gen_frames.py) and the procedural fallback
+        private static readonly (int lx, int ly, Dir d)[] CoinSlots =
+        {
+            (46, 16, Dir.N), (46, 81, Dir.S), (12, 48, Dir.W), (80, 48, Dir.E),
+        };
+
+        /// <summary>Procedural fallback: coin discs + the dynamic parts.</summary>
         private void DrawCoinsAndText(SpriteBatch b, Card card)
         {
-            // larger, inset coins so the values read clearly even at small draw sizes
-            int midX = 46, midY = 48;
-            var edges = new (int lx, int ly, Dir d)[]
-            {
-                (midX, 16, Dir.N), (midX, 81, Dir.S), (12, midY, Dir.W), (80, midY, Dir.E),
-            };
-            foreach (var (lx, ly, d) in edges)
+            foreach (var (lx, ly, _) in CoinSlots)
             {
                 Blob(b, lx, ly, 11, DARK);
                 Blob(b, lx, ly, 10, new Color(198, 150, 78));
                 Blob(b, lx, ly, 8.2f, new Color(240, 211, 150));
+            }
+            DrawValues(b, card);
+        }
+
+        /// <summary>Dynamic parts drawn over the frame: edge values, localized name and season badge.</summary>
+        private void DrawValues(SpriteBatch b, Card card)
+        {
+            foreach (var (lx, ly, d) in CoinSlots)
+            {
                 int v = card.Edge(d);
-                int blk = S * 7 / 4; // ~75% bigger digits than before
+                int blk = S * 7 / 4;
                 PixelFont.DrawCentered(b, Pixel, v == 10 ? "A" : v.ToString(), lx * S, ly * S, blk, new Color(44, 28, 14), new Color(245, 224, 170));
             }
-            // name (auto-fit block size)
+            // name (auto-fit block size) over the banner
             string name = ResolveName(card).ToUpperInvariant();
             int bannerDev = (LW - 15) * S;
             int nblk = Math.Clamp(bannerDev / Math.Max(1, PixelFont.Width(name)), 1, 3);
