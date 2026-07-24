@@ -41,10 +41,10 @@ namespace ValleyTriad.UI
     /// <summary>Playable Triple Triad match with a clean banded layout (opponent hand · board · your hand · status).</summary>
     public class TriadMenu : IClickableMenu
     {
-        // layout
-        private const int Cell = 100, Gap = 8, HandH = 106, BandGap = 14, TopPad = 46, StatusH = 44;
+        // layout (computed from the UI viewport so the board uses the available screen)
         private const float CardAspect = 92f / 128f;
-        private static readonly int HandW = (int)(HandH * CardAspect);
+        private readonly int _cellSz, _gap = 10, _handH, _handW, _bandGap = 16, _topPad = 52, _statusH = 76;
+        private static readonly Color Cream = new(242, 230, 199);
         private enum State { Playing, PickReward, Done }
 
         private readonly CardRenderer _renderer;
@@ -79,19 +79,26 @@ namespace ValleyTriad.UI
             _s = settings;
             _renderer.Prewarm(_s.PlayerDeck.Concat(_s.OppDeck));
 
-            int boardPx = 3 * Cell + 2 * Gap;
-            int handRowW = Deck.Size * (HandW + 10) - 10;
+            // size the board to the screen: fixed = 2*border + pads/gaps/status; variable = 2 hands + 3 cells
+            int availH = Game1.uiViewport.Height - 24;
+            int fixedH = borderWidth * 2 + _topPad + _bandGap * 2 + _statusH + 16 + 2 * _gap;
+            _cellSz = Math.Clamp((int)((availH - fixedH) / 5.3f), 88, 160);
+            _handH = (int)(_cellSz * 1.15f);
+            _handW = (int)(_handH * CardAspect);
+
+            int boardPx = 3 * _cellSz + 2 * _gap;
+            int handRowW = Deck.Size * (_handW + 10) - 10;
             int contentW = Math.Max(boardPx, handRowW);
-            width = contentW + borderWidth * 2 + 64;
-            height = borderWidth * 2 + TopPad + HandH + BandGap + boardPx + BandGap + HandH + StatusH + 16;
+            width = Math.Min(contentW + borderWidth * 2 + 64, Game1.uiViewport.Width - 16);
+            height = borderWidth * 2 + _topPad + _handH + _bandGap + boardPx + _bandGap + _handH + _statusH + 16;
             xPositionOnScreen = (Game1.uiViewport.Width - width) / 2;
             yPositionOnScreen = (Game1.uiViewport.Height - height) / 2;
 
             _boardX = xPositionOnScreen + (width - boardPx) / 2;
-            _oppHandY = yPositionOnScreen + borderWidth + TopPad;
-            _boardY = _oppHandY + HandH + BandGap;
-            _playerHandY = _boardY + boardPx + BandGap;
-            _statusY = _playerHandY + HandH + 8;
+            _oppHandY = yPositionOnScreen + borderWidth + _topPad;
+            _boardY = _oppHandY + _handH + _bandGap;
+            _playerHandY = _boardY + boardPx + _bandGap;
+            _statusY = _playerHandY + _handH + 10;
 
             StartRound(new List<Card>(_s.PlayerDeck), new List<Card>(_s.OppDeck));
         }
@@ -370,21 +377,21 @@ namespace ValleyTriad.UI
         }
 
         // ---- layout ----
-        private Rectangle CellRect(int r, int c) => new(_boardX + c * (Cell + Gap), _boardY + r * (Cell + Gap), Cell, Cell);
+        private Rectangle CellRect(int r, int c) => new(_boardX + c * (_cellSz + _gap), _boardY + r * (_cellSz + _gap), _cellSz, _cellSz);
 
         private Rectangle HandRect(int i, bool bottom)
         {
             int count = (bottom ? _playerHand : _oppHand).Count;
-            int total = count * (HandW + 10) - 10;
+            int total = count * (_handW + 10) - 10;
             int sx = xPositionOnScreen + (width - total) / 2;
-            return new Rectangle(sx + i * (HandW + 10), bottom ? _playerHandY : _oppHandY, HandW, HandH);
+            return new Rectangle(sx + i * (_handW + 10), bottom ? _playerHandY : _oppHandY, _handW, _handH);
         }
 
         private Rectangle RewardRect(int i, int n)
         {
-            int total = n * (HandW + 12) - 12;
+            int total = n * (_handW + 12) - 12;
             int sx = xPositionOnScreen + (width - total) / 2;
-            return new Rectangle(sx + i * (HandW + 12), yPositionOnScreen + (height - HandH) / 2, HandW, HandH);
+            return new Rectangle(sx + i * (_handW + 12), yPositionOnScreen + (height - _handH) / 2, _handW, _handH);
         }
 
         /// <summary>Centres a card at the correct 92:128 aspect inside <paramref name="box"/>.</summary>
@@ -403,14 +410,39 @@ namespace ValleyTriad.UI
             b.Draw(_renderer.Get(card), dest, Color.White);
         }
 
+        /// <summary>Card-table backdrop: dark wood rim, gold inlay and a green felt playfield.</summary>
+        private void DrawTable(SpriteBatch b)
+        {
+            var r = new Rectangle(xPositionOnScreen, yPositionOnScreen, width, height);
+            b.Draw(Game1.staminaRect, new Rectangle(r.X + 8, r.Y + 10, r.Width, r.Height), Color.Black * 0.4f); // sombra
+            b.Draw(Game1.staminaRect, r, new Color(43, 28, 14));                                                // contorno
+            b.Draw(Game1.staminaRect, new Rectangle(r.X + 5, r.Y + 5, r.Width - 10, r.Height - 10), new Color(112, 74, 40));
+            b.Draw(Game1.staminaRect, new Rectangle(r.X + 13, r.Y + 13, r.Width - 26, r.Height - 26), new Color(82, 52, 26));
+            DrawBorderRect(b, new Rectangle(r.X + 17, r.Y + 17, r.Width - 34, r.Height - 34), new Color(208, 172, 96), 2); // filete dourado
+            var felt = new Rectangle(r.X + 21, r.Y + 21, r.Width - 42, r.Height - 42);
+            b.Draw(Game1.staminaRect, felt, new Color(44, 92, 63)); // feltro
+            for (int i = 0; i < 12; i++) // vinheta do feltro
+                DrawBorderRect(b, new Rectangle(felt.X + i, felt.Y + i, felt.Width - 2 * i, felt.Height - 2 * i),
+                    new Color(20, 52, 34) * (0.45f - i * 0.035f), 1);
+        }
+
+        private static void DrawShadowedText(SpriteBatch b, string text, Vector2 pos, Color color, float scale = 1f)
+        {
+            b.DrawString(Game1.smallFont, text, pos + new Vector2(2, 2), Color.Black * 0.55f, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
+            b.DrawString(Game1.smallFont, text, pos, color, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
+        }
+
         public override void draw(SpriteBatch b)
         {
-            b.Draw(Game1.fadeToBlackRect, Game1.graphics.GraphicsDevice.Viewport.Bounds, Color.Black * 0.6f);
-            Game1.drawDialogueBox(xPositionOnScreen, yPositionOnScreen, width, height, false, true);
+            b.Draw(Game1.fadeToBlackRect, Game1.graphics.GraphicsDevice.Viewport.Bounds, Color.Black * 0.55f);
+            DrawTable(b);
 
-            // opponent name
+            // opponent name (top-left) + live score (top-right)
             string opp = string.IsNullOrEmpty(_s.OpponentDisplay) ? "Oponente" : _s.OpponentDisplay;
-            b.DrawString(Game1.smallFont, opp, new Vector2(xPositionOnScreen + borderWidth + 12, yPositionOnScreen + borderWidth + 8), Game1.textColor);
+            DrawShadowedText(b, opp, new Vector2(xPositionOnScreen + borderWidth + 4, yPositionOnScreen + borderWidth - 4), Cream);
+            string scoreTop = $"Você {_board.Count(Owner.P1)} × {_board.Count(Owner.P2)} {opp}";
+            var scsz = Game1.smallFont.MeasureString(scoreTop);
+            DrawShadowedText(b, scoreTop, new Vector2(xPositionOnScreen + width - borderWidth - 4 - scsz.X, yPositionOnScreen + borderWidth - 4), Cream);
 
             // board
             for (int r = 0; r < 3; r++)
@@ -421,7 +453,7 @@ namespace ValleyTriad.UI
                     Color slot = cell.Element switch
                     {
                         Season.Spring => new(79, 170, 69), Season.Summer => new(224, 168, 40),
-                        Season.Fall => new(210, 120, 50), Season.Winter => new(90, 165, 205), _ => new(74, 54, 34),
+                        Season.Fall => new(210, 120, 50), Season.Winter => new(90, 165, 205), _ => new(30, 66, 45),
                     };
                     IClickableMenu.drawTextureBox(b, Game1.menuTexture, new Rectangle(0, 256, 60, 60), rect.X, rect.Y, rect.Width, rect.Height, slot * 0.7f, 1f, false);
                     if (!cell.Empty)
@@ -452,13 +484,9 @@ namespace ValleyTriad.UI
             else
                 status = _statusOverride ?? (_turn == Owner.P1 ? "Seu turno — escolha uma carta e uma casa" : "Vez do oponente…");
 
-            string score = $"Você {_board.Count(Owner.P1)} × {_board.Count(Owner.P2)} {opp}";
-            var ssz = Game1.smallFont.MeasureString(score);
-            float availW = width - borderWidth * 2 - 36 - ssz.X;
-            var stsz = Game1.smallFont.MeasureString(status);
-            float stScale = Math.Min(1f, availW / Math.Max(1f, stsz.X));
-            b.DrawString(Game1.smallFont, status, new Vector2(xPositionOnScreen + borderWidth + 12, _statusY), Game1.textColor, 0f, Vector2.Zero, stScale, SpriteEffects.None, 0f);
-            b.DrawString(Game1.smallFont, score, new Vector2(xPositionOnScreen + width - borderWidth - 12 - ssz.X, _statusY), Game1.textColor);
+            // full-width status line at full size, wrapped to a second line when needed
+            string wrappedStatus = Game1.parseText(status, Game1.smallFont, width - borderWidth * 2 - 24);
+            DrawShadowedText(b, wrappedStatus, new Vector2(xPositionOnScreen + borderWidth + 4, _statusY), Cream);
 
             // tutorial visuals: pulsing highlights on the required card/cell, and Abigail's dialogue overlay
             if (_s.Tutorial != null && _state == State.Playing)
@@ -493,30 +521,31 @@ namespace ValleyTriad.UI
             drawMouse(b);
         }
 
-        private static void DrawHighlight(SpriteBatch b, Rectangle r, float a)
+        private static void DrawBorderRect(SpriteBatch b, Rectangle r, Color c, int t)
         {
-            Color c = Color.Gold * a;
-            const int t = 4;
-            b.Draw(Game1.staminaRect, new Rectangle(r.X - t, r.Y - t, r.Width + 2 * t, t), c);
-            b.Draw(Game1.staminaRect, new Rectangle(r.X - t, r.Bottom, r.Width + 2 * t, t), c);
-            b.Draw(Game1.staminaRect, new Rectangle(r.X - t, r.Y, t, r.Height), c);
-            b.Draw(Game1.staminaRect, new Rectangle(r.Right, r.Y, t, r.Height), c);
+            b.Draw(Game1.staminaRect, new Rectangle(r.X, r.Y, r.Width, t), c);
+            b.Draw(Game1.staminaRect, new Rectangle(r.X, r.Bottom - t, r.Width, t), c);
+            b.Draw(Game1.staminaRect, new Rectangle(r.X, r.Y, t, r.Height), c);
+            b.Draw(Game1.staminaRect, new Rectangle(r.Right - t, r.Y, t, r.Height), c);
         }
+
+        private static void DrawHighlight(SpriteBatch b, Rectangle r, float a)
+            => DrawBorderRect(b, new Rectangle(r.X - 4, r.Y - 4, r.Width + 8, r.Height + 8), Color.Gold * a, 4);
 
         private void DrawSayOverlay(SpriteBatch b, TutSay say)
         {
             _abbyPortrait ??= Game1.content.Load<Texture2D>("Portraits/Abigail");
             string text = Tr(say.Key);
-            int w = Math.Min(920, width - 32);
-            int h = 172;
+            int w = Math.Min(1080, width - 24);
+            int h = 212;
             int x = xPositionOnScreen + (width - w) / 2;
-            int y = yPositionOnScreen + height - h - 46;
+            int y = yPositionOnScreen + height - h - _statusH - 4;
             IClickableMenu.drawTextureBox(b, Game1.menuTexture, new Rectangle(0, 256, 60, 60), x, y, w, h, Color.White, 1f, true);
-            b.Draw(_abbyPortrait, new Rectangle(x + 18, y + 22, 128, 128), new Rectangle(0, 0, 64, 64), Color.White);
-            string wrapped = Game1.parseText(text, Game1.smallFont, w - 190);
-            b.DrawString(Game1.smallFont, wrapped, new Vector2(x + 164, y + 22), Game1.textColor);
+            b.Draw(_abbyPortrait, new Rectangle(x + 20, y + 28, 156, 156), new Rectangle(0, 0, 64, 64), Color.White);
+            string wrapped = Game1.parseText(text, Game1.smallFont, w - 230);
+            b.DrawString(Game1.smallFont, wrapped, new Vector2(x + 196, y + 26), Game1.textColor);
             float blink = 0.6f + 0.4f * (float)Math.Sin(Game1.currentGameTime.TotalGameTime.TotalSeconds * 4.0);
-            b.DrawString(Game1.smallFont, "▶", new Vector2(x + w - 34, y + h - 40), Game1.textColor * blink);
+            b.DrawString(Game1.smallFont, "▶", new Vector2(x + w - 38, y + h - 44), Game1.textColor * blink);
         }
     }
 }

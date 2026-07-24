@@ -58,7 +58,7 @@ namespace ValleyTriad.Rendering
                 {
                     float dist = (float)Math.Sqrt((x - c) * (x - c) + (y - c) * (y - c)) / c;
                     float a = Math.Max(0, 1 - dist);
-                    data[y * D + x] = new Color(1f, 1f, 1f, a);
+                    data[y * D + x] = new Color(a, a, a, a); // premultiplied alpha (AlphaBlend expects it)
                 }
             var t = new Texture2D(Game1.graphics.GraphicsDevice, D, D); t.SetData(data); return t;
         }
@@ -313,33 +313,33 @@ namespace ValleyTriad.Rendering
 
         private void DrawCoinsAndText(SpriteBatch b, Card card)
         {
-            int ax0 = 7, ay0 = 11, ax1 = LW - 8, ay1 = 86;
+            // larger, inset coins so the values read clearly even at small draw sizes
+            int midX = 46, midY = 48;
             var edges = new (int lx, int ly, Dir d)[]
             {
-                ((ax0 + ax1) / 2, ay0, Dir.N), ((ax0 + ax1) / 2, ay1, Dir.S),
-                (ax0, (ay0 + ay1) / 2, Dir.W), (ax1, (ay0 + ay1) / 2, Dir.E),
+                (midX, 16, Dir.N), (midX, 81, Dir.S), (12, midY, Dir.W), (80, midY, Dir.E),
             };
-            Color inlay = RAR[card.Tier];
             foreach (var (lx, ly, d) in edges)
             {
-                Blob(b, lx, ly, 8, DARK);
-                Blob(b, lx, ly, 7, new Color(198, 150, 78));
-                Blob(b, lx, ly, 5.5f, new Color(240, 211, 150));
+                Blob(b, lx, ly, 11, DARK);
+                Blob(b, lx, ly, 10, new Color(198, 150, 78));
+                Blob(b, lx, ly, 8.2f, new Color(240, 211, 150));
                 int v = card.Edge(d);
-                PixelFont.DrawCentered(b, Pixel, v == 10 ? "A" : v.ToString(), lx * S, ly * S, S, new Color(44, 28, 14), new Color(245, 224, 170));
+                int blk = S * 7 / 4; // ~75% bigger digits than before
+                PixelFont.DrawCentered(b, Pixel, v == 10 ? "A" : v.ToString(), lx * S, ly * S, blk, new Color(44, 28, 14), new Color(245, 224, 170));
             }
             // name (auto-fit block size)
             string name = ResolveName(card).ToUpperInvariant();
             int bannerDev = (LW - 15) * S;
-            int blk = Math.Clamp(bannerDev / Math.Max(1, PixelFont.Width(name)), 1, 3);
-            PixelFont.DrawCentered(b, Pixel, name, LW / 2 * S, 99 * S, blk, new Color(245, 233, 205), new Color(44, 28, 14));
+            int nblk = Math.Clamp(bannerDev / Math.Max(1, PixelFont.Width(name)), 1, 3);
+            PixelFont.DrawCentered(b, Pixel, name, LW / 2 * S, 99 * S, nblk, new Color(245, 233, 205), new Color(44, 28, 14));
             // season badge
             if (SEASON.TryGetValue(card.Element, out var se))
             {
-                int bx = (LW - 11), by = 15;
-                Blob(b, bx, by, 6.5f, new Color(245, 233, 205));
-                Blob(b, bx, by, 5.5f, se.col);
-                PixelFont.DrawCentered(b, Pixel, se.letter.ToString(), bx * S, by * S, 2, Color.White, new Color(30, 40, 20));
+                int bx = (LW - 12), by = 16;
+                Blob(b, bx, by, 7.5f, new Color(245, 233, 205));
+                Blob(b, bx, by, 6.4f, se.col);
+                PixelFont.DrawCentered(b, Pixel, se.letter.ToString(), bx * S, by * S, S * 3 / 4 + 1, Color.White, new Color(30, 40, 20));
             }
         }
 
