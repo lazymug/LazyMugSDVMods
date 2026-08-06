@@ -100,7 +100,7 @@ namespace AWarmWelcome
             new("MichaelHart", "EastScarp_SeaGlass", 1, false, 7),
             new("OliverK", "589", 1, false, 9),                        // Trilobite
             new("Rosa", "745", 5, false, 9),                           // Strawberry Seeds (loves Strawberry)
-            new("VivienneLK", "EastScarp_Vintage_Ruby_Ring", 1, false, 9),
+            new("VivienneLK", "64", 1, false, 9),                      // Ruby (loved; replaced EastScarp_Vintage_Ruby_Ring, a trigger for Rosa's quest chain)
         };
 
         public override void Entry(IModHelper helper)
