@@ -43,6 +43,7 @@ All of the above are optional — install any combination and A Warm Welcome ada
 [b]1.3.1[/b]
 [list]
 [*][b]East Scarp fix:[/b] Vivienne now gifts a [b]Ruby[/b] instead of the [b]Vintage Ruby Ring[/b]. The ring is a quest item tied to Rosa's Journal storyline, and receiving it early in the mail could break that quest chain. Ruby is one of Vivienne's loved gifts, so her letter is unchanged in spirit.
+[*][b]Dwarf letter fix:[/b] Removed stray framing characters (leftover brackets, dots and a misplaced dash) from the Dwarf's welcome letter so it reads cleanly.
 [/list]
 
 [b]1.3.0[/b]
