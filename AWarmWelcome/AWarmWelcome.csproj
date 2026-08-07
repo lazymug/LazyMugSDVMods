@@ -18,6 +18,8 @@
     <ItemGroup>
       <Reference Include="MailFrameworkMod">
         <HintPath>..\..\DLLs\MailFrameworkMod.dll</HintPath>
+        <!-- Required dependency installed separately by the user; do not copy/bundle it into the release. -->
+        <Private>false</Private>
       </Reference>
     </ItemGroup>
 
