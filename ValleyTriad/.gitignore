@@ -2,3 +2,25 @@
 # redistribute. Kept locally only; the mod composes sprites at runtime from the
 # player's own game files, so nothing copyrighted is shipped.
 card-previews/
+
+# Source art for tools/compose_art.py: the 6 category scene backgrounds and the 52
+# per-card subject images (subject on white). The COMPOSED output in assets/art/ is
+# committed and shipped; these large raw inputs are kept local only (regenerate art
+# with `python3 tools/compose_art.py`). The 4 rarity frames assets/frames/*.png are
+# NOT ignored — they are shipped.
+assets/frames/field.png
+assets/frames/pasture.png
+assets/frames/mine.png
+assets/frames/sea.png
+assets/frames/saloon.png
+assets/frames/night.png
+assets/frames/animals/
+assets/frames/crops/
+assets/frames/fish/
+assets/frames/forage/
+assets/frames/minerals/
+assets/frames/monsters/
+assets/frames/specials/
+assets/frames/villagers/
+
+.DS_Store

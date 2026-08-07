@@ -3,6 +3,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
+    <!-- Keep source art out of the packaged/deployed mod. The mod only loads assets/art/*.png,
+         the rarity frames assets/frames/{common,uncommon,rare,legendary}.png and cards.json.
+         The category scene backgrounds and the per-card subject sources under
+         assets/frames/<category>/ are inputs to tools/compose_art.py (already baked into
+         assets/art), so ModBuildConfig should not bundle them. Patterns are regexes matched
+         against the relative path (forward slashes). -->
+    <IgnoreModFilePatterns>assets/frames/(field|pasture|mine|sea|saloon|night)[.]png, assets/frames/(animals|crops|fish|forage|minerals|monsters|specials|villagers)/, [.]DS_Store</IgnoreModFilePatterns>
   </PropertyGroup>
 
   <ItemGroup>
