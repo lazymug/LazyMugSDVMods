@@ -7,7 +7,7 @@ Pipeline per card:
      whites — cauliflower, a white hen, a diamond, teeth — are preserved).
   3. Trim to the subject bounding box and scale to fit the card window.
   4. Composite over the category scene (assets/frames/<scene>.png) with a soft ground shadow.
-  5. Save to assets/art/<cardId>.png at the exact window size the mod draws (304x292).
+  5. Save to assets/art/<cardId>.png at the exact window size the mod draws (see ART_SIZE).
 
 Usage:
   python3 compose_art.py                 # all 52 cards
@@ -22,7 +22,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FRAMES = os.path.join(ROOT, "assets", "frames")
 CARDS = os.path.join(ROOT, "assets", "cards.json")
 
-ART_SIZE = (304, 292)          # window the mod draws (WW*S x WH*S)
+ART_SIZE = (256, 256)          # window the mod draws (WW*S x WH*S), square
 KEY_MAX = 512                  # work resolution for keying
 WHITE_LO = 206                 # background is bright (min channel >= this) ...
 NEUTRAL = 16                   # ... and near-neutral (max-min <= this). Lets the flood cross

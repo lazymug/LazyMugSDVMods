@@ -201,19 +201,24 @@ namespace ValleyTriad.Rendering
             // studs
             foreach (var (x, y) in new[] { (5, 5), (LW - 6, 5), (5, LH - 6), (LW - 6, LH - 6) })
                 Fill(b, x - 1, y - 1, 2, 2, inlay);
-            // art-window border
-            Fill(b, 7, 11, 78, 75, DARK);
-            // name banner
-            Fill(b, 6, 92, LW - 13, 14, WOODLO);
-            Fill(b, 7, 93, LW - 15, 1, WOOD);
+            // art-window border (bevelled socket)
+            Fill(b, WX - 2, WY - 2, WW + 4, WH + 4, WOODLO);
+            Fill(b, WX - 1, WY - 1, WW + 2, WH + 2, DARK);
+            // name plaque (wooden sign board)
+            DrawPlaque(b, inlay);
             // rarity gems
             int ng = card.Tier switch { Tier.Common => 1, Tier.Uncommon => 2, Tier.Rare => 3, _ => 4 };
             for (int i = 0; i < 4; i++)
-                Fill(b, LW / 2 - 8 + i * 5, 112, 3, 3, i < ng ? inlay : new Color(90, 66, 38));
+                Fill(b, LW / 2 - 7 + i * 5, GEM_Y, 3, 3, i < ng ? inlay : new Color(90, 66, 38));
         }
 
-        // window logical area
-        private const int WX = 8, WY = 12, WW = 76, WH = 73;
+        // ---- GEOMETRY (keep in sync with tools/gen_frames.py) ----
+        // The art window is inset so the four value coins sit on the wooden border instead of
+        // over the scene — the background never shows through behind a coin.
+        private const int WX = 14, WY = 14, WW = 64, WH = 64;   // art window (square)
+        private const float COIN_R = 6f;                        // coin disc radius (logical)
+        private const int PLQ_X = 6, PLQ_Y = 93, PLQ_W = 80, PLQ_H = 17;  // name plaque
+        private const int GEM_Y = 116;                          // rarity gems row
 
         /// <summary>Per-card art override (assets/art/&lt;cardId&gt;.png), or null to use the procedural scene.</summary>
         private Texture2D? ArtFor(string cardId)
@@ -358,10 +363,23 @@ namespace ValleyTriad.Rendering
             Fill(b, WX, WY + (int)(WH * 0.7f), WW, WH - (int)(WH * 0.7f), new Color(30, 40, 52));
         }
 
-        // coin centres shared by the frame templates (tools/gen_frames.py) and the procedural fallback
+        /// <summary>Clean recessed name band: dark inset with a subtle bevel and a rarity trim.</summary>
+        private void DrawPlaque(SpriteBatch b, Color inlay)
+        {
+            Color woodDk = new(78, 50, 27);
+            Fill(b, PLQ_X, PLQ_Y, PLQ_W, PLQ_H, DARK);
+            Fill(b, PLQ_X + 1, PLQ_Y + 1, PLQ_W - 2, PLQ_H - 2, woodDk);
+            Fill(b, PLQ_X + 1, PLQ_Y + 1, PLQ_W - 2, 1, Lerp(woodDk, DARK, .5f));
+            Fill(b, PLQ_X + 1, PLQ_Y + PLQ_H - 2, PLQ_W - 2, 1, Lerp(WOODLO, woodDk, .4f));
+            Fill(b, PLQ_X, PLQ_Y, PLQ_W, 1, Lerp(inlay, DARK, .25f));
+            Fill(b, PLQ_X, PLQ_Y + PLQ_H - 1, PLQ_W, 1, Lerp(inlay, DARK, .25f));
+        }
+
+        // coin centres shared by the frame templates (tools/gen_frames.py) and the procedural
+        // fallback — all four sit on the wooden border, clear of the art window.
         private static readonly (int lx, int ly, Dir d)[] CoinSlots =
         {
-            (46, 16, Dir.N), (46, 81, Dir.S), (12, 48, Dir.W), (80, 48, Dir.E),
+            (46, 7, Dir.N), (46, 84, Dir.S), (7, 46, Dir.W), (85, 46, Dir.E),
         };
 
         /// <summary>Procedural fallback: coin discs + the dynamic parts.</summary>
@@ -369,9 +387,9 @@ namespace ValleyTriad.Rendering
         {
             foreach (var (lx, ly, _) in CoinSlots)
             {
-                Blob(b, lx, ly, 11, DARK);
-                Blob(b, lx, ly, 10, new Color(198, 150, 78));
-                Blob(b, lx, ly, 8.2f, new Color(240, 211, 150));
+                Blob(b, lx, ly, COIN_R, DARK);
+                Blob(b, lx, ly, COIN_R - 0.8f, new Color(198, 150, 78));
+                Blob(b, lx, ly, COIN_R - 2.0f, new Color(240, 211, 150));
             }
             DrawValues(b, card);
         }
@@ -382,20 +400,19 @@ namespace ValleyTriad.Rendering
             foreach (var (lx, ly, d) in CoinSlots)
             {
                 int v = card.Edge(d);
-                int blk = S * 7 / 4;
-                PixelFont.DrawCentered(b, Pixel, v == 10 ? "A" : v.ToString(), lx * S, ly * S, blk, new Color(44, 28, 14), new Color(245, 224, 170));
+                PixelFont.DrawCentered(b, Pixel, v == 10 ? "A" : v.ToString(), lx * S, ly * S, S, new Color(44, 28, 14), new Color(245, 224, 170));
             }
-            // name (auto-fit block size) over the banner
+            // name (auto-fit block size) inside the plaque
             string name = ResolveName(card).ToUpperInvariant();
-            int bannerDev = (LW - 15) * S;
+            int bannerDev = (PLQ_W - 4) * S;
             int nblk = Math.Clamp(bannerDev / Math.Max(1, PixelFont.Width(name)), 1, 3);
-            PixelFont.DrawCentered(b, Pixel, name, LW / 2 * S, 99 * S, nblk, new Color(245, 233, 205), new Color(44, 28, 14));
-            // season badge
+            PixelFont.DrawCentered(b, Pixel, name, (PLQ_X + PLQ_W / 2) * S, (PLQ_Y + PLQ_H / 2) * S, nblk, new Color(245, 233, 205), new Color(44, 28, 14));
+            // season badge, tucked into the top-right of the art window
             if (SEASON.TryGetValue(card.Element, out var se))
             {
-                int bx = (LW - 12), by = 16;
-                Blob(b, bx, by, 7.5f, new Color(245, 233, 205));
-                Blob(b, bx, by, 6.4f, se.col);
+                int bx = WX + WW - 8, by = WY + 8;
+                Blob(b, bx, by, 6.2f, new Color(245, 233, 205));
+                Blob(b, bx, by, 5.2f, se.col);
                 PixelFont.DrawCentered(b, Pixel, se.letter.ToString(), bx * S, by * S, S * 3 / 4 + 1, Color.White, new Color(30, 40, 20));
             }
         }

@@ -24,3 +24,6 @@ assets/frames/specials/
 assets/frames/villagers/
 
 .DS_Store
+
+# Python bytecode from tools/
+tools/__pycache__/

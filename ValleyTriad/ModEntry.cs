@@ -138,7 +138,31 @@ namespace ValleyTriad
             };
             Game1.currentLocation.createQuestionDialogue(
                 Helper.Translation.Get("challenge.question", new { name = npc.displayName }),
-                answers, (_, key) => { if (key == "vt_yes") StartMatch(npc); });
+                answers, (_, key) =>
+                {
+                    if (key == "vt_yes") StartMatch(npc);
+                    else TalkNormally(npc);
+                });
+        }
+
+        /// <summary>Declining the challenge must not swallow the interaction: we suppressed the
+        /// action button to show the prompt, so fall through to the villager's usual dialogue.
+        /// Waits for the question box to finish closing before talking.</summary>
+        private void TalkNormally(NPC npc)
+        {
+            int tries = 0;
+            void Resume(object? sender, UpdateTickedEventArgs e)
+            {
+                if (++tries > 60 || !Context.IsWorldReady)      // ~1s, then give up rather than leak the handler
+                {
+                    Helper.Events.GameLoop.UpdateTicked -= Resume;
+                    return;
+                }
+                if (Game1.activeClickableMenu != null || !Context.IsPlayerFree) return;
+                Helper.Events.GameLoop.UpdateTicked -= Resume;
+                npc.checkAction(Game1.player, Game1.currentLocation);
+            }
+            Helper.Events.GameLoop.UpdateTicked += Resume;
         }
 
         private void StartMatch(NPC npc)
