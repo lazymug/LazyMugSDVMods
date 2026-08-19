@@ -22,5 +22,12 @@ namespace LMQoL
         public bool QuickStackEnabled { get; set; } = true;
         public int QuickStackRadius { get; set; } = 5;
         public KeybindList QuickStackKey { get; set; } = KeybindList.Parse("Z");
+
+        // Silo Capacity
+        public bool SiloCapacityEnabled { get; set; } = false;
+        public int SiloCapacity { get; set; } = 240;
+
+        // Species Tooltip
+        public bool SpeciesTooltipEnabled { get; set; } = true;
     }
 }

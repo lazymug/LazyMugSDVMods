@@ -5,6 +5,8 @@ using StardewModdingAPI.Events;
 using LMQoL.Features.AutoGate;
 using LMQoL.Features.MagnetRadiusForaging;
 using LMQoL.Features.QuickStack;
+using LMQoL.Features.SiloCapacity;
+using LMQoL.Features.SpeciesTooltip;
 
 namespace LMQoL
 {
@@ -13,6 +15,7 @@ namespace LMQoL
         internal static ModConfig Config { get; private set; } = null!;
 
         private readonly List<IFeature> _features = new();
+        private readonly SiloCapacityFeature _silo = new();
 
         public override void Entry(IModHelper helper)
         {
@@ -25,6 +28,8 @@ namespace LMQoL
             _features.Add(new AutoGateFeature());
             _features.Add(new MagnetRadiusForagingFeature());
             _features.Add(new QuickStackFeature());
+            _features.Add(_silo);
+            _features.Add(new SpeciesTooltipFeature());
 
             foreach (var feature in _features)
                 feature.Register(helper, Monitor);
@@ -40,7 +45,11 @@ namespace LMQoL
             gmcm.Register(
                 mod: ModManifest,
                 reset: () => Config = new ModConfig(),
-                save: () => Helper.WriteConfig(Config)
+                save: () =>
+                {
+                    Helper.WriteConfig(Config);
+                    _silo.Reapply();
+                }
             );
 
             // --- Auto Gate ---
@@ -161,6 +170,45 @@ namespace LMQoL
                 min: 1,
                 max: 15,
                 interval: 1
+            );
+
+            // --- Silo Capacity ---
+            gmcm.AddSectionTitle(
+                mod: ModManifest,
+                text: () => Helper.Translation.Get("section.silo").ToString()
+            );
+
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.SiloCapacityEnabled,
+                setValue: v => Config.SiloCapacityEnabled = v,
+                name: () => Helper.Translation.Get("silo.enabled").ToString(),
+                tooltip: () => Helper.Translation.Get("silo.enabled.tooltip").ToString()
+            );
+
+            gmcm.AddNumberOption(
+                mod: ModManifest,
+                getValue: () => Config.SiloCapacity,
+                setValue: v => Config.SiloCapacity = v,
+                name: () => Helper.Translation.Get("silo.capacity").ToString(),
+                tooltip: () => Helper.Translation.Get("silo.capacity.tooltip").ToString(),
+                min: 240,
+                max: 4800,
+                interval: 240
+            );
+
+            // --- Species Tooltip ---
+            gmcm.AddSectionTitle(
+                mod: ModManifest,
+                text: () => Helper.Translation.Get("section.species").ToString()
+            );
+
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.SpeciesTooltipEnabled,
+                setValue: v => Config.SpeciesTooltipEnabled = v,
+                name: () => Helper.Translation.Get("species.enabled").ToString(),
+                tooltip: () => Helper.Translation.Get("species.enabled.tooltip").ToString()
             );
         }
     }

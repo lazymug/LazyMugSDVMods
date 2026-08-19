@@ -12,6 +12,8 @@
 [*][b]Magnet Radius Foraging[/b] — nearby items are gently pulled toward you for easy pickup. Adjustable radius and pull speed.
 [*][b]Sell Price Tooltip[/b] — see an item's sell value (and its best processed value) right in the tooltip. Optionally accounts for the Artisan profession and highlights the most profitable option.
 [*][b]Quick Stack to Nearby Chests[/b] [i](New in 1.3.0)[/i] — press a key to top up matching item stacks in nearby chests straight from your inventory. It only fills stacks a chest already has (nothing gets misplaced) and never touches mini-shipping bins.
+[*][b]Silo Capacity[/b] [i](New in 1.4.0)[/i] — choose how much hay each silo holds instead of the usual 240. Applies to silos you already built.
+[*][b]Species Tooltip[/b] [i](New in 1.4.0)[/i] — hover a crop, bush or tree to see exactly what it is, plus whether it's growing, ready to harvest, tapped or mossy.
 [/list]
 
 [line]
@@ -29,6 +31,18 @@ Every feature and its settings — including the Quick Stack key and search radi
 [line]
 
 [size=5][b]Changelog[/b][/size]
+
+[b]1.4.0[/b]
+[list]
+[*]New: [b]Silo Capacity[/b] — set how much hay each silo stores (vanilla is 240). Existing silos pick up the new capacity too.
+[*]New: [b]Species Tooltip[/b] — hovering a crop, bush or tree names the species and shows its state (growing, ready, dead, stump, tapped, mossy, fruit waiting). Works on the canopy of grown trees, not just the trunk tile.
+[/list]
+
+[b]1.3.1[/b]
+[list]
+[*][b]Fix:[/b] Magnet Foraging no longer drags in items your inventory can't take. Those items used to get stuck to you, endlessly animating without ever being picked up; now they stay on the ground until you have room, exactly like vanilla.
+[*][b]Fix:[/b] drops that break into several pieces (wood, stone, ore) are now pulled as a whole. Previously only the first piece followed you, so the group's average position stayed out of pickup range and the game collected none of them — leaving items circling you until something else happened to trigger the pickup.
+[/list]
 
 [b]1.3.0[/b]
 [list]
