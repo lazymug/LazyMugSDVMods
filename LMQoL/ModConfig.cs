@@ -27,8 +27,11 @@ namespace LMQoL
         public bool SiloCapacityEnabled { get; set; } = false;
         public int SiloCapacity { get; set; } = 240;
 
-        // Species Tooltip
+        // Species Tooltip (master switch + per-kind toggles)
         public bool SpeciesTooltipEnabled { get; set; } = true;
+        public bool SpeciesTooltipCrops { get; set; } = true;
+        public bool SpeciesTooltipTrees { get; set; } = true;
+        public bool SpeciesTooltipBushes { get; set; } = true;
 
         // Build With Bags (only does anything when Item Bags is installed)
         public bool BuildWithBagsEnabled { get; set; } = true;

@@ -213,6 +213,30 @@ namespace LMQoL
                 tooltip: () => Helper.Translation.Get("species.enabled.tooltip").ToString()
             );
 
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.SpeciesTooltipCrops,
+                setValue: v => Config.SpeciesTooltipCrops = v,
+                name: () => Helper.Translation.Get("species.crops").ToString(),
+                tooltip: () => Helper.Translation.Get("species.crops.tooltip").ToString()
+            );
+
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.SpeciesTooltipTrees,
+                setValue: v => Config.SpeciesTooltipTrees = v,
+                name: () => Helper.Translation.Get("species.trees").ToString(),
+                tooltip: () => Helper.Translation.Get("species.trees.tooltip").ToString()
+            );
+
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.SpeciesTooltipBushes,
+                setValue: v => Config.SpeciesTooltipBushes = v,
+                name: () => Helper.Translation.Get("species.bushes").ToString(),
+                tooltip: () => Helper.Translation.Get("species.bushes.tooltip").ToString()
+            );
+
             // --- Build With Bags (Item Bags integration) ---
             if (Helper.ModRegistry.IsLoaded("SlayerDharok.Item_Bags"))
             {

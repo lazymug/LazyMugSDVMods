@@ -13,7 +13,7 @@
 [*][b]Sell Price Tooltip[/b] — see an item's sell value (and its best processed value) right in the tooltip. Optionally accounts for the Artisan profession and highlights the most profitable option.
 [*][b]Quick Stack to Nearby Chests[/b] [i](New in 1.3.0)[/i] — press a key to top up matching item stacks in nearby chests straight from your inventory. It only fills stacks a chest already has (nothing gets misplaced) and never touches mini-shipping bins.
 [*][b]Silo Capacity[/b] [i](New in 1.4.0)[/i] — choose how much hay each silo holds instead of the usual 240. Applies to silos you already built.
-[*][b]Species Tooltip[/b] [i](New in 1.4.0)[/i] — hover a crop, bush or tree to see exactly what it is, plus whether it's growing, ready to harvest, tapped or mossy.
+[*][b]Species Tooltip[/b] [i](New in 1.4.0)[/i] — hover a crop, bush or tree to see exactly what it is, plus whether it's growing, ready to harvest, tapped or mossy. Crops, trees and bushes can each be turned on or off on their own.
 [*][b]Build With Item Bags[/b] [i](New in 1.5.0)[/i] — Robin also counts building materials stored inside your Item Bags, and spends them automatically. Only active if you have the [b]Item Bags[/b] mod installed; ignored otherwise.
 [/list]
 
@@ -33,6 +33,11 @@ Every feature and its settings — including the Quick Stack key and search radi
 [line]
 
 [size=5][b]Changelog[/b][/size]
+
+[b]1.5.1[/b]
+[list]
+[*]Species Tooltip can now be toggled per kind — crops, trees and bushes have their own switches, on top of the existing master toggle.
+[/list]
 
 [b]1.5.0[/b]
 [list]

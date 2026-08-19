@@ -26,6 +26,8 @@ namespace LMQoL.Features.SpeciesTooltip
             var config = ModEntry.Config;
             if (!config.SpeciesTooltipEnabled || !Context.IsWorldReady)
                 return;
+            if (!config.SpeciesTooltipCrops && !config.SpeciesTooltipTrees && !config.SpeciesTooltipBushes)
+                return;
 
             // don't fight menus, cutscenes or the vanilla item tooltip
             if (Game1.activeClickableMenu != null || Game1.eventUp || Game1.player.ActiveObject != null)
@@ -48,19 +50,21 @@ namespace LMQoL.Features.SpeciesTooltip
 
         private string? Describe(GameLocation location, Vector2 tile)
         {
+            var config = ModEntry.Config;
+
             if (location.terrainFeatures.TryGetValue(tile, out var feature))
             {
                 switch (feature)
                 {
                     case HoeDirt dirt when dirt.crop != null:
-                        return DescribeCrop(dirt.crop);
+                        return config.SpeciesTooltipCrops ? DescribeCrop(dirt.crop) : null;
                     case FruitTree fruitTree:
-                        return DescribeFruitTree(fruitTree);
+                        return config.SpeciesTooltipTrees ? DescribeFruitTree(fruitTree) : null;
                     case Tree tree:
-                        return DescribeTree(tree);
+                        return config.SpeciesTooltipTrees ? DescribeTree(tree) : null;
                 }
             }
-            else
+            else if (config.SpeciesTooltipTrees)
             {
                 for (int below = 1; below <= CanopyReach; below++)
                 {
@@ -76,10 +80,13 @@ namespace LMQoL.Features.SpeciesTooltip
             }
 
             // bushes live in largeTerrainFeatures and can span several tiles
-            foreach (var large in location.largeTerrainFeatures)
+            if (config.SpeciesTooltipBushes)
             {
-                if (large is Bush bush && bush.getBoundingBox().Contains((int)(tile.X * 64f) + 32, (int)(tile.Y * 64f) + 32))
-                    return DescribeBush(bush);
+                foreach (var large in location.largeTerrainFeatures)
+                {
+                    if (large is Bush bush && bush.getBoundingBox().Contains((int)(tile.X * 64f) + 32, (int)(tile.Y * 64f) + 32))
+                        return DescribeBush(bush);
+                }
             }
 
             return null;

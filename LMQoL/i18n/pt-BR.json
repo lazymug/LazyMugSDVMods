@@ -31,7 +31,7 @@
   "silo.capacity.tooltip": "Feno armazenado por cada silo. O padrão do jogo é 240. Vale também para silos já construídos.",
   "section.species": "Dica de Espécie",
   "species.enabled": "Ativar Dica de Espécie",
-  "species.enabled.tooltip": "Passe o mouse sobre uma plantação, arbusto ou árvore para ver a espécie e o estado dela.",
+  "species.enabled.tooltip": "Chave geral da dica ao passar o mouse. Use as opções abaixo para escolher onde ela aparece.",
   "species.tree.oak": "Carvalho",
   "species.tree.maple": "Bordo",
   "species.tree.pine": "Pinheiro",
@@ -55,5 +55,11 @@
   "species.state.fruit": "Frutos prontos: {{count}}",
   "section.buildbags": "Construir com Item Bags",
   "buildbags.enabled": "Contar Materiais nas Bags",
-  "buildbags.enabled.tooltip": "Ao construir com a Robin, os materiais guardados nas suas Item Bags contam no custo e são gastos automaticamente. Requer o mod Item Bags."
+  "buildbags.enabled.tooltip": "Ao construir com a Robin, os materiais guardados nas suas Item Bags contam no custo e são gastos automaticamente. Requer o mod Item Bags.",
+  "species.crops": "Mostrar em Plantações",
+  "species.crops.tooltip": "Nomeia as plantações e mostra se estão crescendo, prontas ou mortas.",
+  "species.trees": "Mostrar em Árvores",
+  "species.trees.tooltip": "Nomeia árvores selvagens e frutíferas e mostra toco, extrator, musgo e frutos.",
+  "species.bushes": "Mostrar em Arbustos",
+  "species.bushes.tooltip": "Nomeia arbustos de frutas, de chá e de noz dourada."
 }

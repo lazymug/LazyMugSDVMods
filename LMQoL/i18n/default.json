@@ -31,7 +31,7 @@
   "silo.capacity.tooltip": "Hay stored by each silo. Vanilla is 240. Applies to silos you already built.",
   "section.species": "Species Tooltip",
   "species.enabled": "Enable Species Tooltip",
-  "species.enabled.tooltip": "Hover a crop, bush or tree to see what species it is and how it's doing.",
+  "species.enabled.tooltip": "Master switch for the hover tooltip. Use the options below to choose what it applies to.",
   "species.tree.oak": "Oak Tree",
   "species.tree.maple": "Maple Tree",
   "species.tree.pine": "Pine Tree",
@@ -55,5 +55,11 @@
   "species.state.fruit": "Fruit ready: {{count}}",
   "section.buildbags": "Build With Item Bags",
   "buildbags.enabled": "Count Materials Inside Bags",
-  "buildbags.enabled.tooltip": "When building with Robin, materials stored in your Item Bags count towards the cost and are spent automatically. Requires the Item Bags mod."
+  "buildbags.enabled.tooltip": "When building with Robin, materials stored in your Item Bags count towards the cost and are spent automatically. Requires the Item Bags mod.",
+  "species.crops": "Show for Crops",
+  "species.crops.tooltip": "Name planted crops and show whether they're growing, ready or dead.",
+  "species.trees": "Show for Trees",
+  "species.trees.tooltip": "Name wild and fruit trees and show stump, tapped, mossy and fruit state.",
+  "species.bushes": "Show for Bushes",
+  "species.bushes.tooltip": "Name berry, tea and golden walnut bushes."
 }
