@@ -52,5 +52,8 @@
   "species.state.stump": "Toco",
   "species.state.tapped": "Com extrator",
   "species.state.moss": "Com musgo",
-  "species.state.fruit": "Frutos prontos: {{count}}"
+  "species.state.fruit": "Frutos prontos: {{count}}",
+  "section.buildbags": "Construir com Item Bags",
+  "buildbags.enabled": "Contar Materiais nas Bags",
+  "buildbags.enabled.tooltip": "Ao construir com a Robin, os materiais guardados nas suas Item Bags contam no custo e são gastos automaticamente. Requer o mod Item Bags."
 }

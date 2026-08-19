@@ -5,6 +5,7 @@ using StardewModdingAPI.Events;
 using LMQoL.Features.AutoGate;
 using LMQoL.Features.MagnetRadiusForaging;
 using LMQoL.Features.QuickStack;
+using LMQoL.Features.BuildWithBags;
 using LMQoL.Features.SiloCapacity;
 using LMQoL.Features.SpeciesTooltip;
 
@@ -30,6 +31,7 @@ namespace LMQoL
             _features.Add(new QuickStackFeature());
             _features.Add(_silo);
             _features.Add(new SpeciesTooltipFeature());
+            _features.Add(new BuildWithBagsFeature());
 
             foreach (var feature in _features)
                 feature.Register(helper, Monitor);
@@ -210,6 +212,23 @@ namespace LMQoL
                 name: () => Helper.Translation.Get("species.enabled").ToString(),
                 tooltip: () => Helper.Translation.Get("species.enabled.tooltip").ToString()
             );
+
+            // --- Build With Bags (Item Bags integration) ---
+            if (Helper.ModRegistry.IsLoaded("SlayerDharok.Item_Bags"))
+            {
+                gmcm.AddSectionTitle(
+                    mod: ModManifest,
+                    text: () => Helper.Translation.Get("section.buildbags").ToString()
+                );
+
+                gmcm.AddBoolOption(
+                    mod: ModManifest,
+                    getValue: () => Config.BuildWithBagsEnabled,
+                    setValue: v => Config.BuildWithBagsEnabled = v,
+                    name: () => Helper.Translation.Get("buildbags.enabled").ToString(),
+                    tooltip: () => Helper.Translation.Get("buildbags.enabled.tooltip").ToString()
+                );
+            }
         }
     }
 }

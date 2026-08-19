@@ -52,5 +52,8 @@
   "species.state.stump": "Stump",
   "species.state.tapped": "Tapped",
   "species.state.moss": "Has moss",
-  "species.state.fruit": "Fruit ready: {{count}}"
+  "species.state.fruit": "Fruit ready: {{count}}",
+  "section.buildbags": "Build With Item Bags",
+  "buildbags.enabled": "Count Materials Inside Bags",
+  "buildbags.enabled.tooltip": "When building with Robin, materials stored in your Item Bags count towards the cost and are spent automatically. Requires the Item Bags mod."
 }

@@ -29,5 +29,8 @@ namespace LMQoL
 
         // Species Tooltip
         public bool SpeciesTooltipEnabled { get; set; } = true;
+
+        // Build With Bags (only does anything when Item Bags is installed)
+        public bool BuildWithBagsEnabled { get; set; } = true;
     }
 }

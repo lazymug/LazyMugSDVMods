@@ -14,6 +14,7 @@
 [*][b]Quick Stack to Nearby Chests[/b] [i](New in 1.3.0)[/i] — press a key to top up matching item stacks in nearby chests straight from your inventory. It only fills stacks a chest already has (nothing gets misplaced) and never touches mini-shipping bins.
 [*][b]Silo Capacity[/b] [i](New in 1.4.0)[/i] — choose how much hay each silo holds instead of the usual 240. Applies to silos you already built.
 [*][b]Species Tooltip[/b] [i](New in 1.4.0)[/i] — hover a crop, bush or tree to see exactly what it is, plus whether it's growing, ready to harvest, tapped or mossy.
+[*][b]Build With Item Bags[/b] [i](New in 1.5.0)[/i] — Robin also counts building materials stored inside your Item Bags, and spends them automatically. Only active if you have the [b]Item Bags[/b] mod installed; ignored otherwise.
 [/list]
 
 [line]
@@ -26,11 +27,17 @@ Every feature and its settings — including the Quick Stack key and search radi
 [size=5][b]Requirements[/b][/size]
 [list]
 [*]Generic Mod Config Menu (optional, for in-game settings)
+[*]Item Bags (optional — enables the Build With Item Bags feature)
 [/list]
 
 [line]
 
 [size=5][b]Changelog[/b][/size]
+
+[b]1.5.0[/b]
+[list]
+[*]New: [b]Build With Item Bags[/b] — when building with Robin, materials kept inside Item Bags now count towards the requirements and are spent along with your inventory. The ingredient list stops showing them in red, too. Requires the Item Bags mod; without it nothing changes.
+[/list]
 
 [b]1.4.0[/b]
 [list]
