@@ -13,9 +13,29 @@ namespace LMQoL.Features.SellPriceTooltip
             if (!config.SellPriceTooltipEnabled)
                 return;
 
+            var sb = new StringBuilder(__result);
+
+            // The item's own value comes first — it's what quality and the profession bonuses
+            // actually apply to, and it was missing entirely before. sellToStorePrice() is the
+            // game's own sum: base price, the quality multiplier, every profession that applies
+            // to this category, and the difficulty modifier.
+            if (config.SellPriceShowItemValue)
+            {
+                int unit = PriceCalculator.SellPrice(__instance);
+                if (unit > 0)
+                {
+                    sb.Append($"\n\nSell: {unit}g");
+                    if (__instance.Stack > 1)
+                        sb.Append($"  (x{__instance.Stack} = {unit * __instance.Stack}g)");
+                }
+            }
+
             var options = PriceCalculator.GetOptions(__instance);
             if (options.Count == 0)
+            {
+                __result = sb.ToString();
                 return;
+            }
 
             bool highlight = config.SellPriceHighlightBest;
 
@@ -29,7 +49,6 @@ namespace LMQoL.Features.SellPriceTooltip
             var shown = options.OrderByDescending(o => o.Price).ThenBy(o => o.MachineName).Take(limit).ToList();
             int hidden = options.Count - shown.Count;
 
-            var sb = new StringBuilder(__result);
             sb.Append("\n\n--- Processing ---");
 
             foreach (var option in shown)

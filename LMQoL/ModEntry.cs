@@ -9,6 +9,7 @@ using LMQoL.Features.BuildWithBags;
 using LMQoL.Features.CharcoalKiln;
 using LMQoL.Features.CookingWithBags;
 using LMQoL.Features.ItemTotals;
+using LMQoL.Features.PineNuts;
 using LMQoL.Features.SellAnything;
 using LMQoL.Features.SellPriceTooltip;
 using LMQoL.Features.SiloCapacity;
@@ -26,6 +27,7 @@ namespace LMQoL
         private readonly List<IFeature> _features = new();
         private readonly SiloCapacityFeature _silo = new();
         private readonly CharcoalKilnFeature _kiln = new();
+        private readonly PineNutsFeature _pineNuts = new();
 
         public override void Entry(IModHelper helper)
         {
@@ -43,6 +45,7 @@ namespace LMQoL
             _features.Add(new BuildWithBagsFeature());
             _features.Add(new CookingWithBagsFeature());
             _features.Add(_kiln);
+            _features.Add(_pineNuts);
             _features.Add(new ItemTotalsFeature());
             _features.Add(new SellAnythingFeature());
             _features.Add(new SellPriceTooltipFeature());
@@ -66,6 +69,7 @@ namespace LMQoL
                     Helper.WriteConfig(Config);
                     _silo.Reapply();
                     _kiln.Reapply();
+                    _pineNuts.Reapply();
                     LMQoL.Features.SellPriceTooltip.MachineScanner.ClearCache();
                 }
             );
@@ -140,6 +144,14 @@ namespace LMQoL
                 getValue: () => Config.SellPriceTooltipEnabled,
                 setValue: v => Config.SellPriceTooltipEnabled = v,
                 name: () => Helper.Translation.Get("sellprice.enabled").ToString()
+            );
+
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.SellPriceShowItemValue,
+                setValue: v => Config.SellPriceShowItemValue = v,
+                name: () => Helper.Translation.Get("sellprice.itemvalue").ToString(),
+                tooltip: () => Helper.Translation.Get("sellprice.itemvalue.tooltip").ToString()
             );
 
             gmcm.AddBoolOption(
@@ -345,6 +357,17 @@ namespace LMQoL
                 name: () => Helper.Translation.Get("kiln.enabled").ToString(),
                 tooltip: () => Helper.Translation.Get("kiln.enabled.tooltip").ToString()
             );
+
+            if (Helper.ModRegistry.IsLoaded("Cornucopia.ArtisanMachines"))
+            {
+                gmcm.AddBoolOption(
+                    mod: ModManifest,
+                    getValue: () => Config.PineNutsFromTreeSeedsEnabled,
+                    setValue: v => Config.PineNutsFromTreeSeedsEnabled = v,
+                    name: () => Helper.Translation.Get("pinenuts.enabled").ToString(),
+                    tooltip: () => Helper.Translation.Get("pinenuts.enabled.tooltip").ToString()
+                );
+            }
 
             // --- Build With Bags (Item Bags integration) ---
             if (Helper.ModRegistry.IsLoaded("SlayerDharok.Item_Bags"))

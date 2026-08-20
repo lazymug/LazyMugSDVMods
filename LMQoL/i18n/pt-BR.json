@@ -95,5 +95,9 @@
   "sellprice.food": "Incluir Pratos Preparados",
   "sellprice.food.tooltip": "Também lista receitas de culinária que usam este item. Desligado por padrão: pratos levam vários ingredientes, então o preço deles não é o que este item vale.",
   "cookbags.enabled": "Cozinhar Usando as Bags",
-  "cookbags.enabled.tooltip": "Adiciona uma aba de Item Bags na cozinha do Love of Cooking, permitindo cozinhar com os ingredientes guardados nas bags. O que for usado é retirado da bag ao fechar o menu."
+  "cookbags.enabled.tooltip": "Adiciona uma aba de Item Bags na cozinha do Love of Cooking, permitindo cozinhar com os ingredientes guardados nas bags. O que for usado é retirado da bag ao fechar o menu.",
+  "pinenuts.enabled": "Pinhões de Qualquer Semente de Árvore",
+  "pinenuts.enabled.tooltip": "O Compact Mill do Cornucopia também produz pinhões a partir de bolotas de carvalho e sementes de bordo (mais as sementes de bétula e pinhas de abeto do Stardew Valley Expanded), com o mesmo rendimento e tempo das pinhas.",
+  "sellprice.itemvalue": "Mostrar Valor do Próprio Item",
+  "sellprice.itemvalue.tooltip": "Mostra por quanto o item em questão é vendido, considerando a qualidade dele e os seus bônus de profissão, além do total da pilha inteira."
 }

@@ -95,5 +95,9 @@
   "sellprice.food": "Include Cooked Dishes",
   "sellprice.food.tooltip": "Also list cooking recipes that use this item. Off by default: dishes take several ingredients, so their price isn't what this one item is worth.",
   "cookbags.enabled": "Cook From Bags",
-  "cookbags.enabled.tooltip": "Adds an Item Bags tab to Love of Cooking's kitchen, so ingredients stored in your bags can be cooked with. What you use is taken from the bag when you close the menu."
+  "cookbags.enabled.tooltip": "Adds an Item Bags tab to Love of Cooking's kitchen, so ingredients stored in your bags can be cooked with. What you use is taken from the bag when you close the menu.",
+  "pinenuts.enabled": "Pine Nuts From Any Tree Seed",
+  "pinenuts.enabled.tooltip": "Cornucopia's Compact Mill also presses pine nuts from acorns and maple seeds (plus Stardew Valley Expanded's birch seeds and fir cones), at the same yield and press time as pine cones.",
+  "sellprice.itemvalue": "Show Item's Own Value",
+  "sellprice.itemvalue.tooltip": "Show what the hovered item itself sells for, including its quality and your profession bonuses, plus the total for the whole stack."
 }

@@ -16,6 +16,7 @@ namespace LMQoL
         // Sell Price Tooltip
         public bool SellPriceTooltipEnabled { get; set; } = true;
         public bool SellPriceApplyProfessions { get; set; } = true;
+        public bool SellPriceShowItemValue { get; set; } = true;
         public bool SellPriceHighlightBest { get; set; } = true;
         public bool SellPriceScanMachines { get; set; } = true;
         public int SellPriceMaxOptions { get; set; } = 3;
@@ -45,6 +46,9 @@ namespace LMQoL
 
         // Custom Charcoal Kiln
         public bool CharcoalKilnEnabled { get; set; } = true;
+
+        // Pine nuts from other tree seeds (Cornucopia's Compact Mill)
+        public bool PineNutsFromTreeSeedsEnabled { get; set; } = true;
 
         // Build With Bags (only does anything when Item Bags is installed)
         public bool BuildWithBagsEnabled { get; set; } = true;

@@ -45,7 +45,9 @@ namespace LMQoL.Features.SellPriceTooltip
 
         public static List<ProcessingOption> Scan(Object input)
         {
-            string key = input.QualifiedItemId;
+            // Quality is part of the key: with CopyQuality the same item at silver and at
+            // iridium yields different prices, so one cached answer can't serve both.
+            string key = $"{input.QualifiedItemId}:{input.Quality}";
             if (Cache.TryGetValue(key, out var cached))
                 return cached;
 
@@ -153,6 +155,23 @@ namespace LMQoL.Features.SellPriceTooltip
             // recipes with several inputs — so they'd only crowd out the options that are.
             if (!ModEntry.Config.SellPriceIncludeFood && IsPreparedFood(product))
                 return null;
+
+            // CopyQuality passes the input's quality to the product, and quality is worth
+            // +25% per star in sellToStorePrice — so ignoring it undersold everything made from
+            // silver/gold/iridium ingredients.
+            if (output.CopyQuality)
+                product.Quality = input.Quality;
+
+            if (output.QualityModifiers is { Count: > 0 })
+            {
+                float quality = product.Quality;
+                foreach (var modifier in output.QualityModifiers)
+                {
+                    if (modifier != null && string.IsNullOrEmpty(modifier.Condition))
+                        quality = QuantityModifier.Apply(quality, modifier.Modification, modifier.Amount);
+                }
+                product.Quality = Math.Clamp((int)quality, 0, 4);
+            }
 
             // CopyPrice means the product inherits the input's value, which the rule then scales.
             if (output.CopyPrice)
