@@ -99,6 +99,60 @@ Coffee Bean         → All nearby crops    | ✅ Positive  | Default       | Re
 
 [line]
 
+[size=5]🌽 Cornucopia Interactions[/size]
+[i]Active only when [url=https://www.nexusmods.com/stardewvalley/mods/24842]Cornucopia - More Crops[/url] is installed.[/i]
+
+[code]
+Source              → Target              | Effect       | Type          | Description
+────────────────────────────────────────────────────────────────────────────────────────────
+Legumes (any)       → All nearby crops    | ✅ Positive  | Quality       | Fix nitrogen in the soil
+Fennel              → All nearby crops    | ❌ Negative  | Growth Speed  | Inhibits almost everything near it
+Chives / Onion      → All nearby crops    | ✅ Positive  | Quality       | Repel pests from neighbours
+Chives / Onion      → Legumes             | ❌ Negative  | Quantity      | Alliums stunt legumes
+Chives / Onion      → Green Bean          | ❌ Negative  | Quality       | Alliums inhibit beans
+Basil               → Tomato              | ✅ Positive  | Quality       | Classic companion; improves vigour
+Basil               → Hot Pepper          | ✅ Positive  | Quality       | Shelters peppers from pests
+Basil               → Cucumber            | ❌ Negative  | Quality       | Strong aromatics sour cucumbers
+Dill                → Cabbage             | ✅ Positive  | Quality       | Attracts wasps that eat cabbage worms
+Dill                → Celery              | ❌ Negative  | Quantity      | Same family, competes when mature
+Cilantro            → All nearby crops    | ✅ Positive  | Quality       | Flowers draw beneficial insects (radius: 2)
+Mint                → All nearby crops    | ✅ Positive  | Quality       | Oils drive off pests
+Mint                → Lettuce             | ❌ Negative  | Quantity      | Spreads aggressively, crowds lettuce
+Celery              → Lettuce             | ✅ Positive  | Quality       | Shade keeps lettuce from bolting
+Asparagus           → Tomato              | ✅ Positive  | Quality       | Repels root nematodes
+Oats                → All nearby crops    | ❌ Negative  | Quantity      | Cereals draw heavily on the soil
+[/code]
+
+[i]Legumes: Adzuki Bean, Black Beans, Chickpea, Green Peas, Kidney Beans, Lentils, Navy Beans.[/i]
+
+[line]
+
+[size=5]🌿 Wildflour's Atelier Goods Interactions[/size]
+[i]Active only when [url=https://www.nexusmods.com/stardewvalley/mods/27049]Wildflour's Atelier Goods[/url] is installed.[/i]
+
+[code]
+Source              → Target              | Effect       | Type          | Description
+────────────────────────────────────────────────────────────────────────────────────────────
+Aromatic herbs      → All nearby crops    | ✅ Positive  | Quality       | Mask neighbours from pests
+Basil               → Tomato              | ✅ Positive  | Quality       | Classic companion; improves vigour
+Chamomile           → All nearby crops    | ✅ Positive  | Quality       | The "physician plant" (radius: 2)
+Rosemary            → Cauliflower         | ✅ Positive  | Quality       | Keeps cabbage moths off brassicas
+Lavender            → Mallow              | ❌ Negative  | Quality       | Wants dry soil, suffers by thirsty plants
+Mint                → All nearby crops    | ✅ Positive  | Quality       | Oils drive off pests
+Mint                → Chamomile           | ❌ Negative  | Quantity      | Spreads and crowds out herbs
+Red Onion           → All nearby crops    | ✅ Positive  | Quality       | Repels pests from neighbours
+Red Onion           → Green Bean          | ❌ Negative  | Quality       | Alliums inhibit beans
+Wormwood            → All nearby crops    | ❌ Negative  | Growth Speed  | Leaches absinthin; stunts almost all (radius: 2)
+Wild Strawberry     → Strawberry          | ❌ Negative  | Quantity      | Compete for the same shallow soil
+Wild Raspberry      → All nearby crops    | ✅ Positive  | Quality       | Bramble roots break up hard soil
+Jasmine             → All nearby crops    | ✅ Positive  | Quality       | Night scent pulls in pollinators (radius: 2)
+Vanilla             → Vanilla             | ❌ Negative  | Quality       | Vines tangle when planted too close
+[/code]
+
+[i]Aromatic herbs: Basil, Chamomile, Cilantro, Lavender, Mint, Rosemary, Sage, Thyme.[/i]
+
+[line]
+
 [size=5]🎮 How Effects Work[/size]
 
 Each interaction has a [b]type[/b] that determines what happens to the target crop:
