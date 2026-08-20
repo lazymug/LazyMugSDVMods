@@ -11,8 +11,6 @@
   "magnet.speed.tooltip": "Velocidade com que os itens se movem até você. Maior = coleta mais rápida.",
   "section.sellprice": "Tooltip de Preço de Venda",
   "sellprice.enabled": "Ativar Tooltip de Preço",
-  "sellprice.showartisan": "Mostrar Preços Artesão",
-  "sellprice.showartisan.tooltip": "Se você tem a profissão Artesão, mostra os preços com bônus (+40%) ao invés dos preços base.",
   "sellprice.highlight": "Destacar Melhor Opção",
   "sellprice.highlight.tooltip": "Marca a opção de processamento mais lucrativa com um asterisco (*).",
   "section.quickstack": "Empilhar Rápido em Baús Próximos",
@@ -89,5 +87,7 @@
   "sellprice.cornucopia": "Incluir Máquinas do Cornucopia",
   "sellprice.cornucopia.tooltip": "Lista na dica os produtos das máquinas artesanais do Cornucopia. Só aparece porque o Cornucopia está instalado.",
   "sellprice.wildflour": "Incluir Máquinas do Wildflour",
-  "sellprice.wildflour.tooltip": "Lista na dica os produtos das máquinas do Wildflour's Atelier Goods. Só aparece porque esse mod está instalado."
+  "sellprice.wildflour.tooltip": "Lista na dica os produtos das máquinas do Wildflour's Atelier Goods. Só aparece porque esse mod está instalado.",
+  "sellprice.professions": "Aplicar Bônus de Profissão",
+  "sellprice.professions.tooltip": "Mostra quanto cada produto realmente vale para você, incluindo todos os bônus de profissão que se aplicam a ele (Artesão, Cultivador, Pecuarista, Pescador/Angler, Extrator, Ferreiro, Gemólogo) e a qualidade. Desligue para ver os preços base."
 }

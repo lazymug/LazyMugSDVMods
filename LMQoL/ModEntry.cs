@@ -139,10 +139,10 @@ namespace LMQoL
 
             gmcm.AddBoolOption(
                 mod: ModManifest,
-                getValue: () => Config.SellPriceShowArtisan,
-                setValue: v => Config.SellPriceShowArtisan = v,
-                name: () => Helper.Translation.Get("sellprice.showartisan").ToString(),
-                tooltip: () => Helper.Translation.Get("sellprice.showartisan.tooltip").ToString()
+                getValue: () => Config.SellPriceApplyProfessions,
+                setValue: v => Config.SellPriceApplyProfessions = v,
+                name: () => Helper.Translation.Get("sellprice.professions").ToString(),
+                tooltip: () => Helper.Translation.Get("sellprice.professions.tooltip").ToString()
             );
 
             gmcm.AddBoolOption(

@@ -11,8 +11,6 @@
   "magnet.speed.tooltip": "How fast items move towards you. Higher = faster pickup.",
   "section.sellprice": "Sell Price Tooltip",
   "sellprice.enabled": "Enable Sell Price Tooltip",
-  "sellprice.showartisan": "Show Artisan Prices",
-  "sellprice.showartisan.tooltip": "If you have the Artisan profession, show the boosted (+40%) prices instead of base prices.",
   "sellprice.highlight": "Highlight Best Option",
   "sellprice.highlight.tooltip": "Mark the most profitable processing option with an asterisk (*).",
   "section.quickstack": "Quick Stack to Nearby Chests",
@@ -89,5 +87,7 @@
   "sellprice.cornucopia": "Include Cornucopia Machines",
   "sellprice.cornucopia.tooltip": "List products from Cornucopia's artisan machines in the tooltip. Only shown because Cornucopia is installed.",
   "sellprice.wildflour": "Include Wildflour Machines",
-  "sellprice.wildflour.tooltip": "List products from Wildflour's Atelier Goods machines in the tooltip. Only shown because that mod is installed."
+  "sellprice.wildflour.tooltip": "List products from Wildflour's Atelier Goods machines in the tooltip. Only shown because that mod is installed.",
+  "sellprice.professions": "Apply Profession Bonuses",
+  "sellprice.professions.tooltip": "Show what each product is really worth to you, including every profession bonus that applies to it (Artisan, Tiller, Rancher, Fisher/Angler, Tapper, Blacksmith, Gemologist) plus quality. Turn off to see plain base prices."
 }

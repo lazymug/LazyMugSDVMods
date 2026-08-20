@@ -129,31 +129,31 @@ namespace LMQoL.Features.SellPriceTooltip
             if (string.IsNullOrEmpty(id) || id.Contains(' '))
                 return null;   // token like "FLAVORED_ITEM Wine DROP_IN_ID"
 
-            float price;
+            if (ItemRegistry.Create(id, 1, 0, allowNull: true) is not Object product)
+                return null;
+
+            // CopyPrice means the product inherits the input's value, which the rule then scales.
             if (output.CopyPrice)
             {
-                price = input.Price;
-            }
-            else
-            {
-                var product = ItemRegistry.Create(id, 1, 0, allowNull: true);
-                if (product == null)
-                    return null;
-                price = product.sellToStorePrice();
+                float basePrice = input.Price;
+                if (output.PriceModifiers is { Count: > 0 })
+                {
+                    foreach (var modifier in output.PriceModifiers)
+                    {
+                        if (modifier != null && string.IsNullOrEmpty(modifier.Condition))
+                            basePrice = QuantityModifier.Apply(basePrice, modifier.Modification, modifier.Amount);
+                    }
+                }
+                product.Price = (int)basePrice;
             }
 
-            if (output.PriceModifiers is { Count: > 0 })
-            {
-                foreach (var modifier in output.PriceModifiers)
-                {
-                    if (modifier != null && string.IsNullOrEmpty(modifier.Condition))
-                        price = QuantityModifier.Apply(price, modifier.Modification, modifier.Amount);
-                }
-            }
+            // Price it as the finished product: profession bonuses key off the PRODUCT's category
+            // (Artisan on artisan goods, Tapper on syrup, and so on), not the input's.
+            int price = PriceCalculator.SellPrice(product);
 
             // a rule that yields several of the product is worth that much more
             int stack = Math.Max(1, output.MinStack > 0 ? output.MinStack : 1);
-            return (int)(price * stack);
+            return price * stack;
         }
 
         private static string DisplayName(string? itemId)

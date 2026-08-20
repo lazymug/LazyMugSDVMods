@@ -15,7 +15,7 @@ namespace LMQoL
 
         // Sell Price Tooltip
         public bool SellPriceTooltipEnabled { get; set; } = true;
-        public bool SellPriceShowArtisan { get; set; } = true;
+        public bool SellPriceApplyProfessions { get; set; } = true;
         public bool SellPriceHighlightBest { get; set; } = true;
         public bool SellPriceScanMachines { get; set; } = true;
         public int SellPriceMaxOptions { get; set; } = 6;
