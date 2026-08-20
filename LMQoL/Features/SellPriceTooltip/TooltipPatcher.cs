@@ -35,8 +35,10 @@ namespace LMQoL.Features.SellPriceTooltip
             foreach (var option in shown)
             {
                 string marker = highlight && option.Price == bestPrice && options.Count > 1 ? " *" : "";
+                // make it obvious the figure is per item when a batch eats several
+                string batch = option.InputCount > 1 ? $" /{option.InputCount}x" : "";
 
-                sb.Append($"\n{option.MachineName}: {option.Price}g ({option.ProductName}){marker}");
+                sb.Append($"\n{option.MachineName}: {option.Price}g ({option.ProductName}{batch}){marker}");
             }
 
             if (hidden > 0)

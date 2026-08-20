@@ -60,7 +60,11 @@ namespace LMQoL.Features.SellPriceTooltip
                     string? machineName = null;
                     foreach (var rule in machine.OutputRules)
                     {
-                        if (rule?.Triggers == null || rule.OutputItem == null || !MatchesAny(rule.Triggers, input))
+                        if (rule?.Triggers == null || rule.OutputItem == null)
+                            continue;
+
+                        int inputCount = MatchedInputCount(rule.Triggers, input);
+                        if (inputCount <= 0)
                             continue;
 
                         foreach (var output in rule.OutputItem)
@@ -69,9 +73,17 @@ namespace LMQoL.Features.SellPriceTooltip
                             if (price is not > 0)
                                 continue;
 
+                            // Machines like the Dehydrator and Alembic eat several items per
+                            // batch, so the batch price is divided by how many go in. Otherwise a
+                            // 5-fruit product looks five times better than it is next to a
+                            // one-fruit keg.
+                            int perItem = price.Value / inputCount;
+                            if (perItem <= 0)
+                                continue;
+
                             machineName ??= DisplayName(machineId);
                             string productName = DisplayName(output.ItemId);
-                            results.Add(new ProcessingOption(machineName, productName, price.Value));
+                            results.Add(new ProcessingOption(machineName, productName, perItem, inputCount));
                         }
                     }
                 }
@@ -85,37 +97,42 @@ namespace LMQoL.Features.SellPriceTooltip
             return results;
         }
 
-        private static bool MatchesAny(List<MachineOutputTriggerRule> triggers, Object input)
+        /// <summary>How many of <paramref name="input"/> the first matching trigger consumes,
+        /// or 0 when this rule doesn't accept the item at all.</summary>
+        private static int MatchedInputCount(List<MachineOutputTriggerRule> triggers, Object input)
         {
             foreach (var trigger in triggers)
             {
                 if (trigger == null || !trigger.Trigger.HasFlag(MachineOutputTrigger.ItemPlacedInMachine))
                     continue;
 
+                bool matches;
                 if (!string.IsNullOrEmpty(trigger.RequiredItemId))
                 {
-                    if (trigger.RequiredItemId == input.QualifiedItemId || trigger.RequiredItemId == input.ItemId)
-                        return true;
-                    continue;
+                    matches = trigger.RequiredItemId == input.QualifiedItemId || trigger.RequiredItemId == input.ItemId;
                 }
-
-                if (trigger.RequiredTags is { Count: > 0 })
+                else if (trigger.RequiredTags is { Count: > 0 })
                 {
-                    bool all = true;
+                    matches = true;
                     foreach (string tag in trigger.RequiredTags)
                     {
                         if (!input.HasContextTag(tag))
                         {
-                            all = false;
+                            matches = false;
                             break;
                         }
                     }
-                    if (all)
-                        return true;
                 }
+                else
+                {
+                    continue;
+                }
+
+                if (matches)
+                    return Math.Max(1, trigger.RequiredCount);
             }
 
-            return false;
+            return 0;
         }
 
         /// <summary>Sell price of what the rule produces, or null when it can't be worked out

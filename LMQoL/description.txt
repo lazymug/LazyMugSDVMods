@@ -37,6 +37,11 @@ Every feature and its settings — including the Quick Stack key and search radi
 
 [size=5][b]Changelog[/b][/size]
 
+[b]1.8.2[/b]
+[list]
+[*][b]Fix:[/b] machines that consume several items per batch — the Dehydrator and Cornucopia's Alembic take 5 (sometimes 10) — were priced as if one item produced the whole batch, making them look far better than they are. The figure is now the value [b]per input item[/b], and the batch size is shown next to the product (e.g. "Dried Fruit /5x") so the comparison against single-item machines is honest.
+[/list]
+
 [b]1.8.1[/b]
 [list]
 [*][b]Fix:[/b] processing prices now come from the game's own sell-price calculation, so they reflect every profession bonus that applies to each product — Artisan, Tiller, Rancher, Fisher/Angler, Tapper, Blacksmith, Gemologist — plus quality and the difficulty modifier. Previously a flat +40% was applied to everything whenever you had Artisan, which overstated products Artisan doesn't affect (smoked fish, syrup, bars, gems) and ignored the other professions entirely. The "Show Artisan Prices" option is now "Apply Profession Bonuses".

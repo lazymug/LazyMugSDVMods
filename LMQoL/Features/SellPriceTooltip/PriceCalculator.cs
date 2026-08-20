@@ -5,7 +5,10 @@ using Object = StardewValley.Object;
 
 namespace LMQoL.Features.SellPriceTooltip
 {
-    public record ProcessingOption(string MachineName, string ProductName, int Price);
+    /// <param name="Price">Value per input item, so options that consume several items per batch
+/// stay comparable with ones that take a single item.</param>
+/// <param name="InputCount">How many input items one batch consumes.</param>
+public record ProcessingOption(string MachineName, string ProductName, int Price, int InputCount = 1);
 
     public static class PriceCalculator
     {
