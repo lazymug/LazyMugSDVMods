@@ -196,17 +196,18 @@ namespace Allellopathy.Utils
             return cropsInRadius;
         }
 
-        public static int GetCropIdFromHoeDirt(HoeDirt dirt)
+        /// <summary>The harvest item id of the crop growing here, or null if there isn't one.</summary>
+        /// <remarks>Ids are strings: vanilla crops read as "190", modded ones as
+        /// "Cornucopia_Basil". Parsing them as ints, as this used to, silently dropped every
+        /// modded crop.</remarks>
+        public static string? GetCropIdFromHoeDirt(HoeDirt dirt)
         {
-            if (dirt?.crop == null)
-                return -1;
+            string? harvestId = dirt?.crop?.indexOfHarvest.Value;
+            if (string.IsNullOrEmpty(harvestId))
+                return null;
 
-            // In SDV 1.6, indexOfHarvest is a NetString containing the item ID (e.g. "190" for Cauliflower)
-            string? harvestId = dirt.crop.indexOfHarvest.Value;
-            if (!string.IsNullOrEmpty(harvestId) && int.TryParse(harvestId, out int result))
-                return result;
-
-            return -1;
+            // some data sources qualify the id; the crop data does not
+            return harvestId.StartsWith("(O)") ? harvestId.Substring(3) : harvestId;
         }
     }
 }

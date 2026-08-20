@@ -40,8 +40,19 @@ namespace Allellopathy
             // Load configuration
             this.Config = this.Helper.ReadConfig<ModConfig>();
             
+            // Detect the crop mods we ship rules for, before the rule table is built: their crops
+            // use string ids (e.g. "Cornucopia_Basil"), so the rules are only worth adding when
+            // the mod that defines them is actually installed.
+            AllelopathicInteractionManager.CornucopiaLoaded = helper.ModRegistry.IsLoaded("Cornucopia.MoreCrops");
+            AllelopathicInteractionManager.WildflourLoaded = helper.ModRegistry.IsLoaded("Wildflour.AtelierGoods");
+
             // Initialize interaction manager
             _interactionManager = new AllelopathicInteractionManager();
+
+            if (AllelopathicInteractionManager.CornucopiaLoaded)
+                Monitor.Log("Cornucopia detected — allelopathy rules for its crops are active.", LogLevel.Debug);
+            if (AllelopathicInteractionManager.WildflourLoaded)
+                Monitor.Log("Wildflour's Atelier Goods detected — allelopathy rules for its herbs are active.", LogLevel.Debug);
 
             // Register event handlers
             helper.Events.GameLoop.DayStarted += OnDayStarted;
@@ -178,8 +189,8 @@ namespace Allellopathy
                 (obj.Category == StardewValley.Object.SeedsCategory ||
                  obj.getCategoryName() == "Seeds"))
             {
-                int seedCropId = GetCropIdFromSeed(obj.ParentSheetIndex);
-                if (seedCropId > 0)
+                string? seedCropId = GetCropIdFromSeed(obj.ItemId);
+                if (seedCropId != null)
                 {
                     ShowAllelopathicIndicators(e.SpriteBatch, seedCropId);
                 }
@@ -259,8 +270,8 @@ namespace Allellopathy
                 return false;
 
             // Get the crop ID
-            int targetCropId = CropEffects.GetCropIdFromHoeDirt(hoeDirt);
-            if (targetCropId == -1)
+            string? targetCropId = CropEffects.GetCropIdFromHoeDirt(hoeDirt);
+            if (targetCropId == null)
                 return false;
 
             // Use the max interaction radius to find nearby crops
@@ -270,8 +281,8 @@ namespace Allellopathy
 
             foreach (var nearbyPair in nearbyCrops)
             {
-                int sourceCropId = CropEffects.GetCropIdFromHoeDirt(nearbyPair.Value);
-                if (sourceCropId == -1)
+                string? sourceCropId = CropEffects.GetCropIdFromHoeDirt(nearbyPair.Value);
+                if (sourceCropId == null)
                     continue;
 
                 var interaction = _interactionManager.GetInteraction(sourceCropId, targetCropId);
@@ -327,13 +338,14 @@ namespace Allellopathy
         /// </summary>
         /// <param name="seedId">The seed item ID.</param>
         /// <returns>The crop ID, or -1 if not found.</returns>
-        private int GetCropIdFromSeed(int seedId)
+        private string? GetCropIdFromSeed(string seedId)
         {
-            // This is a simplified implementation - in a real mod, you'd need to map seed IDs to crop IDs
-            // For vanilla seeds, you can often derive the crop ID from the seed ID or use a dictionary
-            
-            // For testing purposes, return a valid crop ID
-            return seedId + 1; // Simple mapping for testing
+            // Data/Crops maps a seed to what it harvests into, which covers modded seeds too.
+            // (This used to guess with "seedId + 1", which was only ever right by accident.)
+            if (string.IsNullOrEmpty(seedId))
+                return null;
+
+            return Crop.TryGetData(seedId, out var data) ? data.HarvestItemId : null;
         }
         
         /// <summary>
@@ -341,7 +353,7 @@ namespace Allellopathy
         /// </summary>
         /// <param name="spriteBatch">The sprite batch.</param>
         /// <param name="seedCropId">The crop ID of the seed being held.</param>
-        private void ShowAllelopathicIndicators(SpriteBatch spriteBatch, int seedCropId)
+        private void ShowAllelopathicIndicators(SpriteBatch spriteBatch, string seedCropId)
         {
             if (!Config.ShowVisualIndicators)
                 return;
@@ -360,8 +372,8 @@ namespace Allellopathy
                     if (Game1.currentLocation.terrainFeatures.TryGetValue(checkTile, out TerrainFeature feature) &&
                         feature is HoeDirt dirt && dirt.crop != null)
                     {
-                        int existingCropId = CropEffects.GetCropIdFromHoeDirt(dirt);
-                        if (existingCropId == -1)
+                        string? existingCropId = CropEffects.GetCropIdFromHoeDirt(dirt);
+                        if (existingCropId == null)
                             continue;
 
                         // Check interaction between the seed crop and the existing crop
@@ -458,14 +470,14 @@ namespace Allellopathy
                 // If no modData yet, check neighbors directly for real-time feedback
                 if (!hasPositive && !hasNegative)
                 {
-                    int targetCropId = CropEffects.GetCropIdFromHoeDirt(dirt);
-                    if (targetCropId != -1)
+                    string? targetCropId = CropEffects.GetCropIdFromHoeDirt(dirt);
+                    if (targetCropId != null)
                     {
                         var nearbyCrops = CropEffects.GetCropsInRadius(Game1.currentLocation, cursorTile, 2);
                         foreach (var nearbyPair in nearbyCrops)
                         {
-                            int sourceCropId = CropEffects.GetCropIdFromHoeDirt(nearbyPair.Value);
-                            if (sourceCropId == -1) continue;
+                            string? sourceCropId = CropEffects.GetCropIdFromHoeDirt(nearbyPair.Value);
+                            if (sourceCropId == null) continue;
 
                             var interaction = _interactionManager.GetInteraction(sourceCropId, targetCropId);
                             if (interaction != null)
