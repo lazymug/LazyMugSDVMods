@@ -2,7 +2,7 @@
 
 [i]A cozy card game for Pelican Town — in the spirit of Triple Triad.[/i]
 
-[color=#e0a030][b]🚧 WORK IN PROGRESS — v0.1.0 (preview) 🚧[/b][/color]
+[color=#e0a030][b]🚧 WORK IN PROGRESS — early preview 🚧[/b][/color]
 This is an early public preview. The game is fully playable and every card is illustrated.
 Expect rough edges — and please share feedback and bug reports! 🙏
 
@@ -138,6 +138,11 @@ as casas elementais e o modo de aposta. ⚙️
 [line]
 
 [size=5][b]📝 Changelog[/b][/size]
+
+[b]0.1.2[/b] 🩹
+[list]
+[*]The card-game challenge is now offered [b]after[/b] the villager's normal conversation, instead of replacing it. Talk to them as usual; once they're done, they'll ask if you fancy a game. / O desafio agora é oferecido [b]depois[/b] da conversa normal do morador, em vez de substituí-la. Fale com ele normalmente; ao terminar, ele pergunta se você quer jogar.
+[/list]
 
 [b]0.1.1[/b] 🩹
 [list]

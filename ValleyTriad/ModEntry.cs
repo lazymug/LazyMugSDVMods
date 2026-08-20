@@ -17,6 +17,12 @@ namespace ValleyTriad
         private const string IntroEventId = "76227400"; // matches [CP] Valley Triad event key
         private const string TutorialMailFlag = "ValleyTriad_TutorialYes"; // set by the event's "Yes" answer
 
+        private const int DialogueGraceTicks = 15;   // ~0.25s for a dialogue box to open
+
+        private NPC? _pendingChallenge;
+        private int _pendingTicks;
+        private bool _pendingSawDialogue;
+
         private ModConfig _config = null!;
         private readonly CardDatabase _cards = new();
         private CardRenderer _renderer = null!;
@@ -33,6 +39,7 @@ namespace ValleyTriad
             helper.Events.GameLoop.SaveLoaded += (_, _) => _collection.Load();
             helper.Events.GameLoop.OneSecondUpdateTicked += OnSecondTick;
             helper.Events.Input.ButtonPressed += OnButtonPressed;
+            helper.Events.GameLoop.UpdateTicked += OnChallengeTick;
 
             helper.ConsoleCommands.Add("vt_test", "Headless engine self-test.", (_, _) => SelfTest());
             helper.ConsoleCommands.Add("vt_open", "Open a practice match (uses your deck).", (_, _) => Practice());
@@ -124,9 +131,42 @@ namespace ValleyTriad
             var ch = Game1.currentLocation.isCharacterAtTile(e.Cursor.GrabTile);
             if (ch is NPC npc && npc.IsVillager)
             {
-                Helper.Input.Suppress(e.Button);
-                ShowChallenge(npc);
+                // Let the interaction run as usual so the villager says their piece; the challenge
+                // is offered once they've finished, not in place of the conversation.
+                _pendingChallenge = npc;
+                _pendingTicks = 0;
+                _pendingSawDialogue = false;
             }
+        }
+
+        /// <summary>Waits for the villager's conversation to finish, then offers the game.
+        /// A villager with nothing to say never opens a dialogue box, so after a short grace
+        /// period we offer anyway rather than waiting forever.</summary>
+        private void OnChallengeTick(object? sender, UpdateTickedEventArgs e)
+        {
+            if (_pendingChallenge == null)
+                return;
+
+            if (!Context.IsWorldReady || Game1.currentLocation?.Name != "Saloon")
+            {
+                _pendingChallenge = null;   // player walked off or the world changed
+                return;
+            }
+
+            // still busy: reading dialogue, in a menu, or a cutscene started
+            if (Game1.activeClickableMenu != null || !Context.IsPlayerFree || Game1.eventUp)
+            {
+                _pendingSawDialogue = true;
+                _pendingTicks = 0;          // don't time out while they're reading
+                return;
+            }
+
+            if (!_pendingSawDialogue && ++_pendingTicks < DialogueGraceTicks)
+                return;                     // give the dialogue box a moment to appear
+
+            var npc = _pendingChallenge;
+            _pendingChallenge = null;
+            ShowChallenge(npc);
         }
 
         private void ShowChallenge(NPC npc)
@@ -141,29 +181,10 @@ namespace ValleyTriad
                 answers, (_, key) =>
                 {
                     if (key == "vt_yes") StartMatch(npc);
-                    else TalkNormally(npc);
+                    // declining needs no follow-up: the villager already had their conversation
                 });
         }
 
-        /// <summary>Declining the challenge must not swallow the interaction: we suppressed the
-        /// action button to show the prompt, so fall through to the villager's usual dialogue.
-        /// Waits for the question box to finish closing before talking.</summary>
-        private void TalkNormally(NPC npc)
-        {
-            int tries = 0;
-            void Resume(object? sender, UpdateTickedEventArgs e)
-            {
-                if (++tries > 60 || !Context.IsWorldReady)      // ~1s, then give up rather than leak the handler
-                {
-                    Helper.Events.GameLoop.UpdateTicked -= Resume;
-                    return;
-                }
-                if (Game1.activeClickableMenu != null || !Context.IsPlayerFree) return;
-                Helper.Events.GameLoop.UpdateTicked -= Resume;
-                npc.checkAction(Game1.player, Game1.currentLocation);
-            }
-            Helper.Events.GameLoop.UpdateTicked += Resume;
-        }
 
         private void StartMatch(NPC npc)
         {
