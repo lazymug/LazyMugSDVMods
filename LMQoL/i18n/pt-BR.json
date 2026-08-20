@@ -93,5 +93,7 @@
   "shoptrade.enabled": "Trocar Usando as Bags",
   "shoptrade.enabled.tooltip": "Lojas que trocam itens por itens (o Mercador do Deserto, o Mercador da Ilha) contam os itens guardados nas suas Item Bags no preço e os retiram automaticamente na compra.",
   "sellprice.food": "Incluir Pratos Preparados",
-  "sellprice.food.tooltip": "Também lista receitas de culinária que usam este item. Desligado por padrão: pratos levam vários ingredientes, então o preço deles não é o que este item vale."
+  "sellprice.food.tooltip": "Também lista receitas de culinária que usam este item. Desligado por padrão: pratos levam vários ingredientes, então o preço deles não é o que este item vale.",
+  "cookbags.enabled": "Cozinhar Usando as Bags",
+  "cookbags.enabled.tooltip": "Adiciona uma aba de Item Bags na cozinha do Love of Cooking, permitindo cozinhar com os ingredientes guardados nas bags. O que for usado é retirado da bag ao fechar o menu."
 }

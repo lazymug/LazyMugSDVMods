@@ -49,6 +49,7 @@ namespace LMQoL
         // Build With Bags (only does anything when Item Bags is installed)
         public bool BuildWithBagsEnabled { get; set; } = true;
         public bool ShopTradeWithBagsEnabled { get; set; } = true;
+        public bool CookWithBagsEnabled { get; set; } = true;
 
         // Item Totals tooltip inside an open Item Bag
         public bool ItemTotalsEnabled { get; set; } = true;

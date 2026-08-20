@@ -7,6 +7,7 @@ using LMQoL.Features.MagnetRadiusForaging;
 using LMQoL.Features.QuickStack;
 using LMQoL.Features.BuildWithBags;
 using LMQoL.Features.CharcoalKiln;
+using LMQoL.Features.CookingWithBags;
 using LMQoL.Features.ItemTotals;
 using LMQoL.Features.SellAnything;
 using LMQoL.Features.SellPriceTooltip;
@@ -19,6 +20,9 @@ namespace LMQoL
     {
         internal static ModConfig Config { get; private set; } = null!;
 
+        /// <summary>Shared instance, for features that patch types resolved at runtime.</summary>
+        internal static Harmony Harmony { get; private set; } = null!;
+
         private readonly List<IFeature> _features = new();
         private readonly SiloCapacityFeature _silo = new();
         private readonly CharcoalKilnFeature _kiln = new();
@@ -27,8 +31,8 @@ namespace LMQoL
         {
             Config = helper.ReadConfig<ModConfig>();
 
-            var harmony = new Harmony(ModManifest.UniqueID);
-            harmony.PatchAll();
+            Harmony = new Harmony(ModManifest.UniqueID);
+            Harmony.PatchAll();
 
             // Register features
             _features.Add(new AutoGateFeature());
@@ -37,6 +41,7 @@ namespace LMQoL
             _features.Add(_silo);
             _features.Add(new SpeciesTooltipFeature());
             _features.Add(new BuildWithBagsFeature());
+            _features.Add(new CookingWithBagsFeature());
             _features.Add(_kiln);
             _features.Add(new ItemTotalsFeature());
             _features.Add(new SellAnythingFeature());
@@ -364,6 +369,17 @@ namespace LMQoL
                     name: () => Helper.Translation.Get("shoptrade.enabled").ToString(),
                     tooltip: () => Helper.Translation.Get("shoptrade.enabled.tooltip").ToString()
                 );
+
+                if (Helper.ModRegistry.IsLoaded("blueberry.LoveOfCooking"))
+                {
+                    gmcm.AddBoolOption(
+                        mod: ModManifest,
+                        getValue: () => Config.CookWithBagsEnabled,
+                        setValue: v => Config.CookWithBagsEnabled = v,
+                        name: () => Helper.Translation.Get("cookbags.enabled").ToString(),
+                        tooltip: () => Helper.Translation.Get("cookbags.enabled.tooltip").ToString()
+                    );
+                }
 
                 gmcm.AddBoolOption(
                     mod: ModManifest,
