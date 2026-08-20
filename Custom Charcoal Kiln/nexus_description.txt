@@ -1,0 +1,34 @@
+[size=5][color=#e0a030][b]⚠️ This mod has moved into LM QoL[/b][/color][/size]
+
+[b]Custom Charcoal Kiln is no longer developed as a standalone mod.[/b] Its charcoal kiln recipes are now a built-in feature of [url=https://www.nexusmods.com/stardewvalley/mods/46698][b]LM QoL[/b][/url] (version 1.6.0 and later), where they work exactly the same — but [b]without needing Producer Framework Mod[/b], because they were rebuilt on Stardew Valley 1.6's own machine data.
+
+[line]
+
+[size=4][b]How to switch[/b][/size]
+[list=1]
+[*]Install [url=https://www.nexusmods.com/stardewvalley/mods/46698]LM QoL[/url]
+[*][b]Delete the [i][PFM] Custom Charcoal Kiln[/i] folder from your Mods directory[/b] — if both are installed they fight over the same machine
+[*]That's it. The feature is on by default and can be toggled in Generic Mod Config Menu
+[/list]
+
+You can keep Producer Framework Mod installed if other content packs need it; LM QoL doesn't use it.
+
+[line]
+
+[size=4][b]The recipes (unchanged)[/b][/size]
+[list]
+[*]Driftwood → 1 Coal (40 minutes)
+[*]Torch → 3 Coal (30 minutes)
+[*]Wood → 5 Coal (60 minutes)
+[*]Hardwood → 45 Coal (550 minutes)
+[/list]
+These replace the vanilla "10 wood → 1 coal" recipe.
+
+[line]
+
+[size=4][b]Why the move[/b][/size]
+Keeping one small content pack alive for four recipes meant a hard dependency on Producer Framework Mod for anyone who wanted them. Stardew Valley 1.6 added machine data that can express the same rules natively, so folding the feature into LM QoL removed that dependency and put the recipes alongside the other quality-of-life options, with its own on/off switch.
+
+[line]
+
+[i]This page stays up for reference. The existing download still works for anyone on Producer Framework Mod who prefers it, but it won't receive further updates.[/i]
