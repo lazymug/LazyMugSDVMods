@@ -81,5 +81,13 @@
   "sellany.shipping": "Allow in Shipping Bin",
   "sellany.shipping.tooltip": "Furniture and other blocked items can be placed in the shipping bin.",
   "sellany.shops": "Allow in Shops",
-  "sellany.shops.tooltip": "Also let shopkeepers buy anything, not just the categories they normally deal in. Off by default, since it lets you sell anything to anyone."
+  "sellany.shops.tooltip": "Also let shopkeepers buy anything, not just the categories they normally deal in. Off by default, since it lets you sell anything to anyone.",
+  "sellprice.scan": "Include Modded Machines",
+  "sellprice.scan.tooltip": "Read the game's machine data so machines added by mods (Cornucopia, Wildflour's Atelier Goods, and others) show up in the tooltip too.",
+  "sellprice.max": "Max Options Shown",
+  "sellprice.max.tooltip": "How many processing options to list, highest value first. Keeps the tooltip readable when many machines accept the same item.",
+  "sellprice.cornucopia": "Include Cornucopia Machines",
+  "sellprice.cornucopia.tooltip": "List products from Cornucopia's artisan machines in the tooltip. Only shown because Cornucopia is installed.",
+  "sellprice.wildflour": "Include Wildflour Machines",
+  "sellprice.wildflour.tooltip": "List products from Wildflour's Atelier Goods machines in the tooltip. Only shown because that mod is installed."
 }

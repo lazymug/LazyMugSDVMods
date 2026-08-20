@@ -22,10 +22,16 @@ namespace LMQoL.Features.SellPriceTooltip
 
             int bestPrice = options.Max(o => hasArtisan ? PriceCalculator.ApplyArtisan(o.Price) : o.Price);
 
+            // modded machine sets can accept the same item many times over; keep the tooltip to
+            // the most profitable handful rather than letting it run off the screen
+            int limit = System.Math.Max(1, config.SellPriceMaxOptions);
+            var shown = options.OrderByDescending(o => o.Price).Take(limit).ToList();
+            int hidden = options.Count - shown.Count;
+
             var sb = new StringBuilder(__result);
             sb.Append("\n\n--- Processing ---");
 
-            foreach (var option in options)
+            foreach (var option in shown)
             {
                 int price = hasArtisan ? PriceCalculator.ApplyArtisan(option.Price) : option.Price;
                 string marker = highlight && price == bestPrice && options.Count > 1 ? " *" : "";
@@ -33,6 +39,9 @@ namespace LMQoL.Features.SellPriceTooltip
 
                 sb.Append($"\n{option.MachineName}: {price}g ({option.ProductName}){artisanTag}{marker}");
             }
+
+            if (hidden > 0)
+                sb.Append($"\n(+{hidden} more)");
 
             if (highlight && options.Count > 1)
                 sb.Append("\n* = best profit");

@@ -81,5 +81,13 @@
   "sellany.shipping": "Permitir na Caixa de Entrega",
   "sellany.shipping.tooltip": "Móveis e outros itens bloqueados podem ser colocados na caixa de entrega.",
   "sellany.shops": "Permitir nas Lojas",
-  "sellany.shops.tooltip": "Também deixa os lojistas comprarem qualquer coisa, não só as categorias com que costumam trabalhar. Desligado por padrão, pois permite vender qualquer item para qualquer um."
+  "sellany.shops.tooltip": "Também deixa os lojistas comprarem qualquer coisa, não só as categorias com que costumam trabalhar. Desligado por padrão, pois permite vender qualquer item para qualquer um.",
+  "sellprice.scan": "Incluir Máquinas de Mods",
+  "sellprice.scan.tooltip": "Lê os dados de máquinas do jogo para que máquinas adicionadas por mods (Cornucopia, Wildflour's Atelier Goods e outros) também apareçam na dica.",
+  "sellprice.max": "Máx. de Opções Exibidas",
+  "sellprice.max.tooltip": "Quantas opções de processamento listar, da mais valiosa para a menos. Evita que a dica fique enorme quando muitas máquinas aceitam o mesmo item.",
+  "sellprice.cornucopia": "Incluir Máquinas do Cornucopia",
+  "sellprice.cornucopia.tooltip": "Lista na dica os produtos das máquinas artesanais do Cornucopia. Só aparece porque o Cornucopia está instalado.",
+  "sellprice.wildflour": "Incluir Máquinas do Wildflour",
+  "sellprice.wildflour.tooltip": "Lista na dica os produtos das máquinas do Wildflour's Atelier Goods. Só aparece porque esse mod está instalado."
 }

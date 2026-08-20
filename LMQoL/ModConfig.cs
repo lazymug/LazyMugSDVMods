@@ -17,6 +17,10 @@ namespace LMQoL
         public bool SellPriceTooltipEnabled { get; set; } = true;
         public bool SellPriceShowArtisan { get; set; } = true;
         public bool SellPriceHighlightBest { get; set; } = true;
+        public bool SellPriceScanMachines { get; set; } = true;
+        public int SellPriceMaxOptions { get; set; } = 6;
+        public bool SellPriceIncludeCornucopia { get; set; } = true;
+        public bool SellPriceIncludeWildflour { get; set; } = true;
 
         // Quick Stack to Nearby Chests
         public bool QuickStackEnabled { get; set; } = true;

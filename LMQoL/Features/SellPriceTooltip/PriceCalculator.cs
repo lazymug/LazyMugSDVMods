@@ -34,6 +34,21 @@ namespace LMQoL.Features.SellPriceTooltip
             if (smokerOption != null)
                 options.Add(smokerOption);
 
+            // Anything registered in Data/Machines — modded machines included — on top of the
+            // hand-written rules above, which cover the flavoured products the data can't price.
+            if (ModEntry.Config.SellPriceScanMachines)
+            {
+                var seen = new HashSet<string>();
+                foreach (var option in options)
+                    seen.Add(option.ProductName);
+
+                foreach (var option in MachineScanner.Scan(item))
+                {
+                    if (seen.Add(option.ProductName))
+                        options.Add(option);
+                }
+            }
+
             return options;
         }
 

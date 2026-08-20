@@ -9,6 +9,7 @@ using LMQoL.Features.BuildWithBags;
 using LMQoL.Features.CharcoalKiln;
 using LMQoL.Features.ItemTotals;
 using LMQoL.Features.SellAnything;
+using LMQoL.Features.SellPriceTooltip;
 using LMQoL.Features.SiloCapacity;
 using LMQoL.Features.SpeciesTooltip;
 
@@ -39,6 +40,7 @@ namespace LMQoL
             _features.Add(_kiln);
             _features.Add(new ItemTotalsFeature());
             _features.Add(new SellAnythingFeature());
+            _features.Add(new SellPriceTooltipFeature());
 
             foreach (var feature in _features)
                 feature.Register(helper, Monitor);
@@ -59,6 +61,7 @@ namespace LMQoL
                     Helper.WriteConfig(Config);
                     _silo.Reapply();
                     _kiln.Reapply();
+                    LMQoL.Features.SellPriceTooltip.MachineScanner.ClearCache();
                 }
             );
 
@@ -149,6 +152,47 @@ namespace LMQoL
                 name: () => Helper.Translation.Get("sellprice.highlight").ToString(),
                 tooltip: () => Helper.Translation.Get("sellprice.highlight.tooltip").ToString()
             );
+
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.SellPriceScanMachines,
+                setValue: v => Config.SellPriceScanMachines = v,
+                name: () => Helper.Translation.Get("sellprice.scan").ToString(),
+                tooltip: () => Helper.Translation.Get("sellprice.scan.tooltip").ToString()
+            );
+
+            gmcm.AddNumberOption(
+                mod: ModManifest,
+                getValue: () => Config.SellPriceMaxOptions,
+                setValue: v => Config.SellPriceMaxOptions = v,
+                name: () => Helper.Translation.Get("sellprice.max").ToString(),
+                tooltip: () => Helper.Translation.Get("sellprice.max.tooltip").ToString(),
+                min: 1,
+                max: 20,
+                interval: 1
+            );
+
+            if (Helper.ModRegistry.IsLoaded("Cornucopia.ArtisanMachines"))
+            {
+                gmcm.AddBoolOption(
+                    mod: ModManifest,
+                    getValue: () => Config.SellPriceIncludeCornucopia,
+                    setValue: v => Config.SellPriceIncludeCornucopia = v,
+                    name: () => Helper.Translation.Get("sellprice.cornucopia").ToString(),
+                    tooltip: () => Helper.Translation.Get("sellprice.cornucopia.tooltip").ToString()
+                );
+            }
+
+            if (Helper.ModRegistry.IsLoaded("Wildflour.AtelierGoods"))
+            {
+                gmcm.AddBoolOption(
+                    mod: ModManifest,
+                    getValue: () => Config.SellPriceIncludeWildflour,
+                    setValue: v => Config.SellPriceIncludeWildflour = v,
+                    name: () => Helper.Translation.Get("sellprice.wildflour").ToString(),
+                    tooltip: () => Helper.Translation.Get("sellprice.wildflour.tooltip").ToString()
+                );
+            }
 
             // --- Quick Stack to Nearby Chests ---
             gmcm.AddSectionTitle(
