@@ -33,6 +33,11 @@ namespace LMQoL
         public bool SpeciesTooltipTrees { get; set; } = true;
         public bool SpeciesTooltipBushes { get; set; } = true;
 
+        // Sell Anything
+        public bool SellAnythingEnabled { get; set; } = true;
+        public bool SellAnythingShipping { get; set; } = true;
+        public bool SellAnythingShops { get; set; } = false;
+
         // Custom Charcoal Kiln
         public bool CharcoalKilnEnabled { get; set; } = true;
 

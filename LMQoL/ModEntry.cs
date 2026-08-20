@@ -8,6 +8,7 @@ using LMQoL.Features.QuickStack;
 using LMQoL.Features.BuildWithBags;
 using LMQoL.Features.CharcoalKiln;
 using LMQoL.Features.ItemTotals;
+using LMQoL.Features.SellAnything;
 using LMQoL.Features.SiloCapacity;
 using LMQoL.Features.SpeciesTooltip;
 
@@ -37,6 +38,7 @@ namespace LMQoL
             _features.Add(new BuildWithBagsFeature());
             _features.Add(_kiln);
             _features.Add(new ItemTotalsFeature());
+            _features.Add(new SellAnythingFeature());
 
             foreach (var feature in _features)
                 feature.Register(helper, Monitor);
@@ -241,6 +243,36 @@ namespace LMQoL
                 setValue: v => Config.SpeciesTooltipBushes = v,
                 name: () => Helper.Translation.Get("species.bushes").ToString(),
                 tooltip: () => Helper.Translation.Get("species.bushes.tooltip").ToString()
+            );
+
+            // --- Sell Anything ---
+            gmcm.AddSectionTitle(
+                mod: ModManifest,
+                text: () => Helper.Translation.Get("section.sellany").ToString()
+            );
+
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.SellAnythingEnabled,
+                setValue: v => Config.SellAnythingEnabled = v,
+                name: () => Helper.Translation.Get("sellany.enabled").ToString(),
+                tooltip: () => Helper.Translation.Get("sellany.enabled.tooltip").ToString()
+            );
+
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.SellAnythingShipping,
+                setValue: v => Config.SellAnythingShipping = v,
+                name: () => Helper.Translation.Get("sellany.shipping").ToString(),
+                tooltip: () => Helper.Translation.Get("sellany.shipping.tooltip").ToString()
+            );
+
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.SellAnythingShops,
+                setValue: v => Config.SellAnythingShops = v,
+                name: () => Helper.Translation.Get("sellany.shops").ToString(),
+                tooltip: () => Helper.Translation.Get("sellany.shops.tooltip").ToString()
             );
 
             // --- Custom Charcoal Kiln ---

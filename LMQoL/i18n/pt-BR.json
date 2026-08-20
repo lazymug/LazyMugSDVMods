@@ -74,5 +74,12 @@
   "totals.total": "Total que você tem: {{count}}",
   "totals.carried": "  Carregando: {{count}}",
   "totals.chests": "  Nos baús: {{count}}",
-  "totals.bags": "  Nas bags: {{count}}"
+  "totals.bags": "  Nas bags: {{count}}",
+  "section.sellany": "Vender Qualquer Coisa",
+  "sellany.enabled": "Ativar Vender Qualquer Coisa",
+  "sellany.enabled.tooltip": "Permite vender itens que o jogo normalmente recusa, como móveis, papéis de parede e artesanatos grandes. Ferramentas, a foice e itens de missão continuam protegidos.",
+  "sellany.shipping": "Permitir na Caixa de Entrega",
+  "sellany.shipping.tooltip": "Móveis e outros itens bloqueados podem ser colocados na caixa de entrega.",
+  "sellany.shops": "Permitir nas Lojas",
+  "sellany.shops.tooltip": "Também deixa os lojistas comprarem qualquer coisa, não só as categorias com que costumam trabalhar. Desligado por padrão, pois permite vender qualquer item para qualquer um."
 }

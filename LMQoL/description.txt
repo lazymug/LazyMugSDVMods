@@ -17,6 +17,7 @@
 [*][b]Build With Item Bags[/b] [i](New in 1.5.0)[/i] — Robin also counts building materials stored inside your Item Bags, and spends them automatically. Only active if you have the [b]Item Bags[/b] mod installed; ignored otherwise.
 [*][b]Custom Charcoal Kiln[/b] [i](New in 1.6.0)[/i] — the charcoal kiln accepts driftwood, torches, wood and hardwood, each with its own yield and burn time. Previously a separate mod ([i][PFM] Custom Charcoal Kiln[/i]); now built in, and no longer needs Producer Framework Mod.
 [*][b]Item Totals in Bags[/b] [i](New in 1.6.0)[/i] — with an Item Bag open, hovering an item shows how many you own in total: carried, stored in chests across the whole farm, and inside your other bags. Requires the [b]Item Bags[/b] mod.
+[*][b]Sell Anything[/b] [i](New in 1.7.0)[/i] — furniture, wallpaper and big craftables can finally go in the shipping bin, and shops can optionally be allowed to buy anything. Tools, the scythe and quest items stay protected.
 [/list]
 
 [line]
@@ -35,6 +36,11 @@ Every feature and its settings — including the Quick Stack key and search radi
 [line]
 
 [size=5][b]Changelog[/b][/size]
+
+[b]1.7.0[/b]
+[list]
+[*]New: [b]Sell Anything[/b] — items the game refuses to sell (furniture, wallpaper, big craftables, hats, boots…) can now be put in the shipping bin. A separate option also lets shops buy anything, rather than only their usual categories; it is off by default. Items that can't be trashed — tools, the scythe, special and quest items — remain unsellable, so nothing essential can be shipped away by mistake. Do note that weapons and rings become shippable, so take the usual care with the shipping bin.
+[/list]
 
 [b]1.6.0[/b]
 [list]

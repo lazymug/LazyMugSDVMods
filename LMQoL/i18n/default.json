@@ -74,5 +74,12 @@
   "totals.total": "Total owned: {{count}}",
   "totals.carried": "  Carried: {{count}}",
   "totals.chests": "  In chests: {{count}}",
-  "totals.bags": "  In bags: {{count}}"
+  "totals.bags": "  In bags: {{count}}",
+  "section.sellany": "Sell Anything",
+  "sellany.enabled": "Enable Sell Anything",
+  "sellany.enabled.tooltip": "Allow selling items the game normally refuses, such as furniture, wallpaper and big craftables. Tools, the scythe and quest items stay protected.",
+  "sellany.shipping": "Allow in Shipping Bin",
+  "sellany.shipping.tooltip": "Furniture and other blocked items can be placed in the shipping bin.",
+  "sellany.shops": "Allow in Shops",
+  "sellany.shops.tooltip": "Also let shopkeepers buy anything, not just the categories they normally deal in. Off by default, since it lets you sell anything to anyone."
 }
