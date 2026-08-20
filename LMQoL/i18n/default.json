@@ -89,5 +89,7 @@
   "sellprice.wildflour": "Include Wildflour Machines",
   "sellprice.wildflour.tooltip": "List products from Wildflour's Atelier Goods machines in the tooltip. Only shown because that mod is installed.",
   "sellprice.professions": "Apply Profession Bonuses",
-  "sellprice.professions.tooltip": "Show what each product is really worth to you, including every profession bonus that applies to it (Artisan, Tiller, Rancher, Fisher/Angler, Tapper, Blacksmith, Gemologist) plus quality. Turn off to see plain base prices."
+  "sellprice.professions.tooltip": "Show what each product is really worth to you, including every profession bonus that applies to it (Artisan, Tiller, Rancher, Fisher/Angler, Tapper, Blacksmith, Gemologist) plus quality. Turn off to see plain base prices.",
+  "shoptrade.enabled": "Trade From Bags in Shops",
+  "shoptrade.enabled.tooltip": "Shops that trade goods for goods (the Desert Trader, the Island Trader) count items stored in your Item Bags towards the price and take them automatically when you buy."
 }

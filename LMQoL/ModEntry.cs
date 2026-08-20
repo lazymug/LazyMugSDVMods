@@ -351,6 +351,14 @@ namespace LMQoL
 
                 gmcm.AddBoolOption(
                     mod: ModManifest,
+                    getValue: () => Config.ShopTradeWithBagsEnabled,
+                    setValue: v => Config.ShopTradeWithBagsEnabled = v,
+                    name: () => Helper.Translation.Get("shoptrade.enabled").ToString(),
+                    tooltip: () => Helper.Translation.Get("shoptrade.enabled.tooltip").ToString()
+                );
+
+                gmcm.AddBoolOption(
+                    mod: ModManifest,
                     getValue: () => Config.ItemTotalsEnabled,
                     setValue: v => Config.ItemTotalsEnabled = v,
                     name: () => Helper.Translation.Get("totals.enabled").ToString(),

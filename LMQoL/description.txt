@@ -14,7 +14,7 @@
 [*][b]Quick Stack to Nearby Chests[/b] [i](New in 1.3.0)[/i] — press a key to top up matching item stacks in nearby chests straight from your inventory. It only fills stacks a chest already has (nothing gets misplaced) and never touches mini-shipping bins.
 [*][b]Silo Capacity[/b] [i](New in 1.4.0)[/i] — choose how much hay each silo holds instead of the usual 240. Applies to silos you already built.
 [*][b]Species Tooltip[/b] [i](New in 1.4.0)[/i] — hover a crop, bush or tree to see exactly what it is, plus whether it's growing, ready to harvest, tapped or mossy. Crops, trees and bushes can each be turned on or off on their own.
-[*][b]Build With Item Bags[/b] [i](New in 1.5.0)[/i] — Robin also counts building materials stored inside your Item Bags, and spends them automatically. Only active if you have the [b]Item Bags[/b] mod installed; ignored otherwise.
+[*][b]Build & Trade With Item Bags[/b] [i](New in 1.5.0, extended in 1.9.0)[/i] — Robin counts building materials stored inside your Item Bags and spends them automatically; the same now applies to shops that trade goods for goods, like the Desert Trader and the Island Trader. Only active if you have the [b]Item Bags[/b] mod installed; ignored otherwise.
 [*][b]Custom Charcoal Kiln[/b] [i](New in 1.6.0)[/i] — the charcoal kiln accepts driftwood, torches, wood and hardwood, each with its own yield and burn time. Previously a separate mod ([i][PFM] Custom Charcoal Kiln[/i]); now built in, and no longer needs Producer Framework Mod.
 [*][b]Item Totals in Bags[/b] [i](New in 1.6.0)[/i] — with an Item Bag open, hovering an item shows how many you own in total: carried, stored in chests across the whole farm, and inside your other bags. Requires the [b]Item Bags[/b] mod.
 [*][b]Sell Anything[/b] [i](New in 1.7.0)[/i] — furniture, wallpaper and big craftables can finally go in the shipping bin, and shops can optionally be allowed to buy anything. Tools, the scythe and quest items stay protected.
@@ -36,6 +36,11 @@ Every feature and its settings — including the Quick Stack key and search radi
 [line]
 
 [size=5][b]Changelog[/b][/size]
+
+[b]1.9.0[/b]
+[list]
+[*]Item Bags now work at trade shops too. Shops that ask for goods instead of gold — the Desert Trader, the Island Trader, and any shop with a trade requirement — count what's inside your bags towards the price and take it automatically when you buy, so you no longer have to pull the items out by hand first. Qi Gems and Golden Walnuts are untouched, since those are counters rather than items.
+[/list]
 
 [b]1.8.2[/b]
 [list]

@@ -89,5 +89,7 @@
   "sellprice.wildflour": "Incluir Máquinas do Wildflour",
   "sellprice.wildflour.tooltip": "Lista na dica os produtos das máquinas do Wildflour's Atelier Goods. Só aparece porque esse mod está instalado.",
   "sellprice.professions": "Aplicar Bônus de Profissão",
-  "sellprice.professions.tooltip": "Mostra quanto cada produto realmente vale para você, incluindo todos os bônus de profissão que se aplicam a ele (Artesão, Cultivador, Pecuarista, Pescador/Angler, Extrator, Ferreiro, Gemólogo) e a qualidade. Desligue para ver os preços base."
+  "sellprice.professions.tooltip": "Mostra quanto cada produto realmente vale para você, incluindo todos os bônus de profissão que se aplicam a ele (Artesão, Cultivador, Pecuarista, Pescador/Angler, Extrator, Ferreiro, Gemólogo) e a qualidade. Desligue para ver os preços base.",
+  "shoptrade.enabled": "Trocar Usando as Bags",
+  "shoptrade.enabled.tooltip": "Lojas que trocam itens por itens (o Mercador do Deserto, o Mercador da Ilha) contam os itens guardados nas suas Item Bags no preço e os retiram automaticamente na compra."
 }
