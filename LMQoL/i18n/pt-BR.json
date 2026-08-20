@@ -91,5 +91,7 @@
   "sellprice.professions": "Aplicar Bônus de Profissão",
   "sellprice.professions.tooltip": "Mostra quanto cada produto realmente vale para você, incluindo todos os bônus de profissão que se aplicam a ele (Artesão, Cultivador, Pecuarista, Pescador/Angler, Extrator, Ferreiro, Gemólogo) e a qualidade. Desligue para ver os preços base.",
   "shoptrade.enabled": "Trocar Usando as Bags",
-  "shoptrade.enabled.tooltip": "Lojas que trocam itens por itens (o Mercador do Deserto, o Mercador da Ilha) contam os itens guardados nas suas Item Bags no preço e os retiram automaticamente na compra."
+  "shoptrade.enabled.tooltip": "Lojas que trocam itens por itens (o Mercador do Deserto, o Mercador da Ilha) contam os itens guardados nas suas Item Bags no preço e os retiram automaticamente na compra.",
+  "sellprice.food": "Incluir Pratos Preparados",
+  "sellprice.food.tooltip": "Também lista receitas de culinária que usam este item. Desligado por padrão: pratos levam vários ingredientes, então o preço deles não é o que este item vale."
 }

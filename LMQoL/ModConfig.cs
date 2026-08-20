@@ -18,7 +18,8 @@ namespace LMQoL
         public bool SellPriceApplyProfessions { get; set; } = true;
         public bool SellPriceHighlightBest { get; set; } = true;
         public bool SellPriceScanMachines { get; set; } = true;
-        public int SellPriceMaxOptions { get; set; } = 6;
+        public int SellPriceMaxOptions { get; set; } = 3;
+        public bool SellPriceIncludeFood { get; set; } = false;
         public bool SellPriceIncludeCornucopia { get; set; } = true;
         public bool SellPriceIncludeWildflour { get; set; } = true;
 

@@ -149,6 +149,11 @@ namespace LMQoL.Features.SellPriceTooltip
             if (ItemRegistry.Create(id, 1, 0, allowNull: true) is not Object product)
                 return null;
 
+            // Cooked dishes aren't a way of "processing" the ingredient you're hovering — they're
+            // recipes with several inputs — so they'd only crowd out the options that are.
+            if (!ModEntry.Config.SellPriceIncludeFood && IsPreparedFood(product))
+                return null;
+
             // CopyPrice means the product inherits the input's value, which the rule then scales.
             if (output.CopyPrice)
             {
@@ -172,6 +177,12 @@ namespace LMQoL.Features.SellPriceTooltip
             int stack = Math.Max(1, output.MinStack > 0 ? output.MinStack : 1);
             return price * stack;
         }
+
+        /// <summary>Prepared food: category Cooking, or the Cooking object type for the odd
+        /// modded dish that doesn't set the category.</summary>
+        private static bool IsPreparedFood(Object product)
+            => product.Category == Object.CookingCategory
+               || string.Equals(product.Type, "Cooking", StringComparison.OrdinalIgnoreCase);
 
         private static string DisplayName(string? itemId)
         {

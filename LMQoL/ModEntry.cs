@@ -161,6 +161,14 @@ namespace LMQoL
                 tooltip: () => Helper.Translation.Get("sellprice.scan.tooltip").ToString()
             );
 
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.SellPriceIncludeFood,
+                setValue: v => Config.SellPriceIncludeFood = v,
+                name: () => Helper.Translation.Get("sellprice.food").ToString(),
+                tooltip: () => Helper.Translation.Get("sellprice.food.tooltip").ToString()
+            );
+
             gmcm.AddNumberOption(
                 mod: ModManifest,
                 getValue: () => Config.SellPriceMaxOptions,

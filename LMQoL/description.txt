@@ -37,6 +37,12 @@ Every feature and its settings — including the Quick Stack key and search radi
 
 [size=5][b]Changelog[/b][/size]
 
+[b]1.9.1[/b]
+[list]
+[*]Cooked dishes are no longer listed in the sell price tooltip. A recipe takes several ingredients, so its price was never what the item you're hovering is worth — it just pushed the real processing options out of the list. There's an option to bring them back if you want them.
+[*]The tooltip now shows the [b]top 3[/b] options by default instead of 6 (still configurable in "Max Options Shown").
+[/list]
+
 [b]1.9.0[/b]
 [list]
 [*]Item Bags now work at trade shops too. Shops that ask for goods instead of gold — the Desert Trader, the Island Trader, and any shop with a trade requirement — count what's inside your bags towards the price and take it automatically when you buy, so you no longer have to pull the items out by hand first. Qi Gems and Golden Walnuts are untouched, since those are counters rather than items.
