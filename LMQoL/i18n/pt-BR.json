@@ -61,5 +61,18 @@
   "species.trees": "Mostrar em Árvores",
   "species.trees.tooltip": "Nomeia árvores selvagens e frutíferas e mostra toco, extrator, musgo e frutos.",
   "species.bushes": "Mostrar em Arbustos",
-  "species.bushes.tooltip": "Nomeia arbustos de frutas, de chá e de noz dourada."
+  "species.bushes.tooltip": "Nomeia arbustos de frutas, de chá e de noz dourada.",
+  "section.kiln": "Forno de Carvão Personalizado",
+  "kiln.enabled": "Ativar Forno de Carvão Personalizado",
+  "kiln.enabled.tooltip": "Permite que o forno de carvão queime madeira à deriva, tochas, madeira e madeira de lei, cada uma com rendimento e tempo próprios. Substitui a receita padrão de 10 madeiras.",
+  "totals.enabled": "Mostrar Totais de Itens nas Bags",
+  "totals.enabled.tooltip": "Com uma Item Bag aberta, passar o mouse sobre um item mostra quantos você tem no total.",
+  "totals.chests.option": "Contar Itens nos Baús",
+  "totals.chests.option.tooltip": "Inclui todos os baús do mundo no total. Desligue se notar travadinhas ao passar o mouse.",
+  "totals.bags.option": "Contar Itens nas Bags",
+  "totals.bags.option.tooltip": "Inclui os itens guardados nas suas outras Item Bags no total.",
+  "totals.total": "Total que você tem: {{count}}",
+  "totals.carried": "  Carregando: {{count}}",
+  "totals.chests": "  Nos baús: {{count}}",
+  "totals.bags": "  Nas bags: {{count}}"
 }

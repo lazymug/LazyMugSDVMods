@@ -33,7 +33,15 @@ namespace LMQoL
         public bool SpeciesTooltipTrees { get; set; } = true;
         public bool SpeciesTooltipBushes { get; set; } = true;
 
+        // Custom Charcoal Kiln
+        public bool CharcoalKilnEnabled { get; set; } = true;
+
         // Build With Bags (only does anything when Item Bags is installed)
         public bool BuildWithBagsEnabled { get; set; } = true;
+
+        // Item Totals tooltip inside an open Item Bag
+        public bool ItemTotalsEnabled { get; set; } = true;
+        public bool ItemTotalsIncludeChests { get; set; } = true;
+        public bool ItemTotalsIncludeBags { get; set; } = true;
     }
 }

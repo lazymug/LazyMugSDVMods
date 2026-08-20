@@ -15,6 +15,8 @@
 [*][b]Silo Capacity[/b] [i](New in 1.4.0)[/i] — choose how much hay each silo holds instead of the usual 240. Applies to silos you already built.
 [*][b]Species Tooltip[/b] [i](New in 1.4.0)[/i] — hover a crop, bush or tree to see exactly what it is, plus whether it's growing, ready to harvest, tapped or mossy. Crops, trees and bushes can each be turned on or off on their own.
 [*][b]Build With Item Bags[/b] [i](New in 1.5.0)[/i] — Robin also counts building materials stored inside your Item Bags, and spends them automatically. Only active if you have the [b]Item Bags[/b] mod installed; ignored otherwise.
+[*][b]Custom Charcoal Kiln[/b] [i](New in 1.6.0)[/i] — the charcoal kiln accepts driftwood, torches, wood and hardwood, each with its own yield and burn time. Previously a separate mod ([i][PFM] Custom Charcoal Kiln[/i]); now built in, and no longer needs Producer Framework Mod.
+[*][b]Item Totals in Bags[/b] [i](New in 1.6.0)[/i] — with an Item Bag open, hovering an item shows how many you own in total: carried, stored in chests across the whole farm, and inside your other bags. Requires the [b]Item Bags[/b] mod.
 [/list]
 
 [line]
@@ -33,6 +35,13 @@ Every feature and its settings — including the Quick Stack key and search radi
 [line]
 
 [size=5][b]Changelog[/b][/size]
+
+[b]1.6.0[/b]
+[list]
+[*]New: [b]Custom Charcoal Kiln[/b] — absorbs the standalone [i][PFM] Custom Charcoal Kiln[/i] mod. Driftwood, torches, wood and hardwood can all be burned for coal, each with its own yield and time. Rebuilt on vanilla machine data, so Producer Framework Mod is no longer required. If you have the old content pack installed, remove it to avoid two mods editing the same kiln.
+[*]New: [b]Item Totals in Bags[/b] — hovering an item inside an open Item Bag shows how many you own in total, broken down by carried / chests / bags. Chest and bag counting can each be turned off.
+[*]Silo capacity can now be raised up to 48,000 (was 4,800).
+[/list]
 
 [b]1.5.1[/b]
 [list]

@@ -6,6 +6,8 @@ using LMQoL.Features.AutoGate;
 using LMQoL.Features.MagnetRadiusForaging;
 using LMQoL.Features.QuickStack;
 using LMQoL.Features.BuildWithBags;
+using LMQoL.Features.CharcoalKiln;
+using LMQoL.Features.ItemTotals;
 using LMQoL.Features.SiloCapacity;
 using LMQoL.Features.SpeciesTooltip;
 
@@ -17,6 +19,7 @@ namespace LMQoL
 
         private readonly List<IFeature> _features = new();
         private readonly SiloCapacityFeature _silo = new();
+        private readonly CharcoalKilnFeature _kiln = new();
 
         public override void Entry(IModHelper helper)
         {
@@ -32,6 +35,8 @@ namespace LMQoL
             _features.Add(_silo);
             _features.Add(new SpeciesTooltipFeature());
             _features.Add(new BuildWithBagsFeature());
+            _features.Add(_kiln);
+            _features.Add(new ItemTotalsFeature());
 
             foreach (var feature in _features)
                 feature.Register(helper, Monitor);
@@ -51,6 +56,7 @@ namespace LMQoL
                 {
                     Helper.WriteConfig(Config);
                     _silo.Reapply();
+                    _kiln.Reapply();
                 }
             );
 
@@ -195,7 +201,7 @@ namespace LMQoL
                 name: () => Helper.Translation.Get("silo.capacity").ToString(),
                 tooltip: () => Helper.Translation.Get("silo.capacity.tooltip").ToString(),
                 min: 240,
-                max: 4800,
+                max: 48000,
                 interval: 240
             );
 
@@ -237,6 +243,20 @@ namespace LMQoL
                 tooltip: () => Helper.Translation.Get("species.bushes.tooltip").ToString()
             );
 
+            // --- Custom Charcoal Kiln ---
+            gmcm.AddSectionTitle(
+                mod: ModManifest,
+                text: () => Helper.Translation.Get("section.kiln").ToString()
+            );
+
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.CharcoalKilnEnabled,
+                setValue: v => Config.CharcoalKilnEnabled = v,
+                name: () => Helper.Translation.Get("kiln.enabled").ToString(),
+                tooltip: () => Helper.Translation.Get("kiln.enabled.tooltip").ToString()
+            );
+
             // --- Build With Bags (Item Bags integration) ---
             if (Helper.ModRegistry.IsLoaded("SlayerDharok.Item_Bags"))
             {
@@ -251,6 +271,30 @@ namespace LMQoL
                     setValue: v => Config.BuildWithBagsEnabled = v,
                     name: () => Helper.Translation.Get("buildbags.enabled").ToString(),
                     tooltip: () => Helper.Translation.Get("buildbags.enabled.tooltip").ToString()
+                );
+
+                gmcm.AddBoolOption(
+                    mod: ModManifest,
+                    getValue: () => Config.ItemTotalsEnabled,
+                    setValue: v => Config.ItemTotalsEnabled = v,
+                    name: () => Helper.Translation.Get("totals.enabled").ToString(),
+                    tooltip: () => Helper.Translation.Get("totals.enabled.tooltip").ToString()
+                );
+
+                gmcm.AddBoolOption(
+                    mod: ModManifest,
+                    getValue: () => Config.ItemTotalsIncludeChests,
+                    setValue: v => Config.ItemTotalsIncludeChests = v,
+                    name: () => Helper.Translation.Get("totals.chests.option").ToString(),
+                    tooltip: () => Helper.Translation.Get("totals.chests.option.tooltip").ToString()
+                );
+
+                gmcm.AddBoolOption(
+                    mod: ModManifest,
+                    getValue: () => Config.ItemTotalsIncludeBags,
+                    setValue: v => Config.ItemTotalsIncludeBags = v,
+                    name: () => Helper.Translation.Get("totals.bags.option").ToString(),
+                    tooltip: () => Helper.Translation.Get("totals.bags.option.tooltip").ToString()
                 );
             }
         }

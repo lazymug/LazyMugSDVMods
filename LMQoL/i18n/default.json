@@ -61,5 +61,18 @@
   "species.trees": "Show for Trees",
   "species.trees.tooltip": "Name wild and fruit trees and show stump, tapped, mossy and fruit state.",
   "species.bushes": "Show for Bushes",
-  "species.bushes.tooltip": "Name berry, tea and golden walnut bushes."
+  "species.bushes.tooltip": "Name berry, tea and golden walnut bushes.",
+  "section.kiln": "Custom Charcoal Kiln",
+  "kiln.enabled": "Enable Custom Charcoal Kiln",
+  "kiln.enabled.tooltip": "Lets the charcoal kiln burn driftwood, torches, wood and hardwood, each with its own yield and burn time. Replaces the vanilla 10-wood recipe.",
+  "totals.enabled": "Show Item Totals in Bags",
+  "totals.enabled.tooltip": "While an Item Bag is open, hovering an item shows how many you own in total.",
+  "totals.chests.option": "Count Items in Chests",
+  "totals.chests.option.tooltip": "Include every chest in the world in the total. Turn off if you notice a pause when hovering.",
+  "totals.bags.option": "Count Items in Bags",
+  "totals.bags.option.tooltip": "Include items stored inside your other Item Bags in the total.",
+  "totals.total": "Total owned: {{count}}",
+  "totals.carried": "  Carried: {{count}}",
+  "totals.chests": "  In chests: {{count}}",
+  "totals.bags": "  In bags: {{count}}"
 }
