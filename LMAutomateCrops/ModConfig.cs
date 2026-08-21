@@ -25,8 +25,11 @@ namespace LMAutomateCrops
         /// <summary>Harvest crops whose produce is a fruit.</summary>
         public bool HarvestFruit { get; set; } = true;
 
-        /// <summary>Harvest crops whose produce is a flower.</summary>
-        public bool HarvestFlowers { get; set; } = true;
+        /// <summary>Harvest crops whose produce is a flower.
+        ///
+        /// Off by default: flowers left standing keep feeding the bees, and picking them
+        /// automatically is rarely what you want.</summary>
+        public bool HarvestFlowers { get; set; } = false;
 
         /// <summary>Harvest crops whose produce is forage — Fiber, Cotton Boll and the like.</summary>
         public bool HarvestForage { get; set; } = true;

@@ -48,6 +48,7 @@ Configurable in Generic Mod Config Menu:
 | Replant Automatically | on | Uses seeds from the connected chests; only sows what can grow there |
 | Include Greenhouse | on | |
 | Include Ginger Island | on | |
+| Harvest Flowers | **off** | Standing flowers keep feeding nearby bee houses |
 
 ### Item types to harvest
 
