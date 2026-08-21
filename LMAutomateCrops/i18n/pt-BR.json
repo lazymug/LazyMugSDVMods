@@ -1,0 +1,10 @@
+{
+  "config.enabled": "Ativar Colheita de Plantações",
+  "config.enabled.tooltip": "Permite que o Automate colha as plantações prontas para os baús conectados.",
+  "config.xp": "Conceder Experiência de Agricultura",
+  "config.xp.tooltip": "Dá a mesma experiência de Agricultura que a colheita manual daria. Desligue se preferir que a automação não suba seu nível.",
+  "config.replant": "Replantar Automaticamente",
+  "config.replant.tooltip": "Depois de colher uma plantação que não rebrota, planta uma semente nova vinda dos baús conectados, se houver uma adequada.",
+  "config.greenhouse": "Incluir Estufa",
+  "config.island": "Incluir Ilha do Gengibre"
+}

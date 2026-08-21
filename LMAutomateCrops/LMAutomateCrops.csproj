@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Automate is a required dependency: this mod implements its IAutomationFactory and
+         IMachine interfaces, which can't be done through reflection or an API proxy. Private
+         so the DLL isn't copied into the release. -->
+    <Reference Include="Automate">
+      <HintPath>$(GamePath)/Mods/Automate/Automate.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

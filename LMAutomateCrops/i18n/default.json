@@ -1,0 +1,10 @@
+{
+  "config.enabled": "Enable Crop Harvesting",
+  "config.enabled.tooltip": "Let Automate harvest ready crops into connected chests.",
+  "config.xp": "Grant Farming Experience",
+  "config.xp.tooltip": "Award the same Farming experience a manual harvest would give. Turn off if you'd rather automation didn't level you up.",
+  "config.replant": "Replant Automatically",
+  "config.replant.tooltip": "After harvesting a crop that doesn't regrow, plant a fresh seed from the connected chests if there's a suitable one.",
+  "config.greenhouse": "Include Greenhouse",
+  "config.island": "Include Ginger Island"
+}

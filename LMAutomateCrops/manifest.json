@@ -1,0 +1,21 @@
+{
+  "Name": "LM Automate Crops",
+  "Author": "Lazy Mug",
+  "Version": "1.0.0",
+  "Description": "Teaches Automate to harvest ready crops into a connected chest, granting the same Farming experience as harvesting by hand, and optionally replanting from seeds in the chest.",
+  "UniqueID": "LazyMug.AutomateCrops",
+  "EntryDll": "LMAutomateCrops.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [],
+  "Dependencies": [
+    {
+      "UniqueID": "Pathoschild.Automate",
+      "IsRequired": true,
+      "MinimumVersion": "2.6.0"
+    },
+    {
+      "UniqueID": "spacechase0.GenericModConfigMenu",
+      "IsRequired": false
+    }
+  ]
+}
