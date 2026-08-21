@@ -1,0 +1,360 @@
+{
+  "IsEnabled": true,
+  "ModUniqueId": "Cornucopia.MoreCrops",
+  "BagId": "1e000000-9220-e0a8-420e-0e4a1aeb3d64",
+  "BagName": "Cornucopia Forage Bag",
+  "BagDescription": "A bag for Cornucopia nuts, spices and forage, and the seeds they grow from.",
+  "IconTexture": "SpringObjects",
+  "IconPosition": {
+    "X": 0,
+    "Y": 272,
+    "Width": 16,
+    "Height": 16
+  },
+  "Prices": {
+    "Small": 2000,
+    "Medium": 5000,
+    "Large": 20000,
+    "Giant": 50000,
+    "Massive": 100000
+  },
+  "Capacities": {
+    "Small": 30,
+    "Medium": 99,
+    "Large": 300,
+    "Giant": 999,
+    "Massive": 9999
+  },
+  "SizeSellers": {
+    "Small": [
+      "Pierre"
+    ],
+    "Medium": [
+      "Pierre"
+    ],
+    "Large": [
+      "Pierre"
+    ],
+    "Giant": [
+      "Pierre"
+    ],
+    "Massive": [
+      "Pierre"
+    ]
+  },
+  "SizeMenuOptions": {
+    "Small": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Medium": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Large": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Giant": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Massive": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    }
+  },
+  "Items": [
+    {
+      "Name": "Cornucopia_ChickenoftheWoods",
+      "ObjectId": "Cornucopia_ChickenoftheWoods",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_ChickenoftheWoodsSeeds",
+      "ObjectId": "Cornucopia_ChickenoftheWoodsSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_CottonBoll",
+      "ObjectId": "Cornucopia_CottonBoll",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_CottonBollSeeds",
+      "ObjectId": "Cornucopia_CottonBollSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_CuminSeeds",
+      "ObjectId": "Cornucopia_CuminSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_Ginseng",
+      "ObjectId": "Cornucopia_Ginseng",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_GinsengSeeds",
+      "ObjectId": "Cornucopia_GinsengSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_JuniperBerries",
+      "ObjectId": "Cornucopia_JuniperBerries",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_JuniperBerriesSeeds",
+      "ObjectId": "Cornucopia_JuniperBerriesSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_LicoriceRoot",
+      "ObjectId": "Cornucopia_LicoriceRoot",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_LicoriceRootSeeds",
+      "ObjectId": "Cornucopia_LicoriceRootSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_Peanut",
+      "ObjectId": "Cornucopia_Peanut",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_PeanutSeeds",
+      "ObjectId": "Cornucopia_PeanutSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_Peppercorn",
+      "ObjectId": "Cornucopia_Peppercorn",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_PeppercornSeeds",
+      "ObjectId": "Cornucopia_PeppercornSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_PitcherPlant",
+      "ObjectId": "Cornucopia_PitcherPlant",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_PitcherPlantSeeds",
+      "ObjectId": "Cornucopia_PitcherPlantSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_Rafflesia",
+      "ObjectId": "Cornucopia_Rafflesia",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_RafflesiaPurple",
+      "ObjectId": "Cornucopia_RafflesiaPurple",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_RafflesiaSeeds",
+      "ObjectId": "Cornucopia_RafflesiaSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_Raspberry",
+      "ObjectId": "Cornucopia_Raspberry",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_RaspberrySeeds",
+      "ObjectId": "Cornucopia_RaspberrySeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_SeaSalt",
+      "ObjectId": "Cornucopia_SeaSalt",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_SesameSeeds",
+      "ObjectId": "Cornucopia_SesameSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_Shiitake",
+      "ObjectId": "Cornucopia_Shiitake",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_ShiitakeSeeds",
+      "ObjectId": "Cornucopia_ShiitakeSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_Soybeans",
+      "ObjectId": "Cornucopia_Soybeans",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_Sugarcane",
+      "ObjectId": "Cornucopia_Sugarcane",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_SugarcaneSeeds",
+      "ObjectId": "Cornucopia_SugarcaneSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_Turmeric",
+      "ObjectId": "Cornucopia_Turmeric",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_TurmericSeeds",
+      "ObjectId": "Cornucopia_TurmericSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_WasabiRoot",
+      "ObjectId": "Cornucopia_WasabiRoot",
+      "IsBigCraftable": false,
+      "HasQualities": true,
+      "RequiredSize": "Small"
+    },
+    {
+      "Name": "Cornucopia_WasabiRootSeeds",
+      "ObjectId": "Cornucopia_WasabiRootSeeds",
+      "IsBigCraftable": false,
+      "HasQualities": false,
+      "RequiredSize": "Small"
+    }
+  ]
+}

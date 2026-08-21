@@ -1,0 +1,135 @@
+{
+  "IsEnabled": true,
+  "ModUniqueId": "FlashShifter.StardewValleyExpandedCP",
+  "BagId": "a14c1fcb-9220-e0a8-420e-0e4a1aeb3d64",
+  "BagName": "Stardew Valley Expanded Cooking Bag",
+  "BagDescription": "A bag for storing items belonging to Stardew Valley Expanded Cooking ",
+  "IconTexture": "SpringObjects",
+  "IconPosition": {
+    "X": 224,
+    "Y": 128,
+    "Width": 16,
+    "Height": 16
+  },   // Pizza
+  "Prices": {
+    "Small": 648,
+    "Medium": 1999,
+    "Large": 6480,
+    "Giant": 19998,
+    "Massive": 49998
+  },
+  "Capacities": {
+    "Small": 30,
+    "Medium": 99,
+    "Large": 300,
+    "Giant": 999,
+    "Massive": 9999
+  },
+  "SizeSellers": {
+    "Small": [
+      " Gus"
+    ],
+    "Medium": [
+      " Gus"
+    ],
+    "Large": [
+      " Gus"
+    ],
+    "Giant": [
+      " Gus"
+    ],
+    "Massive": [
+      " Gus"
+    ]
+  },
+  "SizeMenuOptions": {
+    "Small": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Medium": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Large": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Giant": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Massive": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    }
+  },
+  "Items": [ ],
+  "ItemFilters": [
+  "FromMod:FlashShifter.StardewValleyExpandedCP" ,
+  "CategoryId:-7"
+    ],
+  // A seasoning puts a quality star on a cooked dish, and Item Bags does not
+  // treat the cooking category as having qualities on its own.
+  "CategoryQualities": "-7:true"
+}

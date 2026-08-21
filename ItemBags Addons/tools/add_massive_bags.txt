@@ -1,0 +1,45 @@
+player_additembag Massive Mineral Bag
+player_additembag Massive Mining Bag
+player_additembag Massive Resource Bag
+player_additembag Massive Construction Bag
+player_additembag Massive Tree Bag
+player_additembag Massive Animal Products Bag
+player_additembag Massive Loot Bag
+player_additembag Massive Foraging Bag
+player_additembag Massive Artifact Bag
+player_additembag Massive Seed Bag
+player_additembag Massive Ocean Fish Bag
+player_additembag Massive River Fish Bag
+player_additembag Massive Lake Fish Bag
+player_additembag Massive Miscellaneous Fish Bag
+player_additembag Massive Farmers Bag
+player_additembag Massive Food Ingredients Bag
+player_additembag Massive Drinks Bag
+player_additembag Massive Sweet Bag
+player_additembag Massive Soup Bag
+player_additembag Massive Lunch Bag
+player_additembag Massive Crop Bag
+player_additembag Massive Cornucopia All Artisan in One Bag
+player_additembag Massive Cornucopia All Flowers in One Bag
+player_additembag Massive Cornucopia Forage Bag
+player_additembag Massive Cornucopia Fruit Bag
+player_additembag Massive Cornucopia Herb Bag
+player_additembag Massive Cornucopia Tree Bag
+player_additembag Massive Cornucopia Vegetable Bag
+player_additembag Massive Crab Pot Bag
+player_additembag Massive Stardew Valley Expanded Agricultures Bag
+player_additembag Massive Stardew Valley Expanded Comprehensive Bag
+player_additembag Massive Stardew Valley Expanded Cooking Bag
+player_additembag Massive Stardew Valley Expanded Fish Bag
+player_additembag Massive Wildflour Artisan Machines Bag
+player_additembag Massive Wildflour Baker Bag
+player_additembag Massive Wildflour Barista Bag
+player_additembag Massive Wildflour Boutique Bag
+player_additembag Massive Wildflour Brewer Bag
+player_additembag Massive Wildflour Confectioner Bag
+player_additembag Massive Wildflour Crate Bag
+player_additembag Massive Wildflour Jam Bag
+player_additembag Massive Wildflour Nature Bag
+player_additembag Massive Wildflour Pantry Bag
+player_additembag Massive Wildflour Pickle Bag
+player_additembag Massive Wildflour Syrup Bag

@@ -1,0 +1,132 @@
+{
+  "IsEnabled": true,
+  "ModUniqueId": "FlashShifter.StardewValleyExpandedCP",
+  "BagId": "a11c1fcb-9220-e0a8-420e-0e4a1aeb3d64",
+  "BagName": "Stardew Valley Expanded Agricultures Bag",
+  "BagDescription": "A bag for storing items belonging to Stardew Valley Expanded Seeds and Crops ",
+  "IconTexture": "SpringObjects",
+  "IconPosition": {
+    "X": 64,
+    "Y": 176,
+    "Width": 16,
+    "Height": 16
+  },   // Starfruit
+  "Prices": {
+    "Small": 648,
+    "Medium": 1999,
+    "Large": 6480,
+    "Giant": 19998,
+    "Massive": 49998
+  },
+  "Capacities": {
+    "Small": 30,
+    "Medium": 99,
+    "Large": 300,
+    "Giant": 999,
+    "Massive": 9999
+  },
+  "SizeSellers": {
+    "Small": [
+      " Pierre"
+    ],
+    "Medium": [
+      " Pierre"
+    ],
+    "Large": [
+      " Pierre"
+    ],
+    "Giant": [
+      " Pierre"
+    ],
+    "Massive": [
+      " Pierre"
+    ]
+  },
+  "SizeMenuOptions": {
+    "Small": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Medium": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Large": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Giant": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Massive": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    }
+  },
+  "Items": [ ],
+  "ItemFilters": [
+  "FromMod:FlashShifter.StardewValleyExpandedCP" ,
+  "CategoryId:-74|CategoryId:-75|CategoryId:-79|CategoryId:-80|CategoryId:-81"
+    ]
+}

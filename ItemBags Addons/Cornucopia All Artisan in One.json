@@ -1,0 +1,141 @@
+{
+  "IsEnabled": true,
+   "BagId": "16000000-9220-e0a8-420e-0e4a1aeb3d64",
+  "BagName": "Cornucopia All Artisan in One Bag",
+  "BagDescription": "A bag for artisan belonging to Cornucopia",
+  "IconTexture": "SpringObjects",
+  "IconPosition": {
+    "X": 192,
+    "Y": 224,
+    "Width": 16,
+    "Height": 16
+  },   // Wine
+   "Prices": {
+     "Small": 2000,
+    "Medium": 5000,
+    "Large": 20000,
+    "Giant": 50000,
+    "Massive": 100000
+  },
+  "Capacities": {
+    "Small": 30,
+    "Medium": 99,
+    "Large": 300,
+    "Giant": 999,
+    "Massive": 9999
+  },
+ "SizeSellers": {
+    "Small": [
+      " Pierre"
+    ],
+    "Medium": [
+      " Pierre"
+    ],
+    "Large": [
+      " Pierre"
+    ],
+    "Giant": [
+      " Pierre"
+    ],
+    "Massive": [
+      " Pierre"
+    ]
+  },
+  "SizeMenuOptions": {
+    "Small": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Medium": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Large": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Giant": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Massive": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    }
+  },
+  "Items": [ ],
+  "ItemFilters": [
+  "FromMod:Cornucopia" ,
+  "CategoryId:0|CategoryId:-9|CategoryId:-26|CategoryId:-27",
+  "!NameContains:Dried",
+   "!NameContains:Smoked",
+   "!NameContains:EssentialOil",
+   "!NameContains:Nut",
+   "!NameContains:Wine",
+   "!NameContains:PickledEggs",
+   "!NameContains:PickledFish",
+   "!NameContains:Candles",
+   "!NameContains:WaxMelts",
+   "!NameContains:FlavoredYogurt"
+    ]
+}

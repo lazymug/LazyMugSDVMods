@@ -6,11 +6,11 @@
   "BagDescription": "A bag for everything your crab pots pull up - shellfish, algae, and the junk that comes with them.",
   "IconTexture": "SpringObjects",
   "IconPosition": {
-    "X": 0,
-    "Y": 0,
-    "Width": 0,
-    "Height": 0
-  },
+    "X": 336,
+    "Y": 464,
+    "Width": 16,
+    "Height": 16
+  },   // Crab
   "Prices": {
     "Small": 2000,
     "Medium": 5000,

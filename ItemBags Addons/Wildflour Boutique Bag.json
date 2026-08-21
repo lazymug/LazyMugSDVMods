@@ -1,0 +1,135 @@
+{
+  "IsEnabled": true,
+  "ModUniqueId": "Wildflour.AtelierGoods",
+  "BagId": "22000000-9220-e0a8-420e-0e4a1aeb3d64",
+  "BagName": "Wildflour Boutique Bag",
+  "BagDescription": "A bag for Wildflour's soaps, perfumes, cosmetics and floral arrangements.",
+  "IconTexture": "SpringObjects",
+  "IconPosition": {
+    "X": 32,
+    "Y": 304,
+    "Width": 16,
+    "Height": 16
+  },
+  "Prices": {
+    "Small": 2000,
+    "Medium": 5000,
+    "Large": 20000,
+    "Giant": 50000,
+    "Massive": 100000
+  },
+  "Capacities": {
+    "Small": 30,
+    "Medium": 99,
+    "Large": 300,
+    "Giant": 999,
+    "Massive": 9999
+  },
+  "SizeSellers": {
+    "Small": [
+      "Pierre"
+    ],
+    "Medium": [
+      "Pierre"
+    ],
+    "Large": [
+      "Pierre"
+    ],
+    "Giant": [
+      "Pierre"
+    ],
+    "Massive": [
+      "Pierre"
+    ]
+  },
+  "SizeMenuOptions": {
+    "Small": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Medium": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Large": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Giant": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    },
+    "Massive": {
+      "GroupByQuality": true,
+      "InventoryColumns": 12,
+      "InventorySlotSize": 64,
+      "GroupedLayoutOptions": {
+        "GroupsPerRow": 5,
+        "ShowValueColumn": true,
+        "SlotSize": 64
+      },
+      "UngroupedLayoutOptions": {
+        "Columns": 12,
+        "LineBreakIndices": [],
+        "LineBreakHeights": [],
+        "SlotSize": 64
+      }
+    }
+  },
+  "Items": [],
+  "ItemFilters": [
+    "FromMod:Wildflour.AtelierGoods",
+    "!CategoryId:-9,-74,-75,-79,-80,-81",
+    "HasContextTag:wildflour_boutique_item"
+  ],
+  "ItemFiltersSorting": "CategoryId,DisplayName",
+  "CategoryQualities": "-7:true"
+}

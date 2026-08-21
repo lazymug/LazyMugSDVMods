@@ -6,3 +6,4 @@ obj/
 .vs/
 .idea/
 *.zip
+__pycache__/
