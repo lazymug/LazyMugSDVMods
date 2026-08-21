@@ -14,8 +14,14 @@ namespace LMAutomateCrops
         /// harvest is credited to the main player, the way a Junimo hut's owner is.</summary>
         internal static Farmer HarvestingFarmer => Game1.MasterPlayer ?? Game1.player;
 
+        private static IMonitor? Log;
+
+        /// <summary>Report a problem once, so a broken tile can't spam the console every tick.</summary>
+        internal static void LogOnce(string message) => Log?.LogOnce(message, LogLevel.Warn);
+
         public override void Entry(IModHelper helper)
         {
+            Log = Monitor;
             Config = helper.ReadConfig<ModConfig>();
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Pathoschild.Stardew.Automate;
@@ -49,25 +50,51 @@ namespace LMAutomateCrops
         public static bool HasPending(GameLocation location, Vector2 tile)
             => Pending.ContainsKey($"{location.NameOrUniqueName}:{(int)tile.X},{(int)tile.Y}");
 
+        /// <summary>Automate calls this outside a try/catch, and it iterates every machine in the
+        /// group in one loop — so an exception thrown here doesn't just break this tile, it aborts
+        /// the whole group and silently stops every other machine connected to the same chests.
+        /// Nothing may escape.</summary>
         public MachineState GetState()
         {
-            if (!ModEntry.Config.Enabled)
+            try
+            {
+                if (!ModEntry.Config.Enabled)
+                    return MachineState.Disabled;
+
+                // produce still waiting to be stored takes priority over the tile's own state
+                if (Pending.ContainsKey(Key))
+                    return MachineState.Done;
+
+                var crop = Dirt?.crop;
+                if (crop == null)
+                    return ModEntry.Config.Replant && Dirt != null ? MachineState.Empty : MachineState.Disabled;
+
+                if (crop.dead.Value || !ModEntry.IsHarvestedType(crop))
+                    return MachineState.Disabled;
+
+                return CropHarvest.IsReady(Dirt!) ? MachineState.Done : MachineState.Processing;
+            }
+            catch (Exception ex)
+            {
+                ModEntry.LogOnce($"Could not read the crop at {Key}: {ex.Message}");
                 return MachineState.Disabled;
-
-            // produce still waiting to be stored takes priority over the tile's own state
-            if (Pending.ContainsKey(Key))
-                return MachineState.Done;
-
-            if (Dirt.crop == null)
-                return ModEntry.Config.Replant ? MachineState.Empty : MachineState.Disabled;
-
-            if (Dirt.crop.dead.Value || !ModEntry.IsHarvestedType(Dirt.crop))
-                return MachineState.Disabled;
-
-            return CropHarvest.IsReady(Dirt) ? MachineState.Done : MachineState.Processing;
+            }
         }
 
         public ITrackedStack? GetOutput()
+        {
+            try
+            {
+                return GetOutputImpl();
+            }
+            catch (Exception ex)
+            {
+                ModEntry.LogOnce($"Could not harvest the crop at {Key}: {ex.Message}");
+                return null;
+            }
+        }
+
+        private ITrackedStack? GetOutputImpl()
         {
             // Pick once, then serve from the buffer until it's empty. Harvesting on every call
             // would re-roll (and duplicate) produce whenever a chest only took part of a stack.
@@ -108,6 +135,19 @@ namespace LMAutomateCrops
 
         /// <summary>Plant a seed from the connected chests into this now-bare tile.</summary>
         public bool SetInput(IStorage input)
+        {
+            try
+            {
+                return SetInputImpl(input);
+            }
+            catch (Exception ex)
+            {
+                ModEntry.LogOnce($"Could not replant at {Key}: {ex.Message}");
+                return false;
+            }
+        }
+
+        private bool SetInputImpl(IStorage input)
         {
             if (!ModEntry.Config.Replant || Dirt.crop != null || Pending.ContainsKey(Key))
                 return false;
