@@ -17,6 +17,7 @@
 [*][b]Build, Trade & Cook With Item Bags[/b] [i](New in 1.5.0, extended in 1.9.0 and 1.10.0)[/i] — Robin counts building materials stored inside your Item Bags and spends them automatically; the same applies to shops that trade goods for goods (the Desert Trader, the Island Trader), and to [b]Love of Cooking[/b]'s kitchen, which gains an Item Bags tab so bagged ingredients can be cooked with. Only active if you have the [b]Item Bags[/b] mod installed; ignored otherwise.
 [*][b]Custom Charcoal Kiln[/b] [i](New in 1.6.0)[/i] — the charcoal kiln accepts driftwood, torches, wood and hardwood, each with its own yield and burn time. Previously a separate mod ([i][PFM] Custom Charcoal Kiln[/i]); now built in, and no longer needs Producer Framework Mod.
 [*][b]Item Totals in Bags[/b] [i](New in 1.6.0)[/i] — with an Item Bag open, hovering an item shows how many you own in total: carried, stored in chests across the whole farm, and inside your other bags. Requires the [b]Item Bags[/b] mod.
+[*][b]Bulk Geodes at Clint[/b] [i](New in 1.12.0)[/i] — hold a stack at Clint's counter, press a key, and say how many to break. He processes the lot in one go instead of one click per geode.
 [*][b]Sell Anything[/b] [i](New in 1.7.0)[/i] — furniture, wallpaper and big craftables can finally go in the shipping bin, and shops can optionally be allowed to buy anything. Tools, the scythe and quest items stay protected.
 [/list]
 
@@ -36,6 +37,11 @@ Every feature and its settings — including the Quick Stack key and search radi
 [line]
 
 [size=5][b]Changelog[/b][/size]
+
+[b]1.12.0[/b]
+[list]
+[*]New: [b]Bulk Geodes at Clint[/b] — holding a stack of geodes at Clint's counter, press the key (Left Shift + Space by default) to be asked how many to break, and he does them all at once. The number offered is already capped by what you can pay for and what you have room to carry, and each geode is processed exactly as clicking would: same price, same treasure roll, same stat counters, and the first golden coconut and first artifact still behave as they should.
+[/list]
 
 [b]1.11.0[/b]
 [list]

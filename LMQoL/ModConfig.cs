@@ -39,6 +39,10 @@ namespace LMQoL
         public bool SpeciesTooltipTrees { get; set; } = true;
         public bool SpeciesTooltipBushes { get; set; } = true;
 
+        // Bulk Geodes at Clint
+        public bool BulkGeodesEnabled { get; set; } = true;
+        public KeybindList BulkGeodesKey { get; set; } = KeybindList.Parse("LeftShift + Space");
+
         // Sell Anything
         public bool SellAnythingEnabled { get; set; } = true;
         public bool SellAnythingShipping { get; set; } = true;

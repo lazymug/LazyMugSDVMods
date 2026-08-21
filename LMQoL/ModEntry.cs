@@ -6,6 +6,7 @@ using LMQoL.Features.AutoGate;
 using LMQoL.Features.MagnetRadiusForaging;
 using LMQoL.Features.QuickStack;
 using LMQoL.Features.BuildWithBags;
+using LMQoL.Features.BulkGeodes;
 using LMQoL.Features.CharcoalKiln;
 using LMQoL.Features.CookingWithBags;
 using LMQoL.Features.ItemTotals;
@@ -24,6 +25,9 @@ namespace LMQoL
         /// <summary>Shared instance, for features that patch types resolved at runtime.</summary>
         internal static Harmony Harmony { get; private set; } = null!;
 
+        /// <summary>Shared helper, for features that need translations or input outside Register.</summary>
+        internal static IModHelper ModHelper { get; private set; } = null!;
+
         private readonly List<IFeature> _features = new();
         private readonly SiloCapacityFeature _silo = new();
         private readonly CharcoalKilnFeature _kiln = new();
@@ -32,6 +36,7 @@ namespace LMQoL
         public override void Entry(IModHelper helper)
         {
             Config = helper.ReadConfig<ModConfig>();
+            ModHelper = helper;
 
             Harmony = new Harmony(ModManifest.UniqueID);
             Harmony.PatchAll();
@@ -48,6 +53,7 @@ namespace LMQoL
             _features.Add(_pineNuts);
             _features.Add(new ItemTotalsFeature());
             _features.Add(new SellAnythingFeature());
+            _features.Add(new BulkGeodesFeature());
             _features.Add(new SellPriceTooltipFeature());
 
             foreach (var feature in _features)
@@ -312,6 +318,28 @@ namespace LMQoL
                 setValue: v => Config.SpeciesTooltipBushes = v,
                 name: () => Helper.Translation.Get("species.bushes").ToString(),
                 tooltip: () => Helper.Translation.Get("species.bushes.tooltip").ToString()
+            );
+
+            // --- Bulk Geodes ---
+            gmcm.AddSectionTitle(
+                mod: ModManifest,
+                text: () => Helper.Translation.Get("section.bulkgeodes").ToString()
+            );
+
+            gmcm.AddBoolOption(
+                mod: ModManifest,
+                getValue: () => Config.BulkGeodesEnabled,
+                setValue: v => Config.BulkGeodesEnabled = v,
+                name: () => Helper.Translation.Get("bulkgeodes.enabled").ToString(),
+                tooltip: () => Helper.Translation.Get("bulkgeodes.enabled.tooltip").ToString()
+            );
+
+            gmcm.AddKeybindList(
+                mod: ModManifest,
+                getValue: () => Config.BulkGeodesKey,
+                setValue: v => Config.BulkGeodesKey = v,
+                name: () => Helper.Translation.Get("bulkgeodes.key").ToString(),
+                tooltip: () => Helper.Translation.Get("bulkgeodes.key.tooltip").ToString()
             );
 
             // --- Sell Anything ---
