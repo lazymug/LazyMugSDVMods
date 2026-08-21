@@ -27,8 +27,15 @@ background. `CropHarvest` therefore mirrors its maths:
 - **Bonus drops** — hay from wheat (40%), mixed seeds from fibre (10%)
 - **Experience** — `16 * ln(0.018 * price + 1)`, the same formula the game uses
 
-The crop is only cleared, and the experience only paid, once Automate has actually moved the
-produce into a chest.
+The crop is cleared, and the experience paid, as soon as the produce is picked — which is held in
+a small buffer until a chest takes it.
+
+That buffer matters. Automate is allowed to store a stack *partially* (when the chest fills up
+mid-transfer), and a real machine survives that because its output sits in `heldObject` until
+collected. This machine has nowhere to put it, so an earlier version re-picked the crop on every
+call: the leftovers of a partial transfer were dropped on the floor of the code, and the tile
+stayed "ready" forever, producing again next tick. Produce is now picked once and served from the
+buffer until the last of it is stored.
 
 ## Settings
 
@@ -41,6 +48,21 @@ Configurable in Generic Mod Config Menu:
 | Replant Automatically | on | Uses seeds from the connected chests; only sows what can grow there |
 | Include Greenhouse | on | |
 | Include Ginger Island | on | |
+
+### Item types to harvest
+
+Six more switches decide which produce gets picked, matched on the produce's item
+category. A crop whose type is switched off reports itself to Automate as disabled, so
+it is left standing in the field — ripe, and still there to pick by hand.
+
+| Type | Category | Examples |
+|---|---|---|
+| Vegetables | -75 | Parsnip, Wheat, Hops, Tea Leaves |
+| Fruit | -79 | Melon, Blueberry, Ancient Fruit |
+| Flowers | -80 | Tulip, Poppy, Fairy Rose |
+| Forage | -81 | Fiber, Cotton Boll |
+| Seeds | -74 | Sesame Seeds, Soybeans — crops that harvest as their own seed |
+| Other | anything else | usually produce added by other mods |
 
 ## Notes
 

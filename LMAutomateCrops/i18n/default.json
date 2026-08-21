@@ -6,5 +6,16 @@
   "config.replant": "Replant Automatically",
   "config.replant.tooltip": "After harvesting a crop that doesn't regrow, plant a fresh seed from the connected chests if there's a suitable one.",
   "config.greenhouse": "Include Greenhouse",
-  "config.island": "Include Ginger Island"
+  "config.island": "Include Ginger Island",
+  "config.types": "Item Types to Harvest",
+  "config.types.tooltip": "Only crops whose produce is one of the ticked types get picked. Anything unticked is left standing in the field.",
+  "config.types.vegetables": "Vegetables",
+  "config.types.fruit": "Fruit",
+  "config.types.flowers": "Flowers",
+  "config.types.forage": "Forage",
+  "config.types.forage.tooltip": "Crops that produce a forage item, such as Fiber and Cotton Boll.",
+  "config.types.seeds": "Seeds",
+  "config.types.seeds.tooltip": "Crops whose produce is itself a seed, such as Sesame Seeds or Soybeans.",
+  "config.types.other": "Other",
+  "config.types.other.tooltip": "Anything that fits none of the types above — often produce added by other mods."
 }

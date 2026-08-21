@@ -18,6 +18,10 @@ namespace LMAutomateCrops
         {
             Config = helper.ReadConfig<ModConfig>();
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
+
+            // don't carry buffered produce across saves
+            helper.Events.GameLoop.SaveLoaded += (_, _) => CropMachine.ClearPending();
+            helper.Events.GameLoop.ReturnedToTitle += (_, _) => CropMachine.ClearPending();
         }
 
         private void OnGameLaunched(object? sender, GameLaunchedEventArgs e)
@@ -54,6 +58,16 @@ namespace LMAutomateCrops
             return true;
         }
 
+        /// <summary>Whether this crop's produce is one of the item types the player wants picked.</summary>
+        internal static bool IsHarvestedType(Crop? crop)
+        {
+            string? produce = crop?.indexOfHarvest.Value;
+            if (string.IsNullOrWhiteSpace(produce))
+                return false;
+
+            return Config.IsHarvested(ItemRegistry.GetDataOrErrorItem(produce).Category);
+        }
+
         private void RegisterConfigMenu()
         {
             var gmcm = Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
@@ -69,6 +83,14 @@ namespace LMAutomateCrops
             gmcm.AddBoolOption(ModManifest, () => Config.Replant, v => Config.Replant = v, () => T("config.replant"), () => T("config.replant.tooltip"));
             gmcm.AddBoolOption(ModManifest, () => Config.IncludeGreenhouse, v => Config.IncludeGreenhouse = v, () => T("config.greenhouse"));
             gmcm.AddBoolOption(ModManifest, () => Config.IncludeGingerIsland, v => Config.IncludeGingerIsland = v, () => T("config.island"));
+
+            gmcm.AddSectionTitle(ModManifest, () => T("config.types"), () => T("config.types.tooltip"));
+            gmcm.AddBoolOption(ModManifest, () => Config.HarvestVegetables, v => Config.HarvestVegetables = v, () => T("config.types.vegetables"));
+            gmcm.AddBoolOption(ModManifest, () => Config.HarvestFruit, v => Config.HarvestFruit = v, () => T("config.types.fruit"));
+            gmcm.AddBoolOption(ModManifest, () => Config.HarvestFlowers, v => Config.HarvestFlowers = v, () => T("config.types.flowers"));
+            gmcm.AddBoolOption(ModManifest, () => Config.HarvestForage, v => Config.HarvestForage = v, () => T("config.types.forage"), () => T("config.types.forage.tooltip"));
+            gmcm.AddBoolOption(ModManifest, () => Config.HarvestSeeds, v => Config.HarvestSeeds = v, () => T("config.types.seeds"), () => T("config.types.seeds.tooltip"));
+            gmcm.AddBoolOption(ModManifest, () => Config.HarvestOther, v => Config.HarvestOther = v, () => T("config.types.other"), () => T("config.types.other.tooltip"));
         }
     }
 }

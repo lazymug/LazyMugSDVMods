@@ -15,10 +15,10 @@ namespace LMAutomateCrops
             if (!ModEntry.Config.Enabled || feature is not HoeDirt dirt)
                 return null;
 
-            // A bare tile is still worth tracking when replanting is on: Automate offers seeds
-            // to machines that report Empty.
+            // A bare tile is still worth tracking: it may hold produce that hasn't been stored
+            // yet, and when replanting is on Automate offers seeds to machines reporting Empty.
             if (dirt.crop == null && !ModEntry.Config.Replant)
-                return null;
+                return new CropMachine(dirt, location, tile);
 
             if (!ModEntry.IsAllowedLocation(location))
                 return null;

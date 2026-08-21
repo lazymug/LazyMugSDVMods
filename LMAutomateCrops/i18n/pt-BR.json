@@ -6,5 +6,16 @@
   "config.replant": "Replantar Automaticamente",
   "config.replant.tooltip": "Depois de colher uma plantação que não rebrota, planta uma semente nova vinda dos baús conectados, se houver uma adequada.",
   "config.greenhouse": "Incluir Estufa",
-  "config.island": "Incluir Ilha do Gengibre"
+  "config.island": "Incluir Ilha do Gengibre",
+  "config.types": "Tipos de Itens a Colher",
+  "config.types.tooltip": "Só são colhidas as plantações cujo produto é de um dos tipos marcados. O que estiver desmarcado fica de pé na lavoura.",
+  "config.types.vegetables": "Vegetais",
+  "config.types.fruit": "Frutas",
+  "config.types.flowers": "Flores",
+  "config.types.forage": "Coleta",
+  "config.types.forage.tooltip": "Plantações que dão um item de coleta, como Fibra e Cápsula de Algodão.",
+  "config.types.seeds": "Sementes",
+  "config.types.seeds.tooltip": "Plantações cujo produto é a própria semente, como Sementes de Gergelim ou Soja.",
+  "config.types.other": "Outros",
+  "config.types.other.tooltip": "Tudo que não encaixa nos tipos acima — normalmente produtos adicionados por outros mods."
 }
