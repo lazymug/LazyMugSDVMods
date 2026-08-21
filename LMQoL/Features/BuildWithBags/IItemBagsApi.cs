@@ -24,5 +24,8 @@ namespace LMQoL.Features.BuildWithBags
 
         bool TryRemoveObjectFromBag(Item bag, Object item, int quantity, IList<Item> targetContainer,
             int targetContainerCapacity, bool playSoundEffect, out int movedQty);
+
+        bool TryMoveObjectToBag(Object item, int quantity, IList<Item> itemSourceContainer, Item target,
+            out int movedQty, bool playSoundEffect);
     }
 }

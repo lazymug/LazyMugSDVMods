@@ -10,6 +10,8 @@ using LMQoL.Features.BulkGeodes;
 using LMQoL.Features.CharcoalKiln;
 using LMQoL.Features.CookingWithBags;
 using LMQoL.Features.ItemTotals;
+using LMQoL.Features.MonsterSpawn;
+using LMQoL.Features.StuffBags;
 using LMQoL.Features.PineNuts;
 using LMQoL.Features.SellAnything;
 using LMQoL.Features.SellPriceTooltip;
@@ -32,6 +34,8 @@ namespace LMQoL
         private readonly SiloCapacityFeature _silo = new();
         private readonly CharcoalKilnFeature _kiln = new();
         private readonly PineNutsFeature _pineNuts = new();
+        internal static StuffBagsFeature StuffBags => _stuffBags;
+        private static readonly StuffBagsFeature _stuffBags = new();
 
         public override void Entry(IModHelper helper)
         {
@@ -54,6 +58,8 @@ namespace LMQoL
             _features.Add(new ItemTotalsFeature());
             _features.Add(new SellAnythingFeature());
             _features.Add(new BulkGeodesFeature());
+            _features.Add(new MonsterSpawnFeature());
+            _features.Add(_stuffBags);
             _features.Add(new SellPriceTooltipFeature());
 
             foreach (var feature in _features)
@@ -342,6 +348,26 @@ namespace LMQoL
                 tooltip: () => Helper.Translation.Get("bulkgeodes.key.tooltip").ToString()
             );
 
+            // --- Monster Spawn ---
+            gmcm.AddSectionTitle(mod: ModManifest, text: () => Helper.Translation.Get("section.monster").ToString());
+            gmcm.AddBoolOption(ModManifest, () => Config.MonsterSpawnEnabled, v => Config.MonsterSpawnEnabled = v,
+                () => Helper.Translation.Get("monster.enabled").ToString(),
+                () => Helper.Translation.Get("monster.enabled.tooltip").ToString());
+            gmcm.AddTextOption(ModManifest, () => Config.MonsterSpawnName, v => Config.MonsterSpawnName = v,
+                () => Helper.Translation.Get("monster.name").ToString(),
+                () => Helper.Translation.Get("monster.name.tooltip").ToString());
+            gmcm.AddNumberOption(ModManifest, () => Config.MonsterSpawnCount, v => Config.MonsterSpawnCount = v,
+                () => Helper.Translation.Get("monster.count").ToString(), null, 1, 20, 1);
+            gmcm.AddKeybindList(ModManifest, () => Config.MonsterSpawnKey, v => Config.MonsterSpawnKey = v,
+                () => Helper.Translation.Get("monster.key").ToString(),
+                () => Helper.Translation.Get("monster.key.tooltip").ToString());
+            gmcm.AddBoolOption(ModManifest, () => Config.MonsterSpawnOnFloorEntry, v => Config.MonsterSpawnOnFloorEntry = v,
+                () => Helper.Translation.Get("monster.onentry").ToString(),
+                () => Helper.Translation.Get("monster.onentry.tooltip").ToString());
+            gmcm.AddNumberOption(ModManifest, () => Config.MonsterSpawnFloor, v => Config.MonsterSpawnFloor = v,
+                () => Helper.Translation.Get("monster.floor").ToString(),
+                () => Helper.Translation.Get("monster.floor.tooltip").ToString(), 1, 120, 1);
+
             // --- Sell Anything ---
             gmcm.AddSectionTitle(
                 mod: ModManifest,
@@ -431,6 +457,31 @@ namespace LMQoL
                         tooltip: () => Helper.Translation.Get("cookbags.enabled.tooltip").ToString()
                     );
                 }
+
+                gmcm.AddBoolOption(
+                    mod: ModManifest,
+                    getValue: () => Config.StuffBagsEnabled,
+                    setValue: v => Config.StuffBagsEnabled = v,
+                    name: () => Helper.Translation.Get("stuffbags.enabled").ToString(),
+                    tooltip: () => Helper.Translation.Get("stuffbags.enabled.tooltip").ToString()
+                );
+
+                gmcm.AddKeybindList(
+                    mod: ModManifest,
+                    getValue: () => Config.StuffBagsKey,
+                    setValue: v => Config.StuffBagsKey = v,
+                    name: () => Helper.Translation.Get("stuffbags.key").ToString(),
+                    tooltip: () => Helper.Translation.Get("stuffbags.key.tooltip").ToString()
+                );
+
+                gmcm.AddNumberOption(
+                    mod: ModManifest,
+                    getValue: () => Config.StuffBagsRadius,
+                    setValue: v => Config.StuffBagsRadius = v,
+                    name: () => Helper.Translation.Get("stuffbags.radius").ToString(),
+                    tooltip: () => Helper.Translation.Get("stuffbags.radius.tooltip").ToString(),
+                    min: 0, max: 15, interval: 1
+                );
 
                 gmcm.AddBoolOption(
                     mod: ModManifest,

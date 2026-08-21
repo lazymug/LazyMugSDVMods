@@ -43,6 +43,19 @@ namespace LMQoL
         public bool BulkGeodesEnabled { get; set; } = true;
         public KeybindList BulkGeodesKey { get; set; } = KeybindList.Parse("LeftShift + Space");
 
+        // Monster Spawn (mines)
+        public bool MonsterSpawnEnabled { get; set; } = false;
+        public string MonsterSpawnName { get; set; } = "Green Slime";
+        public int MonsterSpawnCount { get; set; } = 1;
+        public KeybindList MonsterSpawnKey { get; set; } = KeybindList.Parse("LeftControl + M");
+        public bool MonsterSpawnOnFloorEntry { get; set; } = false;
+        public int MonsterSpawnFloor { get; set; } = 1;
+
+        // Stuff Bags
+        public bool StuffBagsEnabled { get; set; } = true;
+        public KeybindList StuffBagsKey { get; set; } = KeybindList.Parse("LeftShift + B");
+        public int StuffBagsRadius { get; set; } = 5;
+
         // Sell Anything
         public bool SellAnythingEnabled { get; set; } = true;
         public bool SellAnythingShipping { get; set; } = true;

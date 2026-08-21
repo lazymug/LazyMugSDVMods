@@ -18,6 +18,8 @@
 [*][b]Custom Charcoal Kiln[/b] [i](New in 1.6.0)[/i] — the charcoal kiln accepts driftwood, torches, wood and hardwood, each with its own yield and burn time. Previously a separate mod ([i][PFM] Custom Charcoal Kiln[/i]); now built in, and no longer needs Producer Framework Mod.
 [*][b]Item Totals in Bags[/b] [i](New in 1.6.0)[/i] — with an Item Bag open, hovering an item shows how many you own in total: carried, stored in chests across the whole farm, and inside your other bags. Requires the [b]Item Bags[/b] mod.
 [*][b]Bulk Geodes at Clint[/b] [i](New in 1.12.0)[/i] — hold a stack at Clint's counter, press a key, and say how many to break. He processes the lot in one go instead of one click per geode.
+[*][b]Stuff Bags[/b] [i](New in 1.13.0)[/i] — a button on the inventory page (and a hotkey) that sweeps loose items from your inventory and nearby chests into the Item Bags that accept them. A bag doesn't have to be in the same place as the item. Requires the [b]Item Bags[/b] mod.
+[*][b]Monster Spawn[/b] [i](New in 1.13.0)[/i] — summon a chosen monster on demand, for quests asking for kills you can't easily find. Off by default; also available as a console command.
 [*][b]Sell Anything[/b] [i](New in 1.7.0)[/i] — furniture, wallpaper and big craftables can finally go in the shipping bin, and shops can optionally be allowed to buy anything. Tools, the scythe and quest items stay protected.
 [/list]
 
@@ -37,6 +39,12 @@ Every feature and its settings — including the Quick Stack key and search radi
 [line]
 
 [size=5][b]Changelog[/b][/size]
+
+[b]1.13.0[/b]
+[list]
+[*]New: [b]Stuff Bags[/b] — a button on the inventory page, next to organise, that moves loose items from your inventory and nearby chests into the Item Bags that accept them. Unlike organise, the bag doesn't have to be where the item is: something in a chest can go into a bag you're carrying, and vice versa. There's a hotkey too, and the chest radius is configurable (0 = inventory only).
+[*]New: [b]Monster Spawn[/b] — summon a chosen monster around you, for those quests that want kills of something the floor you can reach never spawns. Set the monster by name (modded monsters included), optionally have them appear when you enter a given mine floor, or use the console: [font=Courier New]lmqol_spawn "Green Slime" 5[/font]. Off by default.
+[/list]
 
 [b]1.12.0[/b]
 [list]
