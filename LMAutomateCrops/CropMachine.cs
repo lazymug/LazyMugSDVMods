@@ -45,6 +45,10 @@ namespace LMAutomateCrops
         /// <summary>Drop any buffered produce, e.g. when changing save.</summary>
         public static void ClearPending() => Pending.Clear();
 
+        /// <summary>Whether this tile still holds produce that hasn't reached a chest.</summary>
+        public static bool HasPending(GameLocation location, Vector2 tile)
+            => Pending.ContainsKey($"{location.NameOrUniqueName}:{(int)tile.X},{(int)tile.Y}");
+
         public MachineState GetState()
         {
             if (!ModEntry.Config.Enabled)

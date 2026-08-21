@@ -7,20 +7,22 @@ using Object = StardewValley.Object;
 
 namespace LMAutomateCrops
 {
-    /// <summary>Tells Automate that tilled dirt with a crop on it is a machine worth connecting to.</summary>
+    /// <summary>Tells Automate which tilled tiles are worth connecting to.</summary>
     internal class CropAutomationFactory : IAutomationFactory
     {
         public IAutomatable? GetFor(TerrainFeature feature, GameLocation location, in Vector2 tile)
         {
-            if (!ModEntry.Config.Enabled || feature is not HoeDirt dirt)
+            // Switched off means switched off: claim nothing, so Automate behaves exactly as it
+            // would without this mod installed.
+            if (!ModEntry.Config.Enabled)
                 return null;
 
-            // A bare tile is still worth tracking: it may hold produce that hasn't been stored
-            // yet, and when replanting is on Automate offers seeds to machines reporting Empty.
-            if (dirt.crop == null && !ModEntry.Config.Replant)
-                return new CropMachine(dirt, location, tile);
+            if (feature is not HoeDirt dirt || !ModEntry.IsAllowedLocation(location))
+                return null;
 
-            if (!ModEntry.IsAllowedLocation(location))
+            // A bare tile is only interesting when replanting is on (Automate offers seeds to
+            // machines reporting Empty) or when it still holds produce waiting for a chest.
+            if (dirt.crop == null && !ModEntry.Config.Replant && !CropMachine.HasPending(location, tile))
                 return null;
 
             return new CropMachine(dirt, location, tile);
