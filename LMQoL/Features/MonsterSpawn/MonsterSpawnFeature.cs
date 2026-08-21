@@ -142,6 +142,12 @@ namespace LMQoL.Features.MonsterSpawn
         /// <summary>Build a monster by name, preferring the real class so its behaviour is intact.</summary>
         private static Monster? Create(string name, Vector2 pixelPosition)
         {
+            // Some monsters aren't their own class — they're a base monster flipped into a
+            // variant afterwards, so neither the class lookup nor Data/Monsters can produce them.
+            var variant = CreateVariant(name, pixelPosition);
+            if (variant != null)
+                return variant;
+
             var type = ResolveType(name);
             if (type != null)
             {
@@ -163,6 +169,26 @@ namespace LMQoL.Features.MonsterSpawn
             catch
             {
                 return null;
+            }
+        }
+
+        /// <summary>Monsters that exist only as a variant of another one.</summary>
+        private static Monster? CreateVariant(string name, Vector2 pixelPosition)
+        {
+            string key = new string(name.Where(char.IsLetterOrDigit).ToArray()).ToLowerInvariant();
+
+            switch (key)
+            {
+                // The Wizard's Prismatic Jelly quest target: a GreenSlime turned prismatic.
+                case "prismaticslime":
+                {
+                    var slime = new GreenSlime(pixelPosition);
+                    slime.makePrismatic();
+                    return slime;
+                }
+
+                default:
+                    return null;
             }
         }
 

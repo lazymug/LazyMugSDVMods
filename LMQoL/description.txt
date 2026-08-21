@@ -40,6 +40,11 @@ Every feature and its settings — including the Quick Stack key and search radi
 
 [size=5][b]Changelog[/b][/size]
 
+[b]1.13.1[/b]
+[list]
+[*]Monster Spawn now handles [b]Prismatic Slime[/b] (the Wizard's Prismatic Jelly target). It isn't a monster class of its own — it's a Green Slime switched to prismatic afterwards — so neither the class lookup nor the monster data could produce one.
+[/list]
+
 [b]1.13.0[/b]
 [list]
 [*]New: [b]Stuff Bags[/b] — a button on the inventory page, next to organise, that moves loose items from your inventory and nearby chests into the Item Bags that accept them. Unlike organise, the bag doesn't have to be where the item is: something in a chest can go into a bag you're carrying, and vice versa. There's a hotkey too, and the chest radius is configurable (0 = inventory only).

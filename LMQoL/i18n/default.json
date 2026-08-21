@@ -111,7 +111,7 @@
   "monster.enabled": "Enable Monster Spawning",
   "monster.enabled.tooltip": "Lets you summon a chosen monster, for quests that ask for kills you can't easily find. Off by default.",
   "monster.name": "Monster Name",
-  "monster.name.tooltip": "Name of the monster to summon, e.g. Green Slime, Bat, Skeleton, Dust Spirit. Modded monsters work too.",
+  "monster.name.tooltip": "Name of the monster to summon, e.g. Green Slime, Bat, Skeleton, Dust Spirit, Prismatic Slime. Modded monsters work too.",
   "monster.count": "How Many",
   "monster.key": "Summon Key",
   "monster.key.tooltip": "Summons the monster around you. Also available as the console command: lmqol_spawn <name> [count]",

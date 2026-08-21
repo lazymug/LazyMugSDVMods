@@ -111,7 +111,7 @@
   "monster.enabled": "Ativar Invocação de Monstros",
   "monster.enabled.tooltip": "Permite invocar um monstro escolhido, útil para missões que pedem abates difíceis de encontrar. Desligado por padrão.",
   "monster.name": "Nome do Monstro",
-  "monster.name.tooltip": "Nome do monstro a invocar, ex.: Green Slime, Bat, Skeleton, Dust Spirit. Monstros de mods também funcionam.",
+  "monster.name.tooltip": "Nome do monstro a invocar, ex.: Green Slime, Bat, Skeleton, Dust Spirit, Prismatic Slime. Monstros de mods também funcionam.",
   "monster.count": "Quantidade",
   "monster.key": "Tecla de Invocação",
   "monster.key.tooltip": "Invoca o monstro ao seu redor. Também disponível pelo comando de console: lmqol_spawn <nome> [quantidade]",
