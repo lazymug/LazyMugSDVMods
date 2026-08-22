@@ -129,5 +129,9 @@
   "stuffbags.button": "Guardar nas Item Bags",
   "stuffbags.moved": "{{count}} itens guardados nas bags.",
   "stuffbags.nothing": "Nada para guardar nas bags.",
-  "stuffbags.nobags": "Nenhuma Item Bag por perto."
+  "stuffbags.nobags": "Nenhuma Item Bag por perto.",
+  "stuffbags.rucksack": "Encher Também as Rucksacks",
+  "stuffbags.rucksack.tooltip": "Desligado por padrão: a Rucksack aceita qualquer coisa, então incluí-la faz com que ela engula os itens antes da bag à qual eles realmente pertencem.",
+  "stuffbags.bundlebag": "Encher Também as Bundle Bags",
+  "stuffbags.bundlebag.tooltip": "Desligado por padrão: a Bundle Bag é para os pacotes do Centro Comunitário, não para armazenamento geral."
 }

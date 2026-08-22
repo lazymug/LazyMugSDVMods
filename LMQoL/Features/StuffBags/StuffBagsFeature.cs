@@ -94,10 +94,27 @@ namespace LMQoL.Features.StuffBags
             {
                 foreach (var nested in Unpack(bag))
                 {
-                    if (!into.Contains(nested))
+                    if (!IsExcluded(nested) && !into.Contains(nested))
                         into.Add(nested);
                 }
             }
+        }
+
+        /// <summary>Bag types that shouldn't receive items during a sweep.
+        ///
+        /// A Rucksack takes anything, so if it's in the list it swallows everything before the
+        /// bag that item actually belongs to ever gets offered it. A Bundle Bag is likewise
+        /// special-purpose — it's for Community Center bundles, not general storage.</summary>
+        private static bool IsExcluded(Item bag)
+        {
+            string type = bag.GetType().Name;
+
+            return type switch
+            {
+                "Rucksack" => !ModEntry.Config.StuffBagsIncludeRucksack,
+                "BundleBag" => !ModEntry.Config.StuffBagsIncludeBundleBag,
+                _ => false,
+            };
         }
 
         /// <summary>An Omni Bag yields the bags inside it; anything else yields itself.</summary>

@@ -40,6 +40,11 @@ Every feature and its settings — including the Quick Stack key and search radi
 
 [size=5][b]Changelog[/b][/size]
 
+[b]1.13.3[/b]
+[list]
+[*]Stuff Bags no longer fills [b]Rucksacks[/b] or [b]Bundle Bags[/b]. A Rucksack takes anything, so it was swallowing items before the bag they actually belong to was ever offered them; a Bundle Bag is for Community Center bundles rather than storage. Both can be re-enabled in the settings.
+[/list]
+
 [b]1.13.2[/b]
 [list]
 [*][b]Fix:[/b] Stuff Bags did nothing when your bags live inside an [b]Omni Bag[/b]. Item Bags' API only lists bags sitting directly in a container, and an Omni Bag holds bags rather than items — so there was nothing to store into. Omni Bags are now unpacked (including nested ones).

@@ -129,5 +129,9 @@
   "stuffbags.button": "Stuff into Item Bags",
   "stuffbags.moved": "Moved {{count}} items into bags.",
   "stuffbags.nothing": "Nothing to move into bags.",
-  "stuffbags.nobags": "No Item Bags found nearby."
+  "stuffbags.nobags": "No Item Bags found nearby.",
+  "stuffbags.rucksack": "Also Fill Rucksacks",
+  "stuffbags.rucksack.tooltip": "Off by default: a Rucksack accepts anything, so including it means it swallows items before the bag they actually belong to is offered them.",
+  "stuffbags.bundlebag": "Also Fill Bundle Bags",
+  "stuffbags.bundlebag.tooltip": "Off by default: a Bundle Bag is for Community Center bundles, not general storage."
 }

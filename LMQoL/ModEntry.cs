@@ -487,6 +487,22 @@ namespace LMQoL
 
                 gmcm.AddBoolOption(
                     mod: ModManifest,
+                    getValue: () => Config.StuffBagsIncludeRucksack,
+                    setValue: v => Config.StuffBagsIncludeRucksack = v,
+                    name: () => Helper.Translation.Get("stuffbags.rucksack").ToString(),
+                    tooltip: () => Helper.Translation.Get("stuffbags.rucksack.tooltip").ToString()
+                );
+
+                gmcm.AddBoolOption(
+                    mod: ModManifest,
+                    getValue: () => Config.StuffBagsIncludeBundleBag,
+                    setValue: v => Config.StuffBagsIncludeBundleBag = v,
+                    name: () => Helper.Translation.Get("stuffbags.bundlebag").ToString(),
+                    tooltip: () => Helper.Translation.Get("stuffbags.bundlebag.tooltip").ToString()
+                );
+
+                gmcm.AddBoolOption(
+                    mod: ModManifest,
                     getValue: () => Config.ItemTotalsEnabled,
                     setValue: v => Config.ItemTotalsEnabled = v,
                     name: () => Helper.Translation.Get("totals.enabled").ToString(),

@@ -55,6 +55,8 @@ namespace LMQoL
         public bool StuffBagsEnabled { get; set; } = true;
         public KeybindList StuffBagsKey { get; set; } = KeybindList.Parse("LeftShift + B");
         public int StuffBagsRadius { get; set; } = 5;
+        public bool StuffBagsIncludeRucksack { get; set; } = false;
+        public bool StuffBagsIncludeBundleBag { get; set; } = false;
 
         // Sell Anything
         public bool SellAnythingEnabled { get; set; } = true;
