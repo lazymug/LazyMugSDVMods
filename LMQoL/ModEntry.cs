@@ -12,6 +12,7 @@ using LMQoL.Features.CookingWithBags;
 using LMQoL.Features.ItemTotals;
 using LMQoL.Features.MonsterSpawn;
 using LMQoL.Features.StuffBags;
+using LMQoL.Features.UnstickItem;
 using LMQoL.Features.PineNuts;
 using LMQoL.Features.SellAnything;
 using LMQoL.Features.SellPriceTooltip;
@@ -60,6 +61,7 @@ namespace LMQoL
             _features.Add(new BulkGeodesFeature());
             _features.Add(new MonsterSpawnFeature());
             _features.Add(_stuffBags);
+            _features.Add(new UnstickItemFeature());
             _features.Add(new SellPriceTooltipFeature());
 
             foreach (var feature in _features)

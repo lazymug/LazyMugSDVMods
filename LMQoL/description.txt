@@ -40,6 +40,12 @@ Every feature and its settings — including the Quick Stack key and search radi
 
 [size=5][b]Changelog[/b][/size]
 
+[b]1.13.2[/b]
+[list]
+[*][b]Fix:[/b] Stuff Bags did nothing when your bags live inside an [b]Omni Bag[/b]. Item Bags' API only lists bags sitting directly in a container, and an Omni Bag holds bags rather than items — so there was nothing to store into. Omni Bags are now unpacked (including nested ones).
+[*]New command [font=Courier New]lmqol_unstick[/font] — frees an item the game refuses to let go of, such as a leftover quest drop that can't be trashed or sold. Run it with the item in your active toolbar slot; [font=Courier New]all[/font] does the whole inventory and [font=Courier New]delete[/font] removes the held item outright.
+[/list]
+
 [b]1.13.1[/b]
 [list]
 [*]Monster Spawn now handles [b]Prismatic Slime[/b] (the Wizard's Prismatic Jelly target). It isn't a monster class of its own — it's a Green Slime switched to prismatic afterwards — so neither the class lookup nor the monster data could produce one.

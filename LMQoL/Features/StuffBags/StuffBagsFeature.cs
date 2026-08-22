@@ -58,12 +58,12 @@ namespace LMQoL.Features.StuffBags
             try
             {
                 var player = Game1.player;
-                var bags = new List<Item>(api.GetItemBags(player.Items));
                 var chests = NearbyChests(ModEntry.Config.StuffBagsRadius);
 
-                // bags sitting in those chests count too
-                foreach (var chest in chests)
-                    bags.AddRange(api.GetItemBags(chest.Items));
+                var bags = new List<Item>();
+                AddBags(api, player.Items, bags);
+                foreach (var chest in chests)          // bags sitting in those chests count too
+                    AddBags(api, chest.Items, bags);
 
                 if (bags.Count == 0)
                 {
@@ -80,6 +80,47 @@ namespace LMQoL.Features.StuffBags
             catch (Exception ex)
             {
                 _log.Log($"Could not stuff bags: {ex.Message}", LogLevel.Warn);
+            }
+        }
+
+        /// <summary>Collect the bags in a container, unpacking Omni Bags.
+        ///
+        /// The API's GetItemBags only returns what sits directly in the container, and an Omni Bag
+        /// holds other bags rather than items — so without stepping inside it, a player who keeps
+        /// everything in one Omni Bag has no usable bag at all and nothing gets stored.</summary>
+        private static void AddBags(IItemBagsApi api, IList<Item> container, List<Item> into)
+        {
+            foreach (var bag in api.GetItemBags(container))
+            {
+                foreach (var nested in Unpack(bag))
+                {
+                    if (!into.Contains(nested))
+                        into.Add(nested);
+                }
+            }
+        }
+
+        /// <summary>An Omni Bag yields the bags inside it; anything else yields itself.</summary>
+        /// <remarks>Reached by reflection: naming the OmniBag type would mean referencing
+        /// ItemBags.dll, which would stop LM QoL loading without that mod.</remarks>
+        private static IEnumerable<Item> Unpack(Item bag)
+        {
+            var nested = bag?.GetType().GetProperty("NestedBags")?.GetValue(bag) as System.Collections.IEnumerable;
+            if (nested == null)
+            {
+                if (bag != null)
+                    yield return bag;
+                yield break;
+            }
+
+            foreach (var inner in nested)
+            {
+                if (inner is Item item)
+                {
+                    // an Omni Bag can hold another Omni Bag
+                    foreach (var deeper in Unpack(item))
+                        yield return deeper;
+                }
             }
         }
 
